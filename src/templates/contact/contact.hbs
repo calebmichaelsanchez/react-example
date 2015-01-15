@@ -1,0 +1,162 @@
+---
+title: Contact us
+id: contact
+theme: light
+---
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<main role="main">
+    <div id="contactForm" class="container">
+        <div class="row content-wrap">
+            <div id="contactWrap" class="medium-8 medium-offset-2 center-block shrink">
+                <div>
+                    {{> contact-form }}
+                    <div id="sending">
+                        <img id="sending-png" src="/assets/img/sending-01.png" alt="">
+                    </div>
+                    <div id="failed">
+                        Something's wrong, try <a href="mailto:hello@underbelly.co">emailing us</a> instead.
+                    </div>
+                </div>
+
+            </div><!-- /contactWrap -->
+            <div id="message" class="initial">
+                <div class="center-block">
+                    <div id="sent-check" class="center-block">
+                        <span class="icon-check"></span>
+                    </div>
+                    <span id="sent-message" class="h3">Sent!</span>
+                </div>
+                <a id="facebook-wrap" class="left">
+                    <span class="social-circle">
+                        <i class="icon-facebook"></i>
+                        <span id="facebookLike">
+                            <div class="fb-like" data-href="https://www.facebook.com/UnderbellyCreative" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+                        </span>
+                    </span>
+                </a>
+                <div id="twitter-wrap" class="right">
+                    <span class="social-circle">
+                        <i class="icon-twitter"></i>
+                        <span id="twitterFollow">
+                            <a href="https://twitter.com/underbelly" class="twitter-follow-button" data-show-count="false" data-lang="en" data-width="100px">Follow @underbelly</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </span>
+
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="contact-card" class="initial">
+                <div class="row">
+                    <div class="medium-5 columns"><i class="icon-telephone"></i>801-770-0830</div>
+                    <div class="medium-7 columns"><i class="icon-mail"></i>hello@underbelly.is</div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <i class="icon-home"></i>378 W Broadway #3, Salt Lake City, UT 84101
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+$(document).ready(function() {
+    function successAnimations() {
+        setTimeout(function(){
+            $("#message").removeClass('initial').fadeIn(); //show confirmation message
+        }, 1200);
+        setTimeout(function(){
+            $('#contactWrap').addClass('shrink');
+        },400);
+        setTimeout(function(){
+            $('#contactWrap').hide();
+        }, 700);
+        setTimeout(function(){
+            $('#message').addClass('loaded')
+        }, 2000);
+    }
+
+    function googleContactEvent() {
+        ga('send', {
+          'hitType': 'event',
+          'eventCategory': 'form_submit',
+          'eventAction': 'form_success',
+        });
+    }
+
+    function submitContactForm() {
+        $("#contact-us").validate({
+            errorElement: 'em',
+            submitHandler: function() {
+                //submit the form
+                $("#contact-us").fadeOut(300).reset; //reset fields
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                $(this).blur();
+                setTimeout(function(){
+                    $('#sending').fadeIn(300);
+                },300);
+
+                if($('#lastname').val()) {
+                    //Bot fake out
+                    $("#contact-us").fadeOut(600).reset; //reset fields
+                    setTimeout(function(){
+                        $("#message").fadeIn(600); //show confirmation message
+                    }, 600);
+                    return false;
+                }
+                else {
+                    $.post("<?php echo $_SERVER[PHP_SELF]; ?>", //post
+                        $("#contact-us").serialize(),
+                        function(data){
+                            var dataStr = data.replace(/(^\s+|\s+$)/g,'');
+                          //if message is sent
+                        if (dataStr == 'Sent') {
+
+                            $('#sending').fadeOut(300);
+
+                            successAnimations();
+                            googleContactEvent();
+
+                        }
+                        else {
+                            setTimeout(function(){
+                                $("#failed").fadeIn(600); //show confirmation message
+                            }, 1600);
+                        }
+                    });
+                    return false; //don't let the page refresh on submit.
+                }
+            }
+        }); //validate the form
+    }
+    $('#submit').on('click', function(e){
+        submitContactForm();
+
+        $(this).blur();
+    });
+
+});
+$(window).on('load', function(){
+    setTimeout(function(){
+        $('#contactWrap').removeClass('shrink');
+        $('#contact-card').removeClass('initial');
+    }, 700);
+
+
+});
+
+</script>
+{{> scripts-default }}

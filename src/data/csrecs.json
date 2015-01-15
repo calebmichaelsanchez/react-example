@@ -1,0 +1,217 @@
+{
+    "master": {
+        "aiga": {
+            "name": "Aiga Salt Lake City 100 Show",
+            "link":  "/making-it-awesome-with/aiga/",
+            "img": "/assets/img/aiga-thumb-1.jpg"
+        },
+        "fluid": {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        },
+        "hive": {
+            "name": "Hive Checklist",
+            "link":  "/making-it-awesome-with/hive/",
+            "img": "/assets/img/hive-thumb-1.jpg"
+        },
+        "justfamily": {
+            "name": "JustFamily",
+            "link":  "/making-it-awesome-with/justfamily/",
+            "img": "/assets/img/justfamily-thumb-1.jpg"
+        },
+        "nsac": {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        },
+        "renttree": {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        },
+        "traxion": {
+            "name": "Traxion App",
+            "link":  "/making-it-awesome-with/traxion/",
+            "img": "/assets/img/traxion-thumb-1.jpg"
+        }
+
+    },
+    "aiga": [
+        {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        },
+        {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        },
+        {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        },
+        {
+            "name": "Bountiful Dental",
+            "link":  "/making-it-awesome-with/bountifuldental/",
+            "img": "/assets/img/bountifuldental-thumb-1.jpg"
+        }
+    ],
+    "bountifuldental": [
+        {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        },
+        {
+            "name": "Hive Checklist",
+            "link":  "/making-it-awesome-with/hive/",
+            "img": "/assets/img/hive-thumb-1.jpg"
+        },
+        {
+            "name": "JustFamily",
+            "link":  "/making-it-awesome-with/justfamily/",
+            "img": "/assets/img/justfamily-thumb-1.jpg"
+        },
+        {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        }
+    ],
+    "fluid": [
+        {
+            "name": "Hive Checklist",
+            "link":  "/making-it-awesome-with/hive/",
+            "img": "/assets/img/hive-thumb-1.jpg"
+        },
+        {
+            "name": "JustFamily",
+            "link":  "/making-it-awesome-with/justfamily/",
+            "img": "/assets/img/justfamily-thumb-1.jpg"
+        },
+        {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        },
+        {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        }
+    ],
+    "hive": [
+        {
+            "name": "JustFamily",
+            "link":  "/making-it-awesome-with/justfamily/",
+            "img": "/assets/img/justfamily-thumb-1.jpg"
+        },
+        {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        },
+        {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        },
+        {
+            "name": "Traxion App",
+            "link":  "/making-it-awesome-with/traxion/",
+            "img": "/assets/img/traxion-thumb-1.jpg"
+        }
+    ],
+    "justfamily": [
+        {
+            "name": "North Seattle Alliance Church",
+            "link":  "/making-it-awesome-with/nsac/",
+            "img": "/assets/img/nsac-thumb-1.jpg"
+        },
+        {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        },
+        {
+            "name": "Traxion App",
+            "link":  "/making-it-awesome-with/traxion/",
+            "img": "/assets/img/traxion-thumb-1.jpg"
+        },
+        {
+            "name": "Aiga Salt Lake City 100 Show",
+            "link":  "/making-it-awesome-with/aiga/",
+            "img": "/assets/img/aiga-thumb-1.jpg"
+        }
+    ],
+    "nsac": [
+        {
+            "name": "RentTree",
+            "link":  "/making-it-awesome-with/renttree/",
+            "img": "/assets/img/renttree-thumb-1.jpg"
+        },
+        {
+            "name": "Traxion App",
+            "link":  "/making-it-awesome-with/traxion/",
+            "img": "/assets/img/traxion-thumb-1.jpg"
+        },
+        {
+            "name": "Aiga Salt Lake City 100 Show",
+            "link":  "/making-it-awesome-with/aiga/",
+            "img": "/assets/img/aiga-thumb-1.jpg"
+        },
+        {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        }
+    ],
+    "renttree": [
+        {
+            "name": "Traxion App",
+            "link":  "/making-it-awesome-with/traxion/",
+            "img": "/assets/img/traxion-thumb-1.jpg"
+        },
+        {
+            "name": "Aiga Salt Lake City 100 Show",
+            "link":  "/making-it-awesome-with/aiga/",
+            "img": "/assets/img/aiga-thumb-1.jpg"
+        },
+        {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        },
+        {
+            "name": "Hive Checklist",
+            "link":  "/making-it-awesome-with/hive/",
+            "img": "/assets/img/hive-thumb-1.jpg"
+        }
+    ],
+    "traxion": [
+        {
+            "name": "Aiga Salt Lake City 100 Show",
+            "link":  "/making-it-awesome-with/aiga/",
+            "img": "/assets/img/aiga-thumb-1.jpg"
+        },
+        {
+            "name": "Fluid App",
+            "link":  "/making-it-awesome-with/fluid/",
+            "img": "/assets/img/fluid-thumb-1.jpg"
+        },
+        {
+            "name": "Hive Checklist",
+            "link":  "/making-it-awesome-with/hive/",
+            "img": "/assets/img/hive-thumb-1.jpg"
+        },
+        {
+            "name": "JustFamily",
+            "link":  "/making-it-awesome-with/justfamily/",
+            "img": "/assets/img/justfamily-thumb-1.jpg"
+        }
+    ]
+
+}

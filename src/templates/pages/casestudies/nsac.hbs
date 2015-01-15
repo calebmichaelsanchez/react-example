@@ -1,0 +1,119 @@
+---
+title: 'Case Study: North Seattle Alliance Church'
+name: 'North Seattle Alliance Church'
+img: '/assets/img/casestudies/nsac/'
+theme: light
+recs-id: <%= csrecs.nsac %>
+---
+
+<main id="casestudy-nsac" class="case-study" role="main">
+    <div id="nsac-hero" class="full-height top-hero">
+        <div class="color-overlay">&nbsp;</div>
+        <div class="row">
+            <div class="medium-8 columns case-title">
+                <h1 class="h2">North Seattle Alliance Church</h1>
+                <h2 class="h6">Brand Identity</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="nsac-caption" class="caption offwhite padding-xl">
+        <div class="row">
+            <div class="medium-6 columns">
+                <h3>The Problem</h3>
+                <p>
+                    North Seattle Alliance Church is a Christian faith community in Seattle, Washington.  They came to us wanting an updated identity that would create a connection with their community and surroundings. They also wanted something that would appeal to a new younger congregation.  
+                </p>
+            </div>
+            <div class="medium-6 columns">
+                <h3>The Solution</h3>
+                <p>
+                    We worked with their leadership team to create a new and meaningful identity. We created a new logo that reflected their desire to connect with their community and give a modern feel to their identity. We also advised them on how to infuse their updated identity throughout their organization. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="caption white padding-xl">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>Branding</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-12 columns padding-md">
+                <img class="center-block" src="{{img}}nsac-logo-2.png" alt="North Seattle Alliance Church Logo Design">
+            </div>
+        </div>
+    </div>
+    <div class="caption padding-lg brand-color">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h5>Mark Exploration</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-12 columns text-center padding-sm">
+                <img src="{{img}}nsac-brand-concepts.png" alt="North Seattle Alliance Church Branding Concepts">
+            </div>
+        </div>
+    </div>
+    <div id="nsac-colors" class="caption white padding-top-60">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>Color Pallette</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-12 columns padding-lg">
+                <div class="color-swatch" id="color-1"><span></span></div>
+                <div class="color-swatch" id="color-2"><span></span></div>
+                <div class="color-swatch" id="color-3"><span></span></div>
+                <div class="color-swatch" id="color-4"><span></span></div>
+            </div>
+        </div>
+    </div>
+    <div class="caption white padding-xl">
+        <div class="row">
+            <div class="medium-12 columns padding-md">
+                <img class="medium-12" src="{{img}}nsac-lifestyle-photos.jpg" alt="North Seattle Alliance Church Lifestyle Images">
+            </div>
+        </div>
+    </div>
+    <div class="quote grad-up padding-lg padding-bottom-150">
+        <div class="row">
+            <div class="medium-8 medium-offset-2 columns">
+                <p class="quote-text">
+                    Underbelly was easy to work with, very professional and produced a design that hit the niche we were looking for.
+                </p>
+                <span class="quote-author">- Michael Labrum</span>
+            </div>
+        </div>
+    </div>
+    {{> casestudies-bottom}}
+    
+</main>
+
+{{> scripts-default }}
+
+<script>
+    $(document).ready(function(){
+
+        // if(window.isDesktop && window.isDesktop === true) {
+        //     $(window).on('scroll', function(){
+        //         bgParallax('#nsac-hero', 0.8, 'down');
+        //         scrollDarken('#nsac-hero .color-overlay');
+        //     });
+        // }
+        function scrollEvent() {
+            if(window.isDesktop === true) {
+                bgParallax('#nsac-hero', 1.3, 'up');
+                scrollDarken('#nsac-hero .color-overlay');
+            }
+            
+        }
+        $(window).on('scroll', function() {
+           window.requestAnimationFrame(scrollEvent);
+        });
+    });
+</script>

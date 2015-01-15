@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BrightBytes Case Study | Underbelly Creative Co.</title>
+    <script type="text/javascript">
+      (function(d) {
+        var config = {
+          kitId: 'fsw1llh',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+  </head>
+  <body id="">
+    <div id="pollMQ"></div>
+    <div class="l-wrapper">
+    
+<header class="sticky" >
+    <nav class="top-bar light" data-topbar data-options="sticky_on: large">
+     <ul class="title-area">
+       <li class="name">
+         <a href="/" id="brand"></a>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#"></a></li>
+        <a class="contact-icon icon-airplane" href="/all-ears/"></a>
+     </ul>
+     <section class="top-bar-section">
+       <ul class="right">
+          <li class="hidden"><a href="/here/" class="col-1-5"><span>Home</span></a></li>
+          <li><a href="/making-it-awesome/" class="col-1-5 link"><span>Work</span></a></li>
+          <!-- <li><a href="#about" class="col-1-5 link scrollto"><span>About</span></a></li> -->
+          <li><a href="/rambling/" class="col-1-5 link"><span>Journal</span></a></li>
+          <li><a href="/peddling/" class="col-1-5 link"><span>Shop</span></a></li>
+          <li><a href="/all-ears/" class="col-1-5" id="contactLink"><span>Contact</span></a></li>
+       </ul>
+     </section>
+    </nav>
+</header>
+
+
+
+      
+<main class="case-study" role="main" id="bb-case-study">
+    <div id="bb-hero" class="full-height top-hero">
+        <div class="color-overlay">&nbsp;</div>
+        <div class="row">
+            <div class="medium-8 columns case-title top-center">
+                <h1 class="h2">BrightBytes</h1>
+                <h2 class="h6">Product and Interaction Design</h2>
+            </div>
+        </div>
+        <img id="bb-hero-img" src="/assets/img/casestudies/brightbytes//bb-top-hero-1.png" alt="">
+
+    </div>
+    <div id="bb-caption-1" class="caption offwhite padding-xl">
+        <div class="row">
+            <div class="medium-6 columns">
+                <h3>The Challenge</h3>
+                <p>Information analytics are very unsexy words. And BrightBytes is a company that thrives on information analysis, taking complex facts and turning them into actionable items for educators. But we're not talking about a friendly PowerPoint full of information analytics. We're talking a powerhouse of numbers, charts, graphs, in-depth analyses, and information that ultimately improve the way students learn.</p>
+            </div>
+            <div class="medium-6 columns">
+                <h3>The Solution</h3>
+                <p>Creating a sophisticated and user-friendly site is no one-step process. We analyze, throw sticky notes up everywhere, and then revise, revise, revise. What information needs to be accessed the quickest? What's the most intuitive way to navigate this site? How can we make numbers and data engaging? From there we prioritize information into pages and create wireframes.   </p>
+            </div>
+        </div>
+    </div>
+    <div class="caption blue padding-xl" id="bb-thedesign">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>The Design</h3>
+                <p>The end product is a user-friendly design that users can immediately and instinctively navigate. User flows help site visitors intuitively find what they are looking for. Elements throughout the site are gamified to make solutions easy 
+                and fun to find. To top it off, we added in a social element, so administrators can share their findings and work with 
+                each other. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div id="bb-device-ui" class="medium-12 columns">
+                <div id="bb-desktop-ui-1"></div>
+                <div id="bb-desktop-ui-2" class="right"></div>
+                <div id="bb-mobile-ui"></div>
+            </div>
+        </div>
+    </div>
+    <div id="bb-uipatterns" class="row-fluid"></div>
+    <div class="padding-xl offwhite">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>Illustrations</h3>
+                <ul id="bb-illustrations-ul">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="bb-results-img"></div>
+    <div id="bb-results" class="padding-xl ">
+        <div class="row">
+            <div class="medium-8 medium-offset-2 columns">
+                <h3>
+                    The Results
+                </h3>
+                <p>
+                    Since the landmark launch of BrightBytes, we've been breaking the status quo on cookie-cutter roadmaps for educators and their students. We've created a platform where users can both discover new insights and share them with their peers, expanding the resources educators have within reach exponentially. We've conquered the ever-daunting job of showcasing data on an interface that is not only intuitive and useful, but also engaging and beautiful. BrightBytes is at the core of the transformative potential of educational technology. Its dramatic impact on student achievement has helped schools find funding and resources to put plans in action, and the momentum to leave mediocrity in the dust. With a pinch of thoughtful and sleek designs and a stampede worth of user insights, we've elevated the BrightBytes name to being an essential part of every educator's toolbox and imperative to the turning point of education in America.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="bb-slides" class="fixed-slider">
+        <div id="bb-sketch" data-view="1"></div>
+        <div id="bb-wire" data-view="2"></div>
+        <div id="bb-final" data-view="3"></div>
+    </div>
+    <div class="lifestyle padding-xl">
+        <div class="row">
+            <div class="medium-12 columns">
+                <img src="/assets/img/casestudies/brightbytes/bb-lifestyle-1.jpg" alt="" class="center-block">
+            </div>
+        </div>
+        <!-- <div class="row quote padding-lg text-white">
+            <div class="medium-8 columns medium-offset-2">
+                <p class="quote-text">
+                    Underbelly killed it.
+                </p>
+            </div>
+            <div class="quote-author">
+                - Gob Bluth
+            </div>
+        </div> -->
+    </div>
+    <div class="row-fluid">
+    <div class="medium-12 columns padding-md caption text-center">
+        <span class="h3">You might also like</span>
+    </div>
+</div>
+<div class="row-fluid">
+    
+</div>
+<div class="row"></div>
+    
+
+</main>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/assets/js/foundation.min.js"></script>
+    <script src="/assets/js/plugins.min.js"></script>
+
+    <script src="/assets/js/global.min.js"></script>
+    <script>
+      $(document).foundation({
+        topbar: {
+            sticky_class: 'sticky',
+            scrolltop: false
+        },
+        abide: {
+            live_validate : true,
+            focus_on_invalid : true,
+            error_labels: true
+        }
+      });
+    </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43535207-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    jQuery(document).ready(function() {
+        // if(window.isDesktop === true) {
+        //     $(window).on('scroll', function(){
+        //         parallax('#bb-tablet', 0.6, 'up');
+        //         //bgParallax('#bb-hero', 0.4, 'down');
+        //         //bgParallax('#bb-app-icon', 0.15, 'down');
+        //         scrollDarken('#bb-hero .color-overlay');
+        //     });
+            
+        // }
+
+        if(window.isDesktop === true) {
+            $('#bb-device-ui').addClass('initial');
+            $(window).on('scroll', function(){
+                var el = document.getElementById('bb-device-ui');
+                var $el = $('#bb-device-ui');
+                var $scroll = window.scrollY;
+                var $offset = el.offsetTop;
+                var $windowHeight = window.innerHeight;
+
+                var attack = ($offset - ($windowHeight/1.5));
+                if ($scroll >= attack) {
+                    $el.removeClass('initial');
+                }
+
+                parallax('#bb-hero-img', 0.4, 'down')
+                
+            });
+        }
+        
+
+        $(window).on('load', function(){
+            $('#vimeoVideo').append('<iframe src="//player.vimeo.com/video/60216372?portrait=0" width="940" height="528" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+        });
+    });
+    </script>
+    
+
+<footer id="footer">
+    <div class="row">
+        <div class="medium-3 columns">
+            <span class="icon-underbelly"></span>
+            <span class="copyright">&copy;</span>
+        </div>
+        <div class="medium-6 columns right">
+            <div class="right">
+                <a href="http://www.twitter.com/underbelly" class="social icon-twitter" target="_blank"></a>
+                <a href="http://www.instagram.com/underbelly" class="social icon-instagram" target="_blank"></a>
+                <a href="http://www.dribbble.com/underbelly" class="social icon-dribbble" target="_blank"></a>
+                <a href="/all-ears/" class="button small radius">Contact</a>
+            </div>
+        </div>
+        
+    </div>
+    
+</footer>
+    </div><!-- /.l-wrapper -->
+    
+
+    
+    </body>
+</html>

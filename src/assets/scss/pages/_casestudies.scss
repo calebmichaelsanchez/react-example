@@ -1,0 +1,1230 @@
+/*
+    Table of Contents
+    - Global Styles
+
+    - Fluid App Case Study
+    - Recommendations
+*/
+
+
+
+$jf-blue: #44ade2;
+
+// Global Case Study Styles
+.fixed-slider > div:not(.row) {
+    background-attachment: fixed;
+    background-position: center 85px;
+    width: 100%;
+    overflow: hidden;
+    background-position: center center;
+}
+
+main.case-study {
+    .full-height {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    //margin-top: -100px;
+    .columns {
+        padding-left: 30px;
+        padding-right: 30px;
+        .columns {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.justfamily .blue {
+    background-color: $jf-blue;
+}
+
+
+.top-hero {
+    background-size: cover;
+    position: relative;
+    .case-title {
+        color: $white;
+        position: absolute;
+        z-index: 99;
+        bottom: 3%;
+        width: auto;
+        h1 {
+            margin-bottom: 0;
+        }
+        .h6 {
+            font-size: 100%;
+        }
+
+        &.top-center {
+            position: relative;
+            margin-top: 8%;
+            text-align: center;
+            width: 100%;
+        }
+    }
+    .imagePosition {
+        top: 45%;
+    }
+}
+@media #{$medium-only} {
+    .top-hero {
+        &.full-height {
+            height: 860px;
+        }
+    }
+}
+
+@media (max-width: $screen-width-sm) {
+    .top-hero {
+        &.full-height {
+            max-height: 400px;
+        }
+    }
+}
+
+.color-overlay {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    //margin-top: 11px;
+    min-height: 400px;
+    max-height: 860px;
+
+}
+
+
+
+.blurred-bg {
+    background-image: url('../img/casestudies/blurred-bg-1.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.embed-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+// Fluid App
+
+#casestudy-fluid {
+    color: $white;
+}
+
+#fluid-hero {
+    .case-title {
+        color: $darkgray;
+    }
+
+    .color-overlay {
+        background-color: #22716d;
+        z-index: 11;
+    }
+    img {
+        margin-top: -10%;
+        left: 16.6666667%;
+    }
+    @media (max-width: $screen-width-sm) {
+        img {
+            left: 0;
+        }
+        .top-center {
+            margin-top: 15%;
+        }
+    }
+}
+
+
+
+#fluid-app-icon {
+    background-image: url('../img/casestudies/fluid/deskbg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    img.app-icon {
+        // top: 50%;
+        // margin-top: -300px;
+        // position: relative;
+    }
+    @media (max-height: $screen-width-md) {
+        background-size: 400%;
+        background-repeat: repeat;
+        img.app-icon {
+            // top: 20%;
+            // width: 60%;
+            // position: relative;
+
+        }
+    }
+    @media #{$small-only} {
+        background-attachment: scroll;
+        background-size: 300%;
+        &.padding-180 {
+            padding: 45px 0;
+        }
+    }
+}
+
+#fluid-branding {
+    .small-4 {
+        text-align: center;
+        img {
+            width: 50%;
+        }
+    }
+    @media #{$small-only} {
+        .small-4 {
+            padding: 7.5px;
+            img {
+                width: 100%;
+            }
+        }
+        
+        .padding-top-120 {
+            padding-top: 15px;
+        }
+    }
+}
+
+#fluid-tablet {
+    background-image: url('../img/casestudies/fluid/fluid-hero-02.png');
+    background-size: cover;
+    position: relative;
+    bottom: -13%;
+    width: 90%;
+    height: 0;
+    padding-bottom: 69%;
+    left: 50%;
+    margin-left: -45%;
+    z-index: 10;
+    @media (min-width: $screen-width-xl) {
+        width: 50%;
+        padding-bottom: 39%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+    }
+    @media #{$medium-only} {
+        bottom: -5%;
+    }
+
+    @media #{$small-only} {
+        bottom: -5%;
+    }
+}
+
+#fluid-caption-1 {
+    background-color: #e47c5d;
+    z-index: 12;
+    position: relative;
+
+    a {
+        color: #92371a;
+        &:hover {
+            color: lighten(#92371a, 10%);
+        }
+    }
+}
+
+#fluid-branding-1 {
+    z-index: 13;
+    position: relative;
+    @media #{$small-only} {
+        &.padding-top-150 {
+            padding-top: 50px;
+        }
+        &.padding-bottom-270 {
+            padding-bottom: 90px;
+        }
+    }
+}
+
+
+#fluid-slides {
+    > div {
+        //height: 768px;
+    }
+    @media (max-width: $screen-width-sm) {
+        display: none;
+    }
+}
+
+#fluid-process-title {
+    padding-top: 120px;
+    background-color: transparent;
+    opacity: 0;
+    top: -120px;
+    transition: opacity ease-in 0.2s 0s, top ease-in 0.2s;
+    &.fixed {
+        opacity: 1;
+        position: fixed;
+        left: 10%;
+        top: 0;
+        transition: opacity ease-out 0.4s 0.2s, top ease-out 0.5s;
+    }
+}
+
+#fluid-sketch,
+#fluid-wire,
+#fluid-final {
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-color: white;
+    height: 768px;
+    &.full-height {
+        max-height: 1200px;
+    }
+
+    @media (max-height: $screen-width-sm) {
+        background-size: 200%;
+    }
+}
+#fluid-sketch {
+    background-image: url('../img/casestudies/fluid/fluid-sketch-1.jpg');
+}
+
+#fluid-wire {
+    background-image: url('../img/casestudies/fluid/fluid-wire-1.jpg');
+}
+
+#fluid-final {
+    height: 800px;
+    background-image: url('../img/casestudies/fluid/fluid-final-1.jpg');
+    background-attachment: scroll;
+    &.fixed {
+        background-attachment: fixed;
+    }
+}
+
+@media #{$medium-only} {
+    #fluid-sketch,
+    #fluid-wire,
+    #fluid-final,
+    #fluid-final.full-height {
+        height: 468px;
+        max-height: 468px;
+        background-attachment: scroll;
+    }
+    
+}
+
+#vimeoVideo {
+    margin-left: 16px;
+}
+
+
+
+// Bountiful Dental
+
+#bdental-hero {
+    background-image: url('../img/casestudies/bountifuldental/bdental-hero-1.jpg');
+    background-position: center;
+    background-size: cover;
+    .color-overlay {
+        background-color: #76d2f3;
+    }
+    img {
+        margin-left: -16.666667%;
+        position: absolute;
+        left: 50%;
+        margin-top: -12.5%;
+    }
+    @media (max-width: $screen-width-sm) {
+        img {
+            width: 60%;
+            margin-left: -30%;
+            margin-top: -25%;
+        }
+        
+    }
+
+
+}
+
+#bdental-website {
+    background-color: #eaf0f2;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#bdental-website-desktop {
+    background-image: url('../img/casestudies/bountifuldental/bdental-website-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-bottom: 90.5%;
+    width: 65.5%;
+    float: left;
+}
+#bdental-website-mobile {
+    background-image: url('../img/casestudies/bountifuldental/bdental-website-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-bottom: 67.55%;
+    width: 32.5%;
+    margin-top: 60px;
+    float: right;
+}
+
+.bdental-concept {
+    &.columns.small-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    img {
+        width: 80%;
+    }
+}
+
+#bdental-exploration {
+    background-color: #2fc3ed;
+    color: $white;
+    .row.fit-padding {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media #{$small-only} {
+    .bdental-concept img {
+        max-width: 240px;
+        margin-bottom: -15px;
+        width: 100%;
+    }
+}
+
+
+
+//Traxion
+
+#traxion-hero {
+    background: url('../img/casestudies/traxion/traxion-hero.jpg') no-repeat  center;
+    background-size: cover;
+
+    .color-overlay {
+        background-color: $black;
+    }
+}
+#traxion-slides {
+    background-color: #00c5fa;
+}
+#traxion-slides > div {
+    width: 100%;
+    overflow: hidden;
+    background-position: center 50%;
+    background-repeat: no-repeat;
+    height: 768px;
+
+}
+@media (max-width: $screen-width-md) {
+    #traxion-award {
+        background-color: $blue;
+
+    }
+    #traxion-slides {
+        display: none;
+    }
+}
+
+#traxion-sketch {
+    background-image: url('../img/casestudies/traxion/traxion-slide-1.png');
+}
+
+#traxion-wire {
+    background-image: url('../img/casestudies/traxion/traxion-slide-2.png');
+}
+
+#traxion-final {
+    background-image: url('../img/casestudies/traxion/traxion-slide-3.png');
+}
+
+#traxionAward {
+    background-image: url('../img/casestudies/traxion/traxion-award.png');
+    background-size: cover;
+    height: 0;
+    padding-bottom: 16.6%;
+    @media #{$medium-only} {
+        width: 40%;
+        margin: 0 auto;
+        padding-bottom: 20%;
+        background-image: url('../img/casestudies/traxion/traxion-award-mobile.png');
+    }
+    @media #{$small-only} {
+        width: 60%;
+        background-image: url('../img/casestudies/traxion/traxion-award-mobile.png');
+        margin: 0 auto;
+        padding-bottom: 30%;
+    }
+}
+#traxion-anim {
+    background-color: $offwhite;
+}
+
+#traxion-screen-1,
+#traxion-screen-2 {
+    display: inline-block;
+    background-image: url('../img/casestudies/traxion/blue-iphone.png');
+    background-size: cover;
+    width: 40%;
+    height: 0;
+    padding-bottom: 69%;
+    .screen {
+        display: block;
+        margin: 27.75% auto;
+        height: 0;
+        width: 59.5%;
+        padding-bottom: 105.5%;
+        background-color: $blue;
+    }
+    @media (max-width: $screen-width-sm) {
+        width: 70%;
+        padding-bottom: 120%;
+    }
+}
+
+
+
+#traxion-screen-1 {
+    .screen {
+
+    }
+}
+
+#traxion-screen-2 {
+    .screen {
+
+    }
+}
+
+//North Seattle Alliance Church
+
+#nsac-hero {
+    background-image: url('../img/casestudies/nsac/nsac-hero-02.jpg');
+    background-color: $black;
+    background-position: 50% 50%;
+    color: $white;
+    .color-overlay {
+        background-color: #afdbdf;
+    }
+    img {
+        margin-left: -20.5%;
+        margin-top: -20%;
+        left: 50%;
+        top: 40%;
+    }
+    @media #{$small-only} {
+
+        img {
+            margin-left: -50%;
+            margin-top: -40%;
+        }
+    }
+}
+
+#nsac-caption {
+    background-color: #2a91a1;
+    color: $white;
+}
+
+#casestudy-nsac {
+    .brand-color {
+        background-color: #dc6544;
+        color: $white;
+    }
+}
+
+#nsac-colors {
+
+    .color-swatch {
+        width: 20%;
+        margin: 2%;
+        display: inline-block;
+        span {
+            display: block;
+            height: 240px;
+            -webkit-transition: -webkit-transform cubic-bezier(0.8, -0.4, 0.2, 0.4) 1s;
+            -moz-transition: -moz-transform cubic-bezier(0.8, -0.4, 0.2, 0.4) 1s;
+            -o-transition: -o-transform cubic-bezier(0.8, -0.4, 0.2, 0.4) 1s;
+            transition: transform cubic-bezier(0.8, -0.4, 0.2, 0.4) 1s;
+        }
+
+        &:hover {
+            span {
+                -webkit-transition: -webkit-transform cubic-bezier(0.5, -0.4, 0.5, 0.4) 0.6s;
+                -moz-transition: -moz-transform cubic-bezier(0.5, -0.4, 0.5, 0.4) 0.6s;
+                -o-transition: -o-transform cubic-bezier(0.5, -0.4, 0.5, 0.4) 0.6s;
+                transition: transform cubic-bezier(0.5, -0.4, 0.5, 0.4) 0.6s;
+            }
+            
+        }
+    }
+    #color-1 {
+        perspective: 550px;
+        span {
+            transform: rotateY(65deg);
+            background-color: #2a91a2;
+        }
+        &:hover span {
+            transform: rotateY(0deg);
+        }
+    }
+    #color-2 {
+        perspective: 525px;
+        transform: rotateY(0deg) rotateZ(0deg);
+        span {
+            transform: rotateY(-57deg) rotateZ(0deg);
+            background-color: #dc6344;
+        }
+        &:hover {
+            transform: rotateY(0deg) rotateZ(0deg);
+            span {
+                transform: rotateY(0deg) rotateZ(0deg);
+            }
+        }
+    }
+    #color-3 {
+        perspective: 350px;
+        span {
+            transform: rotateY(65deg);
+            background-color: #cf9d48;
+        }
+        &:hover span {
+            transform: rotateY(0deg);
+        }
+    }
+    #color-4 {
+        perspective: 350px;
+        span {
+            transform: rotateY(-60deg);
+            background-color: #89ad3f;
+        }
+        &:hover span {
+            transform: rotateY(0deg);
+        }
+    }
+    @media #{$small-only} {
+        .color-swatch {
+            width: 23%;
+            margin: 0;
+            span {
+                height: 80px;
+            }
+        }
+    }
+}
+
+// Just Family Case Study
+
+#justfamily-hero {
+    background-image: url('../img/casestudies/justfamily/justfamily-hero-05.jpg');
+    background-position: 50% 50%;
+    color: $white;
+    @media (max-width: $screen-width-md) {
+        background-image: url('../img/casestudies/justfamily/justfamily-hero-05-min.jpg');
+    }
+}
+#justfamily-appicon {
+    background-image: url('../img/casestudies/justfamily/justfamily-bgimage-01.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 768px;
+    div > img {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+#justfamily-mark-image {
+    background: url('../img/Brands.jpg') 50% 25% no-repeat fixed;
+    background-size: cover;
+    height: 0;
+    padding-bottom: 60%;
+    display: block;
+
+    @media #{$medium-only} {
+        padding-bottom: 75%;
+        background-size: 150%;
+        background-attachment: scroll;
+    }
+
+    @media #{$small-only} {
+        height: 468px;
+        padding-bottom: 0;
+        background-attachment: scroll;
+    }
+}
+
+#justfamily-ui {
+    position: relative;
+    //overflow: hidden;
+    margin-bottom: 180px;
+
+    @media #{$small-only} {
+        margin-bottom: 90px;
+    }
+}
+#justfamily-ui-01,
+#justfamily-ui-02 {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    position: relative;
+}
+
+#justfamily-ui-01 {
+    background-image: url('../img/casestudies/justfamily/justfamily-ui-01.png');
+    width: 70%;
+    height: 0;
+    padding-bottom: 125.5%;
+    z-index: 4;
+    top: 70px;
+
+}
+
+#justfamily-ui-02 {
+    background-image: url('../img/casestudies/justfamily/justfamily-ui-02.png');
+    width: 40%;
+    margin-left: -10%;
+    height: 0;
+    padding-bottom: 84%;
+    z-index: 5;
+    top: 1200px;
+}
+
+@media (max-width: $screen-width-md) {
+    #justfamily-ui-01 {
+        top: 20px;
+    }
+    #justfamily-ui-02 {
+        top: 70px;
+    }
+}
+
+// Rent Tree 
+
+#renttree-hero {
+    background-image: url('../img/casestudies/renttree/renttree-hero-02.jpg');
+    background-color: $white;
+    background-size: cover;
+    background-position: center;
+    .case-title {
+        color: $black;
+    }
+    > .color-overlay {
+        background-color: #82C9CB;
+    }
+    @media (max-width: $screen-width-sm) {
+        background-size: 180%;
+        background-position-y: center;
+    }
+}
+#renttree-lifestyle {
+    img {
+        width: 100%;
+    }
+}
+
+#renttree-website {
+    background:  #e56e4e;
+}
+
+#renttree .blurred-bg {
+    background-image: url('../img/casestudies/blurred-bg-2.jpg');
+}
+.wood-bg {
+    background-image: url('../img/casestudies/renttree/wood-bg.jpg');
+    background-color: #82C9CB;
+}
+
+
+
+#bb-case-study {
+    .lifestyle {
+        background-color: #67DCED;
+    }
+}
+#bb-hero {
+    background-color: #01b3cd;
+    //max-height: 1024px;
+    overflow: hidden;
+    img {
+        width: 70%;
+        margin: 0 auto 0;
+        display: block;
+    }
+
+    @media #{$medium-only} {
+        max-height: 860px;
+        .top-center {
+            margin-top: 15%;
+        }
+        img {
+            width: 95%;
+            margin-top: 8%;
+        }
+    }
+
+    @media (max-width: $screen-width-sm) {
+        max-height: 468px;
+        padding-top: 75px;
+        img {
+            width: 95%;
+        }
+    }
+}
+// #bb-hero-img {
+//     background-image: url('../img/casestudies/brightbytes/bb-top-hero-1.png');
+//     background-size: cover;
+//     display: block;
+//     width: 80%;
+//     height: 0;
+//     padding-bottom: 48%;
+//     position: absolute;
+//     top: 60%;
+//     left: 50%;
+//     margin-top: -24%;
+//     margin-left: -40%;
+
+// }
+#bb-thedesign {
+    background-color: #66e0c2;
+}
+
+#bb-results {
+    background-color: #01b3cd;
+    color: $white;
+}
+
+#bb-results-img {
+    background-image: url('../img/casestudies/brightbytes/bb-results-img.jpg');
+    background-size: cover;
+    height: 0;
+    padding-bottom: 60%;
+    background-attachment: fixed;
+    @media (max-width: $screen-width-md) {
+        background-attachment: scroll;
+        height: 468px;
+        padding-bottom: 0;
+        background-position: 50%;
+        background-size: cover;
+    }
+
+    @media (max-width: $screen-width-sm) {
+        height: 271px;
+        background-size: 130%;
+        background-position: 50% 50%;
+    }
+}
+
+#bb-uipatterns {
+    background-image: url('../img/casestudies/brightbytes/bb-uipatterns-1.jpg');
+    background-size: cover;
+    height: 0;
+    padding-bottom: 60%;
+    background-attachment: fixed;
+
+    @media (max-width: $screen-width-md) {
+        background-attachment: scroll;
+        height: 468px;
+        padding-bottom: 0;
+        background-position: 50%;
+        background-size: cover;
+    }
+
+    @media (max-width: $screen-width-sm) {
+        background-position: 50% 0%;
+        background-size: 260%;
+    }
+}
+#bb-device-ui {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 80%;
+    &:after {
+        content: '';
+        display: block;
+    }
+    &.initial {
+        #bb-desktop-ui-1,
+        #bb-desktop-ui-2,
+        #bb-mobile-ui {
+            opacity: 0.2;
+        }
+        #bb-desktop-ui-1 {
+            top: 100%;
+        }
+        #bb-desktop-ui-2 {
+            top: 110%;
+        }
+        #bb-mobile-ui {
+            top: 120%;
+        }
+    }
+    
+}
+#bb-desktop-ui-1,
+#bb-desktop-ui-2,
+#bb-mobile-ui {
+    background-size: cover;
+    position: absolute;
+    transition: top cubic-bezier(.18,.28,.17,1.1) 0.6s, opacity ease 0.8s;
+    opacity: 1;
+}
+#bb-desktop-ui-1 {
+    background-image: url('../img/casestudies/brightbytes/bb-desktop-ui-1.png');
+    width: 58.16667%; //698px
+    height: 60%;
+    top: 2%;
+    transition-delay: 0.1s;
+    //padding-bottom: 49.25%; //577px
+}
+#bb-desktop-ui-2 {
+    background-image: url('../img/casestudies/brightbytes/bb-desktop-ui-2.png');
+    width: 49.88%; //588px
+    height: 55.75%;
+    //padding-bottom: 45%; //527px
+    top: 25%;
+    right: 15px;
+    transition-delay: 0.3s;
+}
+#bb-mobile-ui {
+    background-image: url('../img/casestudies/brightbytes/bb-mobile-ui.png');
+    width: 18.91667%; //227px
+    height: 49.86%;
+    //padding-bottom: 40.85%; //478px
+    top: 40%;
+    left: 20%;
+    transition-delay: 0.6s;
+}
+
+#bb-illustrations-ul {
+    display: block;
+    list-style-type: none;
+    li {
+        display: inline-block;
+        background-image: url('../img/casestudies/brightbytes/bb-illustrations.png');
+        background-size: 500%;
+        background-repeat: no-repeat;
+        width: 18%;
+        margin: 0.5%;
+        padding-bottom: 16%;
+        &:nth-child(1){
+            background-position: 0 0;
+        }
+        &:nth-child(2) {
+            background-position: 25% 0;
+        }
+        &:nth-child(3) {
+            background-position: 50% 0;
+        }
+        &:nth-child(4) {
+            background-position: 75% 0;
+        }
+        &:nth-child(5) {
+            background-position: 100% 0;
+        }
+        &:nth-child(6) {
+            background-position: 0 100%;
+        }
+        &:nth-child(7) {
+            background-position: 25% 100%;
+        }
+        &:nth-child(8) {
+            background-position: 50% 100%;
+        }
+        &:nth-child(9) {
+            background-position: 75% 100%;
+        }
+        &:nth-child(10) {
+            background-position: 100% 100%;
+        }
+    }
+    @media (max-width: $screen-width-sm) {
+        li {
+            width: 48%;
+            margin: 0 1% 0 0;
+            padding-bottom: 50%;
+            &:nth-child(5) {
+                background-position: 101% -5%;
+            }
+            &:nth-child(6) {
+                background-position: -2% 113%;
+            }
+        }
+    }
+}
+
+// TODO: incorporate retina sprite
+
+
+// AIGA 100 Show Styles
+
+#aiga-hero {
+    background-image: url('../img/casestudies/aiga/aiga-hero-1.jpg');
+    background-size: inherit;
+    background-position: 50% 50%;
+    @media #{$large-up} {
+        background-size: cover;
+    }
+    @media (max-width: $screen-width-sm) {
+        background-size: cover;
+    }
+}
+
+#aiga-caption-1 {
+    background-color: #293435;
+    &,
+    a {
+        color: #d5a44f;
+    }
+
+    a:hover {
+        color: lighten(#d5a44f, 10%);
+    }
+}
+
+#aiga-poster-wrap {
+    background-image: url('../img/casestudies/aiga/aiga-map-bg.jpg');
+    background-color: $white;
+    
+    position: relative;
+    overflow: hidden;
+
+    @media #{$large-up} {
+        background-attachment: fixed;
+    }
+
+}
+
+#aiga-website {
+    background-color: #49575a;
+}
+
+#aiga-website {
+    .circlenext {
+        color: $white;
+        position: absolute;
+        left: 50%;
+        margin-left: -100px
+        
+    }
+}
+#aiga-branding {
+    .tabs-content {
+        min-height: 220px;
+        padding: 30px 0;
+    }
+
+    @media (max-width: $screen-width-sm) {
+        .tabs li {
+            margin-right: 0;
+        }
+        .content .medium-4 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+#aiga-website-link {
+    position: relative;
+}
+
+#aiga-carousel {
+    position: relative;
+    .slide {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 800px;
+        background-size: cover;
+        background-position: 50% 50%;
+
+        @media (max-width: $screen-width-sm) {
+            height: 468px;
+        }
+    }
+    #aiga-slide-1 {
+        background-image: url('../img/casestudies/aiga/aiga-slide-1.jpg');
+    }
+    #aiga-slide-2 {
+        background-image: url('../img/casestudies/aiga/aiga-slide-2.jpg');
+    }
+    #aiga-slide-3 {
+        background-image: url('../img/casestudies/aiga/aiga-slide-3.jpg');
+    }
+    .controls {
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        .left-arrow,
+        .right-arrow {
+            position: absolute;
+            font-size: 100px;
+            z-index: 999;
+            top: 50%;
+            height: 150px;
+            line-height: 100px;
+            margin-top: -75px;
+            text-align: center;
+
+
+            & a {
+                color: rgba($white, 0.333);
+                transition: color ease 0.4s;
+
+                &:hover {
+                    color: rgba($white, 0.75);
+                    transition: color ease 0.4s;
+                }
+            }
+        }
+    }
+    
+    .left-arrow {
+        left: 15px;
+    }
+    .right-arrow {
+        right: 15px;
+    }
+}
+
+
+// Hive styles
+
+$hive-blue: #96e6f6;
+$hive-gray: #4b5664;
+
+#hive-hero {
+    background-image: url('../img/casestudies/hive/hive-hero-1.jpg');
+    background-position: center;
+    @media #{$small-only} {
+        background-size: 275%;
+        background-position: 75%;
+        .case-title {
+            color: $darkgray;
+        }
+    }
+}
+
+#hive-branding {
+    background-image: url('../img/casestudies/hive/hive-branding-bg.jpg');
+    background-repeat: repeat;
+}
+
+#hive-evolution {
+    .medium-4 {
+        margin-bottom: 30px;
+    }
+}
+
+#hive-caption-1 {
+    background-color: $hive-gray;
+}
+
+#hive-ui-image {
+    background-image: url('../img/casestudies/hive/hive-ui-image.jpg');
+    background-size: 130%;
+    background-position: top center;
+    background-attachment: fixed;
+    height: 0;
+    padding-bottom: 60%;
+    min-height: 400px;
+    max-height: 800px;
+    overflow: hidden;
+
+    @media (max-width: $screen-width-md) {
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}
+
+#hive-lifestyle {
+    background-image: url('../img/casestudies/hive/hive-lifestyle-1.jpg');
+    background-size: cover;
+    background-position: center right;
+    height: 768px;
+    position: relative;
+
+    .circlenext {
+        top: 50%;
+        left: 60%;
+        color: $white;
+        &:hover {
+            color: $white;
+        }
+    }
+
+    @media #{$medium-only} {
+        background-position: 50%;
+
+    }
+    @media #{$small-only} {
+        background-position: 29% 100%;
+        background-size: 250%;
+        height: 468px;
+
+        .circlenext {
+            top: 85%;
+            left: 26%;
+        }
+
+    }
+}
+
+//Recommendations
+main.case-study .cs-rec-tile.columns {
+    padding-left: 0;
+    padding-right: 0;
+}
+.cs-rec-tile {
+    display: block;
+    background-size: cover;
+    background-color: $blue;
+    background-position: 50%;
+    text-align: center;
+    transition: background-position ease 0.2s;
+
+    &:hover {
+        background-position: 50% -40px;
+        transition: background-position ease 0.4s;
+    }
+    > a {
+        display: block;
+        text-align: center;
+        vertical-align: middle;
+        color: $blue;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        position: relative;
+        > span {
+            bottom: -80px;
+            padding: 20px;
+            position: absolute;
+            display: block;
+            background-color: $white;
+            width: 100%;
+            transition: bottom ease 0.2s 0.04s;
+        }
+        &:hover {
+            > span {
+                bottom: 0;
+                transition: bottom ease 0.4s 0.08s;
+            }
+        }
+    }
+}
+ 
+

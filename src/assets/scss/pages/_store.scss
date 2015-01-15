@@ -1,0 +1,276 @@
+
+#store-page #it-exchange-store {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    @media #{$small-only} {
+        padding-top: 80px;
+
+        .it-exchange-product {
+            margin-bottom: 60px;
+        }
+    }
+
+    .featured-image-wrapper {
+        background-size: cover;
+        background-position: 50%;
+        img {
+            display: none;
+        }
+    }
+    .buy-now-button {
+        width: auto;
+    }
+
+    .it-exchange-product-title.entry-title {
+        font-size: $h6-font-size;
+    }
+    .it-exchange-base-price,
+    .it-exchange-product-permalink {
+        font-size: $font-base;
+    }
+
+    .it-exchange-product-permalink {
+        display: none;
+    }
+
+}
+
+#it-exchange-product .it-exchange-product-images-gallery .it-exchange-featured-image .featured-image-wrapper {
+    margin-top: 2em;
+}
+
+.single-it_exchange_prod .blog-page {
+    padding-top: 100px;
+    .it-exchange-super-widget .it-exchange-sw-product, .it-exchange-super-widget .it-exchange-sw-processing {
+        border: none;
+    }
+}
+
+.store-price {
+    span {
+        float: left;
+        
+    }
+    span.price {
+        transition: visibility 0s ease 0s, opacity 0.4s ease 0.1s;
+    }
+    span.buy-link {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        left: 50px;
+        transition: visibility 0s ease 0.4s, opacity 0.4s ease, left 0.2s ease-out;
+    }
+
+    &:hover {
+        span.price {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s ease 0.4s, opacity 0.4s ease 0s;
+            //display: none;
+        }
+        span.buy-link {
+            visibility: visible;
+            opacity: 1;
+            left: 60px;
+            transition: visibility 0s ease 0s, opacity 0.4s ease, left 0.2s ease-out;
+        }
+    }
+}
+
+.page-template-page-store-php header,
+#store-header {
+    background-color: $darkgray;
+}
+
+#store-header {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    color: $white;
+    h1, .h1 {
+        font-weight: $font-light;
+        opacity: 1;
+        transition: opacity 0.2s ease, font-size 0.2s ease;
+    }
+    &.fade {
+        h1 {
+            opacity: 0;
+            font-size: 0.75em;
+            transition: opacity 0.2s ease, font-size 0.6s ease;
+        }
+    }
+}
+
+#it-exchange-product {
+    input[type="submit"] {
+        border-style: solid;
+        border-width: 0px;
+        cursor: pointer;
+        font-weight: normal;
+        line-height: normal;
+        margin: 0 0 1.25rem;
+        position: relative;
+        text-decoration: none;
+
+        text-align: center;
+        display: inline-block;
+        padding-top: 1rem;
+        padding-right: 2rem;
+        padding-bottom: 1.0625rem;
+        padding-left: 2rem;
+        font-family: $base-font;
+        font-size: 1rem;
+        background-color: #4da8c7;
+        border-color: #358ba8;
+        color: $white;
+        -webkit-transition: background-color 300ms ease-out;
+        transition: background-color 300ms ease-out;
+        padding-top: 1.0625rem;
+        padding-bottom: 1rem;
+        -webkit-appearance: none;
+        border: none;
+        font-weight: normal !important;
+        border-radius: 3px;
+    }
+}
+
+#confirmation-page {
+    padding-top: 100px;
+    .it-exchange-thank-you-message {}
+    #it-exchange-confirmation .it-exchange-confirmation-billing-address-purchase-requirement, #it-exchange-confirmation .it-exchange-confirmation-shipping-address-purchase-requirement {
+        width: auto;
+    }
+    #sent-check {
+        border-color: $blue;
+        width: 160px;
+        height: 160px;
+        > span {
+            line-height: 175px;
+            color: $blue;
+        }
+    }
+    .it-exhange-order-details-wrap {
+        p {
+            font-size: 85%;
+        }
+    }
+
+    //remove all these wack borders
+
+    #it-exchange-confirmation .it-exchange-transaction-products {
+        border-top: 2px solid $lightgray2;
+        border-bottom: 2px solid $lightgray2;
+        border-left: none;
+        border-right: none;
+    }
+    #it-exchange-confirmation .it-exchange-transaction-summary-loop .it-exchange-cart-totals-total .it-exchange-table-column-inner {
+        border-bottom: none;
+    }
+    #it-exchange-confirmation .it-exchange-transaction-summary-loop .it-exchange-confirmation-totals-title {
+        border-right: none;
+    }
+    .it-exchange-table {
+        border: none;
+    }
+    .it-exchange-transaction-meta {
+        margin-top: 30px;
+        margin-bottom: 90px;
+    }
+
+    #it-exchange-confirmation .it-exchange-customer-menu {
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin-right: 6px;
+        }
+    }
+}
+
+.blog-page {
+    .social-button {
+        display: inline-block;
+        float: left;
+        padding: 7px 2px 0;
+        .twitter-share-button {
+            margin-top: 7px;
+        }
+        .share-widget {
+            line-height: 35px;
+            margin-left: 5px;
+        }
+    }
+    
+}
+#store-page {
+    div.medium-4.columns.it-exchange-product + [class*="column"]:last-child {
+        float: left;
+    }
+    div.medium-4.columns.it-exchange-product {
+        margin-bottom: 30px;
+    }
+}
+
+.mailchimp-signup {
+    .mc_custom_border_hdr {
+        font-size: $h6-font-size;
+        font-weight: $font-bold;
+    }
+    .mc_merge_var {
+        margin-bottom: 0.5em;
+    }
+    .mc_signup_submit {
+        text-align: right;
+        margin-top: 30px;
+    }
+    #mc_signup {
+        margin-top: 30px;
+    }
+    #mc_signup_submit {
+        margin-top: 0;
+        border-radius: 4px;
+    }
+}
+
+#newsletter-page {
+    background-color: $lightgray;
+    padding-top: 100px;
+    .wrapper {
+        padding: 30px;
+        border-radius: 4px;
+        background-color: $white;
+    }
+    .mc_custom_border_hdr {
+        text-align: center;
+    }
+    .mailchimp-signup {
+        .mc_merge_var {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .mc_signup_submit {
+        text-align: center;
+    }
+
+    #underbelly-illustration {
+        display: block;
+        background-image: url('../img/logo-print small.png');
+        width: 60%;
+        height: 0;
+        padding-bottom: 42.35%;
+        background-size: cover;
+        margin: 30px auto;
+    }
+
+}
+
+#store-page,
+.single-it_exchange_prod,
+.single-it_exchange_prod .blog-page {
+    background-color: white;
+}
+.it-exchange-transaction-product-downloads {
+    margin-top: 60px;
+}
