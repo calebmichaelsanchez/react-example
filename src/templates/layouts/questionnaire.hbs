@@ -1,119 +1,3 @@
-<?php  
-
-//validate 
-if ($_POST) { 
-    echo 'Sent';
-//send confirmation email (or insert into database, etc...) 
-    $EmailTo = "hello@underbelly.is";
-    $Subvert = $_POST['lastname'];
-    $Subject = "Questionnaire from Underbelly.is";
-    $firstName = Trim(stripslashes($_POST['firstName'])); 
-    $lastName = Trim(stripslashes($_POST['lastName'])); 
-    $email = Trim(stripslashes($_POST['email'])); 
-    $company = Trim(stripslashes($_POST['company'])); 
-    $website = Trim(stripslashes($_POST['website'])); 
-    $age = Trim(stripslashes($_POST['age'])); 
-    $services = Trim(stripslashes($_POST['services'])); 
-    $customer = Trim(stripslashes($_POST['customer'])); 
-    $competitors = Trim(stripslashes($_POST['competitors'])); 
-    $competition = Trim(stripslashes($_POST['competition'])); 
-    $timeframe = Trim(stripslashes($_POST['timeframe'])); 
-    $logo1 = Trim(stripslashes($_POST['logo-1'])); 
-    $logo2 = Trim(stripslashes($_POST['logo-2'])); 
-    $logo3 = Trim(stripslashes($_POST['logo-3'])); 
-    $logo4 = Trim(stripslashes($_POST['logo-4'])); 
-    $stationery = Trim(stripslashes($_POST['stationery'])); 
-    $budget = Trim(stripslashes($_POST['budget']));
-    $anythingElse = Trim(stripslashes($_POST['anythingElse']));
-
-
-    // prepare email body text
-    $Body = "";
-    $Body .= "Name: ";
-    $Body .= "\n";
-    $Body .= $firstName;
-    $Body .= " ";
-    $Body .= $lastName;
-    $Body .= "\n\n";
-    $Body .= "Email: ";
-    $Body .= "\n";
-    $Body .= $email;
-    $Body .= "\n\n";
-    $Body .= "Company: ";
-    $Body .= "\n";
-    $Body .= $company;
-    $Body .= "\n\n";
-    $Body .= "Website: ";
-    $Body .= "\n";
-    $Body .= $website;
-    $Body .= "\n\n";
-    $Body .= "Age of company: ";
-    $Body .= "\n";
-    $Body .= $age + "year(s) old";
-    $Body .= "\n\n";
-    $Body .= "Our services: ";
-    $Body .= "\n";
-    $Body .= $services;
-    $Body .= "\n\n";
-    $Body .= "Our ideal customer is: ";
-    $Body .= "\n";
-    $Body .= $customer;
-    $Body .= "\n\n";
-    $Body .= "Our main competitors are: ";
-    $Body .= "\n";
-    $Body .= $competitors;
-    $Body .= "\n\n";
-    $Body .= "How we differ from the competition: ";
-    $Body .= "\n";
-    $Body .= $competition;
-    $Body .= "\n\n";
-    $Body .= "Our timeframe is: ";
-    $Body .= "\n";
-    $Body .= $timeframe;
-    $Body .= "\n\n";
-    $Body .= "What I want our logo to say about us: ";
-    $Body .= "\n";
-    $Body .= $logo1;
-    $Body .= "\n\n";
-    $Body .= "Imagery we'd like in the logo: ";
-    $Body .= "\n";
-    $Body .= $logo2;
-    $Body .= "\n\n";
-    $Body .= "Logos we like are: ";
-    $Body .= "\n";
-    $Body .= $logo3;
-    $Body .= "\n\n";
-    $Body .= "The colors we want to use are: ";
-    $Body .= "\n";
-    $Body .= $logo4;
-    $Body .= "\n\n";
-    $Body .= "Stationery? ";
-    $Body .= $stationery;
-    $Body .= "\n\n";
-    $Body .= "Our budget is: ";
-    $Body .= "\n";
-    $Body .= "As much as $";
-    $Body .= $budget;
-    $Body .= "\n\n";
-    $Body .= "Additional Info: ";
-    $Body .= "\n";
-    $Body .= $anythingElse;
-    $Body .= "\n\n";
-    
-    // send email 
-    // send email 
-    $success = mail($EmailTo, $Subject, $Body, "From: <$EmailFrom>");
-
-    // redirect to success page 
-    if ($success){
-      print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-thanks.php\">";
-    }
-    else{
-      print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-error.php\">";
-    } 
-} 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -124,7 +8,7 @@ if ($_POST) {
 
     <link href="/assets/css/styles.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
+
     <script type="text/javascript">
       (function(d) {
         var config = {
@@ -142,74 +26,13 @@ if ($_POST) {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type='text/javascript'>
-// (function (d, t) {
-//  var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
-//  bh.type = 'text/javascript';
-//  bh.src = '//www.bugherd.com/sidebarv2.js?apikey=ystydn4o0hzjffqlj63mzw';
-//  s.parentNode.insertBefore(bh, s);
-//  })(document, 'script');
-</script>
-
   </head>
   <body id="{{id}}">
     <div id="pollMQ"></div>
     <div class="l-wrapper">
     {{> navbar-fixed-top }}
-
-
       {{> body }}
     {{> footer }}
-    </div><!-- /.l-wrapper -->
-    <script>
-
-    //keep the enter key from submitting form
-    function stopRKey(evt) { 
-      var evt = (evt) ? evt : ((event) ? event : null); 
-      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
-      if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
-    } 
-
-    document.onkeypress = stopRKey; 
-
-    function submitQuestionnaire() {
-        $("#questionnaire-form").validate({
-            errorElement: 'em',
-            submitHandler: function() {
-                //submit the form
-                $("#questionnaire-form").fadeOut(300).reset; //reset fields
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
-                $(this).blur();
-                
-                $.post("<?php echo $_SERVER[PHP_SELF]; ?>", //post
-                    $("#contact-us").serialize(), 
-                    function(data){
-                        var dataStr = data.replace(/(^\s+|\s+$)/g,'');
-                      //if message is sent
-                    if (dataStr === 'Sent') {
-
-                        $('#sending').fadeOut(300);
-
-                        alert('Great work! Thanks');
-
-                    }
-                    else {
-                        setTimeout(function(){
-                            $("#failed").fadeIn(600); //show confirmation message
-                        }, 1600);
-                    }
-                });
-                return false; //don't let the page refresh on submit.
-            }
-        }); //validate the form
-    }    
-    $('#submit').on('click', function(e){
-        submitQuestionnaire();
-        
-        $(this).blur();
-    });
-    </script>
-
-    
-    </body>
+    </div>
+  </body>
 </html>

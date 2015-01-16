@@ -1,0 +1,156 @@
+---
+title: Sad To See You Go
+id: questionnaire
+theme: light
+---
+<?php
+
+//validate
+if ($_POST) {
+  echo 'Sent';
+//send confirmation email (or insert into database, etc...)
+  $EmailTo = "riley@underbelly.is";
+  $Subvert = $_POST['lastname'];
+  $Subject = "Sad To See You Go";
+  $timelyManner = Trim(stripslashes($_POST['timelyManner']));
+  $needsAndObjectives = Trim(stripslashes($_POST['needsAndObjectives']));
+  $budget = Trim(stripslashes($_POST['budget']));
+  $competition = Trim(stripslashes($_POST['competition']));
+  $timelines = Trim(stripslashes($_POST['timelines']));
+  $firstContact = Trim(stripslashes($_POST['firstContact']));
+  $primaryReason = Trim(stripslashes($_POST['primaryReason']));
+
+  // prepare email body text
+  $Body = "Sad to See You Go Email!";
+
+  // send email
+  // send email
+  $success = mail($EmailTo, $Subject, $Body, "From: <$EmailFrom>");
+
+  // redirect to success page
+  if ($success){
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-thanks.php\">";
+  }
+  else{
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-error.php\">";
+  }
+}
+
+?>
+
+<main role="main" id="{{id}}-main">
+  <div id="work-header">
+    <h1 class="h2 text-center">Sad To See You Go</h1>
+  </div>
+  <div id="questionnaire-area" class="padding-xl">
+    <form id="questionnaire-form" method="post" action="" data-abide>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="timelyManner">Did we respond in a timely manner?</label>
+          <textarea rows="10" name="timelyManner" id="timelyManner" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="needsAndObjectives">Did our proposal reflect a correct understanding of your needs and objectives?</label>
+          <textarea rows="10" name="needsAndObjectives" id="needsAndObjectives" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="budget">Did our bid fall within your budget?</label>
+          <textarea rows="10" name="budget" id="budget" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="competition">If you contacted multiple design firms for this project, was our quote competitive?</label>
+          <textarea rows="10" name="competition" id="competition" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="timelines">Did our proposed timelines for this project meet your needs?</label>
+          <textarea rows="10" name="timelines" id="timelines" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="firstContact">How did you first come to contact Underbelly for this project?</label>
+          <textarea rows="10" name="firstContact" id="firstContact" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="primaryReason">If you had to name just one, what is the primary reason you decided not to partner with Underbelly for this project?</label>
+          <textarea rows="10" name="primaryReason" id="primaryReason" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="medium-12 columns">
+              <button type="submit" name="submit" value="Submit" class="submit-button button radius" />Submit</button>
+          </div>
+      </div>
+
+    </form>
+    <div style="clear: both;"></div>
+    </div>
+</main>
+
+{{> scripts-default }}
+<script>
+
+//keep the enter key from submitting form
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+
+function submitQuestionnaire() {
+  $("#questionnaire-form").validate({
+    errorElement: 'em',
+    submitHandler: function() {
+      //submit the form
+      $("#questionnaire-form").fadeOut(300).reset; //reset fields
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      $(this).blur();
+
+      $.post("<?php echo $_SERVER[PHP_SELF]; ?>", //post
+        $("#contact-us").serialize(),
+        function(data){
+          var dataStr = data.replace(/(^\s+|\s+$)/g,'');
+          //if message is sent
+        if (dataStr === 'Sent') {
+
+          $('#sending').fadeOut(300);
+
+          alert('Great work! Thanks');
+
+        }
+        else {
+          setTimeout(function(){
+            $("#failed").fadeIn(600); //show confirmation message
+          }, 1600);
+        }
+      });
+      return false; //don't let the page refresh on submit.
+    }
+  }); //validate the form
+}
+$('#submit').on('click', function(e){
+  submitQuestionnaire();
+
+  $(this).blur();
+});
+</script>

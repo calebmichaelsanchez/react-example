@@ -108,8 +108,20 @@ module.exports = function(grunt) {
           ext: '.php'
         },
 
-        src: '<%= config.src %>/templates/questionnaire/*.hbs',
+        src: '<%= config.src %>/templates/questionnaire/identity-questionnaire.hbs',
         dest: '<%= config.dist %>/getting-to-know-you'
+      },
+      sadtoseeyougo: {
+        options: {
+          layout: '<%= config.src %>/templates/layouts/questionnaire.hbs',
+          assets: '<%= config.dist %>/assets',
+          data: '<%= config.src %>/data/*.{json,yml}',
+          partials: '<%= config.src %>/templates/questionnaire/partials/*.hbs',
+          ext: '.php'
+        },
+
+        src: '<%= config.src %>/templates/questionnaire/sad-to-see-you-go.hbs',
+        dest: '<%= config.dist %>/sad-to-see-you-go'
       }
     },
     uglify: {
@@ -186,7 +198,7 @@ module.exports = function(grunt) {
             }
         }
     },
-    
+
 
     // Before generating any new files,
     // remove any previously-created files.
