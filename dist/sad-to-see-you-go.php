@@ -60,8 +60,7 @@
 if ($_POST) {
   echo 'Sent';
 //send confirmation email (or insert into database, etc...)
-  $EmailTo = "riley@underbelly.is";
-  $Subvert = $_POST['lastname'];
+  $EmailTo = "hello@underbelly.is";
   $Subject = "Sad To See You Go";
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
   $needsAndObjectives = Trim(stripslashes($_POST['needsAndObjectives']));
