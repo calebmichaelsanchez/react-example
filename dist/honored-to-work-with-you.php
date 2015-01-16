@@ -97,51 +97,67 @@ if ($_POST) {
     <form id="questionnaire-form" method="post" action="" data-abide>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="timelyManner">Did we respond to your feedback in a timely manner?</label>
-          <textarea rows="10" name="timelyManner" id="timelyManner" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>Did we respond to your feedback in a timely manner?</label>
+          <input type="radio" name="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
+          <input type="radio" name="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="satisfaction">How satisfied are you with the design of the finished product?</label>
-          <textarea rows="10" name="satisfaction" id="satisfaction" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>How satisfied are you with the design of the finished product?</label>
+          <input type="radio" name="satisfaction" value="1" id="satisfactionOne"><label for="satisfactionOne">1</label>
+          <input type="radio" name="satisfaction" value="2" id="satisfactionTwo"><label for="satisfactionTwo">2</label>
+          <input type="radio" name="satisfaction" value="3" id="satisfactionThree"><label for="satisfactionThree">3</label>
+          <input type="radio" name="satisfaction" value="4" id="satisfactionFour"><label for="satisfactionFour">4</label>
+          <input type="radio" name="satisfaction" value="5" id="satisfactionFive"><label for="satisfactionFive">5</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="timeSatisfaction">How satisfied are you with the time it took to complete the project?</label>
-          <textarea rows="10" name="timeSatisfaction" id="timeSatisfaction" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>How satisfied are you with the time it took to complete the project?</label>
+          <input type="radio" name="timeSatisfaction" value="Yes" id="timeSatisfactionYes"><label for="timeSatisfactionYes">Yes</label>
+          <input type="radio" name="timeSatisfaction" value="No" id="timeSatisfactionNo"><label for="timeSatisfactionNo">No</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="reasoning">Did we provide clear enough reasoning for our design choices?</label>
-          <textarea rows="10" name="reasoning" id="reasoning" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>Did we provide clear enough reasoning for our design choices?</label>
+          <input type="radio" name="reasoning" value="Yes" id="reasoningYes"><label for="reasoningYes">Yes</label>
+          <input type="radio" name="reasoning" value="No" id="reasoningNo"><label for="reasoningNo">No</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="objectives">Does the finished product meet your objectives?</label>
-          <textarea rows="10" name="objectives" id="objectives" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>Does the finished product meet your objectives?</label>
+          <input type="radio" name="objectives" value="Yes" id="objectivesYes"><label for="objectivesYes">Yes</label>
+          <input type="radio" name="objectives" value="No" id="objectivesNo"><label for="objectivesNo">No</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="futureProjects">How likely are you to choose Underbelly for a future project?</label>
-          <textarea rows="10" name="futureProjects" id="futureProjects" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>How likely are you to choose Underbelly for a future project?</label>
+          <input type="radio" name="futureProjects" value="1" id="futureProjectsOne"><label for="futureProjectsOne">1</label>
+          <input type="radio" name="futureProjects" value="2" id="futureProjectsTwo"><label for="futureProjectsTwo">2</label>
+          <input type="radio" name="futureProjects" value="3" id="futureProjectsThree"><label for="futureProjectsThree">3</label>
+          <input type="radio" name="futureProjects" value="4" id="futureProjectsFour"><label for="futureProjectsFour">4</label>
+          <input type="radio" name="futureProjects" value="5" id="futureProjectsFive"><label for="futureProjectsFive">5</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="recommend">How likely are you to recommend Underbelly to someone else?</label>
-          <textarea rows="10" name="recommend" id="recommend" class="input-tall"> </textarea>
+        <div class="large-12 columns">
+          <label>How likely are you to recommend Underbelly to someone else?</label>
+          <input type="radio" name="recommend" value="1" id="recommendOne"><label for="recommendOne">1</label>
+          <input type="radio" name="recommend" value="2" id="recommendTwo"><label for="recommendTwo">2</label>
+          <input type="radio" name="recommend" value="3" id="recommendThree"><label for="recommendThree">3</label>
+          <input type="radio" name="recommend" value="4" id="recommendFour"><label for="recommendFour">4</label>
+          <input type="radio" name="recommend" value="5" id="recommendFive"><label for="recommendFive">5</label>
         </div>
       </div>
 
@@ -207,32 +223,29 @@ function submitQuestionnaire() {
     errorElement: 'em',
     submitHandler: function() {
       //submit the form
-      $("#questionnaire-form").fadeOut(300).reset; //reset fields
+      $("#questionnaire-form").fadeOut(300).reset;
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       $(this).blur();
 
-      $.post("<?php echo $_SERVER[PHP_SELF]; ?>", //post
+      $.post("<?php echo $_SERVER[PHP_SELF]; ?>",
         $("#contact-us").serialize(),
         function(data){
           var dataStr = data.replace(/(^\s+|\s+$)/g,'');
-          //if message is sent
         if (dataStr === 'Sent') {
-
           $('#sending').fadeOut(300);
-
           alert('Great work! Thanks');
-
         }
         else {
           setTimeout(function(){
-            $("#failed").fadeIn(600); //show confirmation message
+            $("#failed").fadeIn(600);
           }, 1600);
         }
       });
-      return false; //don't let the page refresh on submit.
+      return false;
     }
-  }); //validate the form
+  });
 }
+
 $('#submit').on('click', function(e){
   submitQuestionnaire();
 
