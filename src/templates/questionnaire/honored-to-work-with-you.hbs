@@ -1,0 +1,163 @@
+---
+title: Sad To See You Go
+id: questionnaire
+theme: light
+---
+<?php
+
+//validate
+if ($_POST) {
+  echo 'Sent';
+//send confirmation email (or insert into database, etc...)
+  $EmailTo = "hello@underbelly.is";
+  $Subject = "Honored To Work With You";
+  $timelyManner = Trim(stripslashes($_POST['timelyManner']));
+  $satisfaction = Trim(stripslashes($_POST['satisfaction']));
+  $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
+  $reasoning = Trim(stripslashes($_POST['reasoning']));
+  $objectives = Trim(stripslashes($_POST['objectives']));
+  $futureProjects = Trim(stripslashes($_POST['futureProjects']));
+  $recommend = Trim(stripslashes($_POST['recommend']));
+  $whatElse = Trim(stripslashes($_POST['whatElse']));
+
+  // prepare email body text
+  $Body = "Sad to See You Go Email!";
+
+  // send email
+  // send email
+  $success = mail($EmailTo, $Subject, $Body, "From: <$EmailFrom>");
+
+  // redirect to success page
+  if ($success){
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-thanks.php\">";
+  }
+  else{
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=/questionnaire-error.php\">";
+  }
+}
+
+?>
+
+<main role="main" id="{{id}}-main">
+  <div id="work-header">
+    <h1 class="h2 text-center">Honored To Work With You</h1>
+  </div>
+  <div id="questionnaire-area" class="padding-xl">
+    <form id="questionnaire-form" method="post" action="" data-abide>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="timelyManner">Did we respond to your feedback in a timely manner?</label>
+          <textarea rows="10" name="timelyManner" id="timelyManner" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="satisfaction">How satisfied are you with the design of the finished product?</label>
+          <textarea rows="10" name="satisfaction" id="satisfaction" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="timeSatisfaction">How satisfied are you with the time it took to complete the project?</label>
+          <textarea rows="10" name="timeSatisfaction" id="timeSatisfaction" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="reasoning">Did we provide clear enough reasoning for our design choices?</label>
+          <textarea rows="10" name="reasoning" id="reasoning" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="objectives">Does the finished product meet your objectives?</label>
+          <textarea rows="10" name="objectives" id="objectives" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="futureProjects">How likely are you to choose Underbelly for a future project?</label>
+          <textarea rows="10" name="futureProjects" id="futureProjects" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="recommend">How likely are you to recommend Underbelly to someone else?</label>
+          <textarea rows="10" name="recommend" id="recommend" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="whatElse">What could we have done, if anything, to leave you feeling more satisfied with the finished product?</label>
+          <textarea rows="10" name="whatElse" id="whatElse" class="input-tall"> </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="medium-12 columns">
+              <button type="submit" name="submit" value="Submit" class="submit-button button radius" />Submit</button>
+          </div>
+      </div>
+
+    </form>
+    <div style="clear: both;"></div>
+    </div>
+</main>
+
+{{> scripts-default }}
+<script>
+
+//keep the enter key from submitting form
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+
+function submitQuestionnaire() {
+  $("#questionnaire-form").validate({
+    errorElement: 'em',
+    submitHandler: function() {
+      //submit the form
+      $("#questionnaire-form").fadeOut(300).reset; //reset fields
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      $(this).blur();
+
+      $.post("<?php echo $_SERVER[PHP_SELF]; ?>", //post
+        $("#contact-us").serialize(),
+        function(data){
+          var dataStr = data.replace(/(^\s+|\s+$)/g,'');
+          //if message is sent
+        if (dataStr === 'Sent') {
+
+          $('#sending').fadeOut(300);
+
+          alert('Great work! Thanks');
+
+        }
+        else {
+          setTimeout(function(){
+            $("#failed").fadeIn(600); //show confirmation message
+          }, 1600);
+        }
+      });
+      return false; //don't let the page refresh on submit.
+    }
+  }); //validate the form
+}
+$('#submit').on('click', function(e){
+  submitQuestionnaire();
+
+  $(this).blur();
+});
+</script>

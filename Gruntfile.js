@@ -122,6 +122,18 @@ module.exports = function(grunt) {
 
         src: '<%= config.src %>/templates/questionnaire/sad-to-see-you-go.hbs',
         dest: '<%= config.dist %>/sad-to-see-you-go'
+      },
+      honoredtoworkwithyou: {
+        options: {
+          layout: '<%= config.src %>/templates/layouts/questionnaire.hbs',
+          assets: '<%= config.dist %>/assets',
+          data: '<%= config.src %>/data/*.{json,yml}',
+          partials: '<%= config.src %>/templates/questionnaire/partials/*.hbs',
+          ext: '.php'
+        },
+
+        src: '<%= config.src %>/templates/questionnaire/honored-to-work-with-you.hbs',
+        dest: '<%= config.dist %>/honored-to-work-with-you'
       }
     },
     uglify: {
