@@ -17,7 +17,7 @@ html, body {
 
 * {
       -webkit-tap-highlight-color:rgba(0,0,0,0);
-  } 
+  }
 
 .l-wrapper {
     height: 100%;
@@ -45,7 +45,7 @@ main {
     @media #{$small-only} {
         margin-bottom: 0;
     }
-    
+
 }
 
 main:after, .l-footer {
@@ -98,7 +98,7 @@ main:after, .l-footer {
     &:hover {
         color: $white;
     }
-    
+
 
 }
 
@@ -204,7 +204,7 @@ div.quote {
         color: $white;
     }
 
-    
+
     display: block;
     .quote-author {
         clear: both;
@@ -218,7 +218,7 @@ div.quote {
     @media (max-width: $screen-width-sm) {
         font-size: 1.5em;
     }
-    
+
 }
 
 
@@ -268,7 +268,7 @@ div.quote {
     z-index: 999;
     background-color: $white;
     display: block;
-    
+
     img {
         position: absolute;
         left: 50%;
@@ -279,7 +279,7 @@ div.quote {
 
     &:after {
         content: '';
-        
+
     }
 }
 
@@ -307,7 +307,7 @@ div.quote {
             -webkit-transition: bottom ease 0.4s 0s, height ease 0.4s 0s;
             //-webkit-transition-delay: 0.4s;
         }
-        
+
 
         &.active {
             &:after {
@@ -348,7 +348,7 @@ div.quote {
             display: block;
         }
     }
-    
+
 }
 
 body.pace-done {
@@ -379,7 +379,7 @@ body.pace-done {
         opacity: 0;
         -webkit-transition: opacity 0.5s ease;
     }
-    
+
     color: rgba($black, 0.2);
         &:before {
             position: absolute;
@@ -531,7 +531,7 @@ body#error-404 {
         .top-bar-section ul li > a,
         #brand {
             color: $white;
-            
+
         }
     }
 }
@@ -582,7 +582,7 @@ main#four-oh-four {
     right: 0;
     bottom: 0;
     left: 0;
-    
+
     .message {
         width: 36%;
         position: absolute;

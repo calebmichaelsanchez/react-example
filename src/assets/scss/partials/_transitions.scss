@@ -60,7 +60,7 @@ $circle-next-out: all 0.2s cubic-bezier(.53, 1,.53,1.3);
             position: absolute;
             letter-spacing: -3px;
             transition: $circle-next-out;
-            
+
         }
         &:after {
             content: '';
@@ -127,7 +127,7 @@ $circle-next-out: all 0.2s cubic-bezier(.53, 1,.53,1.3);
 
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
   .circlenext:hover .next-circle:after {
      top: -1px;
   }
@@ -146,11 +146,11 @@ $circle-next-out: all 0.2s cubic-bezier(.53, 1,.53,1.3);
 }
 
 #landingHero {
-    
+
 }
 
 @media (max-width: $screen-width-md) {
-    .circlenext { 
+    .circlenext {
         .next-circle {
             top: 0;
             &:before {
@@ -171,5 +171,3 @@ $circle-next-out: all 0.2s cubic-bezier(.53, 1,.53,1.3);
         }
     }
 }
-
-

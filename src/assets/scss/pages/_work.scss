@@ -37,7 +37,7 @@
         h1.h2 {
             font-size: $font-size-h4;
         }
-        
+
     }
 }
 
@@ -162,7 +162,7 @@
 //     bottom: 0;
 //     right: 0;
 //     z-index: 100;
-    
+
 //     &:hover {
 //         background-color: white;
 //         .tile.image {
@@ -280,19 +280,19 @@
         }
     }
 
-    
-    
-    
+
+
+
     @media (max-width: $screen-width-sm) {
         .title h5 {
             font-size: $font-size-base;
         }
-        
+
     }
 
 }
 
-// Layout Stuff 
+// Layout Stuff
 
 .height-full-row {
     height: 0;
@@ -314,18 +314,18 @@
 }
 
 @media (min-width: $screen-width-sm) and (max-width: $screen-width-md) {
-    
+
     .height-2 {
         padding-bottom: 50%;
     }
     .height-1 {
         padding-bottom: 50%;
     }
-    
+
     .large-6 {
         padding-bottom: 100%;
     }
-    
+
 }
 
 
@@ -379,7 +379,7 @@
         overflow: hidden;
 
 
-        
+
         img {
             width: 100%;
             height: auto;
@@ -432,7 +432,7 @@
             }
         }
 
-        
+
         // @media (min-width: $screen-width-lg) {
         //     width: 14.66666667%;
         // }
@@ -583,7 +583,7 @@
                     border-color: $white;
                 }
             }
-            
+
         }
         .image {
             padding-bottom: 50%;

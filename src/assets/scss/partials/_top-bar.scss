@@ -1,4 +1,4 @@
-//Variables 
+//Variables
 $topbar-height: 100px !default;
 $topbar-semi-height: 50px;
 
@@ -39,7 +39,7 @@ header {
     }
     &:before {
         content: '\e601';
-        
+
         overflow: visible;
         //-webkit-transition: all 0.24s $header-transition-02;
     }
@@ -159,7 +159,7 @@ header {
                             }
                           }
                     }
-                } 
+                }
         }
     }
 }
@@ -182,7 +182,7 @@ header {
         position: fixed;
         top: 0;
         z-index: 499;
-        
+
         .top-bar {
             //-webkit-transition: max-height ease-in-out 0.3s 0.1s;
             max-height: 50px;
@@ -307,7 +307,7 @@ header {
         }
 
         &.expanded:not(.top-bar) {
-                        
+
             .top-bar {
                 max-height: 600px;
                 -webkit-transition: max-height linear 0.3s 0.2s;
@@ -341,7 +341,7 @@ header {
                         background: transparent;
 
                         &:nth-child(2) {
-                            
+
                             -webkit-transition-delay: 0.1s;
                             a {
                                 -webkit-transition-delay: 0.2s;
@@ -381,7 +381,7 @@ header {
                 }
             }
         }
-        
+
         &.semi,
         &.expanded {
             .top-bar {
@@ -392,7 +392,7 @@ header {
                         margin-top: $topbar-semi-height;
                     }
                 }
-                
+
                 .title-area {
                     .name {
                         height: $topbar-semi-height;
@@ -532,7 +532,7 @@ header {
             -moz-transform: rotate(0deg);
             -ms-transform: rotate(0deg);
             -o-transform: rotate(0deg);
-            transform: rotate(0deg); 
+            transform: rotate(0deg);
             -webkit-transition: -webkit-transform 0.4s ease;
             -moz-transition: -moz-transform 0.4s ease;
             -ms-transition: -ms-transform 0.4s ease;
@@ -552,7 +552,7 @@ header {
     }
     .toggle-topbar.menu-icon a {
         -webkit-transform: rotate(45deg);
-        -webkit-animation: menu-rotate 0.3s 1; 
+        -webkit-animation: menu-rotate 0.3s 1;
         &:before {
             -webkit-animation: menu-shrink-before 0.3s 1;
             -moz-animation: menu-shrink-before 0.3s 1;
