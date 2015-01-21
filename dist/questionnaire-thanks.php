@@ -60,21 +60,19 @@
       
 
 <main role="main" id="questionnaire-thanks-main">
-    <div class="row">
-        <div class="medium-12 columns">
-            <h2 class="h1 padding-top-120">
-                Thank you!
-            </h2>
-            <h4>You should be hearing from us soon!</h4>
-
-        </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 class="h1 padding-top-120">
+        Thank you!
+      </h2>
+      <h4>You should be hearing from us soon!</h4>
     </div>
-    <div class="row">
-        <div class="medium-12 columns padding-md">
-            <a href="/" class="button radius">Go back home</a>
-        </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns padding-md">
+      <a href="/" class="button radius">Go back home</a>
     </div>
-
+  </div>
 </main>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -105,7 +103,6 @@
   ga('send', 'pageview');
 
 </script>
-
 
     
 

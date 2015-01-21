@@ -7,22 +7,35 @@ theme: light
 //validate
 if ($_POST) {
 //send confirmation email (or insert into database, etc...)
-  $EmailTo = "riley@underbelly.is";
+  $EmailTo = "hello@underbelly.is";
   $Subject = "Honored To Work With You";
+  $firstName = Trim(stripslashes($_POST['firstName']));
+  $lastName = Trim(stripslashes($_POST['lastName']));
+  $email = Trim(stripslashes($_POST['email']));
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
-  $timelyMannerMore = (trim($_POST['timelyMannerMore']) == "") ? "No reason given." : $_POST['timelyMannerMore'];
+  $timelyMannerMore = (trim($_POST['timelyMannerMore']) == "") ? "no reason given." : $_POST['timelyMannerMore'];
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
   $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
   $reasoning = Trim(stripslashes($_POST['reasoning']));
-  $reasoningMore = (trim($_POST['reasoningMore']) == "") ? "No reason given." : $_POST['reasoningMore'];
+  $reasoningMore = (trim($_POST['reasoningMore']) == "") ? "no reason given." : $_POST['reasoningMore'];
   $objectives = Trim(stripslashes($_POST['objectives']));
-  $objectivesMore = (trim($_POST['objectivesMore']) == "") ? "No reason given." : $_POST['objectivesMore'];
+  $objectivesMore = (trim($_POST['objectivesMore']) == "") ? "no reason given." : $_POST['objectivesMore'];
   $futureProjects = Trim(stripslashes($_POST['futureProjects']));
   $recommend = Trim(stripslashes($_POST['recommend']));
   $whatElse = Trim(stripslashes($_POST['whatElse']));
 
   // prepare email body text
   $Body = "";
+  $Body .= "Name: ";
+  $Body .= "\n";
+  $Body .= $firstName;
+  $Body .= " ";
+  $Body .= $lastName;
+  $Body .= "\n\n";
+  $Body .= "Email: ";
+  $Body .= "\n";
+  $Body .= $email;
+  $Body .= "\n\n";
   $Body .= "Did we respond to your feedback in a timely manner?";
   $Body .= "\n";
 
@@ -101,6 +114,22 @@ if ($_POST) {
   </div>
   <div id="questionnaire-area" class="padding-xl">
     <form id="questionnaire-form" method="post" action="" data-abide>
+      <div class="row">
+        <div class="medium-6 columns">
+          <label for="firstName">First Name*</label>
+          <input class="mb" type="text" name="firstName" id="firstName" required />
+        </div>
+        <div class="medium-6 columns">
+          <label for="lastName">Last Name*</label>
+          <input class="mb" type="text" name="lastName" id="lastName" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <label for="email">Email*</label>
+          <input class="mb" type="text" name="email" id="email" required />
+        </div>
+      </div>
 
       <div class="row">
         <div class="large-12 columns">
