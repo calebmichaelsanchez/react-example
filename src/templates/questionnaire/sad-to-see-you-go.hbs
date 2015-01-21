@@ -11,16 +11,85 @@ if ($_POST) {
 //send confirmation email (or insert into database, etc...)
   $EmailTo = "hello@underbelly.is";
   $Subject = "Sad To See You Go";
+  $firstName = Trim(stripslashes($_POST['firstName']));
+  $lastName = Trim(stripslashes($_POST['lastName']));
+  $email = Trim(stripslashes($_POST['email']));
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
   $needsAndObjectives = Trim(stripslashes($_POST['needsAndObjectives']));
+  $needsAndObjectivesMore = (trim($_POST['needsAndObjectivesMore']) == "") ? "no reason given." : $_POST['needsAndObjectivesMore'];
   $budget = Trim(stripslashes($_POST['budget']));
+  $budgetMore = (trim($_POST['budgetMore']) == "") ? "no reason given." : $_POST['budgetMore'];
   $competition = Trim(stripslashes($_POST['competition']));
   $timelines = Trim(stripslashes($_POST['timelines']));
+  $timelinesMore = (trim($_POST['timelinesMore']) == "") ? "no reason given." : $_POST['timelinesMore'];
   $firstContact = Trim(stripslashes($_POST['firstContact']));
   $primaryReason = Trim(stripslashes($_POST['primaryReason']));
 
   // prepare email body text
-  $Body = "Sad to See You Go Email!";
+  $Body = "";
+  $Body .= "Name: ";
+  $Body .= "\n";
+  $Body .= $firstName;
+  $Body .= " ";
+  $Body .= $lastName;
+  $Body .= "\n\n";
+  $Body .= "Email: ";
+  $Body .= "\n";
+  $Body .= $email;
+  $Body .= "\n\n";
+  $Body .= "Did we respond to in a timely manner?";
+  $Body .= "\n";
+  $Body .= $timelyManner;
+  $Body .= "\n\n";
+  $Body .= "Did our proposal reflect a correct understanding of your needs and objectives?";
+  $Body .= "\n";
+
+  if ($needsAndObjectives == "No") {
+    $Body .= $needsAndObjectives;
+    $Body .= ", ";
+    $Body .= $needsAndObjectivesMore;
+  } else {
+    $Body .= $needsAndObjectives;
+  }
+
+  $Body .= "\n\n";
+  $Body .= "Did our bid fall within your budget?";
+  $Body .= "\n";
+
+  if ($budget == "No") {
+    $Body .= $budget;
+    $Body .= ", ";
+    $Body .= $budgetMore;
+  } else {
+    $Body .= $budget;
+  }
+
+  $Body .= "\n\n";
+  $Body .= "If you contacted multiple design firms for this project, was our quote competitive?";
+  $Body .= "\n";
+  $Body .= $competition;
+
+  $Body .= "\n\n";
+  $Body .= "Did our proposed timelines for this project meet your needs?";
+  $Body .= "\n";
+
+  if ($timelines == "No") {
+    $Body .= $timelines;
+    $Body .= ", ";
+    $Body .= $timelinesMore;
+  } else {
+    $Body .= $timelines;
+  }
+
+  $Body .= "\n\n";
+  $Body .= "How did you first come to contact Underbelly for this project?";
+  $Body .= "\n";
+  $Body .= $firstContact;
+  $Body .= "\n\n";
+  $Body .= "If you had to name just one, what is the primary reason you decided not to partner with Underbelly for this project?";
+  $Body .= "\n";
+  $Body .= $whatElse;
+  $Body .= "\n\n";
 
   // send email
   // send email
@@ -45,50 +114,103 @@ if ($_POST) {
     <form id="questionnaire-form" method="post" action="" data-abide>
 
       <div class="row">
-        <div class="medium-12 columns">
-          <label for="timelyManner">Did we respond in a timely manner?</label>
-          <textarea rows="10" name="timelyManner" id="timelyManner" class="input-tall"> </textarea>
+        <div class="medium-6 columns">
+          <label class="mb" for="firstName">First Name*</label>
+          <input class="mb" type="text" name="firstName" id="firstName" required />
+        </div>
+        <div class="medium-6 columns">
+          <label class="mb" for="lastName">Last Name*</label>
+          <input class="mb" type="text" name="lastName" id="lastName" required />
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="needsAndObjectives">Did our proposal reflect a correct understanding of your needs and objectives?</label>
-          <textarea rows="10" name="needsAndObjectives" id="needsAndObjectives" class="input-tall"> </textarea>
+          <label class="mt- mb" for="email">Email*</label>
+          <input class="mb" type="text" name="email" id="email" required />
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="budget">Did our bid fall within your budget?</label>
-          <textarea rows="10" name="budget" id="budget" class="input-tall"> </textarea>
+          <label class="mt- mb" for="timelyManner">Did we respond in a timely manner?</label>
+          <input type="radio" name="timelyManner" class="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
+          <input type="radio" name="timelyManner" class="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="competition">If you contacted multiple design firms for this project, was our quote competitive?</label>
-          <textarea rows="10" name="competition" id="competition" class="input-tall"> </textarea>
+          <label class="mt- mb" for="needsAndObjectives">Did our proposal reflect a correct understanding of your needs and objectives?</label>
+          <input type="radio" name="needsAndObjectives" class="needsAndObjectives" value="Yes" id="needsAndObjectivesYes"><label for="needsAndObjectivesYes">Yes</label>
+          <input type="radio" name="needsAndObjectives" class="needsAndObjectives" value="No" id="needsAndObjectivesNo"><label for="needsAndObjectivesNo">No</label>
+        </div>
+      </div>
+
+      <div class="needsAndObjectives-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="needsAndObjectivesMore">What could we have done better?</label>
+            <textarea rows="10" name="needsAndObjectivesMore" id="needsAndObjectivesMore" class="input-tall"> </textarea>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="timelines">Did our proposed timelines for this project meet your needs?</label>
-          <textarea rows="10" name="timelines" id="timelines" class="input-tall"> </textarea>
+          <label class="mt- mb" for="budget">Did our bid fall within your budget?</label>
+          <input type="radio" name="budget" class="budget" value="Yes" id="budgetYes"><label for="budgetYes">Yes</label>
+          <input type="radio" name="budget" class="budget" value="No" id="budgetNo"><label for="budgetNo">No</label>
+        </div>
+      </div>
+
+      <div class="budget-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="budgetMore">What could we have done better?</label>
+            <textarea rows="10" name="budgetMore" id="budgetMore" class="input-tall"> </textarea>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="firstContact">How did you first come to contact Underbelly for this project?</label>
+          <label class="mt- mb" for="competition">If you contacted multiple design firms for this project, was our quote competitive?</label>
+          <input type="radio" name="competition" value="1" id="competitionOne"><label for="competitionOne">1</label>
+          <input type="radio" name="competition" value="2" id="competitionTwo"><label for="competitionTwo">2</label>
+          <input type="radio" name="competition" value="3" id="competitionThree"><label for="competitionThree">3</label>
+          <input type="radio" name="competition" value="4" id="competitionFour"><label for="competitionFour">4</label>
+          <input type="radio" name="competition" value="5" id="competitionFive"><label for="competitionFive">5</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label class="mt- mb" for="timelines">Did our proposed timelines for this project meet your needs?</label>
+          <input type="radio" name="timelines" class="timelines" value="Yes" id="timelinesYes"><label for="timelinesYes">Yes</label>
+          <input type="radio" name="timelines" class="timelines" value="No" id="timelinesNo"><label for="timelinesNo">No</label>
+        </div>
+      </div>
+
+      <div class="timelines-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="timelinesMore">What could we have done better?</label>
+            <textarea rows="10" name="timelinesMore" id="timelinesMore" class="input-tall"> </textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label class="mt- mb" for="firstContact">How did you first come to contact Underbelly for this project?</label>
           <textarea rows="10" name="firstContact" id="firstContact" class="input-tall"> </textarea>
         </div>
       </div>
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="primaryReason">If you had to name just one, what is the primary reason you decided not to partner with Underbelly for this project?</label>
+          <label class="mt- mb" for="primaryReason">If you had to name just one, what is the primary reason you decided not to partner with Underbelly for this project?</label>
           <textarea rows="10" name="primaryReason" id="primaryReason" class="input-tall"> </textarea>
         </div>
       </div>
@@ -115,6 +237,19 @@ function stopRKey(evt) {
 }
 
 document.onkeypress = stopRKey;
+
+function radioToggle(title) {
+  if ($("input[name=" + title + "]:checked").val() == "No") {
+    $("." + title + "-more").slideDown("slow");
+  } else {
+    $("." + title + "-more").slideUp("slow");
+  }
+}
+
+$(".needsAndObjectives-more, .timelines-more, .budget-more").css("display","none");
+$(".needsAndObjectives").click(function() { radioToggle('needsAndObjectives');});
+$(".timelines").click(function() { radioToggle('timelines');});
+$(".budget").click(function() { radioToggle('budget');});
 
 function submitQuestionnaire() {
   $("#questionnaire-form").validate({

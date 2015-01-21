@@ -165,26 +165,28 @@ if ($_POST) {
   </div>
   <div id="questionnaire-area" class="padding-xl">
     <form id="questionnaire-form" method="post" action="" data-abide>
+
       <div class="row">
         <div class="medium-6 columns">
-          <label for="firstName">First Name*</label>
+          <label class="mb" for="firstName">First Name*</label>
           <input class="mb" type="text" name="firstName" id="firstName" required />
         </div>
         <div class="medium-6 columns">
-          <label for="lastName">Last Name*</label>
+          <label class="mb" for="lastName">Last Name*</label>
           <input class="mb" type="text" name="lastName" id="lastName" required />
         </div>
       </div>
+
       <div class="row">
         <div class="medium-12 columns">
-          <label for="email">Email*</label>
+          <label class="mt- mb" for="email">Email*</label>
           <input class="mb" type="text" name="email" id="email" required />
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
-          <label class="mb">Did we respond to your feedback in a timely manner?</label>
+          <label class="mt- mb">Did we respond to your feedback in a timely manner?</label>
           <input type="radio" name="timelyManner" class="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
           <input type="radio" name="timelyManner" class="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
         </div>
