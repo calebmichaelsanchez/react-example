@@ -618,6 +618,9 @@ main.case-study {
 }
 
 // Just Family Case Study
+.justfamily .blue {
+  h4, h3 { color: $white; }
+}
 
 #justfamily-hero {
     background-image: url('../img/casestudies/justfamily/justfamily-hero-05.jpg');
@@ -661,12 +664,10 @@ main.case-study {
 
 #justfamily-ui {
     position: relative;
-    //overflow: hidden;
     margin-bottom: 180px;
 
-    @media #{$small-only} {
-        margin-bottom: 90px;
-    }
+    h3, h4 { color: $white; }
+    @media #{$small-only} { margin-bottom: 90px; }
 }
 #justfamily-ui-01,
 #justfamily-ui-02 {
@@ -991,7 +992,7 @@ main.case-study {
 
 #aiga-website {
   background-color: #49575a;
-  
+
   .circlenext {
     color: $white;
     position: absolute;
