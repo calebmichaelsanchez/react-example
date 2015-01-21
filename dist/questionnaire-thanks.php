@@ -65,7 +65,9 @@
       <h2 class="h1 padding-top-120">
         Thank you!
       </h2>
-      <h4>You should be hearing from us soon!</h4>
+      <?php
+        if($_GET["identity"] === "") echo "<h4>You should be hearing from us soon!</h4>"
+      ?>
     </div>
   </div>
   <div class="row">
