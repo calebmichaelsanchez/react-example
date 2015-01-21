@@ -63,7 +63,7 @@ if ($_POST) {
   $EmailTo = "riley@underbelly.is";
   $Subject = "Honored To Work With You";
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
-  $timelyMannerMore = (empty($_POST['timelyMannerMore'])) ? '' : $_POST['timelyMannerMore'];
+  $timelyMannerMore = (empty($_POST['timelyMannerMore'])) ? 'No reason given.' : $_POST['timelyMannerMore'];
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
   $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
   $reasoning = Trim(stripslashes($_POST['reasoning']));
@@ -78,7 +78,9 @@ if ($_POST) {
   $Body .= "\n";
 
   if ($timelyManner == "No") {
-    $Body .= $timelyManner + "," + $timelyMannerMore;
+    $Body .= $timelyManner;
+    $Body .= ", ";
+    $Body .= $timelyMannerMore;
   } else {
     $Body .= $timelyManner;
   }
