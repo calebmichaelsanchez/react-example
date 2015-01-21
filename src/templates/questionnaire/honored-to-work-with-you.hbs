@@ -12,7 +12,7 @@ if ($_POST) {
   $EmailTo = "riley@underbelly.is";
   $Subject = "Honored To Work With You";
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
-  $timelyMannerMore = (empty($_POST['timelyMannerMore'])) ? "No reason given." : $_POST['timelyMannerMore'];
+  $timelyMannerMore = ($_POST['timelyMannerMore'] == '') ? "No reason given." : $_POST['timelyMannerMore'];
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
   $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
   $reasoning = Trim(stripslashes($_POST['reasoning']));
