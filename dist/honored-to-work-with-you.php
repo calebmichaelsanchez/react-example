@@ -78,11 +78,11 @@ if ($_POST) {
   $Body .= "\n";
 
   if ($timelyManner == "No") {
-    $Body .= $timelyManner, $timelyMannerMore;
+    $Body .= $timelyManner + "," + $timelyMannerMore;
   } else {
     $Body .= $timelyManner;
   }
-  
+
   $Body .= "\n\n";
   $Body .= "How satisfied are you with the design of the finished product?";
   $Body .= "\n";
