@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <title>Sad To See You Go | Underbelly Creative Co.</title>
+    <title>Honored to Work With You | Underbelly Creative Co.</title>
 
     <link href="/assets/css/styles.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -76,7 +76,7 @@ if ($_POST) {
   $Body .= "Did we respond to your feedback in a timely manner?";
   $Body .= "\n";
   $Body .= $timelyManner;
-  $Body .= "\n\n";
+  ($timelyManner == "No") ? 'They answered no' : $Body .= "\n\n";
   $Body .= "How satisfied are you with the design of the finished product?";
   $Body .= "\n";
   $Body .= $satisfaction;
@@ -131,8 +131,17 @@ if ($_POST) {
       <div class="row">
         <div class="large-12 columns">
           <label class="mb">Did we respond to your feedback in a timely manner?</label>
-          <input type="radio" name="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
-          <input type="radio" name="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
+          <input type="radio" name="timelyManner" class="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
+          <input type="radio" name="timelyManner" class="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
+        </div>
+      </div>
+
+      <div class="timelyManner-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="timelyMannerMore">What could we have done better?</label>
+            <textarea rows="10" name="timelyMannerMore" id="timelyMannerMore" class="input-tall"> </textarea>
+          </div>
         </div>
       </div>
 
@@ -150,24 +159,45 @@ if ($_POST) {
       <div class="row">
         <div class="large-12 columns">
           <label class="mt- mb">How satisfied are you with the time it took to complete the project?</label>
-          <input type="radio" name="timeSatisfaction" value="Yes" id="timeSatisfactionYes"><label for="timeSatisfactionYes">Yes</label>
-          <input type="radio" name="timeSatisfaction" value="No" id="timeSatisfactionNo"><label for="timeSatisfactionNo">No</label>
+          <input type="radio" name="timeSatisfaction" value="1" id="timeSatisfactionOne"><label for="timeSatisfactionOne">1</label>
+          <input type="radio" name="timeSatisfaction" value="2" id="timeSatisfactionTwo"><label for="timeSatisfactionTwo">2</label>
+          <input type="radio" name="timeSatisfaction" value="3" id="timeSatisfactionThree"><label for="timeSatisfactionThree">3</label>
+          <input type="radio" name="timeSatisfaction" value="4" id="timeSatisfactionFour"><label for="timeSatisfactionFour">4</label>
+          <input type="radio" name="timeSatisfaction" value="5" id="timeSatisfactionFive"><label for="timeSatisfactionFive">5</label>
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
           <label class="mt- mb">Did we provide clear enough reasoning for our design choices?</label>
-          <input type="radio" name="reasoning" value="Yes" id="reasoningYes"><label for="reasoningYes">Yes</label>
-          <input type="radio" name="reasoning" value="No" id="reasoningNo"><label for="reasoningNo">No</label>
+          <input type="radio" name="reasoning" class="reasoning" value="Yes" id="reasoningYes"><label for="reasoningYes">Yes</label>
+          <input type="radio" name="reasoning" class="reasoning" value="No" id="reasoningNo"><label for="reasoningNo">No</label>
+        </div>
+      </div>
+
+      <div class="reasoning-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="reasoningMore">What could we have done better?</label>
+            <textarea rows="10" name="reasoningMore" id="reasoningMore" class="input-tall"> </textarea>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
           <label class="mt- mb">Does the finished product meet your objectives?</label>
-          <input type="radio" name="objectives" value="Yes" id="objectivesYes"><label for="objectivesYes">Yes</label>
-          <input type="radio" name="objectives" value="No" id="objectivesNo"><label for="objectivesNo">No</label>
+          <input type="radio" name="objectives" class="objectives" value="Yes" id="objectivesYes"><label for="objectivesYes">Yes</label>
+          <input type="radio" name="objectives" class="objectives" value="No" id="objectivesNo"><label for="objectivesNo">No</label>
+        </div>
+      </div>
+
+      <div class="objectives-more">
+        <div class="row">
+          <div class="large-12 columns">
+            <label class="mb" for="objectivesMore">What could we have done better?</label>
+            <textarea rows="10" name="objectivesMore" id="objectivesMore" class="input-tall"> </textarea>
+          </div>
         </div>
       </div>
 
@@ -201,9 +231,9 @@ if ($_POST) {
       </div>
 
       <div class="row">
-          <div class="medium-12 columns">
-              <button type="submit" name="submit" value="Submit" class="submit-button button radius" />Submit</button>
-          </div>
+        <div class="medium-12 columns">
+          <button type="submit" name="submit" value="Submit" class="submit-button button radius" />Submit</button>
+        </div>
       </div>
 
     </form>
@@ -249,6 +279,19 @@ function stopRKey(evt) {
 }
 
 document.onkeypress = stopRKey;
+
+function radioToggle(title) {
+  if ($("input[name=" + title + "]:checked").val() == "No") {
+    $("." + title + "-more").slideDown("slow");
+  } else {
+    $("." + title + "-more").slideUp("slow");
+  }
+}
+
+$(".objectives-more, .timelyManner-more, .reasoning-more").css("display","none");
+$(".objectives").click(function() { radioToggle('objectives');});
+$(".reasoning").click(function() { radioToggle('reasoning');});
+$(".timelyManner").click(function() { radioToggle('timelyManner');});
 
 function submitQuestionnaire() {
   $("#questionnaire-form").validate({
