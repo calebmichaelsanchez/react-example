@@ -6,187 +6,157 @@
     - Recommendations
 */
 
-
-
 $jf-blue: #44ade2;
 
 // Global Case Study Styles
 .fixed-slider > div:not(.row) {
-    background-attachment: fixed;
-    background-position: center 85px;
-    width: 100%;
-    overflow: hidden;
-    background-position: center center;
+  background-attachment: fixed;
+  background-position: center 85px;
+  width: 100%;
+  overflow: hidden;
+  background-position: center center;
 }
 
 main.case-study {
-    .full-height {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    //margin-top: -100px;
+  .full-height {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .columns {
+    padding-left: 30px;
+    padding-right: 30px;
+
     .columns {
-        padding-left: 30px;
-        padding-right: 30px;
-        .columns {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
+      padding-left: 15px;
+      padding-right: 15px;
     }
+  }
 }
 
-.justfamily .blue {
-    background-color: $jf-blue;
-}
-
+.justfamily .blue { background-color: $jf-blue; }
 
 .top-hero {
-    background-size: cover;
-    position: relative;
-    .case-title {
-        position: absolute;
-        z-index: 99;
-        bottom: 3%;
-        width: auto;
+  background-size: cover;
+  position: relative;
 
-        h1 { margin-bottom: 0; }
-        .h6 { font-size: 100%; }
-        h1, .h6 { color: $white; }
+  .case-title {
+    position: absolute;
+    z-index: 99;
+    bottom: 3%;
+    width: auto;
 
-        &.top-center {
-            position: relative;
-            margin-top: 8%;
-            text-align: center;
-            width: 100%;
-        }
+    h1 { margin-bottom: 0; }
+    .h6 { font-size: 100%; }
+    h1, .h6 { color: $white; }
+
+    &.top-center {
+      position: relative;
+      margin-top: 8%;
+      text-align: center;
+      width: 100%;
     }
-    .imagePosition {
-        top: 45%;
-    }
+  }
+
+  .imagePosition {
+    top: 45%;
+  }
 }
+
 @media #{$medium-only} {
-    .top-hero {
-        &.full-height {
-            height: 860px;
-        }
-    }
+  .top-hero.full-height { height: 860px; }
 }
 
 @media (max-width: $screen-width-sm) {
-    .top-hero {
-        &.full-height {
-            max-height: 400px;
-        }
-    }
+  .top-hero.full-height { max-height: 400px; }
 }
 
 .color-overlay {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: block;
-    //margin-top: 11px;
-    min-height: 400px;
-    max-height: 860px;
-
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  min-height: 400px;
+  max-height: 860px;
 }
 
 
 
 .blurred-bg {
-    background-image: url('../img/casestudies/blurred-bg-1.jpg');
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url('../img/casestudies/blurred-bg-1.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .embed-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 // Fluid App
 
-#casestudy-fluid {
-    color: $white;
-}
+#casestudy-fluid { color: $white; }
 
 #fluid-hero {
-    .case-title {
-        color: $darkgray;
-    }
+  .case-title { color: $darkgray; }
 
-    .color-overlay {
-        background-color: #22716d;
-        z-index: 11;
-    }
-    img {
-        margin-top: -10%;
-        left: 16.6666667%;
-    }
-    @media (max-width: $screen-width-sm) {
-        img {
-            left: 0;
-        }
-        .top-center {
-            margin-top: 15%;
-        }
-    }
+  .color-overlay {
+    background-color: #22716d;
+    z-index: 11;
+  }
+
+  img {
+    margin-top: -10%;
+    left: 16.6666667%;
+  }
+
+  @media (max-width: $screen-width-sm) {
+    img { left: 0; }
+    .top-center { margin-top: 15%; }
+  }
 }
 
 
 
 #fluid-app-icon {
-    background-image: url('../img/casestudies/fluid/deskbg.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    img.app-icon {
-        // top: 50%;
-        // margin-top: -300px;
-        // position: relative;
-    }
-    @media (max-height: $screen-width-md) {
-        background-size: 400%;
-        background-repeat: repeat;
-        img.app-icon {
-            // top: 20%;
-            // width: 60%;
-            // position: relative;
+  background-image: url('../img/casestudies/fluid/deskbg.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-        }
-    }
-    @media #{$small-only} {
-        background-attachment: scroll;
-        background-size: 300%;
-        &.padding-180 {
-            padding: 45px 0;
-        }
-    }
+  @media (max-height: $screen-width-md) {
+    background-size: 400%;
+    background-repeat: repeat;
+  }
+
+  @media #{$small-only} {
+    background-attachment: scroll;
+    background-size: 300%;
+
+    &.padding-180 { padding: 45px 0; }
+  }
 }
 
 #fluid-branding {
-    .small-4 {
-        text-align: center;
-        img {
-            width: 50%;
-        }
-    }
-    @media #{$small-only} {
-        .small-4 {
-            padding: 7.5px;
-            img {
-                width: 100%;
-            }
-        }
+  .small-4 {
+    text-align: center;
 
-        .padding-top-120 {
-            padding-top: 15px;
-        }
+    img { width: 50%; }
+  }
+  
+  @media #{$small-only} {
+    .small-4 {
+      padding: 7.5px;
+
+      img { width: 100%; }
     }
+
+    .padding-top-120 { padding-top: 15px; }
+  }
 }
 
 #fluid-tablet {

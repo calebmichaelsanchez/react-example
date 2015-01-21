@@ -60,7 +60,7 @@
 if ($_POST) {
   echo 'Sent';
 //send confirmation email (or insert into database, etc...)
-  $EmailTo = "hello@underbelly.is";
+  $EmailTo = "riley@underbelly.is";
   $Subject = "Honored To Work With You";
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
@@ -72,7 +72,39 @@ if ($_POST) {
   $whatElse = Trim(stripslashes($_POST['whatElse']));
 
   // prepare email body text
-  $Body = "Sad to See You Go Email!";
+  $Body = "";
+  $Body .= "Did we respond to your feedback in a timely manner?";
+  $Body .= "\n";
+  $Body .= $timelyManner;
+  $Body .= "\n\n";
+  $Body .= "How satisfied are you with the design of the finished product?";
+  $Body .= "\n";
+  $Body .= $satisfaction;
+  $Body .= "\n\n";
+  $Body .= "How satisfied are you with the time it took to complete the project?";
+  $Body .= "\n";
+  $Body .= $timesSatisfaction;
+  $Body .= "\n\n";
+  $Body .= "Did we provide clear enough reasoning for our design choices?";
+  $Body .= "\n";
+  $Body .= $reasoning;
+  $Body .= "\n\n";
+  $Body .= "Does the finished product meet your objectives?";
+  $Body .= "\n";
+  $Body .= $objectives;
+  $Body .= "\n\n";
+  $Body .= "How likely are you to choose Underbelly for a future project?";
+  $Body .= "\n";
+  $Body .= $futureProjects;
+  $Body .= "\n\n";
+  $Body .= "How likely are you to recommend Underbelly to someone else?";
+  $Body .= "\n";
+  $Body .= $recommend;
+  $Body .= "\n\n";
+  $Body .= "What could we have done, if anything, to leave you feeling more satisfied with the finished product?";
+  $Body .= "\n";
+  $Body .= $whatElse;
+  $Body .= "\n\n";
 
   // send email
   // send email
@@ -98,7 +130,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>Did we respond to your feedback in a timely manner?</label>
+          <label class="mb">Did we respond to your feedback in a timely manner?</label>
           <input type="radio" name="timelyManner" value="Yes" id="timelyMannerYes"><label for="timelyMannerYes">Yes</label>
           <input type="radio" name="timelyManner" value="No" id="timelyMannerNo"><label for="timelyMannerNo">No</label>
         </div>
@@ -106,7 +138,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>How satisfied are you with the design of the finished product?</label>
+          <label class="mt- mb">How satisfied are you with the design of the finished product?</label>
           <input type="radio" name="satisfaction" value="1" id="satisfactionOne"><label for="satisfactionOne">1</label>
           <input type="radio" name="satisfaction" value="2" id="satisfactionTwo"><label for="satisfactionTwo">2</label>
           <input type="radio" name="satisfaction" value="3" id="satisfactionThree"><label for="satisfactionThree">3</label>
@@ -117,7 +149,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>How satisfied are you with the time it took to complete the project?</label>
+          <label class="mt- mb">How satisfied are you with the time it took to complete the project?</label>
           <input type="radio" name="timeSatisfaction" value="Yes" id="timeSatisfactionYes"><label for="timeSatisfactionYes">Yes</label>
           <input type="radio" name="timeSatisfaction" value="No" id="timeSatisfactionNo"><label for="timeSatisfactionNo">No</label>
         </div>
@@ -125,7 +157,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>Did we provide clear enough reasoning for our design choices?</label>
+          <label class="mt- mb">Did we provide clear enough reasoning for our design choices?</label>
           <input type="radio" name="reasoning" value="Yes" id="reasoningYes"><label for="reasoningYes">Yes</label>
           <input type="radio" name="reasoning" value="No" id="reasoningNo"><label for="reasoningNo">No</label>
         </div>
@@ -133,7 +165,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>Does the finished product meet your objectives?</label>
+          <label class="mt- mb">Does the finished product meet your objectives?</label>
           <input type="radio" name="objectives" value="Yes" id="objectivesYes"><label for="objectivesYes">Yes</label>
           <input type="radio" name="objectives" value="No" id="objectivesNo"><label for="objectivesNo">No</label>
         </div>
@@ -141,7 +173,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>How likely are you to choose Underbelly for a future project?</label>
+          <label class="mt- mb">How likely are you to choose Underbelly for a future project?</label>
           <input type="radio" name="futureProjects" value="1" id="futureProjectsOne"><label for="futureProjectsOne">1</label>
           <input type="radio" name="futureProjects" value="2" id="futureProjectsTwo"><label for="futureProjectsTwo">2</label>
           <input type="radio" name="futureProjects" value="3" id="futureProjectsThree"><label for="futureProjectsThree">3</label>
@@ -152,7 +184,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="large-12 columns">
-          <label>How likely are you to recommend Underbelly to someone else?</label>
+          <label class="mt- mb">How likely are you to recommend Underbelly to someone else?</label>
           <input type="radio" name="recommend" value="1" id="recommendOne"><label for="recommendOne">1</label>
           <input type="radio" name="recommend" value="2" id="recommendTwo"><label for="recommendTwo">2</label>
           <input type="radio" name="recommend" value="3" id="recommendThree"><label for="recommendThree">3</label>
@@ -163,7 +195,7 @@ if ($_POST) {
 
       <div class="row">
         <div class="medium-12 columns">
-          <label for="whatElse">What could we have done, if anything, to leave you feeling more satisfied with the finished product?</label>
+          <label for="whatElse" class="mt- mb">What could we have done, if anything, to leave you feeling more satisfied with the finished product?</label>
           <textarea rows="10" name="whatElse" id="whatElse" class="input-tall"> </textarea>
         </div>
       </div>
@@ -248,7 +280,6 @@ function submitQuestionnaire() {
 
 $('#submit').on('click', function(e){
   submitQuestionnaire();
-
   $(this).blur();
 });
 </script>
