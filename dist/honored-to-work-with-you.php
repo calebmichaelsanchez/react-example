@@ -63,13 +63,13 @@ if ($_POST) {
   $EmailTo = "riley@underbelly.is";
   $Subject = "Honored To Work With You";
   $timelyManner = Trim(stripslashes($_POST['timelyManner']));
-  $timelyMannerMore = (empty($_POST['timelyMannerMore'])) ? 'No reason given.' : $_POST['timelyMannerMore'];
+  $timelyMannerMore = (empty($_POST['timelyMannerMore'])) ? "No reason given." : $_POST['timelyMannerMore'];
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
   $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
   $reasoning = Trim(stripslashes($_POST['reasoning']));
-  $reasoningMore = (empty($_POST['reasoningMore'])) ? 'No reason given.' : $_POST['reasoningMore'];
+  $reasoningMore = (empty($_POST['reasoningMore'])) ? "No reason given." : $_POST['reasoningMore'];
   $objectives = Trim(stripslashes($_POST['objectives']));
-  $objectivesMore = (empty($_POST['objectivesMore'])) ? 'No reason given.' : $_POST['objectivesMore'];
+  $objectivesMore = (empty($_POST['objectivesMore'])) ? "No reason given." : $_POST['objectivesMore'];
   $futureProjects = Trim(stripslashes($_POST['futureProjects']));
   $recommend = Trim(stripslashes($_POST['recommend']));
   $whatElse = Trim(stripslashes($_POST['whatElse']));
