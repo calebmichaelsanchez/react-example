@@ -44,17 +44,14 @@ main.case-study {
     background-size: cover;
     position: relative;
     .case-title {
-        color: $white;
         position: absolute;
         z-index: 99;
         bottom: 3%;
         width: auto;
-        h1 {
-            margin-bottom: 0;
-        }
-        .h6 {
-            font-size: 100%;
-        }
+
+        h1 { margin-bottom: 0; }
+        .h6 { font-size: 100%; }
+        h1, .h6 { color: $white; }
 
         &.top-center {
             position: relative;
@@ -969,74 +966,58 @@ main.case-study {
 // AIGA 100 Show Styles
 
 #aiga-hero {
-    background-image: url('../img/casestudies/aiga/aiga-hero-1.jpg');
-    background-size: inherit;
-    background-position: 50% 50%;
-    @media #{$large-up} {
-        background-size: cover;
-    }
-    @media (max-width: $screen-width-sm) {
-        background-size: cover;
-    }
+  background-image: url('../img/casestudies/aiga/aiga-hero-1.jpg');
+  background-size: inherit;
+  background-position: 50% 50%;
+
+  @media #{$large-up} { background-size: cover; }
+  @media (max-width: $screen-width-sm) { background-size: cover; }
 }
 
 #aiga-caption-1 {
-    background-color: #293435;
-    &,
-    a {
-        color: #d5a44f;
-    }
-
-    a:hover {
-        color: lighten(#d5a44f, 10%);
-    }
+  background-color: #293435;
+  &, a, h3 { color: #d5a44f; }
 }
 
 #aiga-poster-wrap {
-    background-image: url('../img/casestudies/aiga/aiga-map-bg.jpg');
-    background-color: $white;
+  background-image: url('../img/casestudies/aiga/aiga-map-bg.jpg');
+  background-color: $white;
 
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-    @media #{$large-up} {
-        background-attachment: fixed;
-    }
-
+  @media #{$large-up} { background-attachment: fixed; }
 }
 
 #aiga-website {
-    background-color: #49575a;
+  background-color: #49575a;
+  
+  .circlenext {
+    color: $white;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px
+  }
 }
 
-#aiga-website {
-    .circlenext {
-        color: $white;
-        position: absolute;
-        left: 50%;
-        margin-left: -100px
-
-    }
-}
 #aiga-branding {
-    .tabs-content {
-        min-height: 220px;
-        padding: 30px 0;
-    }
+  .tabs-content {
+    min-height: 220px;
+    padding: 30px 0;
+  }
 
-    @media (max-width: $screen-width-sm) {
-        .tabs li {
-            margin-right: 0;
-        }
-        .content .medium-4 {
-            margin-bottom: 10px;
-            text-align: center;
-        }
+  @media (max-width: $screen-width-sm) {
+    .tabs li {
+      margin-right: 0;
     }
+    .content .medium-4 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
 }
-#aiga-website-link {
-    position: relative;
-}
+
+#aiga-website-link { position: relative; }
 
 #aiga-carousel {
     position: relative;
