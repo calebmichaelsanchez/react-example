@@ -16,7 +16,9 @@ if ($_POST) {
   $satisfaction = Trim(stripslashes($_POST['satisfaction']));
   $timeSatisfaction = Trim(stripslashes($_POST['timeSatisfaction']));
   $reasoning = Trim(stripslashes($_POST['reasoning']));
+  $reasoningMore = (empty($_POST['reasoningMore'])) ? 'No reason given.' : $_POST['reasoningMore'];
   $objectives = Trim(stripslashes($_POST['objectives']));
+  $objectivesMore = (empty($_POST['objectivesMore'])) ? 'No reason given.' : $_POST['objectivesMore'];
   $futureProjects = Trim(stripslashes($_POST['futureProjects']));
   $recommend = Trim(stripslashes($_POST['recommend']));
   $whatElse = Trim(stripslashes($_POST['whatElse']));
@@ -45,11 +47,27 @@ if ($_POST) {
   $Body .= "\n\n";
   $Body .= "Did we provide clear enough reasoning for our design choices?";
   $Body .= "\n";
-  $Body .= $reasoning;
+
+  if ($reasoning == "No") {
+    $Body .= $reasoning;
+    $Body .= ", ";
+    $Body .= $reasoningMore;
+  } else {
+    $Body .= $reasoning;
+  }
+
   $Body .= "\n\n";
   $Body .= "Does the finished product meet your objectives?";
   $Body .= "\n";
-  $Body .= $objectives;
+
+  if ($objectives == "No") {
+    $Body .= $objectives;
+    $Body .= ", ";
+    $Body .= $objectivesMore;
+  } else {
+    $Body .= $objectives;
+  }
+
   $Body .= "\n\n";
   $Body .= "How likely are you to choose Underbelly for a future project?";
   $Body .= "\n";
