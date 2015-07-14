@@ -28,6 +28,8 @@ if ($_POST) {
     $logo3 = Trim(stripslashes($_POST['logo-3']));
     $logo4 = Trim(stripslashes($_POST['logo-4']));
     $stationery = Trim(stripslashes($_POST['stationery']));
+    $mission = Trim(stripslashes($_POST['mission']));
+    $vision = Trim(stripslashes($_POST['vision']));
     $budget = Trim(stripslashes($_POST['budget']));
     $anythingElse = Trim(stripslashes($_POST['anythingElse']));
 
@@ -94,6 +96,12 @@ if ($_POST) {
     $Body .= "\n\n";
     $Body .= "Stationery? ";
     $Body .= $stationery;
+    $Body .= "\n\n";
+    $Body .= "Mission? ";
+    $Body .= $mission;
+    $Body .= "\n\n";
+    $Body .= "Vision? ";
+    $Body .= $vision;
     $Body .= "\n\n";
     $Body .= "Our budget is: ";
     $Body .= "\n";
@@ -241,6 +249,20 @@ if ($_POST) {
                     <label for="stationery">Will you be requiring stationery design?</label>
                     <textarea rows="10" name="stationery" id="stationery" class="input-tall"> </textarea>
                 </div>
+            </div>
+
+            <div class="row">
+              <div class="medium-12 columns">
+                <label for="mission">What is your mission? (Why do you exist other than to make money?)</label>
+                <textarea rows="10" name="mission" id="mission" class="input-tall"></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="medium-12 columns">
+                <label for="vision">What is your vision? (What do you believe about the future? How will it help you achieve your mission?)</label>
+                <textarea rows="10" name="vision" id="vision" class="input-tall"></textarea>
+              </div>
             </div>
 
             <div class="row">
