@@ -1,0 +1,29 @@
+{
+  "name": "underbelly-creative",
+  "version": "2.0.0",
+  "description": "Portfolio site for Underbelly Creative",
+  "scripts": {
+    "start": "webpack-dev-server ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underbelly/underbelly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/underbelly/underbelly/issues"
+  },
+  "homepage": "https://github.com/underbelly/underbelly#readme",
+  "devDependencies": {
+    "css-loader": "^0.15.6",
+    "node-sass": "^3.2.0",
+    "sass-loader": "^1.0.4",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^0.8.2"
+  }
+}
