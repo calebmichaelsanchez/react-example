@@ -5,8 +5,13 @@ module.exports = {
     path: __dirname,
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.json']
+  },
   module: {
     loaders: [
+      { test: /\.js$/, loader: 'babel-loader'},
+      { test: /\.jsx$/, loader: 'jsx-loader'},
       { test: /\.css$/, loader: "style!css" },
       {
         test: /\.scss$/,
