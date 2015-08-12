@@ -4,7 +4,7 @@ class Contact extends React.Component {
 	render(){
 		return (
 			<h1 className="text-center">
-				This is the contact page!
+				Hot Reloading Works!
 			</h1>
 		)
 	}

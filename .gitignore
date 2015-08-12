@@ -1,4 +1,5 @@
 node_modules
 .sass-cache
 .Ds_Store
-public
+dist
+npm-debug.log
