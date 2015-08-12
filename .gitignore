@@ -1,4 +1,4 @@
 node_modules
 .sass-cache
 .Ds_Store
-build
+public
