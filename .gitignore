@@ -1,5 +1,5 @@
 node_modules
 .sass-cache
-.Ds_Store
+.DS_Store
 dist
 npm-debug.log
