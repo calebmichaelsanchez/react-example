@@ -1,0 +1,10 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body, .app-wrapper {
+	height: 100%;
+}
+body {
+	font-family: $ff-primary;
+}

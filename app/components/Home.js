@@ -1,11 +1,12 @@
 import React from 'react';
+var hero1 = require('../img/home/hero-1.jpg');
 
 class Home extends React.Component {
 	render(){
 		return (
-			<h1 className="text-center">
-				It Works!
-			</h1>
+			<section className="home">
+				<div className="hero hero-home"></div>
+			</section>
 		)
 	}
 };
