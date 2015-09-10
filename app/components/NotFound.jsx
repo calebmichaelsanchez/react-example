@@ -1,7 +1,6 @@
 import React from 'react';
-var hero1 = require('../img/home/hero-1.jpg');
 
-class Home extends React.Component {
+class NotFound extends React.Component {
 	render(){
 		return (
 			<section className="home">
@@ -11,4 +10,4 @@ class Home extends React.Component {
 	}
 };
 
-export default Home;
+export default NotFound;

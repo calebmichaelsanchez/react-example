@@ -1,8 +1,5 @@
 import React from 'react';
 import Router from 'react-router';
-import Plus from './icons/Plus';
-import Monstro from './icons/Monstro';
-import Airplane from './icons/Airplane';
 
 var Link = Router.Link;
 
@@ -11,9 +8,9 @@ class Nav extends React.Component {
 		return (
 				<nav>
 					<ul className="nav-header">
-						<li><a href="#"><Plus color="#ffffff" /></a>
-			 </li><li><a href="#"><Monstro color="#ffffff" /></a>
-			 </li><li><Link to="contact"><Airplane color="#ffffff" /></Link></li>
+						<li><a href="#">PLUS</a></li>
+						<li><Link to="/">MONSTRO</Link></li>
+						<li><Link to="contact">AIRPLANE</Link></li>
 					</ul>
 					<ul className="nav">
 						<li className="nav-item">

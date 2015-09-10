@@ -1,5 +1,51 @@
 $ff-primary: 'proxima-nova', serif;
 
-$font-base: 18px;
-$font-base-tablet: 16px;
-$font-base-mobile: 14px;
+$fw: (
+	light: 300,
+	regular: 400,
+	bold: 700
+);
+
+$fs: (
+	hero-xl: 72px,
+	hero-lg: 54px,
+	hero-md: 48px,
+	hero-sm: 42px,
+	h1: 36px,
+	h2: 32px,
+	h3: 27px,
+	h4: 24px,
+	h5: 21px,
+	h6: 18px,
+	p: 18px,
+	caption: 14px,
+	small: 16px
+);
+
+
+// Typography
+html { font-size: 1em; }
+h1, h2, h3, h4, h5, h6, 
+.hero-xl, .hero-lg, .hero-md, .hero-sm, 
+p, .small{
+	font-family: $ff-primary;
+	font-weight: fw(light);
+	color: color(dark-gray-primary);
+}
+
+strong { font-weight: fw(bold); }
+
+.hero-xl { font-size: fs(hero-xl); }
+.hero-lg { font-size: fs(hero-lg); }
+.hero-md { font-size: fs(hero-md); }
+.hero-sm { font-size: fs(hero-sm); }
+
+h1 { font-size: fs(h1); }
+h2 { font-size: fs(h2); }
+h3 { font-size: fs(h3); }
+h4 { font-size: fs(h4); }
+h5 { font-size: fs(h5); }
+h6 { font-size: fs(h6); }
+
+// Forms
+label, input, select, option, textarea { font-size: fs(h5); }

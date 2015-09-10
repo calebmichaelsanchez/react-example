@@ -1,41 +1,39 @@
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var node_modules = path.resolve(__dirname, 'node_modules');
+var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
 
 module.exports = {
-  context: __dirname + "/app",
-  entry: {
-   javascript: "./App.js",
-   html: "./index.html"
-  },
+  devtool: 'eval',
+
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    path.resolve(__dirname, 'app/App.jsx')],
+
   output: {
-    filename: 'app.js',
-    path: __dirname + "/assets"
-    publicPath: 'assets/'
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js'
   },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css']
+  },
+
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.jsx?$/, loader: 'react-hot!babel', exclude: /node_modules/ },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-      },
-      {
-        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'react-hot!babel'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       },
-      {
-        test: /\.html$/,
-        loader: "file?name=[name].[ext]",
-      },
-      {
-          test: /\.(jpe?g|png|gif|svg)$/i,
-          loaders: [
-              'file?hash=sha512&digest=hex&name=[hash].[ext]',
-              'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-          ]
-      }
+      { test: /\.(svg)$/, loader: 'raw-loader'},
+      { test: /\.(png|jpg)$/, loader: 'url?limit=25000'}
     ]
   },
-  cache: false,
-  plugins: [new ExtractTextPlugin("client.css")]
-}
+  plugins: [
+    new ExtractTextPlugin("styles.css")
+  ]
+};

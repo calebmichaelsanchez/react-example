@@ -1,0 +1,43 @@
+// font-sizes handled in typography partial
+
+.form-wrapper {
+	width: 100%;
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 60px;
+	background-color: rgba(color(white), .8);
+}
+.form-group {
+	width: 100%;
+	margin-bottom: 10px;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+.label {
+	float: left;
+	padding-right: 10px;
+	padding-top: 4px;
+}
+.input {
+	width: auto;
+	overflow: hidden;
+}
+label {
+	color: color(dark-gray-primary);
+}
+input {
+	width: 100%;
+	border: none;
+	border-bottom: 1px dashed #b5bbc9;
+	background: none;
+	color: #b5bbc9;
+	&:focus {
+		outline: none;
+	}
+}
+button[type="submit"] {
+	background: none;
+	font-size: fs(h5);
+	color: color(orange-secondary);
+}

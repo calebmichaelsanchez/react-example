@@ -4,5 +4,5 @@
 	position: relative;
 }
 .hero {
-	@include hero('/img/home/hero-1.jpg');
+	@include hero('../assets/img/home/hero-1.jpg');
 }

@@ -1,16 +1,22 @@
 $colors: (
-	primary-blue: #4da8c7,
-	secondary-blue: #1c7ea0,
-	tertiary-blue: #222130,
-	turquoise: #43bfbb,
-	orange: #ec8923,
-	white: #f4f7f8,
-	seafoam: #d4e7d3,
-	darkgray: #303c40,
-	mid-gray: #586b7e,
-	primary-gray: #e4ebef,
-	secondary-gray: #bdc3c7,
-	black: #231f20,
-	off-white: #eaf0f2,
-	red: #b71616
+	blue-primary: #44c8f9,
+	blue-secondary: #01aae9,
+	blue-tertiary: #048fc3,
+	orange-primary: #febc75,
+	orange-secondary: #f59834,
+	orange-tertiary: #e3831c,
+	white: #f9fafc,
+	light-gray-primary: #e8ebf1,
+	light-gray-secondary: #e8ebf1,
+	dark-gray-primary: #6a7078,
+	dark-gray-secondary: #474e58,
+	black: #1a1f25,
+	mint-primary: #e8f4e7,
+	mint-secondary: #d3e7d2,
+	mint-tertiary: #b3cab2,
+	red-primary: #f76b58,
+	red-secondary: #f04730,
+	red-tertiary: #d42912
 );
+
+$trns-dur: .4s

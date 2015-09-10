@@ -6,3 +6,19 @@
 	background-size: cover;
 	background-image: url($url);
 }
+@mixin ghost($textAlign: left) {
+	text-align: center;
+	&:before {
+		content: '';
+		margin-right: -0.25em;
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+	.ghosted {
+		width: 98%;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: $textAlign;
+	}
+}
