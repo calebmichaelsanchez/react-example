@@ -1,4 +1,25 @@
-$breakpoint: 768px;
+[class^="container"] {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	@extend %clearfix;
+}
+.container-lg {
+	max-width: 1440px;
+}
+.container-md {
+	max-width: 1200px;
+}
+.container-sm {
+	max-width: 940px;
+}
+
+[class^="grid"] {
+	display: inline-block;
+	vertical-align: top;
+}
 
 [class*="grid-1"],
 [class*="grid-2"],
@@ -10,9 +31,24 @@ $breakpoint: 768px;
 	width: 50%;
 }
 
-@media screen and (min-width: $breakpoint) {
+[class*="grid-2"]:first-of-type {
+	padding-bottom: 50px;
+}
+
+@media screen and (min-width: $small) {
 	[class*="grid-2"] { width: 50%; }
-  [class*="grid-3"] { width: 33.3%; }
+  [class*="grid-3"] { width: 33.33%; }
   [class*="grid-4"] { width: 25%; }
   [class*="grid-5"] { width: 20%; }
+
+  // copy grid
+  [class*="grid-2"].copy {
+  	&:first-of-type {
+  		padding-right: 15px;
+  		padding-bottom: 0;
+  	}
+  	&:last-of-type {
+  		padding-left: 15px;
+  	}
+  }
 }

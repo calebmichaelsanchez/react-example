@@ -1,8 +1,14 @@
 *, *:before, *:after {
 	box-sizing: border-box;
 }
+img {
+	max-width: 100%;
+}
 
-html, body, .app-wrapper {
+html,
+body,
+.app-wrapper {
+	position: relative;
 	height: 100%;
 }
 body {

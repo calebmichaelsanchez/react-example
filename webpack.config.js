@@ -1,39 +1,65 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
-var node_modules = path.resolve(__dirname, 'node_modules');
-var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
+var merge = require('webpack-merge');
 
-module.exports = {
-  devtool: 'eval',
+var TARGET = process.env.npm_lifecycle_event;
+var ROOT_PATH = path.resolve(__dirname);
 
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    path.resolve(__dirname, 'app/App.jsx')],
-
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
-  },
-
+var common = {
+  entry: path.resolve(ROOT_PATH, 'app'),
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
   },
-
+  output: {
+    path: path.resolve(ROOT_PATH, 'build'),
+    filename: 'bundle.js'
+  },
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'react-hot!babel', exclude: /node_modules/ },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        include: path.resolve(ROOT_PATH, 'app'),
+        loader: 'style!css!sass'
       },
-      { test: /\.(svg)$/, loader: 'raw-loader'},
-      { test: /\.(png|jpg)$/, loader: 'url?limit=25000'}
+      { test: /\.(svg)$/, include: path.resolve(ROOT_PATH, 'app'), loader: 'raw'},
+      {
+        test: /\.(png|jpg)$/,
+        include: path.resolve(ROOT_PATH, 'app'),
+        loader: 'url?limit=25000'
+      }
     ]
   },
   plugins: [
-    new ExtractTextPlugin("styles.css")
+    new HtmlWebpackPlugin({
+      title: 'Underbelly Creative',
+      template: 'index.html',
+      inject: 'body'
+    })
   ]
 };
+
+if(TARGET === 'start' || !TARGET) {
+  module.exports = merge(common, {
+    devtool: 'eval-source-map',
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          loaders: ['react-hot', 'babel'],
+          include: path.resolve(ROOT_PATH, 'app')
+        }
+      ]
+    },
+    devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  });
+}

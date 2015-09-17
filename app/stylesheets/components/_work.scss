@@ -1,0 +1,26 @@
+.case-studies,
+.case-study {
+	position: relative;
+	height: 100vh;
+}
+.hero {
+	@include ghost;
+	padding-left: 1em;
+	padding-right: 1em;
+	color: color(white);
+	.project-meta {
+		vertical-align: bottom;
+		padding-bottom: 80px;
+	}
+	@media screen and (min-width: $medium) {
+		.project-meta {
+			max-width: 940px;
+		}
+	}
+}
+.case-study-info {
+	@extend %clearfix;
+	h1 {
+		margin-bottom: 40px;
+	}
+}

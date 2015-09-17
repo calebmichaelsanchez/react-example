@@ -7,30 +7,46 @@ $fw: (
 );
 
 $fs: (
-	hero-xl: 72px,
-	hero-lg: 54px,
-	hero-md: 48px,
-	hero-sm: 42px,
-	h1: 36px,
-	h2: 32px,
-	h3: 27px,
-	h4: 24px,
-	h5: 21px,
-	h6: 18px,
-	p: 18px,
-	caption: 14px,
-	small: 16px
+	hero-xl: 4.5rem,
+	hero-lg: 3.375rem,
+	hero-md: 3rem,
+	hero-sm: 2.625rem,
+	h1: 2.25rem,
+	h2: 2rem,
+	h3: 1.6875rem,
+	h4: 1.5rem,
+	h5: 1.3125rem,
+	h6: 1.125rem,
+	p: 1.125rem,
+	caption: .875rem,
+	small: 1rem
 );
 
 
 // Typography
-html { font-size: 1em; }
-h1, h2, h3, h4, h5, h6, 
-.hero-xl, .hero-lg, .hero-md, .hero-sm, 
-p, .small{
+html {
+	font-size: 14px;
+	@media screen and (min-width: $medium) {
+		font-size: 16px;
+	}
+}
+h1, h2, h3, h4, h5, h6,
+.hero-xl, .hero-lg, .hero-md, .hero-sm,
+p, .small, a, span {
 	font-family: $ff-primary;
 	font-weight: fw(light);
-	color: color(dark-gray-primary);
+}
+
+a {
+	font-size: fs(p);
+	text-decoration: none;
+	color: color(blue-secondary);
+	&:hover {
+		color: color(blue-primary);
+	}
+	&:visited {
+		color: color(blue-tertiary);
+	}
 }
 
 strong { font-weight: fw(bold); }
@@ -40,12 +56,27 @@ strong { font-weight: fw(bold); }
 .hero-md { font-size: fs(hero-md); }
 .hero-sm { font-size: fs(hero-sm); }
 
-h1 { font-size: fs(h1); }
+h1 { font-size: fs(h1); color: color(black); }
 h2 { font-size: fs(h2); }
 h3 { font-size: fs(h3); }
 h4 { font-size: fs(h4); }
 h5 { font-size: fs(h5); }
 h6 { font-size: fs(h6); }
 
+p {
+	font-size: fs(p);
+	line-height: 1.35;
+}
 // Forms
 label, input, select, option, textarea { font-size: fs(h5); }
+
+.quote {
+	text-align: center;
+	font-weight: fw(light);
+	padding: 5.625rem 1rem;
+	p { font-size: fs(h3); color: color(white); line-height: 1.6; }
+	.author { font-size: fs(p); color: color(white); margin-top: 20px; display: block; }
+	@media screen and (min-width: $medium) {
+		p { font-size: fs(h1); }
+	}
+}

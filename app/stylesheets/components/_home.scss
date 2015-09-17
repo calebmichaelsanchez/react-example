@@ -3,6 +3,7 @@
 	height: 100%;
 	position: relative;
 }
-.hero {
+.hero-home {
 	@include hero('../assets/img/home/hero-1.jpg');
+	@include ghost(center);
 }

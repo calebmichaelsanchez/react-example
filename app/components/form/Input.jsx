@@ -6,23 +6,26 @@ class Input extends React.Component {
 		this.state = {
 			value: this.props.value || ''
 		}
+		if (this.props.required) {
+			this.props.validations = this.props.validations ? this.props.validations + ',' : '';
+			this.props.validations += 'isValue'
+		}
 		this.props.attachToForm(this);
 		this.setValue = this.setValue.bind(this);
 	}
-	componentWillMount() {
+	componentWillUnmount() {
 		this.props.detachFromForm(this);
 	}
 	setValue() {
 		this.setState({
 			value: event.target.value
+		}, () => {
+			this.props.validate(this);
 		});
 	}
 	render() {
 		return (
-			<div>
-			<pre>{JSON.stringify(this.state, undefined, 2)}</pre>
-				<input type="text" name={this.props.name} onChange={this.setValue} value={this.state.value} placeholder={this.props.placeholder}/>
-			</div>
+			<input type="text" name={this.props.name} onChange={this.setValue} value={this.state.value} placeholder={this.props.placeholder}/>
 		);
 	}
 }

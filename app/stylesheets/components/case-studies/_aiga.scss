@@ -1,0 +1,69 @@
+$aiga-primary: #293435;
+$aiga-secondary: #d5a44f;
+$aiga-tertiary: #49575a;
+
+.aiga {
+	.hero {
+		@include hero('../assets/img/work/aiga/hero.jpg');
+	}
+	section {
+		padding: 5.625rem 1rem;
+	}
+	.case-study-info {
+		background: $aiga-primary;
+		h1, p { color: $aiga-secondary; }
+	}
+}
+
+.branding-exploration {
+	background: color(white);
+	h1 {
+		margin-bottom: 40px;
+	}
+}
+
+.final-direction {
+	background: url('../assets/img/work/aiga/finalized/map.jpg') no-repeat center center;
+	background-size: cover;
+	text-align: center;
+	h1 {
+		text-align: left;
+		margin-bottom: 40px;
+	}
+}
+
+.lifestyle {
+	.video {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+}
+.video {
+	position: relative;
+	height: 0;
+	* html & {
+		margin-bottom: 45px;
+		margin-bot\tom: 0;
+	}
+	div, embed, object, iframe {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		border: none;
+	}
+	&.widescreen {
+		padding-bottom: 56.25%
+	}
+}
+
+.website {
+	text-align: center;
+	background: $aiga-tertiary;
+	h1 {
+		margin-bottom: 40px;
+		text-align: left;
+		color: color(white);
+	}
+}

@@ -1,5 +1,21 @@
 nav {
 	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	transition: background-color .4s ease;
+	&.open {
+		background: rgba(48,60,64,0.9);
+		.nav {
+			max-height: 188px;
+			padding-bottom: 20px;
+			transition: all .4s .4s ease;
+		}
+		.icon-plus svg {
+			transform: rotate(45deg);
+		}
+	}
 }
 .nav-header {
 	width: 100%;
@@ -8,6 +24,7 @@ nav {
 	li {
 		width: 33.33%;
 		display: inline-block;
+		vertical-align: middle;
 		&:first-of-type{
 			text-align: left;
 		}
@@ -17,11 +34,23 @@ nav {
 	}
 }
 .nav {
-	display: none;
+	max-height: 0px;
+	overflow: hidden;
 	font-size: ( 18 / 16 ) * 1rem;
 	font-weight: 700;
+	transition: all .4s ease;
 	a {
-		color: red;
+		display: block;
+		color: color(white);
+		font-family: $ff-primary;
+		font-size: fs(p);
+		font-weight: fw(bold);
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		margin-right: 15px;
+		margin-left: 15px;
 	}
 }
 footer a {
