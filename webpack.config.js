@@ -56,7 +56,8 @@ if(TARGET === 'start' || !TARGET) {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true
+      progress: true,
+      port: 9090
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
