@@ -1,9 +1,28 @@
+@keyframes nav-rotate {
+	50% { transform: rotate(0deg) }
+	100% { transform: rotate(45deg) }
+}
+@keyframes nav-scale {
+	50% { transform: scale(0); }
+	100% { transform: scale(1); }
+}
+.icon {
+	display: inline-block;
+}
 .icon-plus svg {
-	transform-origin: center center;
-	transition: transform .4s cubic-bezier(.46,-1,.46,1);
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
+	path {
+		stroke: color(white);
+	}
 }
 .icon-monstro svg {
 	height: 35px;
+}
+.icon-monstro,
+.icon-airplane {
+	opacity: 1;
+	transition: opacity .4s ease;
 }
 .icon svg path {
 	fill: color(white);

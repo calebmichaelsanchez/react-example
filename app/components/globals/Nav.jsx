@@ -60,13 +60,16 @@ class Nav extends Component {
 					</ul>
 					<ul className="nav">
 						<li className="nav-item">
+							<Link onClick={this.handleNavigation} to="/" activeClassName="active">Home</Link>
+						</li>
+						<li className="nav-item">
 							<Link onClick={this.handleNavigation} to="about" activeClassName="active">About</Link>
 						</li>
 						<li className="nav-item">
-							<Link onClick={this.handleNavigation} to="store" activeClassName="active">Store</Link>
+							<Link onClick={this.handleNavigation} to="store" activeClassName="active">Journal</Link>
 						</li>
 						<li className="nav-item">
-							<Link onClick={this.handleNavigation} to="work" activeClassName="active">Work</Link>
+							<Link onClick={this.handleNavigation} to="store" activeClassName="active">Shop</Link>
 						</li>
 						<li className="nav-item nav-item-contact">
 							<Link onClick={this.handleNavigation} to="contact" activeClassName="active">Contact</Link>

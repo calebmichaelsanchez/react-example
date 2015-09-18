@@ -6,6 +6,7 @@ import '../stylesheets/client.scss';
 
 class App extends Component {
 	render(){
+		console.log(this.props.children);
 		return (
 			<div className="app-wrapper">
 			<Nav />

@@ -4,7 +4,9 @@
 img {
 	max-width: 100%;
 }
-
+html {
+	-webkit-font-smoothing: antialiased;
+}
 html,
 body,
 .app-wrapper {
