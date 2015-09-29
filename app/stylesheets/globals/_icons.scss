@@ -12,18 +12,12 @@
 .icon-plus svg {
 	transform: rotate(0deg);
 	transition: transform 0.3s ease;
-	path {
-		stroke: color(white);
-	}
 }
 .icon-monstro svg {
 	height: 35px;
-}
-.icon-monstro,
-.icon-airplane {
-	opacity: 1;
-	transition: opacity .4s ease;
-}
-.icon svg path {
-	fill: color(white);
+	transition: all .4s ease;
+	@media screen and (min-width: $medium) {
+		height: 45px;
+		.scrolled & { height: 30px; }
+	}
 }

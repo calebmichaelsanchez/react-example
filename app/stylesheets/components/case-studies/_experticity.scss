@@ -1,0 +1,17 @@
+.experticity {
+	.hero {
+		@include hero('../assets/img/work/experticity/hero/hero.jpg');
+	}
+	.imagery {
+		padding-top: 0;
+		.grid-custom-one {
+			display: block;
+			width: (665 / 1200) * 100%;
+			margin-right:  (24 / 1200) * 100%;
+		}
+		.grid-custom-two {
+			display: block;
+			width: (511 / 1200) * 100%;
+		}
+	}
+}

@@ -6,6 +6,7 @@ var rootRoute = {
   childRoutes: [{
     path: '/',
     component: require('./components/App'),
+    indexRoute: { component: require('./components/Home') },
     childRoutes: [
       require('./routes/About'),
       require('./routes/Contact'),

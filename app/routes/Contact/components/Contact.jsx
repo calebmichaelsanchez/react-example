@@ -4,6 +4,9 @@ import Form from '../../../components/form/Form';
 import Input from '../../../components/form/Input';
 
 class Contact extends Component {
+	componentDidMount() {
+		this.props.setNavTheme('light');
+	}
 	render(){
 		return (
 			<DocumentTitle title='Contact | Underbelly Creative'>

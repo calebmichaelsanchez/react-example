@@ -25,7 +25,10 @@ $fs: (
 
 // Typography
 html {
-	font-size: 14px;
+	font-size: 12px;
+	@media screen and (min-width: $small) {
+		font-size: 14px;
+	}
 	@media screen and (min-width: $medium) {
 		font-size: 16px;
 	}
@@ -41,11 +44,21 @@ a {
 	font-size: fs(p);
 	text-decoration: none;
 	color: color(blue-secondary);
+	border: none;
+	outline: none;
+	&:focus {
+		border: none;
+		outline: none;
+	}
 	&:hover {
 		color: color(blue-primary);
+		border: none;
+		outline: none;
 	}
 	&:visited {
 		color: color(blue-tertiary);
+		border: none;
+		outline: none;
 	}
 }
 
@@ -73,9 +86,8 @@ label, input, select, option, textarea { font-size: fs(h5); }
 .quote {
 	text-align: center;
 	font-weight: fw(light);
-	padding: 5.625rem 1rem;
-	p { font-size: fs(h3); color: color(white); line-height: 1.6; }
-	.author { font-size: fs(p); color: color(white); margin-top: 20px; display: block; }
+	p { font-size: fs(h3); line-height: 1.6; }
+	.author { font-size: fs(p); margin-top: 20px; display: block; }
 	@media screen and (min-width: $medium) {
 		p { font-size: fs(h1); }
 	}
