@@ -3,6 +3,7 @@ import DocumentTitle from 'react-document-title';
 
 class About extends Component {
 	render(){
+		console.log(this);
 		return (
 			<DocumentTitle title="About | Underbelly Creative">
 			<section className="home">
@@ -13,7 +14,7 @@ class About extends Component {
 				</div>
 			</section>
 			</DocumentTitle>
-		)
+		);
 	}
 };
 

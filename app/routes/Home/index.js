@@ -1,9 +1,9 @@
 module.exports = {
-	path: 'about',
+	path: '/',
 
 	getComponent(location, cb) {
 		require.ensure([], (require) => {
-			cb(null, require('./components/About'))
+			cb(null, require('./components/Home'))
 		})
 	}
 }

@@ -1,26 +1,50 @@
 .case-studies,
 .case-study {
 	position: relative;
-	height: 100vh;
+	height: 50vh;
+	min-height: 400px;
+
+	section {
+		padding: 3.6325rem 2rem;
+		h1 { margin-bottom: 40px; }
+	}
+	.case-study-info {
+		@extend %clearfix;
+		h1 {
+			margin-bottom: 20px;
+		}
+		p { margin-bottom: 10px; }
+		p:last-of-type { margin-bottom: 0; }
+	}
+	@media screen and (min-width: $small) {
+		height: 100vh;
+		section {
+			padding: 5.625rem 1rem;
+		}
+		.case-study-info {
+			h1 {
+				margin-bottom: 40px;
+			}
+		}
+	}
 }
 .hero {
 	@include ghost;
-	padding-left: 1em;
-	padding-right: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
 	color: color(white);
 	.project-meta {
 		vertical-align: bottom;
-		padding-bottom: 80px;
+		padding-bottom: 3vh;
+	}
+	@media screen and (min-width: $small) {
+		.project-meta {
+			padding-bottom: 10vh;
+		}
 	}
 	@media screen and (min-width: $medium) {
 		.project-meta {
 			max-width: 940px;
 		}
-	}
-}
-.case-study-info {
-	@extend %clearfix;
-	h1 {
-		margin-bottom: 40px;
 	}
 }
