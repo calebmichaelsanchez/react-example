@@ -1,9 +1,37 @@
 .home {
-	width: 100%;
-	height: 100vh;
-	position: relative;
+
 }
+
 .hero-home {
 	@include hero('../assets/img/home/hero-1.jpg');
 	@include ghost(center);
+	width: 100%;
+	height: 100vh;
+	> div {
+		max-width: 760px;
+	}
+}
+.hero-cta {
+	@include cta(white, h1, center);
+	margin-top: 75px;
+	span { vertical-align: middle; }
+}
+.team {
+	padding: 3.6325rem 2rem;
+	p {
+		font-size: fs(h4);
+		text-align: center;
+	}
+	@media screen and (min-width: $medium) {
+		padding: 5.625rem 1rem;
+	}
+}
+.work-with-us {
+	padding: 3rem 1rem;
+	background-color: color(blue-tertiary);
+	text-align: center;
+}
+.work-with-us-cta {
+	@include cta(white, h1, center);
+	span{ vertical-align: middle; }
 }

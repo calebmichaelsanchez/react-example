@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-var plusIcon = require('../../../assets/img/icons/plus.svg');
 
 class Icon extends Component {
 	constructor(props) {
@@ -8,6 +7,7 @@ class Icon extends Component {
 	render() {
 		var iconName = '';
 		var iconSvg = '';
+		var theme = '';
 		switch (this.props.icon) {
 			case 'plus':
 				iconName = 'plus';
@@ -21,12 +21,26 @@ class Icon extends Component {
 				iconName = 'airplane';
 				iconSvg = require('../../../assets/img/icons/airplane.svg');
 				break;
+			case 'brand':
+				iconName = 'brand';
+				iconSvg = require('../../../assets/img/icons/brand.svg');
+				break;
+			case 'dev':
+				iconName = 'dev';
+				iconSvg = require('../../../assets/img/icons/dev.svg');
+				break;
+			case 'ux':
+				iconName = 'ux';
+				iconSvg = require('../../../assets/img/icons/ux.svg');
+				break;
+			case 'arrow':
+				theme = 'light'
+				iconName = 'arrow';
+				iconSvg = require('../../../assets/img/icons/arrow.svg');
+				break;
 		}
 		return (
-			<div
-				className={"icon icon-" + iconName }
-				dangerouslySetInnerHTML={{__html: iconSvg}}
-			/>
+			<div className={`icon icon-${iconName} ${theme}`} dangerouslySetInnerHTML={{__html: iconSvg}} />
 		);
 	}
 }

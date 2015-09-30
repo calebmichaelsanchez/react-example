@@ -15,6 +15,9 @@
 .container-sm {
 	max-width: 940px;
 }
+.container-xs {
+	max-width: 760px;
+}
 
 [class^="grid"] {
 	display: inline-block;
@@ -36,16 +39,19 @@
 
 
 
-.grid-1.no-break { width: 100%; }
+.grid-1-1.no-break { width: 100%; }
+.grid-3-4.no-break { width: 75%; }
 .grid-7-10.no-break { width: 70%; }
 .grid-2-3.no-break { width: 66.66%; }
 .grid-3-5.no-break { width: 60%; }
 .grid-1-2.no-break { width: 50%; }
 .grid-2-5.no-break { width: 40%; }
 .grid-1-3.no-break { width: 33.33%; }
-.grid-3-10.n0-break { width: 30%; }
+.grid-3-10.no-break { width: 30%; }
 .grid-1-4.no-break { width: 25%; }
 .grid-1-5.no-break { width: 20%; }
+.grid-1-8.no-break { width: 12.5%; }
+.grid-1-10.no-break { width: 10%; }
 
 .grid-copy {
 	padding-bottom: 30px;

@@ -1,7 +1,5 @@
 import React from 'react';
-import Router from 'react-router';
-
-var Link = Router.Link;
+import { Link } from 'react-router';
 
 class Footer extends React.Component {
 	render() {
@@ -17,9 +15,6 @@ class Footer extends React.Component {
 					</li>
 					<li className="social-item">
 						<a href="#dribbble">Dribbble</a>
-					</li>
-					<li className="social-item social-item-contact">
-						<Link className="btn btn-default" to="contact">Contact</Link>
 					</li>
 				</ul>
 			</footer>

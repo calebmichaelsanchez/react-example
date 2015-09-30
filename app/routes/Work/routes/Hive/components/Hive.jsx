@@ -47,13 +47,13 @@ class Hive extends Component {
 					<section className="evolution">
 						<div className="container-sm">
 							<h1>Evolution</h1>
-							<div className="grid-3 no-break padded">
+							<div className="grid-1-3 no-break padded">
 								<img src={hiveImg.evo.one} alt=""/>
 							</div>
-							<div className="grid-3 no-break padded">
+							<div className="grid-1-3 no-break padded">
 								<img src={hiveImg.evo.two} alt=""/>
 							</div>
-							<div className="grid-3 no-break padded">
+							<div className="grid-1-3 no-break padded">
 								<img src={hiveImg.evo.three} alt=""/>
 							</div>
 						</div>

@@ -21,3 +21,86 @@
 		.scrolled & { height: 30px; }
 	}
 }
+.icon-ux,
+.icon-brand,
+.icon-dev {
+	display: block;
+	margin-bottom: 10px;
+	svg {
+		width: 80px;
+		height: 80px;
+		path {
+			fill: color(white);
+		}
+		@media screen and (min-width: $small) {
+			width: 100px;
+			height: 100px;
+		}
+	}
+}
+
+.icon-arrow {
+	position: relative;
+	vertical-align: middle;
+	border: 2px solid color(white);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	transition: .1s ease;
+	svg {
+		position: relative;
+		z-index: 3;
+		top: -2px;
+		left: 1px;
+		width: 10px;
+		height: 17px;
+	}
+	&.light {
+		svg path {
+			fill: color(white);
+			transition: 0.1s ease;
+		}
+		[class$="cta"]:hover & svg path {
+			fill: color(blue-tertiary);
+		}
+	}
+	[class$="cta"]:hover & {
+		border-color: transparent;
+
+		&:before {
+			transform: translateX(-50%) translateY(-50%) scale(1);
+			transition: transform 0.2s 0.06s ease;
+		}
+		&:after {
+			transform: translateX(-50%) translateY(-50%) scale(1);
+			opacity: 1;
+			transition: transform 0.2s ease, opacity 0s;
+		}
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%) scale(0);
+		border: 2px solid color(white);
+		z-index: 1;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 50%;
+		left: 50%;
+		border-radius: 50%;
+		opacity: 0;
+		transform: translateX(-50%) translateY(-50%) scale(0);
+		transition: transform 0.1s ease, opacity 0.2s ease;
+		background-color: color(white);
+		z-index: 2;
+	}
+}
