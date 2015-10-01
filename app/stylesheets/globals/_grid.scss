@@ -18,26 +18,7 @@
 .container-xs {
 	max-width: 760px;
 }
-
-[class^="grid"] {
-	display: inline-block;
-	vertical-align: top;
-}
 .grid-pad { padding-right: 20px; }
-
-[class*="grid-1"],
-[class*="grid-2"],
-[class*="grid-3"],
-[class*="grid-6"],
-[class*="grid-7"] {
-	width: 100%;
-}
-[class*="grid-4"],
-[class*="grid-5"] {
-	width: 50%;
-}
-
-
 
 .grid-1-1.no-break { width: 100%; }
 .grid-3-4.no-break { width: 75%; }
@@ -52,6 +33,11 @@
 .grid-1-5.no-break { width: 20%; }
 .grid-1-8.no-break { width: 12.5%; }
 .grid-1-10.no-break { width: 10%; }
+
+[class^="grid"] {
+	display: inline-block;
+	vertical-align: top;
+}
 
 .grid-copy {
 	padding-bottom: 30px;

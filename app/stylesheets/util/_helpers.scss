@@ -9,6 +9,10 @@
 	margin-right: auto;
 	margin-left: auto;
 }
-.text-center {
+%text-center {
 	text-align: center;
+}
+%grid-item {
+	display: inline-block;
+	vertical-align: top;
 }

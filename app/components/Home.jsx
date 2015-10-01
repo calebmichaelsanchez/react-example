@@ -13,23 +13,23 @@ class Home extends Component {
 			<DocumentTitle title='Home | Underbelly Creative'>
 				<div className="home">
 					<div className="hero-home">
-						<div>
-							<div className="grid-1-3 no-break text-center">
+						<div className="what-we-do">
+							<div className="category-item">
 								<Icon icon="ux" />
-								<span className="hero-xs">UX</span>
+								<span className="category-title">UX</span>
 							</div>
-							<div className="grid-1-3 no-break text-center">
+							<div className="category-item">
 								<Icon icon="brand" />
-								<span className="hero-xs">Branding</span>
+								<span className="category-title">Branding</span>
 							</div>
-							<div className="grid-1-3 no-break text-center">
+							<div className="category-item">
 								<Icon icon="dev" />
-								<span className="hero-xs">Dev</span>
+								<span className="category-title">Dev</span>
 							</div>
 							<Link to="work" className="hero-cta">See our work <Icon icon="arrow"/></Link>
 						</div>
 					</div>
-					<section className="team">
+					<section className="mission">
 						<div className="container-xs">
 							<p>We’re artists and craftsmen who love to create sophisticated strategies, innovative user experiences, and enduring brands.We don’t stop tinkering until the work inspires.</p>
 						</div>

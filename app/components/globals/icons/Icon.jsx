@@ -38,6 +38,22 @@ class Icon extends Component {
 				iconName = 'arrow';
 				iconSvg = require('../../../assets/img/icons/arrow.svg');
 				break;
+			case 'underbelly':
+				iconName = 'underbelly';
+				iconSvg = require('../../../assets/img/icons/logotype.svg');
+				break;
+			case 'instagram':
+				iconName = 'instagram';
+				iconSvg = require('../../../assets/img/icons/instagram.svg');
+				break;
+			case 'twitter':
+				iconName = 'twitter';
+				iconSvg = require('../../../assets/img/icons/twitter.svg');
+				break;
+			case 'dribbble':
+				iconName = 'dribbble';
+				iconSvg = require('../../../assets/img/icons/dribbble.svg');
+				break;
 		}
 		return (
 			<div className={`icon icon-${iconName} ${theme}`} dangerouslySetInnerHTML={{__html: iconSvg}} />

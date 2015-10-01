@@ -1,0 +1,20 @@
+footer {
+	background-color: color(dark-blue-primary);
+	padding: 1.5rem;
+}
+.footer-logo {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50%;
+}
+.footer-social {
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	vertical-align: middle;
+}
+.social-item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 30px;
+}
