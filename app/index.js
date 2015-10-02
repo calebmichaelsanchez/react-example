@@ -16,6 +16,6 @@ var rootRoute = {
   }]
 };
 React.render(
-	<Router routes={rootRoute} />,
+	<Router onUpdate={() => window.scrollTo(0, 0)} routes={rootRoute} />,
 	document.getElementById('app')
 );
