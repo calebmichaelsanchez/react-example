@@ -38,7 +38,7 @@ class Aiga extends Component {
 	render() {
 		return (
 			<DocumentTitle title="AIGA | Underbelly Creative">
-				<div className="case-study">
+				<div className="case-study aiga">
 					<div className="hero">
 						<div className="project-meta">
 							<div className="hero-lg">The 2014 Aiga 100 Show</div>

@@ -59,8 +59,8 @@ nav.dark {
 	}
 }
 .scrolled {
-	&.dark { background: rgba(48, 60, 64, 0.9); }
-	&.light { background: rgba(244,247,248,0.9)}
+	&.dark { background: rgba(48, 60, 64, 1); }
+	&.light { background: rgba(244,247,248,1)}
 	@media screen and (min-width: $medium) {
 		max-height: 50px;
 	}

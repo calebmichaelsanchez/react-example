@@ -8,6 +8,7 @@ class Icon extends Component {
 		var iconName = '';
 		var iconSvg = '';
 		var theme = '';
+		var type = '';
 		switch (this.props.icon) {
 			case 'plus':
 				iconName = 'plus';
@@ -34,7 +35,8 @@ class Icon extends Component {
 				iconSvg = require('../../../assets/img/icons/ux.svg');
 				break;
 			case 'arrow':
-				theme = 'light'
+				type = this.props.type
+				theme = this.props.theme
 				iconName = 'arrow';
 				iconSvg = require('../../../assets/img/icons/arrow.svg');
 				break;
@@ -56,7 +58,7 @@ class Icon extends Component {
 				break;
 		}
 		return (
-			<div className={`icon icon-${iconName} ${theme}`} dangerouslySetInnerHTML={{__html: iconSvg}} />
+			<div className={`icon icon-${iconName} ${theme} ${type}`} dangerouslySetInnerHTML={{__html: iconSvg}} />
 		);
 	}
 }

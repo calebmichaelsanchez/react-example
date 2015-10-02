@@ -26,7 +26,7 @@ class Home extends Component {
 								<Icon icon="dev" />
 								<span className="category-title">Dev</span>
 							</div>
-							<Link to="work" className="hero-cta">See our work <Icon icon="arrow"/></Link>
+							<Link to="work" className="hero-cta">See our work <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 						</div>
 					</div>
 					<section className="mission">
@@ -35,7 +35,7 @@ class Home extends Component {
 						</div>
 					</section>
 					<section className="work-with-us">
-						<Link to="contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow"/></Link>
+						<Link to="contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 					</section>
 				</div>
 			</DocumentTitle>

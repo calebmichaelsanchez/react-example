@@ -16,7 +16,7 @@ class RentTree extends Component {
 	render() {
 		return (
 			<DocumentTitle title="Rent Tree | Underbelly Creative">
-				<div className="case-study">
+				<div className="case-study rent-tree">
 					<div className="hero">
 						<div className="project-meta">
 							<div className="hero-lg">Rent Tree</div>

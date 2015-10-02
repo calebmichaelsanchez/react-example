@@ -19,7 +19,7 @@ class Hive extends Component {
 	render() {
 		return (
 			<DocumentTitle title="Hive | Underbelly Creative">
-				<div className="case-study">
+				<div className="case-study hive">
 					<div className="hero">
 						<div className="project-meta">
 							<div className="hero-lg">Hive Checklists</div>
