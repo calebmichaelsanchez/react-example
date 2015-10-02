@@ -4,6 +4,10 @@ import Icon from '../../../components/globals/icons/Icon';
 import DocumentTitle from 'react-document-title';
 
 class Projects extends Component {
+	constructor(props) {
+		super(props);
+		this.props.setNavTheme(this.props.theme);
+	}
 	render() {
 		return (
 			<section className="project-grid-container">
@@ -128,5 +132,11 @@ class Projects extends Component {
 		);
 	}
 }
-
+Projects.propTypes = {
+	theme: React.PropTypes.string.isRequired,
+	setNavTheme: React.PropTypes.func.isRequired
+}
+Projects.defaultProps = {
+	theme: 'dark'
+}
 export default Projects;
