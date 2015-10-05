@@ -71,8 +71,9 @@
 		transition: 0.4s ease;
 	}
 	&.light svg path { fill: color(white); }
-	svg path { fill: color(blue-secondary); }
-	[class^="project-item"]:hover & {
+	&.dark svg path { fill: color(blue-secondary); }
+	[class^="project-item"]:hover &,
+	.product-btn:hover & {
 		opacity: 1;
 		visibility: visible;
 		margin-left: 10px;
