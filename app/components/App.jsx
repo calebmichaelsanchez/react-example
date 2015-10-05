@@ -1,5 +1,6 @@
-import React, { Component } from 'react/addons';
-import Nav from './globals/Nav.jsx';
+import React, { Component } from 'react';
+import Nav from './globals/Nav';
+import Footer from './globals/Footer';
 import Home from './Home';
 
 import '../stylesheets/client.scss';
@@ -7,7 +8,6 @@ import '../stylesheets/client.scss';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		console.log(this);
 		this.state = {
 			navTheme: ''
 		};
@@ -28,6 +28,7 @@ class App extends Component {
 			<div className="app-wrapper">
 				<Nav theme={ this.state.navTheme } />
 				{children || <Home />}
+				<Footer />
 			</div>
 		);
 	}

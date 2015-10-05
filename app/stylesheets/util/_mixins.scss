@@ -1,6 +1,5 @@
 @mixin hero($url) {
 	width: 100%;
-	height: 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -21,4 +20,11 @@
 		vertical-align: middle;
 		text-align: $textAlign;
 	}
+}
+@mixin cta($color, $font-size, $text-align) {
+	display: inline-block;
+	color: color($color);
+	font-size: fs($font-size);
+	text-align: $text-align;
+	&:hover, &:focus, &:active, &:visited { color: color($color); }
 }

@@ -11,6 +11,7 @@ $fs: (
 	hero-lg: 3.375rem,
 	hero-md: 3rem,
 	hero-sm: 2.625rem,
+	hero-xs: 1.333rem,
 	h1: 2.25rem,
 	h2: 2rem,
 	h3: 1.6875rem,
@@ -34,7 +35,7 @@ html {
 	}
 }
 h1, h2, h3, h4, h5, h6,
-.hero-xl, .hero-lg, .hero-md, .hero-sm,
+.hero-xl, .hero-lg, .hero-md, .hero-sm, .hero-xs,
 p, .small, a, span {
 	font-family: $ff-primary;
 	font-weight: fw(light);
@@ -51,12 +52,10 @@ a {
 		outline: none;
 	}
 	&:hover {
-		color: color(blue-primary);
 		border: none;
 		outline: none;
 	}
 	&:visited {
-		color: color(blue-tertiary);
 		border: none;
 		outline: none;
 	}
@@ -68,6 +67,14 @@ strong { font-weight: fw(bold); }
 .hero-lg { font-size: fs(hero-lg); }
 .hero-md { font-size: fs(hero-md); }
 .hero-sm { font-size: fs(hero-sm); }
+.hero-xs {
+	font-size: fs(hero-xs);
+	display: block;
+	color: color(white);
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: bottom;
+}
 
 h1 { font-size: fs(h1); color: color(black); }
 h2 { font-size: fs(h2); }

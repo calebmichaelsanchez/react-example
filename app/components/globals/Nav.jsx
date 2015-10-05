@@ -94,12 +94,9 @@ class Nav extends Component {
 					<li><Link onClick={this.handleNavigation} to="/"><Icon icon="monstro" /></Link></li>
 					<li><Link onClick={this.handleNavigation} to="contact"><Icon icon="airplane" /></Link></li>
 				</ul>
-				<ul className="nav">
+				<ul className="nav-menu">
 					<li className="nav-item">
-						<Link onClick={this.handleNavigation} to="/" activeClassName="active">Home</Link>
-					</li>
-					<li className="nav-item">
-						<Link onClick={this.handleNavigation} to="about" activeClassName="active">About</Link>
+						<Link onClick={this.handleNavigation} to="work" activeClassName="active">Work</Link>
 					</li>
 					<li className="nav-item">
 						<a onClick={this.handleNavigation} href="/">Journal</a>

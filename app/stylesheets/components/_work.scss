@@ -1,8 +1,5 @@
-.case-studies,
 .case-study {
 	position: relative;
-	height: 50vh;
-	min-height: 400px;
 
 	section {
 		padding: 3.6325rem 2rem;
@@ -17,7 +14,6 @@
 		p:last-of-type { margin-bottom: 0; }
 	}
 	@media screen and (min-width: $small) {
-		height: 100vh;
 		section {
 			padding: 5.625rem 1rem;
 		}
@@ -29,6 +25,7 @@
 	}
 }
 .hero {
+	height: 50vh;
 	@include ghost;
 	padding-left: 2em;
 	padding-right: 2em;
@@ -43,6 +40,7 @@
 		}
 	}
 	@media screen and (min-width: $medium) {
+		height: 100vh;
 		.project-meta {
 			max-width: 940px;
 		}

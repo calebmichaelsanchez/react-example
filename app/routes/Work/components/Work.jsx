@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Projects from './Projects';
 
 class Work extends Component {
 	constructor(props) {
@@ -11,8 +12,10 @@ class Work extends Component {
 			});
 		});
 		return (
-			<section className={`case-study ${this.props.children.children.main.props.name}`}>
-				{children}
+			<section className="work">
+				{ children ? (
+						{children}
+					) : ( <Projects setNavTheme={this.props.setNavTheme} /> )}
 			</section>
 		);
 	}

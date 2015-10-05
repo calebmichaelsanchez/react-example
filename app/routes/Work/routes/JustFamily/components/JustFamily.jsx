@@ -15,7 +15,7 @@ class JustFamily extends Component {
 	render() {
 		return (
 			<DocumentTitle title="JustFamily | Underbelly Creative">
-				<div className="case-study">
+				<div className="case-study just-family">
 					<div className="hero"></div>
 					<section className="case-study-info">
 						<div className="container-sm">
