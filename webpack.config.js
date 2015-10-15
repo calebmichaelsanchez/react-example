@@ -1,41 +1,47 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
+var Clean = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var pkg = require('./package.json');
 
 var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
+var APP_PATH = path.resolve(ROOT_PATH, 'app');
+var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 var common = {
-  entry: path.resolve(ROOT_PATH, 'app'),
+  entry: APP_PATH,
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: path.resolve(ROOT_PATH, 'build'),
+    path: BUILD_PATH,
     filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
-        test: /\.scss$/,
-        include: path.resolve(ROOT_PATH, 'app'),
-        loader: 'style!css!sass'
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: APP_PATH
       },
-      { test: /\.(svg)$/, include: path.resolve(ROOT_PATH, 'app'), loader: 'raw'},
+      { test: /\.(svg)$/,
+        include: path.resolve(ROOT_PATH, 'app/components/globals/icons'),
+        loader: 'raw-loader'
+      },
       {
         test: /\.(png|jpg)$/,
-        include: path.resolve(ROOT_PATH, 'app'),
+        include: APP_PATH,
         loader: 'url?limit=25000'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Underbelly Creative',
-      template: 'index.html',
-      inject: 'body'
+      title: 'Underbelly Creative'
     })
   ]
 };
@@ -46,9 +52,9 @@ if(TARGET === 'start' || !TARGET) {
     module: {
       loaders: [
         {
-          test: /\.jsx?$/,
-          loaders: ['babel'],
-          include: path.resolve(ROOT_PATH, 'app')
+          test: /\.scss$/,
+          include: APP_PATH,
+          loader: 'style!css!sass'
         }
       ]
     },
@@ -63,4 +69,44 @@ if(TARGET === 'start' || !TARGET) {
       new webpack.HotModuleReplacementPlugin()
     ]
   });
+}
+if(TARGET === 'build') {
+  module.exports = merge(common, {
+    entry: {
+      app: APP_PATH,
+      vendor: Object.keys(pkg.dependencies)
+    },
+    output: {
+      path: BUILD_PATH,
+      filename: '[name].[chunkhash].js'
+    },
+    devtool: 'source-map',
+    module: {
+      loaders: [
+        {
+          test: /\.scss?$/,
+          loader: ExtractTextPlugin.extract('style', 'css!sass-loader'),
+          include: APP_PATH
+        }
+      ]
+    },
+    plugins: [
+      new Clean(['build']),
+      new ExtractTextPlugin('styles.[chunkhash].css'),
+      new webpack.optimize.CommonsChunkPlugin(
+        'vendor',
+        '[name].[chunkhash].js'
+      ),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ]
+  })
 }
