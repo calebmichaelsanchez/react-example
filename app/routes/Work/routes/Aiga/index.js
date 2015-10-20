@@ -3,7 +3,7 @@ module.exports = {
 
 	getComponents (location, cb) {
 		require.ensure([], (require) => {
-			cb(null, { main: require('./components/Aiga') })
-		})
+			cb(null, require('./components/Aiga'));
+		});
 	}
-}
+};

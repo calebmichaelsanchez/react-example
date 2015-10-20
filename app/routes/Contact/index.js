@@ -1,5 +1,5 @@
 module.exports = {
-	path: 'contact',
+	path: '/contact',
 
 	getComponent(location, cb) {
 		require.ensure([], (require) => {

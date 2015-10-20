@@ -1,5 +1,5 @@
 module.exports = {
-	path: 'work',
+	path: '/work',
 
 	getChildRoutes (location, cb) {
 		require.ensure([], (require) => {

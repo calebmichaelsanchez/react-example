@@ -12,6 +12,8 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
+process.env.BABEL_ENV = TARGET;
+
 var common = {
   entry: APP_PATH,
   resolve: {
@@ -41,7 +43,9 @@ var common = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Underbelly Creative'
+      title: 'Underbelly Creative',
+      template: './index.html',
+      inject: 'body'
     })
   ]
 };
@@ -91,7 +95,7 @@ if(TARGET === 'build') {
       ]
     },
     plugins: [
-      new Clean(['build']),
+      //new Clean(['build']),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.optimize.CommonsChunkPlugin(
         'vendor',
@@ -99,7 +103,7 @@ if(TARGET === 'build') {
       ),
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('production')
+          'NODE_ENV': JSON.stringify('development')
         }
       }),
       new webpack.optimize.UglifyJsPlugin({

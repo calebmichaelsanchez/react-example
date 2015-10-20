@@ -44,7 +44,7 @@ class Home extends Component {
 };
 Home.propTypes = {
 	theme: React.PropTypes.string.isRequired,
-	setNavTheme: React.PropTypes.func.isRequired
+	setNavTheme: React.PropTypes.func
 }
 Home.defaultProps = {
 	theme: 'dark'

@@ -12,49 +12,49 @@ class Icon extends Component {
 		switch (this.props.icon) {
 			case 'plus':
 				iconName = 'plus';
-				iconSvg = require('../../../assets/img/icons/plus.svg');
+				iconSvg = require('./plus.svg');
 				break;
 			case 'monstro':
 				iconName = 'monstro';
-				iconSvg = require('../../../assets/img/icons/monstro.svg');
+				iconSvg = require('./monstro.svg');
 				break;
 			case 'airplane':
 				iconName = 'airplane';
-				iconSvg = require('../../../assets/img/icons/airplane.svg');
+				iconSvg = require('./airplane.svg');
 				break;
 			case 'brand':
 				iconName = 'brand';
-				iconSvg = require('../../../assets/img/icons/brand.svg');
+				iconSvg = require('./brand.svg');
 				break;
 			case 'dev':
 				iconName = 'dev';
-				iconSvg = require('../../../assets/img/icons/dev.svg');
+				iconSvg = require('./dev.svg');
 				break;
 			case 'ux':
 				iconName = 'ux';
-				iconSvg = require('../../../assets/img/icons/ux.svg');
+				iconSvg = require('./ux.svg');
 				break;
 			case 'arrow':
 				type = this.props.type
 				theme = this.props.theme
 				iconName = 'arrow';
-				iconSvg = require('../../../assets/img/icons/arrow.svg');
+				iconSvg = require('./arrow.svg');
 				break;
 			case 'underbelly':
 				iconName = 'underbelly';
-				iconSvg = require('../../../assets/img/icons/logotype.svg');
+				iconSvg = require('./logotype.svg');
 				break;
 			case 'instagram':
 				iconName = 'instagram';
-				iconSvg = require('../../../assets/img/icons/instagram.svg');
+				iconSvg = require('./instagram.svg');
 				break;
 			case 'twitter':
 				iconName = 'twitter';
-				iconSvg = require('../../../assets/img/icons/twitter.svg');
+				iconSvg = require('./twitter.svg');
 				break;
 			case 'dribbble':
 				iconName = 'dribbble';
-				iconSvg = require('../../../assets/img/icons/dribbble.svg');
+				iconSvg = require('./dribbble.svg');
 				break;
 		}
 		return (

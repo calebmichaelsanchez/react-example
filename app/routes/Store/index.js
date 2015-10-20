@@ -1,5 +1,5 @@
 module.exports = {
-	path: 'store',
+	path: '/store',
 
 	getComponent(location, cb) {
 		require.ensure([], (require) => {

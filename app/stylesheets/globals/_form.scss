@@ -4,14 +4,18 @@
 	width: 100%;
 	max-width: 620px;
 	margin: 0 auto;
-	padding: 60px;
+	padding: 3rem 2rem;
 	background-color: rgba(color(white), .8);
+	h1 {
+		margin-bottom: 2rem;
+		color: color(black);
+	}
 }
 .form-group {
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 1.5rem;
 	&:last-of-type {
-		margin-bottom: 0;
+		margin-bottom: 2.5rem;
 	}
 }
 .label {
@@ -24,20 +28,72 @@
 	overflow: hidden;
 }
 label {
+	display: block;
 	color: color(dark-gray-primary);
+	padding-bottom: .875rem;
+	font-size: fs(h6);
+	//text-transform: uppercase;
 }
 input {
 	width: 100%;
-	border: none;
-	border-bottom: 1px dashed #b5bbc9;
-	background: none;
-	color: #b5bbc9;
+	background-color: transparent;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid rgba(color(dark-gray-primary), .25);
+	color: rgba(color(black), .85);
+	margin-bottom: .5rem;
+	padding-bottom: 5px;
+	font-size: fs(h5);
 	&:focus {
 		outline: none;
 	}
 }
+::-webkit-input-placeholder { color: rgba(color(dark-gray-primary), .6); }
+:-moz-placeholder { color: color(dark-gray-primary); }
+::-moz-placeholder { color: color(dark-gray-primary); }
+:-ms-input-placeholder { color: color(dark-gray-primary); }
 button[type="submit"] {
-	background: none;
+	padding: 10px;
+	width: 100%;
+	display: block;
 	font-size: fs(h5);
-	color: color(orange-secondary);
+	color: color(white);
+	background-color: color(blue-tertiary);
+}
+dd, dt {
+	margin: 0;
+	padding: 0;
+	font-family: $ff-primary;
+	font-size: fs(h6);
+}
+dd {
+	position: absolute;
+	width: 100%;
+	top: 100%;
+	left: 0;
+	background: color(white);
+	z-index: 1;
+	li {
+		padding: 10px;
+		&:first-of-type {
+			border-top: 1px solid rgba(color(dark-gray-primary), .25);
+		}
+		&:hover {
+			background-color: color(light-gray-secondary);
+		}
+	}
+}
+.dropdown {
+	position: relative;
+	display: block;
+	width: 100%;
+	background-color: color(white);
+	padding: 10px;
+	color: color(dark-gray-primary);
+	cursor: pointer;
+	dd { display: none; }
+}
+.dropdown-open {
+	dd { display: block; }
 }

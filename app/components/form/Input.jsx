@@ -1,33 +1,30 @@
-import React from 'react'
+import React from 'react';
+import Formsy from 'formsy-react';
 
-class Input extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: this.props.value || ''
-		}
-		if (this.props.required) {
-			this.props.validations = this.props.validations ? this.props.validations + ',' : '';
-			this.props.validations += 'isValue'
-		}
-		this.props.attachToForm(this);
-		this.setValue = this.setValue.bind(this);
-	}
-	componentWillUnmount() {
-		this.props.detachFromForm(this);
-	}
-	setValue() {
-		this.setState({
-			value: event.target.value
-		}, () => {
-			this.props.validate(this);
-		});
-	}
-	render() {
+const Input = React.createClass({
+	mixins: [Formsy.Mixin],
+
+	changeValue: function (event) {
+		this.setValue(event.currentTarget.value);
+	},
+	render: function() {
+		const className = this.showRequired() ? 'required' : this.showError() ? 'error' : null;
+
+		const errorMessage = this.getErrorMessage();
 		return (
-			<input type="text" name={this.props.name} onChange={this.setValue} value={this.state.value} placeholder={this.props.placeholder}/>
+			<div className={`form-group ${className}`} >
+				<label htmlFor={this.props.name}>{this.props.title}</label>
+				<input
+					type={this.props.type || 'text'}
+					name={this.props.name}
+					onChange ={this.changeValue}
+					value={this.getValue()}
+					placeholder={this.props.placeholder}
+				/>
+				<span className="validation-error">{errorMessage}</span>
+			</div>
 		);
 	}
-}
+});
 
-export default Input
+export default Input;

@@ -19,15 +19,11 @@ class App extends Component {
 		})
 	}
 	render(){
-		var children = React.Children.map(this.props.children, (child) => {
-			return React.cloneElement(child, {
-				setNavTheme: this.setNavTheme
-			}, child.props);
-		});
+		let children = React.cloneElement(this.props.children, { setNavTheme: this.setNavTheme });
 		return (
 			<div className="app-wrapper">
 				<Nav theme={ this.state.navTheme } />
-				{children || <Home />}
+				{children}
 				<Footer />
 			</div>
 		);

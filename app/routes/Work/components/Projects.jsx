@@ -15,7 +15,7 @@ class Projects extends Component {
 					<span className="hero-lg">Our Work</span>
 				</header>
 				{ /* Row 1 */ }
-				<Link to="work/aiga" className="project-item-aiga project-item-lg">
+				<Link to="/work/aiga" className="project-item-aiga project-item-lg">
 					<div className="project-meta project-meta-small">
 						<div>
 							<h3>AIGA 100 Show</h3>
@@ -27,7 +27,7 @@ class Projects extends Component {
 					</div>
 				</Link>
 				<div className="project-container">
-					<Link to="work/just-family" className="project-item-sm">
+					<Link to="/work/just-family" className="project-item-sm">
 						<div className="project-image-just-family"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -54,7 +54,7 @@ class Projects extends Component {
 				</div>
 			{ /* Row 2 */ }
 				<div className="project-container">
-					<Link to="work/rent-tree" className="project-item-sm">
+					<Link to="/work/rent-tree" className="project-item-sm">
 						<div className="project-image-rent-tree"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -79,7 +79,7 @@ class Projects extends Component {
 						<div className="project-image-alliance"></div>
 					</a>
 				</div>
-				<Link to="work/fluid" className="project-item-fluid project-item-lg">
+				<Link to="/work/fluid" className="project-item-fluid project-item-lg">
 					<div className="project-meta project-meta-small">
 						<div>
 							<h3>Fluid</h3>
