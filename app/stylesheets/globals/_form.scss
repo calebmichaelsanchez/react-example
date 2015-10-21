@@ -5,7 +5,7 @@ $border-style: 1px dashed rgba(color(dark-gray-primary), .5);
 .form-wrapper {
 	width: 100%;
 	max-width: 620px;
-	padding: 3rem 2rem;
+	padding: 3.625rem;
 	background-color: rgba(color(white), .8);
 }
 fieldset {
@@ -13,15 +13,11 @@ fieldset {
 }
 .form-group {
 	width: 100%;
-	//margin-bottom: 1.5rem;
-	&:last-of-type {
-		//margin-bottom: 2.5rem;
-	}
 }
 .fieldset-item {
 	display: flex;
-	align-items: flex-center;
-	margin-bottom: 1rem;
+	align-items: baseline;
+	margin-bottom: 1.875rem;
 	text-align: left;
 	&.no-flex {
 		display: block;
@@ -40,7 +36,7 @@ fieldset {
 }
 .label, .fieldset-title,
 .input, .fieldset-group {
-	align-self: baseline;
+	//align-self: baseline;
 }
 .input,
 .fieldset-group {
@@ -75,6 +71,7 @@ input {
 	}
 }
 textarea {
+	resize: none;
 	width: 100%;
 	min-height: 100px;
 	font-size: fs(h5);
