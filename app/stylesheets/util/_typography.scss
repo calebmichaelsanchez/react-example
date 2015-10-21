@@ -36,9 +36,12 @@ html {
 }
 h1, h2, h3, h4, h5, h6,
 .hero-xl, .hero-lg, .hero-md, .hero-sm, .hero-xs,
-p, .small, a, span {
+p, .small, a {
 	font-family: $ff-primary;
 	font-weight: fw(light);
+}
+span {
+	font-family: $ff-primary;
 }
 
 a {
@@ -85,7 +88,7 @@ p {
 	line-height: 1.35;
 }
 // Forms
-label, input, select, option, textarea { font-size: fs(h5); }
+//label, input, select, option, textarea { font-size: fs(h5); }
 
 .quote {
 	text-align: center;

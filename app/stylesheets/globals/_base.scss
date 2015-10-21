@@ -10,8 +10,10 @@ html {
 }
 html,
 body,
+#app,
 .app-wrapper {
 	position: relative;
+	height: 100%;
 }
 body {
 	font-family: $ff-primary;
