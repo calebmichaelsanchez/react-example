@@ -42,7 +42,7 @@ class Aiga extends Component {
 					<div className="hero">
 						<div className="project-meta">
 							<div className="hero-lg">The 2014 Aiga 100 Show</div>
-							<p>Brand Identity, Ui Design</p>
+							<p>Brand Identity &amp; Ui Design</p>
 						</div>
 					</div>
 					<section className="case-study-info">

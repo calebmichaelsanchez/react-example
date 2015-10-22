@@ -87,17 +87,18 @@ input[type="checkbox"],
 input[type="radio"] {
 	display: none;
 }
-.fieldset-group {
-	label {
-		width: 100%;
-		padding: 10px;
-		text-align: left;
-		transition: 0.2s ease-in;
-		cursor: pointer;
-	}
+.fieldset-group label{
+	width: 100%;
+	padding: 0.625rem 1.125rem;
+	text-align: left;
+	transition: 0.2s ease-in;
+	cursor: pointer;
+	font-size: fs(p);
 }
 input[type="checkbox"]:checked + label,
-input[type="radio"]:checked +label,
+input[type="radio"]:checked +label {
+	color: color(blue-secondary);
+}
 input[type="checkbox"] + label:hover,
 input[type="radio"] +label:hover {
 	background: color(light-gray-primary);
@@ -147,6 +148,8 @@ dd {
 	max-width: 250px;
 	top: 0;
 	left: 0;
+	padding-top: 1.125rem;
+	padding-bottom: 1.125rem;
 	background: color(white);
 	border: 1px solid #b5bbc9;
 	box-shadow: 0 1px 2px 0 rgba(color(black), .1);
@@ -167,10 +170,10 @@ dd {
 		color: color(blue-secondary);
 	}
 	li:first-of-type label {
-		border-radius: 5px 5px 0 0;
+		//border-radius: 5px 5px 0 0;
 	}
 	li:last-of-type label {
-		border-radius: 0 0 5px 5px;
+		//border-radius: 0 0 5px 5px;
 	}
 	dd { display: none; }
 }

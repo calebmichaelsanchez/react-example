@@ -9,9 +9,9 @@ class Work extends Component {
 		//let { children } = this.props;
 		//let children = React.cloneElement(this.props.children, { setNavTheme: this.setNavTheme });
 		let children = React.Children.map(this.props.children, (child) => {
-			console.log(React.cloneElement(child, {setNavTheme: this.props.setNavTheme}));
-			console.log(React.addons.createFragment(React.cloneElement(child, {setNavTheme: this.props.setNavTheme})));
-			return React.addons.createFragment(React.cloneElement(child, {setNavTheme: this.props.setNavTheme}));
+			return React.cloneElement(child, {
+				setNavTheme: this.props.setNavTheme
+			});
 		});
 		return (
 			<section className="work">

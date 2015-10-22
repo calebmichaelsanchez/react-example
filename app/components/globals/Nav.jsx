@@ -18,6 +18,12 @@ class Nav extends Component {
 		this.toggleOpen = this.toggleOpen.bind(this);
 	}
 	componentDidMount() {
+		var self = this;
+		window.requestAnimationFrame = window.requestAnimationFrame
+		 || window.mozRequestAnimationFrame
+		 || window.webkitRequestAnimationFrame
+		 || window.msRequestAnimationFrame
+		//window.addEventListener("scroll", function() {requestAnimationFrame(self.handleScroll)}, false);
 		window.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleWidth);
 	}

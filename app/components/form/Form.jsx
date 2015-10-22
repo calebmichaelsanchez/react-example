@@ -212,23 +212,18 @@ const Form = React.createClass ({
 								<dd>
 									<ul>
 										<li>
-											<input type="radio" name="timeline" value="Today" id="today" onClick={this.handleLabelClick} />
-											<label htmlFor="today">Today</label>
+											<input type="radio" name="timeline" value="¡yesterday!" id="yesterday" onClick={this.handleLabelClick} />
+											<label htmlFor="yesterday">¡yesterday!</label>
 										</li>
 
 										<li>
-											<input type="radio" name="timeline" value="Quarter" id="quarter" onClick={this.handleLabelClick} />
-											<label htmlFor="quarter">Quarter</label>
+											<input type="radio" name="timeline" value="the next few months" id="quarter" onClick={this.handleLabelClick} />
+											<label htmlFor="quarter">the next few months</label>
 										</li>
 
 										<li>
-											<input type="radio" name="timeline" value="Year" id="year" onClick={this.handleLabelClick} />
-											<label htmlFor="year">Year</label>
-										</li>
-
-										<li>
-											<input type="radio" name="timeline" value="Yesterday" id="yesterday" onClick={this.handleLabelClick} />
-											<label htmlFor="yesterday">Yesterday</label>
+											<input type="radio" name="timeline" value="ongoing sprints" id="ongoing" onClick={this.handleLabelClick} />
+											<label htmlFor="ongoing">ongoing sprints</label>
 										</li>
 									</ul>
 								</dd>
@@ -269,7 +264,7 @@ const Form = React.createClass ({
 					</div>
 
 					<div className="fieldset-item no-flex">
-						<label htmlFor="about" className="about">My project</label>
+						<label htmlFor="about" className="label about">My project</label>
 						<textarea name="about" className={this.alertClass("about")} placeholder="tell us about your project. . ." valueLink={this.linkState("about")} ref="about"></textarea>
 					</div>
 

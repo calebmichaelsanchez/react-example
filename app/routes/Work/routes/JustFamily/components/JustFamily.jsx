@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
-var jfImg = {
-	brand: require('../../../../../assets/img/work/just-family/branding/logo.png'),
-	exploration: require('../../../../../assets/img/work/just-family/exploration/exploration.png'),
-	lifestyle: require('../../../../../assets/img/work/just-family/lifestyle/lifestyle.jpg')
-}
-
 class JustFamily extends Component {
 	constructor(props) {
 		super(props);
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
+		var img = {
+			brand: require('../../../../../assets/img/work/just-family/branding/logo.png'),
+			exploration: require('../../../../../assets/img/work/just-family/exploration/exploration.png'),
+			lifestyle: require('../../../../../assets/img/work/just-family/lifestyle/lifestyle.jpg')
+		}
 		return (
 			<DocumentTitle title="JustFamily | Underbelly Creative">
 				<div className="case-study just-family">
@@ -33,13 +32,13 @@ class JustFamily extends Component {
 					<section className="branding-exploration">
 						<div className="container-sm">
 							<h1>Branding</h1>
-							<img src={jfImg.brand} alt=""/>
+							<img src={img.brand} alt=""/>
 						</div>
 					</section>
 					<section className="mark-exploration">
 						<div className="container-sm">
 							<h1>Mark Exploration</h1>
-							<img src={jfImg.exploration} alt=""/>
+							<img src={img.exploration} alt=""/>
 						</div>
 					</section>
 					<div className="sketch"></div>
@@ -49,7 +48,7 @@ class JustFamily extends Component {
 							<div className="video widescreen">
 								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
-							<img src={jfImg.lifestyle} alt=""/>
+							<img src={img.lifestyle} alt=""/>
 							<div className="quote">
 								<p>"Underbelly constantly impressed us with both their craftsmanship and creativity. We did better work because we worked with them."</p>
 								<span className="author">- Nate Quigley</span>

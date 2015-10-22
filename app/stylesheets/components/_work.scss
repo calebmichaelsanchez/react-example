@@ -3,13 +3,11 @@
 
 	section {
 		padding: 3.6325rem 2rem;
-		h1 { margin-bottom: 40px; }
+		h1 { margin-bottom: 60px; }
 	}
 	.case-study-info {
 		@extend %clearfix;
-		h1 {
-			margin-bottom: 20px;
-		}
+		h1 { margin-bottom: 20px; }
 		p { margin-bottom: 10px; }
 		p:last-of-type { margin-bottom: 0; }
 	}
@@ -19,7 +17,7 @@
 		}
 		.case-study-info {
 			h1 {
-				margin-bottom: 40px;
+				margin-bottom: 20px;
 			}
 		}
 	}
