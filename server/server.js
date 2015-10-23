@@ -1,12 +1,14 @@
 "use strict";
 
+require("babel-core/register.js");
+
 var express = require('express');
 var path = require('path');
-//var React = require('react');
-//var renderToString = require('react-dom/server');
-//var createLocation = require('history/lib/createLocation');
-//var Router= require('react-router');
-//var routes = require('../app/index.js');
+var React = require('react');
+var renderToString = require('react-dom/server');
+var createLocation = require('history/lib/createLocation');
+var Router= require('react-router');
+var routes = require('../app/routes.js');
 var app = express();
 
 app.use(express.static(__dirname + '/build'));
@@ -18,21 +20,22 @@ app.post('/contact-form', function(req, res) {
 	console.log(req.body);
 });
 
-// app.use((req, res) => {
-// 	let location = createLocation(req.url);
+app.use(function (req, res) {
+	var location = createLocation(req.url);
+	console.log(routes);
 
-// 	match({ routes, location }, (error, redirectLocation, renderProps) => {
-// 		if (error) {
-// 			res.send(500, error.message);
-// 		} else if (redirectLocation) {
-// 			res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-// 		} else if (renderProps) {
-// 			res.send(200, renderToString(<RoutingContext {...renderProps} />));
-// 		} else {
-// 			res.send(404, 'Not found')
-// 		}
-// 	});
-// });
+	// Router.match({ routes, location }, function (error, redirectLocation, renderProps) {
+	// 	if (error) {
+	// 		res.send(500, error.message);
+	// 	} else if (redirectLocation) {
+	// 		res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+	// 	} else if (renderProps) {
+	// 		res.send(200, renderToString(<RoutingContext {...renderProps} />));
+	// 	} else {
+	// 		res.send(404, 'Not found')
+	// 	}
+	// });
+});
 
 
 // app.get('*', function (request, response) {
