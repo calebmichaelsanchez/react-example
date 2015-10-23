@@ -1,4 +1,5 @@
-import React, { Component } from 'react/addons';
+import React, { Component } from 'react';
+import createFragment from 'react-addons-create-fragment';
 import Projects from './Projects';
 
 class Work extends Component {
@@ -6,18 +7,23 @@ class Work extends Component {
 		super(props);
 	}
 	render() {
-		//let { children } = this.props;
-		//let children = React.cloneElement(this.props.children, { setNavTheme: this.setNavTheme });
-		let children = React.Children.map(this.props.children, (child) => {
-			return React.cloneElement(child, {
-				setNavTheme: this.props.setNavTheme
-			});
-		});
+		console.log(this);
+		// let children = createFragment(React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme }));
+		// let newChildren = React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme });
+		// let frag = createFragment(children);
+		// console.log(children);
 		return (
 			<section className="work">
-				{ children ? ( {children} ) : ( <Projects setNavTheme={this.props.setNavTheme} /> ) }
+				{this.props.children || <Projects setNavTheme={this.props.setNavTheme} />}
 			</section>
 		);
 	}
+}
+Work.propTypes = {
+	theme: React.PropTypes.string.isRequired,
+	setNavTheme: React.PropTypes.func
+}
+Work.defaultProps = {
+	theme: 'dark'
 }
 export default Work;

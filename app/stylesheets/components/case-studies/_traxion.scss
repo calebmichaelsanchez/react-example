@@ -1,0 +1,15 @@
+.traxion {
+	.hero {
+		@include hero("../assets/img/work/traxion/hero/01.jpg");
+	}
+	.case-study-info {
+	}
+	.award {
+		background-color: color(white);
+		text-align: center;
+		img { max-width: 385px; }
+	}
+	.lifestyle {
+		//background-color: color(white);
+	}
+}

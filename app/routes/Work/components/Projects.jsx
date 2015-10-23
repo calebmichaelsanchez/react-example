@@ -6,6 +6,8 @@ import DocumentTitle from 'react-document-title';
 class Projects extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
@@ -39,7 +41,7 @@ class Projects extends Component {
 							</div>
 						</div>
 					</Link>
-					<a href="#" className="project-item-sm">
+					<Link to="/work/traxion" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
 								<h3>Traxion App</h3>
@@ -50,7 +52,7 @@ class Projects extends Component {
 							</div>
 						</div>
 						<div className="project-image-traxion"></div>
-					</a>
+					</Link>
 				</div>
 			{ /* Row 2 */ }
 				<div className="project-container">

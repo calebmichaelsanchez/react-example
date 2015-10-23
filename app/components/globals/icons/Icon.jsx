@@ -58,7 +58,9 @@ class Icon extends Component {
 				break;
 		}
 		return (
-			<div className={`icon icon-${iconName} ${theme} ${type}`} dangerouslySetInnerHTML={{__html: iconSvg}} />
+			<div className={`icon icon-${iconName} ${theme} ${type}`}>
+				<svg dangerouslySetInnerHTML={{__html: iconSvg}}></svg>
+			</div>
 		);
 	}
 }

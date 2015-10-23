@@ -4,6 +4,8 @@ import DocumentTitle from 'react-document-title';
 class JustFamily extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
@@ -63,7 +65,7 @@ class JustFamily extends Component {
 JustFamily.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	theme: React.PropTypes.string.isRequired,
-	setNavTheme: React.PropTypes.func.isRequired
+	setNavTheme: React.PropTypes.func
 }
 JustFamily.defaultProps = {
 	name: 'just-family',

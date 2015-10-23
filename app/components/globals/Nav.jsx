@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom, { findDOMNode } from 'react-dom';
 import Router, { Link } from 'react-router';
 import Icon from './icons/Icon';
 import classNames from 'classnames';
@@ -42,8 +43,7 @@ class Nav extends Component {
 		};
 	}
 	handleWidth() {
-		console.log("handleWidth");
-		var el = React.findDOMNode(this.refs.nav);
+		var el = findDOMNode(this.refs.nav);
 		var w = window.innerWidth;
 		if (w >= 768 && this.state.open) {
 			this.setState({
@@ -52,7 +52,7 @@ class Nav extends Component {
 		}
 	}
 	handleScroll() {
-		var el = React.findDOMNode(this.refs.nav);
+		var el = findDOMNode(this.refs.nav);
 		var offset = window.scrollY;
 		if (offset >= 40) {
 			this.setState({

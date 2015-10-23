@@ -5,6 +5,8 @@ import Form from '../../../components/form/Form';
 class Contact extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render(){

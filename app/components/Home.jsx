@@ -6,9 +6,12 @@ import { Link } from 'react-router';
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.props.setNavTheme(this.props.theme);
+	}
+	componentDidMount() {
+		this.props.setNavTheme(this, this.props.theme);
 	}
 	render(){
+		console.log(this);
 		return (
 			<DocumentTitle title='Home | Underbelly Creative'>
 				<div className="home">

@@ -11,7 +11,8 @@ module.exports = {
 				require('./routes/Hive'),
 				require('./routes/JustFamily'),
 				require('./routes/RentTree'),
-				require('./routes/Tracy')
+				require('./routes/Tracy'),
+				require('./routes/Traxion')
 			])
 		})
 	},

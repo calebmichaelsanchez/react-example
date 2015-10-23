@@ -1,4 +1,5 @@
-import React from 'react/addons';
+import React from 'react';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import axios from 'axios';
 import classNames from 'classnames';
 import Icon from '../globals/icons/Icon';
@@ -25,7 +26,7 @@ let gatherTruthy = function () {
 }
 
 const Form = React.createClass ({
-	mixins: [React.addons.LinkedStateMixin],
+	mixins: [LinkedStateMixin],
 
 	getInitialState: function () {
 		return {
@@ -112,12 +113,15 @@ const Form = React.createClass ({
 
 	send: function () {
 		let model = this.getModel();
-		alert(JSON.stringify(model));
 		// let to = "hello@underbelly.is";
 		// let subject = "Work with us";
 
-		// this.setState({ submitting: true});
-		// this.setState({ submitting: false});
+		this.setState({ submitting: true});
+		axios.post('/contact-form', model)
+			.then(function (res) {
+				console.log(res);
+			});
+		this.setState({ submitting: false});
 	},
 
 	error: function (name) {

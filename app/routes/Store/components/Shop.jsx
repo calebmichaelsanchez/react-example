@@ -12,9 +12,11 @@ let shopImg = {
 class Shop extends Component {
 	constructor(props) {
 		super(props);
-		this.props.setNavTheme(this.props.theme);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+	}
+	componentDidMount() {
+		this.props.setNavTheme(this.props.theme);
 	}
 	handleMouseEnter(event) {
 		var btn = document.querySelectorAll('.product-btn');
@@ -27,11 +29,12 @@ class Shop extends Component {
 		btn[0].children[0].innerHTML = 'Free';
 	}
 	render(){
+		console.log(this);
 		return (
 			<DocumentTitle title="Store | Underbelly Creative">
 			<div className="shop">
 				<header className="shop-header">
-					<span className="hero-lg">Our Work</span>
+					<span className="hero-lg">Shop</span>
 				</header>
 				<section className="products-container">
 					<div className="product-item">

@@ -1,5 +1,4 @@
-import React from 'react/addons';
-import Formsy from 'formsy-react';
+import React from 'react';
 
 const Input = React.createClass({
 	mixins: [Formsy.Mixin, React.addons.LinkedStateMixin],

@@ -35,9 +35,9 @@ var common = {
         loader: 'raw-loader'
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(jpe?g|png|gif)$/,
         include: APP_PATH,
-        loader: 'url?limit=25000'
+        loaders: ['url-loader?prefix=img/&limit=25000', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
       }
     ]
   },
@@ -103,7 +103,8 @@ if(TARGET === 'build') {
       ),
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('development')
+          'NODE_ENV': JSON.stringify('development'),
+          'BROWSER': JSON.stringify(true)
         }
       }),
       new webpack.optimize.UglifyJsPlugin({
