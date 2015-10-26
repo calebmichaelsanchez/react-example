@@ -20,16 +20,13 @@ class Shop extends Component {
 	}
 	handleMouseEnter(event) {
 		var btn = document.querySelectorAll('.product-btn');
-		console.log(btn[0].children[0].innerHTML);
 		btn[0].children[0].innerHTML = 'Buy';
 	}
 	handleMouseLeave(event) {
 		var btn = document.querySelectorAll('.product-btn');
-		console.log(btn[0].children[0].innerHTML);
 		btn[0].children[0].innerHTML = 'Free';
 	}
 	render(){
-		console.log(this);
 		return (
 			<DocumentTitle title="Store | Underbelly Creative">
 			<div className="shop">

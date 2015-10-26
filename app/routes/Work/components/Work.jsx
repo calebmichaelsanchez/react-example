@@ -7,16 +7,15 @@ class Work extends Component {
 		super(props);
 	}
 	render() {
-		console.log(this);
-		// let children = createFragment(React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme }));
-		// let newChildren = React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme });
-		// let frag = createFragment(children);
-		// console.log(children);
-		return (
-			<section className="work">
-				{this.props.children || <Projects setNavTheme={this.props.setNavTheme} />}
-			</section>
-		);
+		if (this.props.children) {
+			return React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme});
+		} else {
+			return (
+				<section className="work">
+					<Projects setNavTheme={this.props.setNavTheme} />
+				</section>
+			);
+		}
 	}
 }
 Work.propTypes = {

@@ -8,7 +8,7 @@ class Nav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			theme: this.props.theme,
+			theme: "",
 			open: false,
 			scrolled: false
 		}
@@ -19,6 +19,7 @@ class Nav extends Component {
 		this.toggleOpen = this.toggleOpen.bind(this);
 	}
 	componentDidMount() {
+		this.setState({theme: this.props.theme});
 		var self = this;
 		window.requestAnimationFrame = window.requestAnimationFrame
 		 || window.mozRequestAnimationFrame

@@ -4,12 +4,11 @@ import DocumentTitle from 'react-document-title';
 class Fluid extends Component {
 	constructor(props) {
 		super(props);
-		this.props.setNavTheme(this.props.theme);
 		this.parallax = this.parallax.bind(this);
 		this.requestAF = this.requestAF.bind(this);
 	}
 	componentDidMount() {
-		console.log(window.outerWidth);
+		this.props.setNavTheme(this.props.theme);
 		window.addEventListener("resize", function() {
 			if (window.innerWidth >= 640) {
 				window.addEventListener("scroll", this.requestAF, false );

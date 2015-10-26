@@ -8,10 +8,9 @@ class Home extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		this.props.setNavTheme(this, this.props.theme);
+		this.props.setNavTheme(this.props.theme);
 	}
 	render(){
-		console.log(this);
 		return (
 			<DocumentTitle title='Home | Underbelly Creative'>
 				<div className="home">

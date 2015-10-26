@@ -63,16 +63,11 @@ const Form = React.createClass ({
 
 	getModel: function () {
 		var model = pick(this.state, "name", "email", "service", "timeline", "budget", "about");
-		//model.services = gatherTruthy(this.state, "design", "mobile", "webapp", "website", "cms");
-		//model.timing = gatherTruthy(this.state, "today", "quarter", "year", "yesterday");
-		//model.budget = gatherTruthy(this.state, "25k", "50k", "100k", "unsure");
-
 		return model;
 	},
 
 	handleSubmit: function (event) {
 		event.preventDefault();
-
 		if (this.validate()) {
 			this.send();
 		}
@@ -87,7 +82,6 @@ const Form = React.createClass ({
 				email = new RegExp("@"),
 				valid = true,
 				model = this.getModel();
-		console.log(model);
 
 		["name", "email", "about", "budget", "timeline", "service"].map( (field) => {
 				if (!model[field]) {
@@ -113,8 +107,6 @@ const Form = React.createClass ({
 
 	send: function () {
 		let model = this.getModel();
-		// let to = "hello@underbelly.is";
-		// let subject = "Work with us";
 
 		this.setState({ submitting: true});
 		axios.post('/contact-form', model)
@@ -145,6 +137,13 @@ const Form = React.createClass ({
 			[open]: state
 		});
 	},
+	handleUpdate: function (event) {
+		let name = event.target.name;
+		let state = event.target.value;
+		this.setState({
+			[name]: state
+		});
+	},
 	render: function () {
 		const budgetClass = classNames({
 			'dropdown-open': this.state.budgetOpen,
@@ -165,14 +164,14 @@ const Form = React.createClass ({
 					<div className="fieldset-item">
 						<label className="label" htmlFor="name">Hi, my name is</label>
 						<div className="input">
-							<input type="text" name="name" className={this.alertClass("name")} placeholder="your name" valueLink={this.linkState("name")} />
+							<input type="text" name="name" className={this.alertClass("name")} placeholder="your name" onChange={this.handleUpdate} />
 						</div>
 					</div>
 
 					<div className="fieldset-item">
 						<label className="label" htmlFor="email">My email address is</label>
 						<div className="input">
-							<input type="text" name="email" className={this.alertClass("email")} placeholder="your email" valueLink={this.linkState("email")} />
+							<input type="text" name="email" className={this.alertClass("email")} placeholder="your email" onChange={this.handleUpdate} />
 						</div>
 					</div>
 
@@ -269,10 +268,10 @@ const Form = React.createClass ({
 
 					<div className="fieldset-item no-flex">
 						<label htmlFor="about" className="label about">My project</label>
-						<textarea name="about" className={this.alertClass("about")} placeholder="tell us about your project. . ." valueLink={this.linkState("about")} ref="about"></textarea>
+						<textarea name="about" className={this.alertClass("about")} placeholder="tell us about your project. . ." onChange={this.handleUpdate} ref="about"></textarea>
 					</div>
 
-					<button className="submit" type="submit">Send your message <Icon icon="airplane" /></button>
+					<button className="submit" type="submit" disabled={this.state.submitting} >Send your message <Icon icon="airplane" /></button>
 				</fieldset>
 			</form>
 		);

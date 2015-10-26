@@ -38,7 +38,9 @@ var common = {
         test: /\.(jpe?g|png|gif)$/,
         include: APP_PATH,
         loaders: ['url-loader?prefix=img/&limit=25000', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
-      }
+      },
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.xml$/, loader: 'xml-loader' }
     ]
   },
   plugins: [
@@ -47,7 +49,15 @@ var common = {
       template: './index.html',
       inject: 'body'
     })
-  ]
+  ],
+  node: {
+    console: true,
+    fs: 'empty',
+    dns: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    xml2js: 'empty'
+  }
 };
 
 if(TARGET === 'start' || !TARGET) {
@@ -95,7 +105,7 @@ if(TARGET === 'build') {
       ]
     },
     plugins: [
-      //new Clean(['build']),
+      new Clean(['build']),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.optimize.CommonsChunkPlugin(
         'vendor',

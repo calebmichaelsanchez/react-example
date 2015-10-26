@@ -9,14 +9,20 @@ class App extends Component {
     this.state = {
       navTheme: ''
     };
+    this.setNavTheme = this.setNavTheme.bind(this);
+  }
+  setNavTheme (theme) {
+    this.setState({
+      navTheme: theme
+    });
   }
   render(){
     let theme = this.state.navTheme;
-    //let children = React.cloneElement(this.props.children, { setNavTheme: this.setNavTheme });
+    let children = React.cloneElement(this.props.children, { setNavTheme: this.setNavTheme });
     return (
       <div className="app-wrapper">
         <Nav theme={ theme } />
-        {this.props.children}
+        {children}
         <Footer />
       </div>
     );

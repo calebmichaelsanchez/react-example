@@ -30,6 +30,8 @@ var aigaImg = {
 class Aiga extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
 	handleSelected(index, last) {

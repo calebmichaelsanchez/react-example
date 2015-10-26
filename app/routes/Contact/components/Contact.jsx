@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import Form from '../../../components/form/Form';
+import FormEmail from '../../../components/form/FormEmail';
 
 class Contact extends Component {
 	constructor(props) {
@@ -28,7 +29,7 @@ class Contact extends Component {
 };
 Contact.propTypes = {
 	theme: React.PropTypes.string.isRequired,
-	setNavTheme: React.PropTypes.func.isRequired
+	setNavTheme: React.PropTypes.func
 }
 Contact.defaultProps = {
 	theme: 'dark'

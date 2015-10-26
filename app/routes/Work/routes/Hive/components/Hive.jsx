@@ -14,6 +14,8 @@ var hiveImg = {
 class Hive extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

@@ -10,9 +10,10 @@ var rentImg = {
 class RentTree extends Component {
 	constructor(props) {
 		super(props);
+	}
+	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
 	}
-
 	render() {
 		return (
 			<DocumentTitle title="Rent Tree | Underbelly Creative">
