@@ -93,12 +93,12 @@ class Projects extends Component {
 					</div>
 				</Link>
 				{ /* Row 3 */ }
-				<a href="#" className="project-item-bright-bytes project-item-lg">
+				<a href="http://brightbytes.net/" target="_blank" className="project-item-bright-bytes project-item-lg">
 					<div className="project-meta project-meta-small">
 						<div>
 							<h3>BrightBytes</h3>
 							<span className="btn">
-								View Project
+								View Site
 								<Icon icon="arrow" type="icon-btn" theme="dark" />
 							</span>
 						</div>
