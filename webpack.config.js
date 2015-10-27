@@ -37,6 +37,7 @@ var common = {
         include: path.resolve(ROOT_PATH, 'app/components/globals/icons'),
         loader: 'raw-loader'
       },
+      { test: /\.(mp4|webm|ogv)$/, exclude: NODE_PATH, loader: 'file-loader'},
       {
         test: /\.(jpe?g|png|gif)$/,
         exclude: NODE_PATH,

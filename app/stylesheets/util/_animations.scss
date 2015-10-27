@@ -10,3 +10,11 @@
 	0% { transform: translateY(-15px); }
 	100% { transform: translateY(0); }
 }
+@keyframes compass {
+	0%{ transform:rotate(0deg) }
+	30%{ transform:rotate(360deg) }
+	45%{ transform:rotate(-155deg) }
+	60%{ transform:rotate(40deg) }
+	75%{ transform:rotate(65deg) }
+	100%{ transform:rotate(0deg) }
+}

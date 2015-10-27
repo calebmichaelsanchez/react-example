@@ -13,6 +13,7 @@ import Fluid from './routes/Work/routes/Fluid/components/Fluid';
 import BrightBytes from './routes/Work/routes/BrightBytes/components/BrightBytes';
 import Hive from './routes/Work/routes/Hive/components/Hive';
 import RentTree from './routes/Work/routes/RentTree/components/RentTree';
+import NoMatch from './routes/NoMatch/components/NoMatch';
 
 const routes = (
   <Router onUpdate={() => window.scrollTo(0, 0)}>
@@ -29,6 +30,7 @@ const routes = (
         <Route path="hive" component={Hive} />
         <Route path="rent-tree" component={RentTree} />
       </Route>
+      <Route path="*" component={NoMatch} />
     </Route>
   </Router>
 );

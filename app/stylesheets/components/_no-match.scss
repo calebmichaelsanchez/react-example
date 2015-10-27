@@ -1,0 +1,59 @@
+.no-match {
+	position: relative;
+	width: 100%;
+	min-height: 520px;
+	height: 100vh;
+	padding: 5.625rem 1rem;
+	@include ghost(center);
+	overflow: hidden;
+	@media screen and (min-width: $medium) {
+		height: 100vh;
+	}
+}
+.video-container, .video-item  {
+	position: absolute;
+	min-width: 100%;
+	width: auto;
+	min-height: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+.video-container {
+	@include hero('../assets/img/404/404.jpg');
+	@media screen and (min-width: $medium) {
+		background-image: none;
+	}
+}
+.video-item {
+	display: none;
+	@media screen and (min-width: $medium) {
+		display: block;
+	}
+}
+.compass-item {
+	width: 25%;
+	max-width: 290px;
+	animation: compass 5s ease infinite;
+}
+.compass-title {
+	color: color(white);
+	margin: 2rem 0;
+}
+.link-btn {
+	position: relative;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	text-transform: uppercase;
+	border: 1px solid color(white);
+	border-radius: 20px;
+	padding: 8px 15px 10px;
+	color: color(white);
+	span {
+		opacity: 1;
+		vertical-align: middle;
+		transition: 0.2s;
+	}
+}

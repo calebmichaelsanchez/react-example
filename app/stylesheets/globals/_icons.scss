@@ -73,7 +73,8 @@
 	&.light svg path { fill: color(white); }
 	&.dark svg path { fill: color(blue-secondary); }
 	[class^="project-item"]:hover &,
-	.product-btn:hover & {
+	.product-btn:hover &,
+	.link-btn:hover & {
 		opacity: 1;
 		visibility: visible;
 		margin-left: 10px;
