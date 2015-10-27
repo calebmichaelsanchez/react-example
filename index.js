@@ -12,8 +12,16 @@ var axios = require('axios')
 var bodyParser = require('body-parser');
 var app = express();
 
-app.use(express.static(__dirname + '/build'));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.use("/app", express.static(__dirname + '/build/app'));
+app.use("/vendor", express.static(__dirname + '/build/vendor'));
+
+app.get('/*', function (request, response) {
+	response.sendFile(__dirname + '/build/index.html');
+	console.log(request.body);
+});
 
 app.post('/contact-form', function(req, res) {
 	res.send("Axios Post Recieved!")
@@ -42,10 +50,6 @@ app.post('/contact-form', function(req, res) {
 		.catch(function (res) {
 			console.log(res.statusCode);
 		})
-});
-
-app.get('*', function (request, response) {
-	response.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 });
 
 var port = process.env.PORT || 3000;

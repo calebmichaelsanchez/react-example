@@ -9,7 +9,7 @@ class JustFamily extends Component {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
-		var img = {
+		let img = {
 			brand: require('../../../../../assets/img/work/just-family/branding/logo.png'),
 			exploration: require('../../../../../assets/img/work/just-family/exploration/exploration.png'),
 			lifestyle: require('../../../../../assets/img/work/just-family/lifestyle/lifestyle.jpg')

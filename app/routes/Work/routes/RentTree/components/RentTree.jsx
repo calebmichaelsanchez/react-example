@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
-var rentImg = {
-	brand: require('../../../../../assets/img/work/rent-tree/branding/logo.png'),
-	mark: require('../../../../../assets/img/work/rent-tree/mark-exploration/logo-exploration.png'),
-	action: require('../../../../../assets/img/work/rent-tree/lifestyle/lifestyle.jpg'),
-	website: require('../../../../../assets/img/work/rent-tree/website/website.png')
-}
 class RentTree extends Component {
 	constructor(props) {
 		super(props);
@@ -15,6 +9,12 @@ class RentTree extends Component {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
+		let img = {
+			brand: require('../../../../../assets/img/work/rent-tree/branding/logo.png'),
+			mark: require('../../../../../assets/img/work/rent-tree/mark-exploration/logo-exploration.png'),
+			action: require('../../../../../assets/img/work/rent-tree/lifestyle/lifestyle.jpg'),
+			website: require('../../../../../assets/img/work/rent-tree/website/website.png')
+		}
 		return (
 			<DocumentTitle title="Rent Tree | Underbelly Creative">
 				<div className="case-study rent-tree">
@@ -39,24 +39,24 @@ class RentTree extends Component {
 					<section className="branding-exploration">
 						<div className="container-sm">
 							<h1>Branding</h1>
-							<img src={rentImg.brand} alt="Rent Tree Logo"/>
+							<img src={img.brand} alt="Rent Tree Logo"/>
 						</div>
 					</section>
 					<section className="mark-exploration">
 						<div className="container-sm">
 							<h1>Mark Exploration</h1>
-							<img src={rentImg.mark} alt="Mark exploration: squirrel, bird, rent tree, squirrel"/>
+							<img src={img.mark} alt="Mark exploration: squirrel, bird, rent tree, squirrel"/>
 						</div>
 					</section>
 					<section className="lifestyle">
 						<div className="container-sm">
 							<h1>In Action</h1>
-							<img src={rentImg.action} alt=""/>
+							<img src={img.action} alt=""/>
 						</div>
 					</section>
 					<section className="website">
 						<div className="container-sm">
-							<img src={rentImg.website} alt=""/>
+							<img src={img.website} alt=""/>
 						</div>
 					</section>
 				</div>

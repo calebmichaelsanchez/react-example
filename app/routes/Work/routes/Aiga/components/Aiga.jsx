@@ -1,31 +1,6 @@
 import React, { Component } from 'react';
 import ReactTabs, {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import DocumentTitle from 'react-document-title';
-var aigaImg = {
-	brand: {
-		geo: {
-			one: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/01.jpg'),
-			two: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/02.jpg'),
-			three: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/03.jpg'),
-		},
-		tools: {
-			one: require('../../../../../assets/img/work/aiga/brand-exploration/tools/01.jpg'),
-			two: require('../../../../../assets/img/work/aiga/brand-exploration/tools/02.jpg'),
-			three: require('../../../../../assets/img/work/aiga/brand-exploration/tools/03.jpg'),
-		},
-		midCentury: {
-			one: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/01.jpg'),
-			two: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/02.jpg'),
-			three: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/03.jpg'),
-		}
-	},
-	finalDirection: require('../../../../../assets/img/work/aiga/finalized/poster.png'),
-	website: require('../../../../../assets/img/work/aiga/website/01.png'),
-	lifeStyle: {
-		one: require('../../../../../assets/img/work/aiga/lifestyle/01.jpg'),
-		two: require('../../../../../assets/img/work/aiga/lifestyle/02.jpg')
-	}
-}
 
 class Aiga extends Component {
 	constructor(props) {
@@ -38,6 +13,31 @@ class Aiga extends Component {
 		console.log('Selected tab: ' + index + ', Last tab: ' + last);
 	}
 	render() {
+		let img = {
+			brand: {
+				geo: {
+					one: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/01.jpg'),
+					two: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/02.jpg'),
+					three: require('../../../../../assets/img/work/aiga/brand-exploration/geometric/03.jpg'),
+				},
+				tools: {
+					one: require('../../../../../assets/img/work/aiga/brand-exploration/tools/01.jpg'),
+					two: require('../../../../../assets/img/work/aiga/brand-exploration/tools/02.jpg'),
+					three: require('../../../../../assets/img/work/aiga/brand-exploration/tools/03.jpg'),
+				},
+				midCentury: {
+					one: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/01.jpg'),
+					two: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/02.jpg'),
+					three: require('../../../../../assets/img/work/aiga/brand-exploration/mid-century/03.jpg'),
+				}
+			},
+			finalDirection: require('../../../../../assets/img/work/aiga/finalized/poster.png'),
+			website: require('../../../../../assets/img/work/aiga/website/01.png'),
+			lifeStyle: {
+				one: require('../../../../../assets/img/work/aiga/lifestyle/01.jpg'),
+				two: require('../../../../../assets/img/work/aiga/lifestyle/02.jpg')
+			}
+		}
 		return (
 			<DocumentTitle title="AIGA | Underbelly Creative">
 				<div className="case-study aiga">
@@ -72,35 +72,35 @@ class Aiga extends Component {
 								</TabList>
 								<TabPanel>
 									<div className="grid-3">
-										<img src={aigaImg.brand.geo.one} />
+										<img src={img.brand.geo.one} />
 									</div>
 									<div className="grid-3">
-										<img src={aigaImg.brand.geo.two} />
+										<img src={img.brand.geo.two} />
 									</div>
 									<div className="grid-3">
-										<img src={aigaImg.brand.geo.three} />
-									</div>
-								</TabPanel>
-								<TabPanel>
-									<div className="grid-3">
-										<img src={aigaImg.brand.tools.one} />
-									</div>
-									<div className="grid-3">
-										<img src={aigaImg.brand.tools.two} />
-									</div>
-									<div className="grid-3">
-										<img src={aigaImg.brand.tools.three} />
+										<img src={img.brand.geo.three} />
 									</div>
 								</TabPanel>
 								<TabPanel>
 									<div className="grid-3">
-										<img src={aigaImg.brand.midCentury.one} />
+										<img src={img.brand.tools.one} />
 									</div>
 									<div className="grid-3">
-										<img src={aigaImg.brand.midCentury.two} />
+										<img src={img.brand.tools.two} />
 									</div>
 									<div className="grid-3">
-										<img src={aigaImg.brand.midCentury.three} />
+										<img src={img.brand.tools.three} />
+									</div>
+								</TabPanel>
+								<TabPanel>
+									<div className="grid-3">
+										<img src={img.brand.midCentury.one} />
+									</div>
+									<div className="grid-3">
+										<img src={img.brand.midCentury.two} />
+									</div>
+									<div className="grid-3">
+										<img src={img.brand.midCentury.three} />
 									</div>
 								</TabPanel>
 							</Tabs>
@@ -109,22 +109,22 @@ class Aiga extends Component {
 					<section className="final-direction">
 						<div className="container-sm">
 							<h1>Finalized Direction</h1>
-							<img src={aigaImg.finalDirection} />
+							<img src={img.finalDirection} />
 						</div>
 					</section>
 					<section className="lifestyle">
 						<div className="container-sm">
-							<img src={aigaImg.lifeStyle.one} />
+							<img src={img.lifeStyle.one} />
 							<div className="video widescreen">
 								<iframe src="https://player.vimeo.com/video/96955791" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
-							<img src={aigaImg.lifeStyle.two} />
+							<img src={img.lifeStyle.two} />
 						</div>
 					</section>
 					<section className="website">
 						<div className="container-sm">
 							<h1>Website</h1>
-							<img src={aigaImg.website} />
+							<img src={img.website} />
 							<div className="quote">
 								<p>"Underbelly couldn’t have done a better job with branding the 100 Show. Every piece was so thought out, and beautifully executed. They worked tirelessly to give us the best product possible, and it really showed!"</p>
 								<span className="author">- Kassie Wright</span>

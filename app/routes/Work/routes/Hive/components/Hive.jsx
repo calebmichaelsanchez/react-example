@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
-var hiveImg = {
-	brand: require('../../../../../assets/img/work/hive/branding/logo.png'),
-	evo: {
-		one: require('../../../../../assets/img/work/hive/evolution/01.png'),
-		two: require('../../../../../assets/img/work/hive/evolution/02.png'),
-		three: require('../../../../../assets/img/work/hive/evolution/03.png')
-	},
-	responsive: require('../../../../../assets/img/work/hive/responsive/01.png')
-}
-
 class Hive extends Component {
 	constructor(props) {
 		super(props);
@@ -19,6 +9,15 @@ class Hive extends Component {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
+		let img = {
+			brand: require('../../../../../assets/img/work/hive/branding/logo.png'),
+			evo: {
+				one: require('../../../../../assets/img/work/hive/evolution/01.png'),
+				two: require('../../../../../assets/img/work/hive/evolution/02.png'),
+				three: require('../../../../../assets/img/work/hive/evolution/03.png')
+			},
+			responsive: require('../../../../../assets/img/work/hive/responsive/01.png')
+		}
 		return (
 			<DocumentTitle title="Hive | Underbelly Creative">
 				<div className="case-study hive">
@@ -43,20 +42,20 @@ class Hive extends Component {
 					<section className="branding-exploration">
 						<div className="container-sm">
 							<h1>Branding</h1>
-							<img src={hiveImg.brand} alt="Hive Logo"/>
+							<img src={img.brand} alt="Hive Logo"/>
 						</div>
 					</section>
 					<section className="evolution">
 						<div className="container-sm">
 							<h1>Evolution</h1>
 							<div className="grid-1-3 no-break padded">
-								<img src={hiveImg.evo.one} alt=""/>
+								<img src={img.evo.one} alt=""/>
 							</div>
 							<div className="grid-1-3 no-break padded">
-								<img src={hiveImg.evo.two} alt=""/>
+								<img src={img.evo.two} alt=""/>
 							</div>
 							<div className="grid-1-3 no-break padded">
-								<img src={hiveImg.evo.three} alt=""/>
+								<img src={img.evo.three} alt=""/>
 							</div>
 						</div>
 					</section>
@@ -68,7 +67,7 @@ class Hive extends Component {
 								<p>On the go or in the office, we designed Hive to work for YOUR unique lifestyle. Create, assign, and complete on any device; it's that easy. And with realtime notifications, you'll never miss a thing.</p>
 							</div>
 							<div className="grid-1-2 copy">
-								<img src={hiveImg.responsive} alt=""/>
+								<img src={img.responsive} alt=""/>
 							</div>
 						</div>
 					</section>
@@ -89,7 +88,7 @@ class Hive extends Component {
 Hive.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	theme: React.PropTypes.string.isRequired,
-	setNavTheme: React.PropTypes.func.isRequired
+	setNavTheme: React.PropTypes.func
 }
 Hive.defaultProps = {
 	name: 'hive',

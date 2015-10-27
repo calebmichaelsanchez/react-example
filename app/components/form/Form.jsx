@@ -1,5 +1,4 @@
-import React from 'react';
-import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import React, { Component } from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
 import Icon from '../globals/icons/Icon';
@@ -25,11 +24,10 @@ let gatherTruthy = function () {
 	return result;
 }
 
-const Form = React.createClass ({
-	mixins: [LinkedStateMixin],
-
-	getInitialState: function () {
-		return {
+class Form extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			name: "",
 			email: "",
 			budget: "",
@@ -42,14 +40,27 @@ const Form = React.createClass ({
 			serviceOpen: false,
 			errors: {},
 			submitting: false
-		};
-	},
+		}
+		this.handlePageClick = this.handlePageClick.bind(this);
+		this.getModel = this.getModel.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.alertClass = this.alertClass.bind(this);
+		this.validate = this.validate.bind(this);
+		this.send = this.send.bind(this);
+		this.error = this.error.bind(this);
+		this.handleTitleClick = this.handleTitleClick.bind(this);
+		this.handleLabelClick = this.handleLabelClick.bind(this);
+		this.handleUpdate = this.handleUpdate.bind(this);
+	}
 
-	componentDidMount: function() {
+	componentDidMount() {
 		window.addEventListener('mousedown', this.handlePageClick, false);
-	},
+	}
+	componentWillUnmount() {
+		window.removeEventListener('mousedown', this.handlePageClick, false);
+	}
 
-	handlePageClick: function (event) {
+	handlePageClick(event) {
 		let el = event.target;
 		let parent = el.parentNode.nodeName.toLowerCase();
 		if (parent != 'li') {
@@ -59,25 +70,25 @@ const Form = React.createClass ({
 				serviceOpen: false,
 			});
 		}
-	},
+	}
 
-	getModel: function () {
+	getModel() {
 		var model = pick(this.state, "name", "email", "service", "timeline", "budget", "about");
 		return model;
-	},
+	}
 
-	handleSubmit: function (event) {
+	handleSubmit(event) {
 		event.preventDefault();
 		if (this.validate()) {
 			this.send();
 		}
-	},
+	}
 
-	alertClass: function (name) {
+	alertClass(name) {
 		return this.state.errors[name] ? "alert" : "";
-	},
+	}
 
-	validate: function() {
+	validate() {
 		let errors = this.state.errors = {},
 				email = new RegExp("@"),
 				valid = true,
@@ -103,9 +114,9 @@ const Form = React.createClass ({
 		this.setState({ errors: errors});
 
 		return valid;
-	},
+	}
 
-	send: function () {
+	send() {
 		let model = this.getModel();
 
 		this.setState({ submitting: true});
@@ -114,37 +125,37 @@ const Form = React.createClass ({
 				console.log(res);
 			});
 		this.setState({ submitting: false});
-	},
+	}
 
-	error: function (name) {
+	error(name) {
 		if (this.state.errors[name]) {
 			return (<span className="error">{this.state.errors[name]}</span>);
 		}
-	},
-	handleLabelClick: function (event) {
+	}
+	handleLabelClick(event) {
 		let name = event.currentTarget.name;
 		let open = name + "Open";
 		this.setState({
 			[name]: event.target.value,
 			[open]: false
 		});
-	},
-	handleTitleClick: function (event) {
+	}
+	handleTitleClick(event) {
 		let name = event.target.dataset.name;
 		let open = name + "Open";
 		let state = !this.state[open];
 		this.setState({
 			[open]: state
 		});
-	},
-	handleUpdate: function (event) {
+	}
+	handleUpdate(event) {
 		let name = event.target.name;
 		let state = event.target.value;
 		this.setState({
 			[name]: state
 		});
-	},
-	render: function () {
+	}
+	render() {
 		const budgetClass = classNames({
 			'dropdown-open': this.state.budgetOpen,
 			'chosen': this.state.budget === "" ? false : true
@@ -276,6 +287,6 @@ const Form = React.createClass ({
 			</form>
 		);
 	}
-});
+};
 
 export default Form;

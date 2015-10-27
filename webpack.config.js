@@ -11,6 +11,9 @@ var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+var ASSET_PATH = path.resolve(ROOT_PATH, 'assets');
+var SCSS_PATH = path.resolve(ROOT_PATH, 'stylesheets');
+var NODE_PATH = path.resolve(ROOT_PATH, 'node_modules');
 
 process.env.BABEL_ENV = TARGET;
 
@@ -28,7 +31,7 @@ var common = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        include: APP_PATH
+        exclude: NODE_PATH
       },
       { test: /\.(svg)$/,
         include: path.resolve(ROOT_PATH, 'app/components/globals/icons'),
@@ -36,8 +39,8 @@ var common = {
       },
       {
         test: /\.(jpe?g|png|gif)$/,
-        include: APP_PATH,
-        loaders: ['url-loader?prefix=img/&limit=25000', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
+        exclude: NODE_PATH,
+        loaders: ['url-loader?name=[path][name].[ext]&limit=10000', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
       },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.xml$/, loader: 'xml-loader' }
@@ -47,7 +50,8 @@ var common = {
     new HtmlWebpackPlugin({
       title: 'Underbelly Creative',
       template: './index.html',
-      inject: 'body'
+      inject: 'body',
+      filename: 'index.html'
     })
   ],
   node: {
@@ -67,8 +71,8 @@ if(TARGET === 'start' || !TARGET) {
       loaders: [
         {
           test: /\.scss$/,
-          include: APP_PATH,
-          loader: 'style!css!sass'
+          exclude: NODE_PATH,
+          loader: 'style!css!sass?sourceMap'
         }
       ]
     },
@@ -92,24 +96,29 @@ if(TARGET === 'build') {
     },
     output: {
       path: BUILD_PATH,
-      filename: '[name].[chunkhash].js'
+      filename: '[name]/[name].[chunkhash].js'
     },
     devtool: 'source-map',
     module: {
       loaders: [
+        // {
+        //   test: /\.scss?$/,
+        //   loader: ExtractTextPlugin.extract('style', 'css?root=../../!sass'),
+        //   exclude: NODE_PATH
+        // }
         {
-          test: /\.scss?$/,
-          loader: ExtractTextPlugin.extract('style', 'css!sass-loader'),
-          include: APP_PATH
+          test: /\.scss$/,
+          exclude: NODE_PATH,
+          loader: 'style!css?root=/app!sass?sourceMap'
         }
       ]
     },
     plugins: [
       new Clean(['build']),
-      new ExtractTextPlugin('styles.[chunkhash].css'),
+      new ExtractTextPlugin('styles/styles.[chunkhash].css'),
       new webpack.optimize.CommonsChunkPlugin(
         'vendor',
-        '[name].[chunkhash].js'
+        '[name]/[name].[chunkhash].js'
       ),
       new webpack.DefinePlugin({
         'process.env': {
