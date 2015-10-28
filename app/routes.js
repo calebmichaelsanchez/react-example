@@ -13,6 +13,8 @@ import Fluid from './routes/Work/routes/Fluid/components/Fluid';
 import BrightBytes from './routes/Work/routes/BrightBytes/components/BrightBytes';
 import Hive from './routes/Work/routes/Hive/components/Hive';
 import RentTree from './routes/Work/routes/RentTree/components/RentTree';
+import Bountiful from './routes/Work/routes/Bountiful/components/Bountiful';
+import Nsac from './routes/Work/routes/Nsac/components/Nsac';
 import NoMatch from './routes/NoMatch/components/NoMatch';
 
 const routes = (
@@ -29,6 +31,8 @@ const routes = (
         <Route path="bright-bytes" component={BrightBytes} />
         <Route path="hive" component={Hive} />
         <Route path="rent-tree" component={RentTree} />
+        <Route path="bountiful-dental" component={Bountiful} />
+        <Route path="nsac" component={Nsac} />
       </Route>
       <Route path="*" component={NoMatch} />
     </Route>

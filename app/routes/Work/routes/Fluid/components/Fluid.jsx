@@ -123,7 +123,7 @@ class Fluid extends Component {
 					<section className="lifestyle">
 						<div className="container-sm">
 							<div className="video widescreen">
-								<iframe src="https://player.vimeo.com/video/60216372" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/60216372" width="500" height="281" frameborder="0" allowfullscreen></iframe>
 							</div>
 							<img src={img.lifestyle} alt=""/>
 							<div className="quote">

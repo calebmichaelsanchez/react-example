@@ -48,7 +48,7 @@ class JustFamily extends Component {
 						<div className="container-sm">
 							<h1>See It In Action</h1>
 							<div className="video widescreen">
-								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameborder="0" allowfullscreen></iframe>
 							</div>
 							<img src={img.lifestyle} alt=""/>
 							<div className="quote">

@@ -80,7 +80,7 @@ class Projects extends Component {
 							</div>
 						</div>
 					</Link>
-					<a href="#" className="project-item-sm">
+					<Link to="/work/nsac" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
 								<h3>North Seattle Alliance Church</h3>
@@ -91,7 +91,7 @@ class Projects extends Component {
 							</div>
 						</div>
 						<div className="project-image-alliance"></div>
-					</a>
+					</Link>
 				</div>
 				<Link to="/work/fluid" className="project-item-fluid project-item-lg">
 					<div className="project-meta project-meta-small">
@@ -117,7 +117,7 @@ class Projects extends Component {
 					</div>
 				</a>
 				<div className="project-container">
-					<a href="#" className="project-item-sm">
+					<Link to="/work/bountiful-dental" className="project-item-sm">
 						<div className="project-image-bountiful-dental"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -128,7 +128,7 @@ class Projects extends Component {
 								</span>
 							</div>
 						</div>
-					</a>
+					</Link>
 					<Link to="/work/hive" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>

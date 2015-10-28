@@ -37,11 +37,5 @@
 	.lifestyle {
 		background-color: color(white);
 		.video { margin-bottom: 15px; }
-		.quote {
-			padding-top: 3.6325rem;
-			@media screen and (min-width: $medium) {
-				padding-top: 5.625rem;
-			}
-		}
 	}
 }
