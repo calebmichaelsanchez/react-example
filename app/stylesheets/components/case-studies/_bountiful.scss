@@ -1,0 +1,33 @@
+$bountiful-primary: #2fc3ed;
+
+.bountiful {
+	.hero { @include hero('../assets/img/work/bountiful/hero/hero.jpg'); }
+	.case-study-info {
+		background-color: color(white);
+	}
+	.exploration {
+		background-color: $bountiful-primary;
+		h1 { color: color(white); }
+	}
+	.lifestyle {
+		img { margin-top: 20px; }
+	}
+	.web {
+		background-color: color(white);
+		@extend %clearfix;
+		.web-img, .mobile-img {
+			display: inline-block;
+			vertical-align: middle;
+			@media screen and (min-width: $medium) {
+				vertical-align: top;
+			}
+		}
+		.web-img {
+			width: 70%;
+			padding-right: 2rem;
+		}
+		.mobile-img {
+			width: 30%;
+		}
+	}
+}
