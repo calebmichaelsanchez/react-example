@@ -60,9 +60,9 @@ class Fluid extends Component {
 			<DocumentTitle title="Fluid | Underbelly Creative">
 				<div className="case-study fluid">
 					<div id="fluid-hero" className="hero">
-						<div id="parallax-ipad-container" className="ipad">
+						<section id="parallax-ipad-container" className="ipad">
 							<img id="parallax-ipad-item" src={img.ipad} alt=""/>
-						</div>
+						</section>
 						<div className="project-meta">
 							<div className="hero-lg">Fluid Notes</div>
 							<p>Brand Identity &amp; UI Design</p>
@@ -123,7 +123,7 @@ class Fluid extends Component {
 					<section className="lifestyle">
 						<div className="container-sm">
 							<div className="video widescreen">
-								<iframe src="https://player.vimeo.com/video/60216372" width="500" height="281" frameborder="0" allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/60216372" width="500" height="281" frameBorder="0" allowFullScreen></iframe>
 							</div>
 							<img src={img.lifestyle} alt=""/>
 							<div className="quote">
