@@ -11,7 +11,11 @@ class Traxion extends Component {
 	render() {
 		let img = {
 			award: require("../../../../../assets/img/work/traxion/awards/traxion-award.png"),
-			lifestyle: require("../../../../../assets/img/work/traxion/lifestyle/lifestyle.jpg")
+			lifestyle: require("../../../../../assets/img/work/traxion/lifestyle/lifestyle.jpg"),
+			animation: {
+				one: require('../../../../../assets/img/work/traxion/animation/chart@2x.gif'),
+				two: require('../../../../../assets/img/work/traxion/animation/percent@2x.gif')
+			}
 		}
 		return (
 			<DocumentTitle title="Traxion | Underbelly Creative">
@@ -41,6 +45,25 @@ class Traxion extends Component {
 						<div className="container-sm">
 							<h1>App UI</h1>
 							<img src={img.lifestyle} alt=""/>
+						</div>
+					</section>
+					<section className="animations">
+						<div className="container-sm">
+							<h1>App Animations</h1>
+							<div className="traxion-screen">
+								<div className="screen-item">
+									<img src={img.animation.one} alt=""/>
+								</div>
+							</div>
+							<div className="traxion-screen">
+								<div className="screen-item">
+									<img src={img.animation.two} alt=""/>
+								</div>
+							</div>
+							<div className="quote">
+								<p>"Underbelly was great to work with. They spun their team up quickly, and approached the project with a perfect mix of creative reflection and pragmatic commitment to our timeframes."</p>
+								<span className="author">- Jeff Lee</span>
+							</div>
 						</div>
 					</section>
 				</section>
