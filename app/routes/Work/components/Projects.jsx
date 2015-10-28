@@ -54,6 +54,18 @@ class Projects extends Component {
 						<div className="project-image-traxion"></div>
 					</Link>
 				</div>
+				<a href="http://saltcitybuilds.com/" className="project-item-full">
+					<div className="project-full-image-scb"></div>
+					<div className="project-meta project-meta-large right-project-meta-indicator">
+						<div>
+							<h3>Salt City Builds</h3>
+							<span className="btn">
+								View Site
+								<Icon icon="arrow" type="icon-btn" theme="dark" />
+							</span>
+						</div>
+					</div>
+				</a>
 			{ /* Row 2 */ }
 				<div className="project-container">
 					<Link to="/work/rent-tree" className="project-item-sm">
