@@ -236,8 +236,8 @@ class Form extends Component {
 										</li>
 
 										<li>
-											<input type="radio" name="timeline" value="ongoing sprints" id="ongoing" onClick={this.handleLabelClick} />
-											<label htmlFor="ongoing">ongoing sprints</label>
+											<input type="radio" name="timeline" value="ongoing sprints" id="ongoing-sprints" onClick={this.handleLabelClick} />
+											<label htmlFor="ongoing-sprints">ongoing sprints</label>
 										</li>
 									</ul>
 								</dd>
@@ -253,6 +253,11 @@ class Form extends Component {
 								<dd>
 									<ul>
 										<li>
+											<input type="radio" name="budget" value="Less than 25k" id="-25k" onClick={this.handleLabelClick} />
+											<label htmlFor="-25k">Less than 25k</label>
+										</li>
+
+										<li>
 											<input type="radio" name="budget" value="25k - 50k" id="25k" onClick={this.handleLabelClick} />
 											<label htmlFor="25k">25k - 50k</label>
 										</li>
@@ -263,13 +268,12 @@ class Form extends Component {
 										</li>
 
 										<li>
-											<input type="radio" name="budget" value="+100k" id="100k" onClick={this.handleLabelClick} />
-											<label htmlFor="100k">+100k</label>
+											<input type="radio" name="budget" value="+100k" id="+100k" onClick={this.handleLabelClick} />
+											<label htmlFor="+100k">+100k</label>
 										</li>
-
 										<li>
-											<input type="radio" name="budget" value="Unsure" id="unsure" onClick={this.handleLabelClick} />
-											<label htmlFor="unsure">Unsure</label>
+											<input type="radio" name="budget" value="ongoing retainer" id="ongoing-retainer" onClick={this.handleLabelClick} />
+											<label htmlFor="ongoing-retainer">ongoing retainer</label>
 										</li>
 									</ul>
 								</dd>
