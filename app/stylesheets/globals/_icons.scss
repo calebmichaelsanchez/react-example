@@ -85,7 +85,8 @@
 .icon-arrow.icon-cta {
 	position: relative;
 	vertical-align: middle;
-	border: 2px solid color(white);
+	border-width: 2px;
+	border-style: solid;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
@@ -100,24 +101,6 @@
 		width: 10px;
 		height: 17px;
 	}
-	&.light {
-		svg path {
-			fill: color(white);
-			transition: 0.1s ease;
-		}
-		[class$="cta"]:hover & svg path {
-			fill: color(blue-tertiary);
-		}
-	}
-	[class$="cta"]:hover & {
-		border-color: transparent;
-		&:before, &:after { transform: translateX(-50%) translateY(-50%) scale(1); }
-		&:before { transition: transform 0.2s 0.06s ease; }
-		&:after {
-			opacity: 1;
-			transition: transform 0.2s ease, opacity 0s;
-		}
-	}
 	&:before, &:after {
 		content: '';
 		position: absolute;
@@ -129,7 +112,8 @@
 	&:before {
 		width: 45px;
 		height: 45px;
-		border: 2px solid color(white);
+		border-width: 2px;
+		border-style: solid;
 		z-index: 1;
 	}
 	&:after {
@@ -137,7 +121,47 @@
 		height: 100%;
 		opacity: 0;
 		transition: transform 0.1s ease, opacity 0.2s ease;
-		background-color: color(white);
 		z-index: 2;
+	}
+	[class$="cta"]:hover & {
+		border-color: transparent;
+		&:before, &:after { transform: translateX(-50%) translateY(-50%) scale(1); }
+		&:before { transition: transform 0.2s 0.06s ease; }
+		&:after {
+			opacity: 1;
+			transition: transform 0.2s ease, opacity 0s;
+		}
+	}
+	&.light {
+		border-color: color(white);
+		svg path {
+			fill: color(white);
+			transition: 0.1s ease;
+		}
+		[class$="cta"]:hover & svg path {
+			fill: color(blue-tertiary);
+		}
+		&:before {
+			border-color: color(white);
+		}
+		&:after {
+			background-color: color(white);
+		}
+	}
+	&.dark {
+		border-color: color(blue-secondary);
+		svg path {
+			fill: color(blue-secondary);
+			transition: 0.1s ease;
+		}
+		[class$="cta"]:hover & svg path {
+			fill: color(white);
+		}
+		&:before {
+			border-color: color(blue-secondary);
+		}
+		&:after {
+			background-color: color(blue-secondary);
+		}
 	}
 }

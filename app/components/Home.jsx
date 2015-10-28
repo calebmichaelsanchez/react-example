@@ -37,7 +37,7 @@ class Home extends Component {
 						</div>
 					</section>
 					<section className="work-with-us">
-						<Link to="contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
+						<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 					</section>
 				</div>
 			</DocumentTitle>

@@ -142,6 +142,9 @@ class Projects extends Component {
 						<div className="project-image-hive"></div>
 					</Link>
 				</div>
+				<section className="work-with-us">
+					<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
+				</section>
 			</section>
 		);
 	}
