@@ -194,23 +194,33 @@ class Form extends Component {
 								<dd>
 									<ul>
 										<li>
-											<input type="radio" name="service" value="Mobile Application" id="mobile" onClick={this.handleLabelClick} />
-											<label htmlFor="mobile">Mobile Application</label>
+											<input type="radio" name="service" value="app design" id="app-design" onClick={this.handleLabelClick} />
+											<label htmlFor="app-design">app design</label>
 										</li>
 
 										<li>
-											<input type="radio" name="service" value="Web Application" id="webapp" onClick={this.handleLabelClick} />
-											<label htmlFor="webapp">Web Application</label>
+											<input type="radio" name="service" value="web design" id="web-design" onClick={this.handleLabelClick} />
+											<label htmlFor="web-design">web design</label>
 										</li>
 
 										<li>
-											<input type="radio" name="service" value="Website" id="website" onClick={this.handleLabelClick} />
-											<label htmlFor="website">Website</label>
+											<input type="radio" name="service" value="branding" id="branding" onClick={this.handleLabelClick} />
+											<label htmlFor="branding">branding</label>
 										</li>
 
 										<li>
-											<input type="radio" name="service" value="Content Management System" id="cms" onClick={this.handleLabelClick} />
-											<label htmlFor="cms">Content Management System</label>
+											<input type="radio" name="service" value="development" id="development" onClick={this.handleLabelClick} />
+											<label htmlFor="development">development</label>
+										</li>
+
+										<li>
+											<input type="radio" name="service" value="multiple services" id="multiple-services" onClick={this.handleLabelClick} />
+											<label htmlFor="multiple-services">multiple services</label>
+										</li>
+
+										<li>
+											<input type="radio" name="service" value="saying hello!" id="say-hello" onClick={this.handleLabelClick} />
+											<label htmlFor="say-hello">saying hello!</label>
 										</li>
 									</ul>
 								</dd>
@@ -226,18 +236,18 @@ class Form extends Component {
 								<dd>
 									<ul>
 										<li>
-											<input type="radio" name="timeline" value="¡yesterday!" id="yesterday" onClick={this.handleLabelClick} />
-											<label htmlFor="yesterday">¡yesterday!</label>
+											<input type="radio" name="timeline" value="yesterday!" id="yesterday" onClick={this.handleLabelClick} />
+											<label htmlFor="yesterday">yesterday!</label>
 										</li>
 
 										<li>
-											<input type="radio" name="timeline" value="the next few months" id="quarter" onClick={this.handleLabelClick} />
-											<label htmlFor="quarter">the next few months</label>
+											<input type="radio" name="timeline" value="the next few months" id="few-months" onClick={this.handleLabelClick} />
+											<label htmlFor="few-months">next few months</label>
 										</li>
 
 										<li>
-											<input type="radio" name="timeline" value="ongoing sprints" id="ongoing-sprints" onClick={this.handleLabelClick} />
-											<label htmlFor="ongoing-sprints">ongoing sprints</label>
+											<input type="radio" name="timeline" value="this year" id="this-year" onClick={this.handleLabelClick} />
+											<label htmlFor="this-year">this year</label>
 										</li>
 									</ul>
 								</dd>
