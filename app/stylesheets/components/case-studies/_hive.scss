@@ -63,8 +63,9 @@ $hive-primary: #4b5664;
 		background-color: color(white);
 		h1 { margin-bottom: 10px; }
 		.copy:first-of-type {
-			padding-bottom: 20px;
+			padding-bottom: 2rem;
 			@media screen and (min-width: $medium) {
+				padding-right: 3rem;
 				padding-bottom: 0;
 			}
 		}
