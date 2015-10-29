@@ -52,7 +52,6 @@ class Aiga extends Component {
 							<div className="grid-1-2 grid-copy challenge">
 								<h1>The Challenge</h1>
 								<p>The AIGA 100 show is an event celebrating design talent in Utah. Several hundred pieces are submitted, but only the best 100 pieces make it. Out of those 100, ten are chosen to receive the coveted Copper Ingot. Underbelly had the amazing opportunity to create a concept, design, and website for the 25th anniversary.</p>
-								<p><a href="http://aigaslc100show.com">AIGASLC100Show.com</a></p>
 							</div><div className="grid-1-2 grid-copy solution">
 								<h1>The Solution</h1>
 								<p>Our designers created an art deco concept to highlight the fact that this year was the 25th anniversary. We crafted the entire experience, from an event landing page introducing everyone to the design, to all of the environmental and printed pieces at the event. The result was a cohesive feel throughout the show, including awards, certificates and posters that attendees were excited to take home.</p>

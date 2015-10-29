@@ -132,7 +132,7 @@ class Projects extends Component {
 					<Link to="/work/hive" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
-								<h3>Hive</h3>
+								<h3>Hive Checklists</h3>
 								<span className="btn">
 									View Project
 									<Icon icon="arrow" type="icon-btn" theme="dark" />
