@@ -2,13 +2,19 @@
 	.hero {
 		@include hero('../assets/img/work/traxion/hero/01.jpg');
 	}
+	.case-study-info {
+		background-color: color(light-gray-secondary);
+	}
 	.award {
-		background-color: color(light-gray-primary);
+		background-color: color(white);
 		text-align: center;
 		img { max-width: 385px; }
 	}
+	.lifestyle {
+		background-color: color(white);
+	}
 	.animations {
-		background-color: color(light-gray-primary);
+		background-color: color(light-gray-secondary);
 		text-align: center;
 		h1 { text-align: left; }
 	}
