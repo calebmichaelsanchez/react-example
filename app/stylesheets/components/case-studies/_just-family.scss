@@ -46,6 +46,32 @@ $jf-primary: #44ade2;
 			right: 0;
 		}
 	}
+	.app-icon {
+		background-color: $jf-primary;
+		text-align: center;
+		h1{
+			text-align: left;
+			color: color(white);
+			padding-bottom: 10px;
+			border-bottom: 1px solid color(white);
+		}
+		img {
+			vertical-align: bottom;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			padding-bottom: 3.75rem;
+		}
+		img:first-of-type {
+			max-width: 40%
+		}
+		img:nth-of-type(2) {
+			max-width: 30%;
+		}
+		img:last-of-type {
+			max-width: 20%;
+		}
+
+	}
 	.lifestyle {
 		background-color: color(white);
 		.video { margin-bottom: 15px; }

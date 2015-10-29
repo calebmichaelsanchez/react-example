@@ -16,6 +16,9 @@ class JustFamily extends Component {
 			app: {
 				one: require('../../../../../assets/img/work/just-family/app-ui/01.png'),
 				two: require('../../../../../assets/img/work/just-family/app-ui/02.png')
+			},
+			icon: {
+				one: require('../../../../../assets/img/work/just-family/icon/01.png')
 			}
 		}
 		return (
@@ -57,6 +60,14 @@ class JustFamily extends Component {
 							<div className="mobile">
 								<img src={img.app.two} alt=""/>
 							</div>
+						</div>
+					</section>
+					<section className="app-icon">
+						<div className="container-sm">
+							<h1>App Icon</h1>
+							<img src={img.icon.one} alt=""/>
+							<img src={img.icon.one} alt=""/>
+							<img src={img.icon.one} alt=""/>
 						</div>
 					</section>
 					<section className="lifestyle">
