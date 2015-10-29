@@ -1,16 +1,36 @@
 import React, { Component } from 'react';
+import ReactDOM, {findDOMNode} from 'react-dom';
 import { Link } from 'react-router';
 import Icon from '../../../components/globals/icons/Icon';
 import DocumentTitle from 'react-document-title';
+import axios from 'axios';
 
 class Projects extends Component {
 	constructor(props) {
 		super(props);
+		this.handleShotRequest = this.handleShotRequest.bind(this);
 	}
 	componentDidMount() {
 		this.props.setNavTheme(this.props.theme);
+		this.handleShotRequest();
+	}
+	handleShotRequest() {
+		let container = findDOMNode(this.refs.dribbble);
+		axios.get('/dribbble')
+			.then(function (response) {
+				console.log(response);
+				// let shots = response.data;
+				// console.log(shots);
+				// let shot = '';
+				// let i;
+				// for (i = 0;i <= 3; i++) {
+				// 	shot = '<a href="' + shots[i].html_url + '" target="_blank" ><img src="' + shots[i].images.normal + '" /></a>';
+				// 	container.innerHTML += shot;
+				// }
+			});
 	}
 	render() {
+		console.log("RENDER");
 		return (
 			<section className="project-grid-container">
 				<header className="project-header">
@@ -144,6 +164,8 @@ class Projects extends Component {
 				</div>
 				<section className="work-with-us">
 					<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
+				</section>
+				<section ref="dribbble" className="dribbble-shots">
 				</section>
 			</section>
 		);

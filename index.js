@@ -23,6 +23,14 @@ app.get('/*', function (request, response) {
 	console.log(request.body);
 });
 
+app.get('/dribbble', function (request, response) {
+	res.send("Dribbs");
+	axios.get("https://api.dribbble.com/v1/teams/underbelly/shots?access_token=6f39afb5fae5e2e0c5113e0097180061e77dd2d8e1eb7cbf5d4c66fa625dcea8")
+		.then(function (res) {
+			console.log(res);
+		});
+});
+
 app.post('/contact-form', function(req, res) {
 	res.send("Axios Post Recieved!")
 	console.log(req.body);

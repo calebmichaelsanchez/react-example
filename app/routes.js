@@ -18,7 +18,7 @@ import Nsac from './routes/Work/routes/Nsac/components/Nsac';
 import NoMatch from './routes/NoMatch/components/NoMatch';
 
 const routes = (
-  <Router onUpdate={() => window.scrollTo(0, 0)}>
+  <Router history={createBrowserHistory()} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/contact" component={Contact} />
