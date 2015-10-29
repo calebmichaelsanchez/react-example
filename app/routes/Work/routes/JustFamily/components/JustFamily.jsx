@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 class JustFamily extends Component {
 	constructor(props) {
@@ -74,7 +75,7 @@ class JustFamily extends Component {
 						<div className="container-sm">
 							<h1>See It In Action</h1>
 							<div className="video widescreen">
-								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameBorder="0" allowFullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameBorder="0" allowFullScreen></iframe>
 							</div>
 							<img src={img.lifestyle} alt=""/>
 							<div className="quote">
@@ -82,6 +83,21 @@ class JustFamily extends Component {
 								<span className="author">- Nate Quigley</span>
 							</div>
 						</div>
+					</section>
+					<section className="see-more-container">
+						<h1>You might also like</h1>
+						<Link to="/work/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
+							<div className="see-more-title">North Seattle Alliance Church</div>
+						</Link>
+						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+							<div className="see-more-title">RentTree</div>
+						</Link>
+						<Link to="/work/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
+							<div className="see-more-title">Traxion App</div>
+						</Link>
+						<Link to="/work/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
+							<div className="see-more-title">AIGA Salt Lake City 100 Show</div>
+						</Link>
 					</section>
 				</div>
 			</DocumentTitle>

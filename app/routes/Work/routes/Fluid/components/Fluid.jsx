@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 class Fluid extends Component {
 	constructor(props) {
@@ -131,6 +132,21 @@ class Fluid extends Component {
 								<span className="author">- Michael Privat</span>
 							</div>
 						</div>
+					</section>
+					<section className="see-more-container">
+						<h1>You might also like</h1>
+						<Link to="/work/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
+							<div className="see-more-title">Hive</div>
+						</Link>
+						<Link to="/work/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
+							<div className="see-more-title">Just Family</div>
+						</Link>
+						<Link to="/work/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
+							<div className="see-more-title">North Seattle Alliance Church</div>
+						</Link>
+						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+							<div className="see-more-title">RentTree</div>
+						</Link>
 					</section>
 				</div>
 			</DocumentTitle>

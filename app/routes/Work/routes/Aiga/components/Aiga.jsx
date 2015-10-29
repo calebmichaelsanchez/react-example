@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactTabs, {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 class Aiga extends Component {
 	constructor(props) {
@@ -36,6 +37,12 @@ class Aiga extends Component {
 			lifeStyle: {
 				one: require('../../../../../assets/img/work/aiga/lifestyle/01.jpg'),
 				two: require('../../../../../assets/img/work/aiga/lifestyle/02.jpg')
+			},
+			seeMore: {
+				one: require('../../../../../assets/img/work/see-more/rent-tree.jpg'),
+				two: require('../../../../../assets/img/work/see-more/nsac.jpg'),
+				three: require('../../../../../assets/img/work/see-more/fluid.jpg'),
+				four: require('../../../../../assets/img/work/see-more/bountiful.jpg')
 			}
 		}
 		return (
@@ -127,6 +134,21 @@ class Aiga extends Component {
 								<span className="author">- Kassie Wright</span>
 							</div>
 						</div>
+					</section>
+					<section className="see-more-container">
+						<h1>You might also like</h1>
+						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+							<div className="see-more-title">RentTree</div>
+						</Link>
+						<Link to="/work/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
+							<div className="see-more-title">North Seattle Alliance Church</div>
+						</Link>
+						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+							<div className="see-more-title">Fluid</div>
+						</Link>
+						<Link to="/work/bountiful-dental" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/bountiful.jpg')"}}>
+							<div className="see-more-title">Bountiful Dental</div>
+						</Link>
 					</section>
 				</div>
 			</DocumentTitle>

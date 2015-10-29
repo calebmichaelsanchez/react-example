@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 class Traxion extends Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class Traxion extends Component {
 		}
 		return (
 			<DocumentTitle title="Traxion | Underbelly Creative">
-				<section className="case-study traxion">
+				<div className="case-study traxion">
 					<div className="hero">
 						<div className="project-meta">
 							<div className="hero-lg">Traxion</div>
@@ -66,7 +67,22 @@ class Traxion extends Component {
 							</div>
 						</div>
 					</section>
-				</section>
+					<section className="see-more-container">
+						<h1>You might also like</h1>
+						<Link to="/work/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
+							<div className="see-more-title">AIGA Salt Lake City 100 Show</div>
+						</Link>
+						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+							<div className="see-more-title">Fluid</div>
+						</Link>
+						<Link to="/work/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
+							<div className="see-more-title">Hive</div>
+						</Link>
+						<Link to="/work/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
+							<div className="see-more-title">Just Family</div>
+						</Link>
+					</section>
+				</div>
 			</DocumentTitle>
 		);
 	}

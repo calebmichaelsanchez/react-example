@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 class Nsac extends Component {
 	constructor(props) {
@@ -71,6 +72,21 @@ class Nsac extends Component {
 								<span className="author">- Michael Labrum</span>
 							</div>
 						</div>
+					</section>
+					<section className="see-more-container">
+						<h1>You might also like</h1>
+						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+							<div className="see-more-title">RentTree</div>
+						</Link>
+						<Link to="/work/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
+							<div className="see-more-title">Traxion App</div>
+						</Link>
+						<Link to="/work/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
+							<div className="see-more-title">AIGA Salt Lake City 100 Show</div>
+						</Link>
+						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+							<div className="see-more-title">Fluid</div>
+						</Link>
 					</section>
 				</div>
 			</DocumentTitle>
