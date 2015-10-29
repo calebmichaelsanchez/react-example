@@ -16,17 +16,16 @@ class Projects extends Component {
 	}
 	handleShotRequest() {
 		let container = findDOMNode(this.refs.dribbble);
-		axios.get('/dribbble')
+		axios.get('https://api.dribbble.com/v1/teams/underbelly/shots?access_token=6f39afb5fae5e2e0c5113e0097180061e77dd2d8e1eb7cbf5d4c66fa625dcea8')
 			.then(function (response) {
-				console.log(response);
-				// let shots = response.data;
-				// console.log(shots);
-				// let shot = '';
-				// let i;
-				// for (i = 0;i <= 3; i++) {
-				// 	shot = '<a href="' + shots[i].html_url + '" target="_blank" ><img src="' + shots[i].images.normal + '" /></a>';
-				// 	container.innerHTML += shot;
-				// }
+				let shots = response.data;
+				console.log(shots);
+				let shot = '';
+				let i;
+				for (i = 0;i <= 3; i++) {
+					shot = '<a style="background-image: url(' + shots[i].images.hidpi + ')" class="dribbble-item" href="' + shots[i].html_url + '" target="_blank" ><div class="shot-title">' + shots[i].title + '</div></a>';
+					container.innerHTML += shot;
+				}
 			});
 	}
 	render() {
@@ -162,10 +161,14 @@ class Projects extends Component {
 						<div className="project-image-hive"></div>
 					</Link>
 				</div>
+				<section className="dribbble-shots">
+					<h1>Work In Progress</h1>
+						<div ref="dribbble" className="shot-container">
+						</div>
+					<a href="https://dribbble.com/underbelly">Follow us on dribbble</a>
+				</section>
 				<section className="work-with-us">
 					<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
-				</section>
-				<section ref="dribbble" className="dribbble-shots">
 				</section>
 			</section>
 		);

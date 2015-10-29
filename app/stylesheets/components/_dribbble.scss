@@ -1,0 +1,57 @@
+.dribbble-shots {
+	width: 100%;
+	background-color: color(light-gray-primary);
+	text-align: center;
+	padding: 3.75rem 1rem;
+	> a {
+		display: inline-block;
+		font-size: fs(h4);
+	}
+}
+.shot-container {
+	margin: 0 auto;
+	padding: 3.75rem 0;
+	max-width: 100%;
+	@extend %clearfix;
+	@media screen and (min-width: $medium) {
+		max-width: 90%;
+	}
+}
+.dribbble-item {
+	position: relative;
+	display: block;
+	float: left;
+	width: 50%;
+	height: 0;
+	padding-bottom: 37.5%;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	transition: background-position 0.2s ease;
+	&:hover {
+		background-position: center -40px;
+		transition: background-position 0.4s ease;
+		.shot-title {
+			transform: translateY(-100%);
+			transition: transform 0.4s 0.08s ease;
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		width: 25%;
+		padding-bottom: 18.75%;
+	}
+}
+.shot-title {
+	position: absolute;
+	line-height: 1.3;
+	width: 100%;
+	top: 100%;
+	left: 0;
+	background-color: color(white);
+	padding: 1.25rem;
+	text-align: center;
+	color: color(blue-secondary);
+	font-size: fs(p);
+	z-index: 3;
+	transition: transform 0.2s 0.04s ease;
+}
