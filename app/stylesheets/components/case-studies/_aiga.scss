@@ -16,9 +16,30 @@ $aiga-tertiary: #49575a;
 		min-height: 572px;
 	}
 	.final-direction {
-		background: url('../assets/img/work/aiga/finalized/map.jpg') no-repeat center center;
-		background-size: cover;
-		text-align: center;
+		min-height: 50vh;
+		overflow: hidden;
+		position: relative;
+		@media screen and (min-width: $medium) {
+			min-height: 100vh;
+		}
+		&:before {
+			content: '';
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-image: url('../assets/img/work/aiga/finalized/map.jpg');
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			will-change: transform;
+			z-index: -1;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 		h1 {
 			text-align: left;
 		}
@@ -32,6 +53,7 @@ $aiga-tertiary: #49575a;
 		}
 	}
 	.lifestyle {
+		background-color: color(white);
 		.video {
 			margin-top: 15px;
 			margin-bottom: 15px;
