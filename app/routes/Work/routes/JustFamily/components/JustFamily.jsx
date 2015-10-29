@@ -12,7 +12,11 @@ class JustFamily extends Component {
 		let img = {
 			brand: require('../../../../../assets/img/work/just-family/branding/logo.png'),
 			exploration: require('../../../../../assets/img/work/just-family/exploration/exploration.png'),
-			lifestyle: require('../../../../../assets/img/work/just-family/lifestyle/lifestyle.jpg')
+			lifestyle: require('../../../../../assets/img/work/just-family/lifestyle/lifestyle.jpg'),
+			app: {
+				one: require('../../../../../assets/img/work/just-family/app-ui/01.png'),
+				two: require('../../../../../assets/img/work/just-family/app-ui/02.png')
+			}
 		}
 		return (
 			<DocumentTitle title="JustFamily | Underbelly Creative">
@@ -44,11 +48,22 @@ class JustFamily extends Component {
 						</div>
 					</section>
 					<div className="sketch"></div>
+					<section className="app-ui">
+						<div className="container-sm">
+							<h1>App UI</h1>
+							<div className="browser">
+								<img src={img.app.one} alt=""/>
+							</div>
+							<div className="mobile">
+								<img src={img.app.two} alt=""/>
+							</div>
+						</div>
+					</section>
 					<section className="lifestyle">
 						<div className="container-sm">
 							<h1>See It In Action</h1>
 							<div className="video widescreen">
-								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameborder="0" allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/111005756" width="500" height="281" frameBorder="0" allowFullscreen></iframe>
 							</div>
 							<img src={img.lifestyle} alt=""/>
 							<div className="quote">

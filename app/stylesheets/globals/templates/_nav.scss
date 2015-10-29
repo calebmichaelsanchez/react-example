@@ -24,9 +24,7 @@ nav.light {
 		color: color(blue-tertiary);
 		&:visited, &:hover, &:active, &:focus { color: color(blue-tertiary); }
 		&:before { background-color: rgba(color(blue-tertiary), .25); }
-		&:hover {
-
-		}
+		&:after { background-color: color(blue-tertiary); }
 	}
 	svg path { fill: color(blue-tertiary); }
 }
@@ -36,6 +34,7 @@ nav.dark {
 		color: color(white);
 		&:visited, &:hover, &:active, &:focus { color: color(white); }
 		&:before { background-color: rgba(color(white), .25); }
+		&:after { background-color: color(white); }
 	}
 	svg path { fill: color(white); }
 }
@@ -62,8 +61,8 @@ nav.dark {
 	}
 }
 .scrolled {
-	&.dark { background: rgba(48, 60, 64, 1); }
-	&.light { background: rgba(244,247,248,1)}
+	&.dark { background: rgba(48, 60, 64, .95); }
+	&.light { background: rgba(244,247,248, .95)}
 	@media screen and (min-width: $medium) {
 		max-height: 50px;
 	}
@@ -152,7 +151,6 @@ nav.dark {
 			left: 50%;
 			transform: translateX(-50%) translateY(-4px);
 			z-index: 5;
-			background-color: color(white);
 			transition: 0.2s ease-out;
 		}
 		&:hover:after {
