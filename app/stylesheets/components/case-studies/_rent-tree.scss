@@ -22,6 +22,10 @@ $rent-tree-primary: #e56e4e;
 		background: url('../assets/img/work/rent-tree/branding/bg.jpg') no-repeat center center;
 		background-size: cover;
 		h1 { color: color(white); }
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 	.mark-exploration {
 		background-color: color(light-gray-primary);
