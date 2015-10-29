@@ -56,11 +56,21 @@ class Icon extends Component {
 				iconName = 'dribbble';
 				iconSvg = require('./dribbble.svg');
 				break;
+			case 'computer':
+				iconName = 'computer';
+				iconSvg = require('./computer.svg');
+				break;
+			case 'building':
+				iconName = 'building';
+				iconSvg = require('./building.svg');
+				break;
+			case 'phone':
+				iconName = 'phone';
+				iconSvg = require('./phone.svg');
+				break;
 		}
 		return (
-			<div className={`icon icon-${iconName} ${theme} ${type}`}>
-				<svg dangerouslySetInnerHTML={{__html: iconSvg}}></svg>
-			</div>
+			<div className={`icon icon-${iconName} ${theme} ${type}`} dangerouslySetInnerHTML={{__html: iconSvg}} />
 		);
 	}
 }

@@ -94,6 +94,7 @@ input[type="radio"] {
 	transition: 0.2s ease-in;
 	cursor: pointer;
 	font-size: fs(p);
+	font-weight: fw(light);
 }
 input[type="checkbox"]:checked + label,
 input[type="radio"]:checked +label {
