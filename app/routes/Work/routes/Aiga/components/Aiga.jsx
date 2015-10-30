@@ -75,35 +75,35 @@ class Aiga extends Component {
 									<Tab>Mid-Century</Tab>
 								</TabList>
 								<TabPanel>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.geo.one} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.geo.two} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.geo.three} />
 									</div>
 								</TabPanel>
 								<TabPanel>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.tools.one} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.tools.two} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.tools.three} />
 									</div>
 								</TabPanel>
 								<TabPanel>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.midCentury.one} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.midCentury.two} />
 									</div>
-									<div className="grid-3">
+									<div className="grid-1-3">
 										<img src={img.brand.midCentury.three} />
 									</div>
 								</TabPanel>

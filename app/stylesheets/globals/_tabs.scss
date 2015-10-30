@@ -66,11 +66,19 @@ $aiga-secondary: #d5a44f;
   bottom: initial;
   background: none;
 }
-.react-tabs [role="tabpanel"] img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	@media screen and (min-width: $medium) {
-		margin-left: 0;
-	}
+.react-tabs [role="tabpanel"] {
+  > div {
+    margin-bottom: 1rem;
+    @media screen and (min-width: $medium) {
+      margin-bottom: 0;
+    }
+  }
+  img {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	@media screen and (min-width: $medium) {
+  		margin-left: 0;
+  	}
+  }
 }

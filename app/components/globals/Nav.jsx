@@ -14,34 +14,14 @@ class Nav extends Component {
 		}
 		this.handleNavigation = this.handleNavigation.bind(this);
 		this.handleScroll = this.handleScroll.bind(this);
-		this.handleWidth = this.debounce(this.handleWidth.bind(this), 250);
+		this.handleWidth = this.handleWidth.bind(this);
 		this.handleTheme = this.handleTheme.bind(this);
 		this.toggleOpen = this.toggleOpen.bind(this);
 	}
 	componentDidMount() {
 		this.setState({theme: this.props.theme});
-		var self = this;
-		window.requestAnimationFrame = window.requestAnimationFrame
-		 || window.mozRequestAnimationFrame
-		 || window.webkitRequestAnimationFrame
-		 || window.msRequestAnimationFrame
-		//window.addEventListener("scroll", function() {requestAnimationFrame(self.handleScroll)}, false);
 		window.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleWidth);
-	}
-	debounce(func, wait, immediate) {
-		var timeout;
-		return function() {
-			var context = this, args = arguments;
-			var later = function() {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			var callNow = immediate && !timeout;
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
-		};
 	}
 	handleWidth() {
 		var el = findDOMNode(this.refs.nav);

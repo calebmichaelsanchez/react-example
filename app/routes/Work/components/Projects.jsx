@@ -19,7 +19,6 @@ class Projects extends Component {
 		axios.get('https://api.dribbble.com/v1/teams/underbelly/shots?access_token=6f39afb5fae5e2e0c5113e0097180061e77dd2d8e1eb7cbf5d4c66fa625dcea8')
 			.then(function (response) {
 				let shots = response.data;
-				console.log(shots);
 				let shot = '';
 				let i;
 				for (i = 0;i <= 3; i++) {
@@ -29,7 +28,6 @@ class Projects extends Component {
 			});
 	}
 	render() {
-		console.log("RENDER");
 		return (
 			<section className="project-grid-container">
 				<header className="project-header">
