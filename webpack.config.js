@@ -41,7 +41,7 @@ var common = {
       {
         test: /\.(jpe?g|png|gif)$/,
         exclude: NODE_PATH,
-        loaders: ['url-loader?name=[path][name].[ext]&limit=10000', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
+        loaders: ['url-loader?name=[path][name].[ext]&limit=100', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
       },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.xml$/, loader: 'xml-loader' }

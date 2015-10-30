@@ -37,12 +37,6 @@ class Aiga extends Component {
 			lifeStyle: {
 				one: require('../../../../../assets/img/work/aiga/lifestyle/01.jpg'),
 				two: require('../../../../../assets/img/work/aiga/lifestyle/02.jpg')
-			},
-			seeMore: {
-				one: require('../../../../../assets/img/work/see-more/rent-tree.jpg'),
-				two: require('../../../../../assets/img/work/see-more/nsac.jpg'),
-				three: require('../../../../../assets/img/work/see-more/fluid.jpg'),
-				four: require('../../../../../assets/img/work/see-more/bountiful.jpg')
 			}
 		}
 		return (
