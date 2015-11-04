@@ -9,7 +9,7 @@ $aiga-tertiary: #49575a;
 	.case-study-info {
 		background: $aiga-primary;
 		h1, p, a { color: $aiga-secondary; }
-		a:hover { color: lighten($aiga-secondary, 10%); }
+		.no-touchevents a:hover { color: lighten($aiga-secondary, 10%); }
 	}
 	.branding-exploration {
 		background: color(white);

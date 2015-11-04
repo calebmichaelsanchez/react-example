@@ -1,6 +1,6 @@
-import React from 'react';
+var React = require('react');
 
-const FormEmail = React.createClass ({
+var FormEmail = React.createClass ({
   render() {
     var model = this.props.model;
 
@@ -17,4 +17,4 @@ const FormEmail = React.createClass ({
   }
 });
 
-export default FormEmail;
+module.exports = FormEmail;

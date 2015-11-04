@@ -1,3 +1,4 @@
+.env
 apikeys
 node_modules
 .sass-cache

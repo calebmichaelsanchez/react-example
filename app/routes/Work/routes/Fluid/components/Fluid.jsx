@@ -5,39 +5,6 @@ import { Link } from 'react-router';
 class Fluid extends Component {
 	constructor(props) {
 		super(props);
-		this.parallax = this.parallax.bind(this);
-		this.requestAF = this.requestAF.bind(this);
-	}
-	componentDidMount() {
-		this.props.setNavTheme(this.props.theme);
-		window.addEventListener("resize", function() {
-			if (window.innerWidth >= 640) {
-				window.addEventListener("scroll", this.requestAF, false );
-			}
-		}, false);
-	}
-	componentWillUnmount() {
-		window.removeEventListener("scroll", this.requestAF, false );
-	}
-	requestAF() {
-		window.requestAnimationFrame = window.requestAnimationFrame
-		 || window.mozRequestAnimationFrame
-		 || window.webkitRequestAnimationFrame
-		 || window.msRequestAnimationFrame;
-		window.requestAnimationFrame(this.parallax);
-	}
-	parallax(options) {
-		let el = document.getElementById('parallax-ipad-item');
-		let windowHeight = window.offsetHeight;
-		let scrollTop = window.pageYOffset;
-		let boundingClient = el.getBoundingClientRect();
-		let offset = boundingClient.top + document.body.scrollTop;
-		let height = el.offsetHeight;
-		let settings = { speed: 0.35 };
-		if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) { return; }
-		let yPos = (0 - scrollTop) * settings.speed;
-		yPos = +yPos.toFixed(2);
-		el.style.transform = "translate3d( -50%, " + yPos + "px, 0)";
 	}
 	render() {
 		let img = {

@@ -33,12 +33,25 @@
 		fill: lighten(color(dark-blue-primary), 15%);
 		transition: 0.2s ease;
 	}
-	&:hover path {
+	.no-touchevents &:hover path {
 		fill: color(blue-primary);
 	}
 }
 .icon-twitter svg {
 	height: 20px;
+}
+.icon-twitter.light svg {
+	width: 30px;
+	height: 25px;
+	path {
+		fill: color(white);
+	}
+}
+.icon-facebook svg {
+	height: 30px;
+	path {
+		fill: color(white);
+	}
 }
 
 .icon-ux,
@@ -72,9 +85,9 @@
 	}
 	&.light svg path { fill: color(white); }
 	&.dark svg path { fill: color(blue-secondary); }
-	[class^="project-item"]:hover &,
-	.product-btn:hover &,
-	.link-btn:hover & {
+	.no-touchevents [class^="project-item"]:hover &,
+	.no-touchevents .product-btn:hover &,
+	.no-touchevents .link-btn:hover & {
 		opacity: 1;
 		visibility: visible;
 		margin-left: 10px;
@@ -123,7 +136,7 @@
 		transition: transform 0.1s ease, opacity 0.2s ease;
 		z-index: 2;
 	}
-	[class$="cta"]:hover & {
+	.no-touchevents [class$="cta"]:hover & {
 		border-color: transparent;
 		&:before, &:after { transform: translateX(-50%) translateY(-50%) scale(1); }
 		&:before { transition: transform 0.2s 0.06s ease; }
@@ -138,7 +151,7 @@
 			fill: color(white);
 			transition: 0.1s ease;
 		}
-		[class$="cta"]:hover & svg path {
+		.no-touchevents [class$="cta"]:hover & svg path {
 			fill: color(blue-tertiary);
 		}
 		&:before {
@@ -154,7 +167,7 @@
 			fill: color(blue-secondary);
 			transition: 0.1s ease;
 		}
-		[class$="cta"]:hover & svg path {
+		.no-touchevents [class$="cta"]:hover & svg path {
 			fill: color(white);
 		}
 		&:before {
@@ -162,6 +175,20 @@
 		}
 		&:after {
 			background-color: color(blue-secondary);
+		}
+	}
+}
+
+// contact page
+.icon-checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	svg {
+		height: 40px;
+		path {
+			fill: color(white);
 		}
 	}
 }

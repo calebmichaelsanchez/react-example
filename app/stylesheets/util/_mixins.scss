@@ -28,5 +28,5 @@
 	color: color($color);
 	font-size: fs($font-size);
 	text-align: $text-align;
-	&:hover, &:focus, &:active, &:visited { color: color($color); }
+	.no-touchevents &:hover, &:focus, &:active, &:visited { color: color($color); }
 }

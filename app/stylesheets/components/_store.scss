@@ -58,7 +58,7 @@
 		opacity: 0;
 		transition: 0.2s;
 	}
-	&:hover {
+	.no-touchevents &:hover {
 		span { opacity: 0; }
 		&:before { opacity: 1; }
 	}

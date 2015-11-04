@@ -49,6 +49,7 @@ class Icon extends Component {
 				iconSvg = require('./instagram.svg');
 				break;
 			case 'twitter':
+				theme = this.props.theme;
 				iconName = 'twitter';
 				iconSvg = require('./twitter.svg');
 				break;
@@ -67,6 +68,14 @@ class Icon extends Component {
 			case 'phone':
 				iconName = 'phone';
 				iconSvg = require('./phone.svg');
+				break;
+			case 'facebook':
+				iconName = 'facebook';
+				iconSvg = require('./facebook.svg');
+				break;
+			case 'checkmark':
+				iconName = 'checkmark';
+				iconSvg = require('./checkmark.svg');
 				break;
 		}
 		return (

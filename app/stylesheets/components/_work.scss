@@ -92,7 +92,7 @@
 	height: 0;
 	padding-bottom: 40%;
 	transition: background-position 0.2s ease;
-	&:hover {
+	.no-touchevents &:hover {
 		background-position: center -40px;
 		transition: background-position 0.4s ease;
 		.see-more-title {

@@ -22,7 +22,7 @@ nav.light {
 	.burger:before, .burger:after { background-color: color(blue-tertiary); }
 	.nav-item a {
 		color: color(blue-tertiary);
-		&:visited, &:hover, &:active, &:focus { color: color(blue-tertiary); }
+		&:visited, .no-touchevents &:hover, &:active, &:focus { color: color(blue-tertiary); }
 		&:before { background-color: rgba(color(blue-tertiary), .25); }
 		&:after { background-color: color(blue-tertiary); }
 	}
@@ -32,7 +32,7 @@ nav.dark {
 	.burger:before, .burger:after { background-color: color(white); }
 	.nav-item a {
 		color: color(white);
-		&:visited, &:hover, &:active, &:focus { color: color(white); }
+		&:visited, .no-touchevents &:hover, &:active, &:focus { color: color(white); }
 		&:before { background-color: rgba(color(white), .25); }
 		&:after { background-color: color(white); }
 	}
@@ -153,7 +153,7 @@ nav.dark {
 			z-index: 5;
 			transition: 0.2s ease-out;
 		}
-		&:hover:after {
+		.no-touchevents &:hover:after {
 			opacity: 1;
 			transform: translateX(-50%) translateY(0px);
 		}

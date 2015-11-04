@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import axios from 'axios';
 import classNames from 'classnames';
 import Icon from '../globals/icons/Icon';
@@ -39,7 +40,8 @@ class Form extends Component {
 			timelineOpen: false,
 			serviceOpen: false,
 			errors: {},
-			submitting: false
+			submitting: false,
+			success: false
 		}
 		this.handlePageClick = this.handlePageClick.bind(this);
 		this.getModel = this.getModel.bind(this);
@@ -118,11 +120,25 @@ class Form extends Component {
 
 	send() {
 		let model = this.getModel();
+		let self = this;
+		let form = findDOMNode(this.refs.form);
 
 		this.setState({ submitting: true});
 		axios.post('/contact-form', model)
 			.then(function (res) {
-				console.log(res);
+				if (res.data === "sent") {
+					self.setState({
+						success: true
+					});
+				}
+			})
+			.catch(function (res) {
+				if (res.data != "sent")  {
+					alert("The server could not accept your data. Please try again later!");
+					self.setState({
+						error: true
+					});
+				}
 			});
 		this.setState({ submitting: false});
 	}
@@ -156,6 +172,10 @@ class Form extends Component {
 		});
 	}
 	render() {
+		const formClass = classNames({
+			'submitting': this.state.submitting,
+			'success': this.state.success
+		})
 		const budgetClass = classNames({
 			'dropdown-open': this.state.budgetOpen,
 			'chosen': this.state.budget === "" ? false : true
@@ -168,137 +188,162 @@ class Form extends Component {
 			'dropdown-open': this.state.serviceOpen,
 			'chosen': this.state.service === "" ? false : true
 		});
+		let img = {
+			sending: require('../../assets/img/contact/sending.png')
+		}
 		return (
-			<form className="form-wrapper" onSubmit={this.handleSubmit}>
-				<fieldset>
-
-					<div className="fieldset-item">
-						<label className="label" htmlFor="name">Hi, my name is</label>
-						<div className="input">
-							<input type="text" name="name" className={this.alertClass("name")} placeholder="your name" onChange={this.handleUpdate} />
+			<div className="form-wrapper">
+				<form ref="form" className={`form ${formClass}`} onSubmit={this.handleSubmit}>
+					<div className="loading">
+						<img src={img.sending} alt=""/>
+					</div>
+					<fieldset>
+						<div className="fieldset-item">
+							<label className="label" htmlFor="name">Hi, my name is</label>
+							<div className="input">
+								<input type="text" name="name" className={this.alertClass("name")} placeholder="your name" onChange={this.handleUpdate} />
+							</div>
 						</div>
-					</div>
 
-					<div className="fieldset-item">
-						<label className="label" htmlFor="email">My email address is</label>
-						<div className="input">
-							<input type="text" name="email" className={this.alertClass("email")} placeholder="your email" onChange={this.handleUpdate} />
+						<div className="fieldset-item">
+							<label className="label" htmlFor="email">My email address is</label>
+							<div className="input">
+								<input type="text" name="email" className={this.alertClass("email")} placeholder="your email" onChange={this.handleUpdate} />
+							</div>
 						</div>
-					</div>
 
-					<div className="fieldset-item">
-						<div className="fieldset-title">I'm contacting about</div>
-						<div className="fieldset-group">
-							<dl className={`dropdown ${serviceClass} ${this.alertClass("service")}`}>
-								<dt data-name="service" onClick={this.handleTitleClick}>{this.state.service ? this.state.service : "select a type of project"}</dt>
-								<dd>
-									<ul>
-										<li>
-											<input type="radio" name="service" value="app design" id="app-design" onClick={this.handleLabelClick} />
-											<label htmlFor="app-design">app design</label>
-										</li>
+						<div className="fieldset-item">
+							<div className="fieldset-title">I'm contacting about</div>
+							<div className="fieldset-group">
+								<dl className={`dropdown ${serviceClass} ${this.alertClass("service")}`}>
+									<dt data-name="service" onClick={this.handleTitleClick}>{this.state.service ? this.state.service : "select a type of project"}</dt>
+									<dd>
+										<ul>
+											<li>
+												<input type="radio" name="service" value="app design" id="app-design" onClick={this.handleLabelClick} />
+												<label htmlFor="app-design">app design</label>
+											</li>
 
-										<li>
-											<input type="radio" name="service" value="web design" id="web-design" onClick={this.handleLabelClick} />
-											<label htmlFor="web-design">web design</label>
-										</li>
+											<li>
+												<input type="radio" name="service" value="web design" id="web-design" onClick={this.handleLabelClick} />
+												<label htmlFor="web-design">web design</label>
+											</li>
 
-										<li>
-											<input type="radio" name="service" value="branding" id="branding" onClick={this.handleLabelClick} />
-											<label htmlFor="branding">branding</label>
-										</li>
+											<li>
+												<input type="radio" name="service" value="branding" id="branding" onClick={this.handleLabelClick} />
+												<label htmlFor="branding">branding</label>
+											</li>
 
-										<li>
-											<input type="radio" name="service" value="development" id="development" onClick={this.handleLabelClick} />
-											<label htmlFor="development">development</label>
-										</li>
+											<li>
+												<input type="radio" name="service" value="development" id="development" onClick={this.handleLabelClick} />
+												<label htmlFor="development">development</label>
+											</li>
 
-										<li>
-											<input type="radio" name="service" value="multiple services" id="multiple-services" onClick={this.handleLabelClick} />
-											<label htmlFor="multiple-services">multiple services</label>
-										</li>
+											<li>
+												<input type="radio" name="service" value="multiple services" id="multiple-services" onClick={this.handleLabelClick} />
+												<label htmlFor="multiple-services">multiple services</label>
+											</li>
 
-										<li>
-											<input type="radio" name="service" value="saying hello!" id="say-hello" onClick={this.handleLabelClick} />
-											<label htmlFor="say-hello">saying hello!</label>
-										</li>
-									</ul>
-								</dd>
-							</dl>
+											<li>
+												<input type="radio" name="service" value="saying hello!" id="say-hello" onClick={this.handleLabelClick} />
+												<label htmlFor="say-hello">saying hello!</label>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
-					</div>
 
-					<div className="fieldset-item">
-						<div className="fieldset-title">My timeline is</div>
-						<div className="fieldset-group">
-							<dl className={`dropdown ${timelineClass} ${this.alertClass("timeline")}`}>
-								<dt data-name="timeline" onClick={this.handleTitleClick}>{this.state.timeline ? this.state.timeline : "select a timeline"}</dt>
-								<dd>
-									<ul>
-										<li>
-											<input type="radio" name="timeline" value="yesterday!" id="yesterday" onClick={this.handleLabelClick} />
-											<label htmlFor="yesterday">yesterday!</label>
-										</li>
+						<div className="fieldset-item">
+							<div className="fieldset-title">My timeline is</div>
+							<div className="fieldset-group">
+								<dl className={`dropdown ${timelineClass} ${this.alertClass("timeline")}`}>
+									<dt data-name="timeline" onClick={this.handleTitleClick}>{this.state.timeline ? this.state.timeline : "select a timeline"}</dt>
+									<dd>
+										<ul>
+											<li>
+												<input type="radio" name="timeline" value="yesterday!" id="yesterday" onClick={this.handleLabelClick} />
+												<label htmlFor="yesterday">yesterday!</label>
+											</li>
 
-										<li>
-											<input type="radio" name="timeline" value="the next few months" id="few-months" onClick={this.handleLabelClick} />
-											<label htmlFor="few-months">next few months</label>
-										</li>
+											<li>
+												<input type="radio" name="timeline" value="the next few months" id="few-months" onClick={this.handleLabelClick} />
+												<label htmlFor="few-months">next few months</label>
+											</li>
 
-										<li>
-											<input type="radio" name="timeline" value="this year" id="this-year" onClick={this.handleLabelClick} />
-											<label htmlFor="this-year">this year</label>
-										</li>
-									</ul>
-								</dd>
-							</dl>
+											<li>
+												<input type="radio" name="timeline" value="this year" id="this-year" onClick={this.handleLabelClick} />
+												<label htmlFor="this-year">this year</label>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
-					</div>
 
-					<div className="fieldset-item">
-						<div className="fieldset-title">I have a budget of</div>
-						<div className="fieldset-group">
-							<dl className={`dropdown ${budgetClass} ${this.alertClass("budget")}`}>
-								<dt data-name="budget" onClick={this.handleTitleClick}>{this.state.budget ? this.state.budget : "select a budget"}</dt>
-								<dd>
-									<ul>
-										<li>
-											<input type="radio" name="budget" value="Less than 25k" id="-25k" onClick={this.handleLabelClick} />
-											<label htmlFor="-25k">Less than 25k</label>
-										</li>
+						<div className="fieldset-item">
+							<div className="fieldset-title">I have a budget of</div>
+							<div className="fieldset-group">
+								<dl className={`dropdown ${budgetClass} ${this.alertClass("budget")}`}>
+									<dt data-name="budget" onClick={this.handleTitleClick}>{this.state.budget ? this.state.budget : "select a budget"}</dt>
+									<dd>
+										<ul>
+											<li>
+												<input type="radio" name="budget" value="Less than 25k" id="-25k" onClick={this.handleLabelClick} />
+												<label htmlFor="-25k">Less than 25k</label>
+											</li>
 
-										<li>
-											<input type="radio" name="budget" value="25k - 50k" id="25k" onClick={this.handleLabelClick} />
-											<label htmlFor="25k">25k - 50k</label>
-										</li>
+											<li>
+												<input type="radio" name="budget" value="25k - 50k" id="25k" onClick={this.handleLabelClick} />
+												<label htmlFor="25k">25k - 50k</label>
+											</li>
 
-										<li>
-											<input type="radio" name="budget" value="50k - 100k" id="50k" onClick={this.handleLabelClick} />
-											<label htmlFor="50k">50k - 100k</label>
-										</li>
+											<li>
+												<input type="radio" name="budget" value="50k - 100k" id="50k" onClick={this.handleLabelClick} />
+												<label htmlFor="50k">50k - 100k</label>
+											</li>
 
-										<li>
-											<input type="radio" name="budget" value="+100k" id="+100k" onClick={this.handleLabelClick} />
-											<label htmlFor="+100k">+100k</label>
-										</li>
-										<li>
-											<input type="radio" name="budget" value="ongoing retainer" id="ongoing-retainer" onClick={this.handleLabelClick} />
-											<label htmlFor="ongoing-retainer">ongoing retainer</label>
-										</li>
-									</ul>
-								</dd>
-							</dl>
+											<li>
+												<input type="radio" name="budget" value="+100k" id="+100k" onClick={this.handleLabelClick} />
+												<label htmlFor="+100k">+100k</label>
+											</li>
+											<li>
+												<input type="radio" name="budget" value="ongoing retainer" id="ongoing-retainer" onClick={this.handleLabelClick} />
+												<label htmlFor="ongoing-retainer">ongoing retainer</label>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
-					</div>
 
-					<div className="fieldset-item no-flex">
-						<label htmlFor="about" className="label about">My project</label>
-						<textarea name="about" className={this.alertClass("about")} placeholder="tell us about your project. . ." onChange={this.handleUpdate} ref="about"></textarea>
-					</div>
+						<div className="fieldset-item no-flex">
+							<label htmlFor="about" className="label about">My project</label>
+							<textarea name="about" className={this.alertClass("about")} placeholder="tell us about your project. . ." onChange={this.handleUpdate} ref="about"></textarea>
+						</div>
 
-					<button className="submit" type="submit" disabled={this.state.submitting} >Send your message <Icon icon="airplane" /></button>
-				</fieldset>
-			</form>
+						<button className="submit" type="submit" disabled={this.state.submitting} >Send your message <Icon icon="airplane" /></button>
+					</fieldset>
+				</form>
+				<div className="sent-container">
+          <div className="sent-check">
+          		<Icon icon="checkmark" />
+          </div>
+          <div className="sent-message">Sent!</div>
+          <div className="facebook-container circle-item">
+          	<Icon icon="facebook" />
+            <div className="facebook-item share-item">
+              <div className="fb-like" data-href="https://www.facebook.com/UnderbellyCreative" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+            </div>
+          </div>
+          <div className="twitter-container circle-item">
+          	<Icon icon="twitter" theme="light" />
+            <div className="twitter-item share-item">
+            	<a href="https://twitter.com/underbelly" className="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @underbelly</a>
+            </div>
+          </div>
+      	</div>
+			</div>
 		);
 	}
 };

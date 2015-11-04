@@ -41,7 +41,7 @@ $nsac-secondary: #dc6544;
 			transform: rotateY(65deg);
 			background-color: #2a91a2;
 		}
-		&:hover span {
+		.no-touchevents &:hover span {
 			transform: rotateY(0deg);
 		}
 	}
@@ -52,7 +52,7 @@ $nsac-secondary: #dc6544;
 			transform: rotateY(-57deg) rotateZ(0deg);
 			background-color: #dc6344;
 		}
-		&:hover span {
+		.no-touchevents &:hover span {
 			transform: rotateY(0deg);
 		}
 	}
@@ -62,7 +62,7 @@ $nsac-secondary: #dc6544;
 			transform: rotateY(65deg);
 			background-color: #cf9d48;
 		}
-		&:hover span {
+		.no-touchevents &:hover span {
 			transform: rotateY(0deg);
 		}
 	}
@@ -72,7 +72,7 @@ $nsac-secondary: #dc6544;
 			transform: rotateY(-60deg);
 			background-color: #89ad3f;
 		}
-		&:hover span {
+		.no-touchevents &:hover span {
 			transform: rotateY(0deg);
 		}
 	}

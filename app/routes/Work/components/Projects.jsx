@@ -71,14 +71,14 @@ class Projects extends Component {
 						<div className="project-image-traxion"></div>
 					</Link>
 				</div>
-				<a href="http://saltcitybuilds.com/" className="project-item-full">
+				<a href="http://saltcitybuilds.com/" className="project-item-scb project-item-full">
 					<div className="project-full-image-scb"></div>
-					<div className="project-meta project-meta-large right-project-meta-indicator">
+					<div className="project-meta project-meta-large left-project-meta-indicator">
 						<div>
 							<h3>Salt City Builds</h3>
 							<span className="btn">
 								View Site
-								<Icon icon="arrow" type="icon-btn" theme="dark" />
+								<Icon icon="arrow" type="icon-btn" theme="light" />
 							</span>
 						</div>
 					</div>

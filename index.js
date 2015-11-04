@@ -1,36 +1,35 @@
 "use strict";
-
-require("babel-core/register.js");
+require('dotenv').load();
 
 var express = require('express');
 var path = require('path');
-var React = require('react');
-var ReactDOM = require('react-dom/server');
-var FormEmail = React.createFactory(require('./app/components/form/FormEmail.jsx'));
-var axios = require('axios')
-
+var async = require('async');
+var mandrill = require("mandrill-api/mandrill");
+var mandrill_client = new mandrill.Mandrill(process.env.MAIL_TOKEN);
 var bodyParser = require('body-parser');
 var app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.use("/app", express.static(__dirname + '/build/app'));
-app.use("/vendor", express.static(__dirname + '/build/vendor'));
-
-app.get('/*', function (request, response) {
-	response.sendFile(__dirname + '/build/index.html');
-	console.log(request.body);
-});
-
+if (process.env.NODE_ENV === 'development') {
+	app.use(express.static('./build'));
+	app.use("/app", express.static('./build/app'));
+	app.use("/vendor", express.static('./build/vendor'));
+	app.get('/*', function (request, response) {
+		response.sendFile('./build/index.html');
+	});
+} else {
+	app.use(express.static("./"));
+	app.use("/app", express.static('./app'));
+	app.use("/vendor", express.static('./vendor'));
+	app.get('/*', function (request, response) {
+		response.sendFile(path.resolve(__dirname, 'index.html'));
+	});
+}
 app.post('/contact-form', function(req, res) {
-	res.send("Axios Post Recieved!")
-	console.log(req.body);
+	var status;
 	var model = req.body;
-	var body = ReactDOM.renderToStaticMarkup( FormEmail({ model: model}) );
-	console.log(body);
 	var data = {
-		key: process.env.APIKEY,
 		message: {
 			from_email: model.email,
 			to: [{
@@ -40,50 +39,27 @@ app.post('/contact-form', function(req, res) {
 			}],
 			autotext: "true",
 			subject: "Work with us",
-			html: body
+			html: "<div><h3>Name</h3><p>" + model.name + "</p><h3>Email</h3><p> " + model.email + "</p><h3>About</h3><p>" + model.about + "</p><h3>Services</h3><p>" + model.service + "</p><h3>Timing</h3><p>" + model.timeline + "</p><h3>Budget</h3><p>" + model.budget + "</p></div>"
 		}
 	};
-	axios.post("https://mandrillapp.com/api/1.0/messages/send.json", data)
-		.then(function() {
-			console.log("Sent!")
-		})
-		.catch(function (res) {
-			console.log(res.statusCode);
-		})
+	async.series([
+		function(callback) {
+			mandrill_client.messages.send(data, function(result) {
+				status = result[0].status
+				callback(null, 'one');
+			});
+		},
+		function (callback) {
+			res.send(status);
+			callback(null, 'two');
+		}
+	],
+	function(err, results) {
+		console.log(err);
+		console.log(results);
+	});
 });
 
 var port = process.env.PORT || 3000;
 app.listen(port);
 console.log("Listening on port " + port);
-
-// var renderToString = require('react-dom/server');
-// var createLocation = require('history/lib/createLocation');
-// var Router= require('react-router');
-// var routes = require('../app/routes.js');
-// match, RoutingContext
-// app.use(function (req, res) {
-// 	//var location = createLocation(req.url);
-// 	//console.log(routes);
-
-// 	// Router.match({ routes, location }, function (error, redirectLocation, renderProps) {
-// 	// 	if (error) {
-// 	// 		res.send(500, error.message);
-// 	// 	} else if (redirectLocation) {
-// 	// 		res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-// 	// 	} else if (renderProps) {
-// 	// 		res.send(200, renderToString(<RoutingContext {...renderProps} />));
-// 	// 	} else {
-// 	// 		res.send(404, 'Not found')
-// 	// 	}
-// 	// });
-// });
-
-
-// app.get('*', function (request, response) {
-// 	resonse.sendFile(path.resolve(__dirname, 'app', 'index.html'));
-// });
-
-// app.post("/#/contact", function(req, res) {
-// 	res.send('Axios post recieved');
-// 	console.log(req.body);
-// });

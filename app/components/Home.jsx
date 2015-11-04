@@ -3,39 +3,17 @@ import DocumentTitle from 'react-document-title';
 import { findDOMNode } from 'react-dom';
 import Icon from './globals/icons/Icon'
 import { Link } from 'react-router';
-
-let transformThreeD = function(e, x, y, z) {
-	e.style.webkitTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-	   e.style.MozTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-	     e.style.OTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-	  		e.style.transform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-}
-let transformBgPos = function(e, x, y) {
-	e.style.backgroundPosition = x + "% " + y + "px";
-}
-let scrollHandler = function(e) {
-	let scrollVal = Math.max(window.pageYOffset, 0);
-  let offset = (scrollVal * 0.5);
-
-  let parallaxLayer = document.getElementById('home-hero');
-
-  transformThreeD(parallaxLayer, 0, offset, 0);
-}
-let requestAF = function() {
-	window.requestAnimationFrame(scrollHandler);
-}
+import { transformThreeD, scrollHandler, requestAF } from '../helpers';
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 	}
 	componentDidMount() {
-		console.log("Mounting");
 		this.props.setNavTheme(this.props.theme);
 		window.addEventListener('scroll', requestAF, false);
 	}
 	componentWillUnmount() {
-		console.log("Unmounting");
 		window.removeEventListener('scroll', requestAF, false);
 	}
 	render(){
@@ -69,7 +47,7 @@ class Home extends Component {
 								<Icon icon="dev" />
 								<span className="category-title">Dev</span>
 							</div>
-							<Link to="work" className="hero-cta">See our work <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
+							<Link to="/work" className="hero-cta">See our work <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 						</div>
 					</div>
 					<section className="clients">
