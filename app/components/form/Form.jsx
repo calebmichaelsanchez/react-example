@@ -289,8 +289,8 @@ class Form extends Component {
 									<dd>
 										<ul>
 											<li>
-												<input type="radio" name="budget" value="Less than 25k" id="-25k" onClick={this.handleLabelClick} />
-												<label htmlFor="-25k">Less than 25k</label>
+												<input type="radio" name="budget" value="less than 25k" id="-25k" onClick={this.handleLabelClick} />
+												<label htmlFor="-25k">less than 25k</label>
 											</li>
 
 											<li>
