@@ -7,6 +7,7 @@ class RentTree extends Component {
 		super(props);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/work/rent-tree');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

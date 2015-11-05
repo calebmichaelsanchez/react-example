@@ -11,6 +11,7 @@ class Projects extends Component {
 		this.handleShotRequest = this.handleShotRequest.bind(this);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/work');
 		this.props.setNavTheme(this.props.theme);
 		this.handleShotRequest();
 	}

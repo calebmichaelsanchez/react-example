@@ -7,6 +7,7 @@ class JustFamily extends Component {
 		super(props);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/work/just-family');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

@@ -4,12 +4,20 @@ import { findDOMNode } from 'react-dom';
 import Icon from './globals/icons/Icon'
 import { Link } from 'react-router';
 import { transformThreeD, scrollHandler, requestAF } from '../helpers';
+import classNames from 'classnames';
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			loaded: false
+		}
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/');
+		this.setState({
+			loaded: true
+		})
 		this.props.setNavTheme(this.props.theme);
 		window.addEventListener('scroll', requestAF, false);
 	}
@@ -29,10 +37,13 @@ class Home extends Component {
 				seven: require('../assets/img/home/clients/asurion.png'),
 			}
 		}
+		let classes = classNames({
+			'loaded': this.state.loaded
+		});
 		return (
 			<DocumentTitle title='Home | Underbelly Creative'>
 				<div className="home">
-					<div className="hero-home">
+					<div className={`hero-home ${classes}`}>
 						<section id="home-hero" className="hero-item"></section>
 						<div className="what-we-do">
 							<div className="category-item">

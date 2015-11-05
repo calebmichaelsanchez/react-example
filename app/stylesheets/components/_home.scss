@@ -1,19 +1,8 @@
-// .hero-home {
-// 	@include hero('../assets/img/home/hero-1.jpg');
-// 	background-attachment: fixed;
-// 	@include ghost(center);
-// 	width: 100%;
-// 	height: 100vh;
-// }
-// .home {
-// 	height: 100%;
-// }
 .hero-home {
 	height: 100vh;
 	overflow: hidden;
 	position: relative;
 	@include ghost(center);
-	//@include hero('../assets/img/home/hero-1.jpg');
 }
 .hero-item {
 	position: absolute;
@@ -33,7 +22,9 @@
 .category-title {
 	@extend .hero-xs;
 	opacity: 0;
-	animation: fadeIn .4s forwards ease, dropDown .6s forwards ease;
+	.loaded & {
+		animation: fadeIn .4s forwards ease, dropDown .6s forwards ease;
+	}
 	.category-item:nth-of-type(1) & {
 		animation-delay: 2s;
 	}

@@ -9,6 +9,7 @@ class Contact extends Component {
 		super(props);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/contact');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render(){

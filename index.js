@@ -46,12 +46,12 @@ app.post('/contact-form', function(req, res) {
 		function(callback) {
 			mandrill_client.messages.send(data, function(result) {
 				status = result[0].status
-				callback(null, 'one');
+				callback(null, 'form sent');
 			});
 		},
 		function (callback) {
 			res.send(status);
-			callback(null, 'two');
+			callback(null, 'respond to the server');
 		}
 	],
 	function(err, results) {

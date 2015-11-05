@@ -6,6 +6,10 @@ class Fluid extends Component {
 	constructor(props) {
 		super(props);
 	}
+	componentDidMount() {
+		ga('send', 'pageview', '/work/fluid');
+		this.props.setNavTheme(this.props.theme);
+	}
 	render() {
 		let img = {
 			ipad: require("../../../../../assets/img/work/fluid/hero/02.png"),

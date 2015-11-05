@@ -7,6 +7,7 @@ class Bountiful extends Component {
 		super(props);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/work/bountiful-dental');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

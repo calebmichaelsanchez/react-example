@@ -7,6 +7,7 @@ class Traxion extends Component {
 		super(props);
 	}
 	componentDidMount() {
+		ga('send', 'pageview', '/work/traxion');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
