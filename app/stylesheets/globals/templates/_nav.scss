@@ -127,7 +127,8 @@ nav.dark {
 		font-weight: bold;
 		padding-top: 18px;
 		padding-bottom: 17px;
-		margin-left: 30px;
+		margin-left: 15px;
+		margin-right: 15px;
 		line-height: 1;
 		&:before {
 			content: '';
@@ -153,9 +154,11 @@ nav.dark {
 			z-index: 5;
 			transition: 0.2s ease-out;
 		}
-		.no-touchevents &:hover:after {
-			opacity: 1;
-			transform: translateX(-50%) translateY(0px);
+		@media screen and (min-width: $medium) {
+			.no-touchevents &:hover:after {
+				opacity: 1;
+				transform: translateX(-50%) translateY(0px);
+			}
 		}
 	}
 	.open & {
