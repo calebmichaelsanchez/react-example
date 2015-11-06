@@ -10,7 +10,7 @@ class Shop extends Component {
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/shop');
+		ga('send', 'pageview', '/peddling');
 		this.props.setNavTheme(this.props.theme);
 	}
 	handleMouseEnter(event) {

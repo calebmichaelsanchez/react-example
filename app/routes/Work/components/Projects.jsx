@@ -11,7 +11,7 @@ class Projects extends Component {
 		this.handleShotRequest = this.handleShotRequest.bind(this);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/work');
+		ga('send', 'pageview', '/making-it-awesome');
 		this.props.setNavTheme(this.props.theme);
 		this.handleShotRequest();
 	}
@@ -35,7 +35,7 @@ class Projects extends Component {
 					<span className="hero-lg">Our Work</span>
 				</header>
 				{ /* Row 1 */ }
-				<Link to="/work/aiga" className="project-item-aiga project-item-lg">
+				<Link to="/making-it-awesome-with/aiga" className="project-item-aiga project-item-lg">
 					<div className="project-meta project-meta-small">
 						<div>
 							<h3>AIGA 100 Show</h3>
@@ -47,7 +47,7 @@ class Projects extends Component {
 					</div>
 				</Link>
 				<div className="project-container">
-					<Link to="/work/just-family" className="project-item-sm">
+					<Link to="/making-it-awesome-with/just-family" className="project-item-sm">
 						<div className="project-image-just-family"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -59,7 +59,7 @@ class Projects extends Component {
 							</div>
 						</div>
 					</Link>
-					<Link to="/work/traxion" className="project-item-sm">
+					<Link to="/making-it-awesome-with/traxion" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
 								<h3>Traxion App</h3>
@@ -86,7 +86,7 @@ class Projects extends Component {
 				</a>
 			{ /* Row 2 */ }
 				<div className="project-container">
-					<Link to="/work/rent-tree" className="project-item-sm">
+					<Link to="/making-it-awesome-with/rent-tree" className="project-item-sm">
 						<div className="project-image-rent-tree"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -98,7 +98,7 @@ class Projects extends Component {
 							</div>
 						</div>
 					</Link>
-					<Link to="/work/nsac" className="project-item-sm">
+					<Link to="/making-it-awesome-with/nsac" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
 								<h3>North Seattle Alliance Church</h3>
@@ -111,7 +111,7 @@ class Projects extends Component {
 						<div className="project-image-alliance"></div>
 					</Link>
 				</div>
-				<Link to="/work/fluid" className="project-item-fluid project-item-lg">
+				<Link to="/making-it-awesome-with/fluid" className="project-item-fluid project-item-lg">
 					<div className="project-meta project-meta-small">
 						<div>
 							<h3>Fluid</h3>
@@ -135,7 +135,7 @@ class Projects extends Component {
 					</div>
 				</a>
 				<div className="project-container">
-					<Link to="/work/bountiful-dental" className="project-item-sm">
+					<Link to="/making-it-awesome-with/bountiful-dental" className="project-item-sm">
 						<div className="project-image-bountiful-dental"></div>
 						<div className="project-meta project-meta-large left-project-meta-indicator">
 							<div>
@@ -147,7 +147,7 @@ class Projects extends Component {
 							</div>
 						</div>
 					</Link>
-					<Link to="/work/hive" className="project-item-sm">
+					<Link to="/making-it-awesome-with/hive" className="project-item-sm">
 						<div className="project-meta project-meta-large right-project-meta-indicator">
 							<div>
 								<h3>Hive Checklists</h3>
@@ -167,7 +167,7 @@ class Projects extends Component {
 					<a href="https://dribbble.com/underbelly">Follow us on dribbble</a>
 				</section>
 				<section className="work-with-us">
-					<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
+					<Link to="/all-ears" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
 				</section>
 			</section>
 		);

@@ -7,7 +7,7 @@ class Hive extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/work/hive');
+		ga('send', 'pageview', '/making-it-awesome-with/hive');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

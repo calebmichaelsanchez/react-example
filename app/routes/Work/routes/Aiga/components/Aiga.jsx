@@ -8,7 +8,7 @@ class Aiga extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/work/aiga');
+		ga('send', 'pageview', '/making-it-awesome-with/aiga');
 		this.props.setNavTheme(this.props.theme);
 	}
 	handleSelected(index, last) {

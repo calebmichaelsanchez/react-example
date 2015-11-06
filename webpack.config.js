@@ -55,7 +55,8 @@ var common = {
         loaders: ['url-loader?name=/[path][name].[ext]&limit=100', 'image-webpack-loader?bypassOnDebug&optimationLevel=7&interlaced=false']
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.xml$/, loader: 'xml-loader' }
+      { test: /\.xml$/, loader: 'xml-loader' },
+      { test: /\.ico$/, loader: 'file-loader?name=/[path][name].[ext]' }
     ]
   },
   plugins: [

@@ -58,7 +58,7 @@ class Home extends Component {
 								<Icon icon="dev" />
 								<span className="category-title">Dev</span>
 							</div>
-							<Link to="/work" className="hero-cta">See our work <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
+							<Link to="/making-it-awesome" className="hero-cta">See our work <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 						</div>
 					</div>
 					<section className="clients">
@@ -81,7 +81,7 @@ class Home extends Component {
 						<img src={img.team} alt=""/>
 					</section>
 					<section className="work-with-us">
-						<Link to="/contact" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
+						<Link to="/all-ears" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
 					</section>
 				</div>
 			</DocumentTitle>

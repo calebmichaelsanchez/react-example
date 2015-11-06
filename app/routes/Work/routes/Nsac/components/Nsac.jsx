@@ -7,7 +7,7 @@ class Nsac extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/work/nsac');
+		ga('send', 'pageview', '/making-it-awesome-with/nsac');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {

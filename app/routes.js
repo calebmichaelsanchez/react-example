@@ -21,18 +21,18 @@ const routes = (
   <Router history={createBrowserHistory()} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/store" component={Shop} />
-      <Route path="/work" component={Work}>
-        <Route path="aiga" component={Aiga} />
-        <Route path="just-family" component={JustFamily} />
-        <Route path="traxion" component={Traxion} />
-        <Route path="fluid" component={Fluid} />
-        <Route path="bright-bytes" component={BrightBytes} />
-        <Route path="hive" component={Hive} />
-        <Route path="rent-tree" component={RentTree} />
-        <Route path="bountiful-dental" component={Bountiful} />
-        <Route path="nsac" component={Nsac} />
+      <Route path="/all-ears" component={Contact} />
+      <Route path="/peddling" component={Shop} />
+      <Route path="/making-it-awesome" component={Work}>
+        <Route path="/making-it-awesome-with/aiga" component={Aiga} />
+        <Route path="/making-it-awesome-with/just-family" component={JustFamily} />
+        <Route path="/making-it-awesome-with/traxion" component={Traxion} />
+        <Route path="/making-it-awesome-with/fluid" component={Fluid} />
+        <Route path="/making-it-awesome-with/bright-bytes" component={BrightBytes} />
+        <Route path="/making-it-awesome-with/hive" component={Hive} />
+        <Route path="/making-it-awesome-with/rent-tree" component={RentTree} />
+        <Route path="/making-it-awesome-with/bountiful-dental" component={Bountiful} />
+        <Route path="/making-it-awesome-with/nsac" component={Nsac} />
       </Route>
       <Route path="*" component={NoMatch} />
     </Route>

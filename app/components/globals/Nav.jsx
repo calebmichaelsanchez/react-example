@@ -79,21 +79,21 @@ class Nav extends Component {
 				<ul className="nav-header">
 					<li><a href="#" className="toggle" onClick={this.toggleOpen}><div className="burger"></div></a></li>
 					<li><Link onClick={this.handleNavigation} to="/"><Icon icon="monstro" /></Link></li>
-					<li><Link onClick={this.handleNavigation} to="/contact"><Icon icon="airplane" /></Link></li>
+					<li><Link onClick={this.handleNavigation} to="/all-ears"><Icon icon="airplane" /></Link></li>
 				</ul>
 				<ul className="nav-menu">
 					<li className="nav-item">
-						<Link onClick={this.handleNavigation} to="/work" activeClassName="active">Work</Link>
+						<Link onClick={this.handleNavigation} to="/making-it-awesome" activeClassName="active">Work</Link>
 					</li>
 					<li className="nav-item">
 						<a onClick={this.handleNavigation} href="http://blog.underbelly.is">Journal</a>
 					</li>
 					<li className="nav-item">
-						<Link onClick={this.handleNavigation} to="/store" activeClassName="active">Shop</Link>
+						<Link onClick={this.handleNavigation} to="/peddling" activeClassName="active">Shop</Link>
 					</li>
 					<li className="nav-item nav-item-contact">
-						<Link onClick={this.handleNavigation} to="/contact" activeClassName="active">Contact</Link>
-						<Link onClick={this.handleNavigation} to="/contact"><Icon icon="airplane" /></Link>
+						<Link onClick={this.handleNavigation} to="/all-ears" activeClassName="active">Contact</Link>
+						<Link onClick={this.handleNavigation} to="/all-ears"><Icon icon="airplane" /></Link>
 					</li>
 				</ul>
 			</nav>
