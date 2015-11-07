@@ -89,16 +89,16 @@ class Bountiful extends Component {
 					</section>
 					<section className="see-more-container">
 						<h1>You might also like</h1>
-						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+						<Link to="/making-it-awesome-with/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
 							<div className="see-more-title">Fluid</div>
 						</Link>
-						<Link to="/work/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
+						<Link to="/making-it-awesome-with/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
 							<div className="see-more-title">Hive</div>
 						</Link>
-						<Link to="/work/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
+						<Link to="/making-it-awesome-with/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
 							<div className="see-more-title">Just Family</div>
 						</Link>
-						<Link to="/work/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
+						<Link to="/making-it-awesome-with/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
 							<div className="see-more-title">North Seattle Alliance Church</div>
 						</Link>
 					</section>

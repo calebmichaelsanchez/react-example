@@ -76,16 +76,16 @@ class Nsac extends Component {
 					</section>
 					<section className="see-more-container">
 						<h1>You might also like</h1>
-						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+						<Link to="/making-it-awesome-with/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
 							<div className="see-more-title">RentTree</div>
 						</Link>
-						<Link to="/work/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
+						<Link to="/making-it-awesome-with/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
 							<div className="see-more-title">Traxion App</div>
 						</Link>
-						<Link to="/work/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
+						<Link to="/making-it-awesome-with/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
 							<div className="see-more-title">AIGA Salt Lake City 100 Show</div>
 						</Link>
-						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+						<Link to="/making-it-awesome-with/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
 							<div className="see-more-title">Fluid</div>
 						</Link>
 					</section>

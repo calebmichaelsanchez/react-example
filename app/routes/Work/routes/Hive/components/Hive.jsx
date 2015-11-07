@@ -84,16 +84,16 @@ class Hive extends Component {
 					</section>
 					<section className="see-more-container">
 						<h1>You might also like</h1>
-						<Link to="/work/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
+						<Link to="/making-it-awesome-with/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
 							<div className="see-more-title">Just Family</div>
 						</Link>
-						<Link to="/work/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
+						<Link to="/making-it-awesome-with/nsac" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/nsac.jpg')"}}>
 							<div className="see-more-title">North Seattle Alliance Church</div>
 						</Link>
-						<Link to="/work/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
+						<Link to="/making-it-awesome-with/rent-tree" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/rent-tree.jpg')"}}>
 							<div className="see-more-title">RentTree</div>
 						</Link>
-						<Link to="/work/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
+						<Link to="/making-it-awesome-with/traxion" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/traxion.jpg')"}}>
 							<div className="see-more-title">Traxion App</div>
 						</Link>
 					</section>

@@ -7,7 +7,7 @@ class Traxion extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/work/traxion');
+		ga('send', 'pageview', '/making-it-awesome-with/traxion');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
@@ -70,16 +70,16 @@ class Traxion extends Component {
 					</section>
 					<section className="see-more-container">
 						<h1>You might also like</h1>
-						<Link to="/work/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
+						<Link to="/making-it-awesome-with/aiga" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/aiga.jpg')"}}>
 							<div className="see-more-title">AIGA Salt Lake City 100 Show</div>
 						</Link>
-						<Link to="/work/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
+						<Link to="/making-it-awesome-with/fluid" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/fluid.jpg')"}}>
 							<div className="see-more-title">Fluid</div>
 						</Link>
-						<Link to="/work/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
+						<Link to="/making-it-awesome-with/hive" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/hive.jpg')"}}>
 							<div className="see-more-title">Hive</div>
 						</Link>
-						<Link to="/work/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
+						<Link to="/making-it-awesome-with/just-family" className="grid-1-4 see-more-item" style={{backgroundImage: "url('../../../../../app/assets/img/work/see-more/just-family.jpg')"}}>
 							<div className="see-more-title">Just Family</div>
 						</Link>
 					</section>
