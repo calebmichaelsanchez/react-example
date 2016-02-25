@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import routes from './routes';
-require("./assets/img/favicon.ico");
-require("./libs/modernizr.js");
-require("./stylesheets/client.scss");
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import routes from './config/routes';
 
-ReactDOM.render( routes, document.getElementById('app'));
+//import rootRoute from './screens/'
+
+require("./images/favicon.ico");
+require("./stylesheets/index.scss");
+require("./shared/libs/modernizr.js");
+
+render(<Router routes={routes} history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}/>, document.getElementById('app'))

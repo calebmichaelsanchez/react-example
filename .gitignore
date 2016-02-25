@@ -7,3 +7,5 @@ dist
 npm-debug.log
 blog
 build
+public
+server.bundle.js

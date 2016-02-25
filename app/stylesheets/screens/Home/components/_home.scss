@@ -1,0 +1,110 @@
+.hero-home {
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	@include ghost(center);
+}
+.hero-item {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	// background-image: url('../assets/img/home/hero-1.jpg');
+	// background-repeat: no-repeat;
+	// background-position: center center;
+	// background-size: cover;
+	z-index: 0;
+}
+.what-we-do {
+	max-width: 760px;
+}
+.category-title {
+	@extend .hero-xs;
+	opacity: 0;
+	.loaded & {
+		animation: fadeIn .4s forwards ease, dropDown .6s forwards ease;
+	}
+	.category-item:nth-of-type(1) & {
+		animation-delay: 2s;
+	}
+	.category-item:nth-of-type(2) & {
+		animation-delay: 2.2s;
+	}
+	.category-item:nth-of-type(3) & {
+		animation-delay: 2.4s;
+	}
+}
+.hero-cta {
+	@include cta(white, h1, center);
+	margin-top: 115px;
+	opacity: 0;
+	animation: fadeIn .6s 2.2s forwards ease;
+	span { vertical-align: middle; }
+}
+.clients {
+	background-color: #edf2f5;
+	padding: 2.625rem 1rem 0;
+	img {
+		width: 33.33%;
+		padding: 1rem;
+		vertical-align: middle;
+		&:nth-of-type(1) { display: inline-block; }
+		&:nth-of-type(2) { display: inline-block; }
+		&:nth-of-type(3) { display: inline-block; }
+		&:nth-of-type(4) { display: none; }
+		&:nth-of-type(5) { display: none; }
+		&:nth-of-type(6) { display: none; }
+		&:nth-of-type(7) { display: none; }
+	}
+	@media screen and (min-width: $xs) {
+		img {
+			width: 20%;
+			&:nth-of-type(4) { display: inline-block; }
+			&:nth-of-type(5) { display: inline-block; }
+		}
+	}
+	@media screen and (min-width: $medium) {
+		img {
+			width: 14.285714286%;
+			&:nth-of-type(6) { display: inline-block; }
+			&:nth-of-type(7) { display: inline-block; }
+		}
+	}
+}
+.mission {
+	padding: 3.6325rem 2rem;
+	background-color: #edf2f5;
+	p {
+		font-size: fs(h4);
+		text-align: center;
+	}
+	@media screen and (min-width: 1024px) {
+		padding: 3.625rem 1rem 2.625rem;
+	}
+}
+.team-photo {
+	display: none;
+	background-color: #edf2f5;
+	@media screen and (min-width: 1024px) {
+		display: block;
+	}
+}
+.work-with-us {
+	padding: 3rem 1rem;
+	text-align: center;
+	.home & {
+		background-color: #4da8c7;
+		.work-with-us-cta {
+			@include cta(white, h1, center);
+			span{ vertical-align: middle; }
+		}
+	}
+	.work & {
+		background-color: color(white);
+		.work-with-us-cta {
+			@include cta(blue-secondary, h1, center);
+			span{ vertical-align: middle; }
+		}
+	}
+}

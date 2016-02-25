@@ -1,0 +1,71 @@
+$aiga-primary: #293435;
+$aiga-secondary: #d5a44f;
+$aiga-tertiary: #49575a;
+
+.aiga {
+	.hero {
+		@include hero('../images/work/aiga/hero.jpg');
+	}
+	.case-study-info {
+		background: $aiga-primary;
+		h1, p, a { color: $aiga-secondary; }
+		.no-touchevents a:hover { color: lighten($aiga-secondary, 10%); }
+	}
+	.branding-exploration {
+		background: color(white);
+		min-height: 572px;
+	}
+	.final-direction {
+		min-height: 50vh;
+		overflow: hidden;
+		position: relative;
+		@media screen and (min-width: $medium) {
+			min-height: 100vh;
+		}
+		&:before {
+			content: '';
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-image: url('../images/work/aiga/finalized/map.jpg');
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			will-change: transform;
+			z-index: -1;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+		h1 {
+			text-align: left;
+		}
+	}
+	.website {
+		text-align: center;
+		background: $aiga-tertiary;
+		h1 {
+			text-align: left;
+			color: color(white);
+		}
+	}
+	.lifestyle {
+		background-color: color(white);
+		.video {
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+	}
+	.quote p, .quote .author {
+		color: color(white);
+	}
+	.quote {
+		padding-top: 3.6325rem;
+		@media screen and (min-width: $medium) {
+			padding-top: 5.625rem;
+		}
+	}
+}
