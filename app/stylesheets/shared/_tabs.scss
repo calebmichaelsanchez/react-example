@@ -1,0 +1,84 @@
+$aiga-primary: #293435;
+$aiga-secondary: #d5a44f;
+
+.react-tabs [role=tablist] {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  margin: 0 0 40px;
+  padding: 0;
+  text-align: center;
+  @media screen and (min-width: 440px) {
+  	text-align: left;
+  }
+}
+
+.react-tabs [role=tab] {
+  display: block;
+  border: none;
+  bottom: initial;
+  position: relative;
+  list-style: none;
+  padding: 0 0 1.5rem 0;
+  cursor: pointer;
+  color: color(blue-primary);
+  font-size: fs(p);
+  font-weight: fw(light);
+  @media screen and (min-width: 440px) {
+  	display: inline-block;
+  	border-bottom: 5px solid transparent;
+  	color: color(blue-secondary);
+    padding: 1rem;
+  }
+}
+
+.react-tabs [role=tab][aria-selected=true] {
+	background: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	color: color(blue-tertiary);
+  @media screen and (min-width: 440px) {
+  	color: color(blue-secondary);
+		border-color: $aiga-secondary;
+  }
+}
+
+.react-tabs [role=tab][aria-disabled=true] {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs [role=tab]:focus {
+  outline: none;
+	border: none;
+  box-shadow: none;
+  @media screen and (min-width: 440px) {
+  	border-bottom: 5px solid $aiga-secondary;
+  }
+}
+
+.react-tabs [role=tab]:focus:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  left: initial;
+  right: initial;
+  bottom: initial;
+  background: none;
+}
+.react-tabs [role="tabpanel"] {
+  > div {
+    margin-bottom: 1rem;
+    @media screen and (min-width: $medium) {
+      margin-bottom: 0;
+    }
+  }
+  img {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	@media screen and (min-width: $medium) {
+  		margin-left: 0;
+  	}
+  }
+}

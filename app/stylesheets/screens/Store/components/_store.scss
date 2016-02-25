@@ -1,0 +1,65 @@
+.shop-header {
+	padding: 6.25rem 1rem 3.125rem;
+	background-color: color(dark-blue-primary);
+	text-align: center;
+	.hero-lg {
+		color: color(white);
+	}
+}
+.products-container {
+	padding: 5.625rem 1rem;
+	@extend .container-md;
+	margin-left: auto;
+	margin-right: auto;
+}
+.product-item {
+	@extend %grid-item;
+	width: 100%;
+	padding: 1em;
+	@media screen and (min-width: 540px) {
+		width: 50%;
+	}
+	@media screen and (min-width: 1024px) {
+		width: 33.33%;
+	}
+}
+.product-meta {
+	padding: 1rem;
+}
+.product-title, .product-btn {
+	display: block;
+}
+.product-title {
+	font-size: fs(h4);
+	font-weight: fw(light);
+	margin-bottom: 8px;
+}
+.product-btn {
+	position: relative;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	text-transform: uppercase;
+	border: 1px solid color(blue-primary);
+	border-radius: 20px;
+	padding: 8px 15px 10px;
+	span {
+		opacity: 1;
+		vertical-align: middle;
+		transition: 0.2s;
+	}
+	&:before {
+		content: 'Buy';
+		position: absolute;
+		top: 10px;
+		left: 15px;
+		display: inline-block;
+		vertical-align: middle;
+		opacity: 0;
+		transition: 0.2s;
+	}
+	.no-touchevents &:hover {
+		span { opacity: 0; }
+		&:before { opacity: 1; }
+	}
+}

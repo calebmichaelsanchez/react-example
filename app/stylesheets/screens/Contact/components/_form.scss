@@ -1,0 +1,315 @@
+// font-sizes handled in typography partial
+
+$border-style: 1px dashed rgba(color(dark-gray-primary), .5);
+
+.form-wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 620px;
+}
+
+.form {
+	width: 100%;
+	padding: 3.625rem;
+	background-color: rgba(color(white), .8);
+	opacity: 1;
+	visibility: visible;
+	&.success {
+		opacity: 0;
+		visibility: hidden;
+		transition: visibility 0s 0.6s ease, opacity 0.4s ease;
+	}
+}
+.submitting {
+	fieldset {
+		opacity: 0;
+	}
+	.loading {
+		opacity: 1;
+	}
+}
+.loading {
+	position: absolute;
+	opacity: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.4s 0.1s ease;
+	img {
+		animation: rotate 1.2s infinite linear;
+	}
+}
+fieldset {
+	text-align: center;
+	opacity: 1;
+	transition: opacity 0.4s ease;
+}
+.form-group {
+	width: 100%;
+}
+.fieldset-item {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 1.875rem;
+	text-align: left;
+	&.no-flex {
+		display: block;
+	}
+}
+.label {
+	padding-right: 10px;
+	//padding-top: 4px;
+}
+.fieldset-title {
+	padding-right: 10px;
+	color: color(dark-gray-primary);
+	font-weight: fw(regular);
+	font-size: fs(h5);
+	font-family: $ff-primary;
+}
+.label, .fieldset-title,
+.input, .fieldset-group {
+	//align-self: baseline;
+}
+.input,
+.fieldset-group {
+	flex: 1;
+}
+label {
+	display: block;
+	color: color(dark-gray-primary);
+	font-size: fs(h5);
+	font-weight: fw(regular);
+	font-family: $ff-primary;
+	&.about {
+		margin-bottom: .5rem;
+	}
+}
+input {
+	width: 100%;
+	background-color: transparent;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: $border-style;
+	color: color(blue-secondary);
+	padding-bottom: 5px;
+	font-size: fs(h5);
+	&:focus {
+		outline: none;
+		border-color: color(blue-secondary);
+	}
+	&.alert {
+		border-color: red;
+	}
+}
+textarea {
+	resize: none;
+	width: 100%;
+	min-height: 100px;
+	font-size: fs(h5);
+	margin-bottom: 1rem;
+	border: none;
+	background: none;
+	border-bottom: $border-style;
+	color: color(blue-secondary);
+	outline: none;
+	&.alert { border-color: red; }
+}
+input[type="checkbox"],
+input[type="radio"] {
+	display: none;
+}
+.fieldset-group label{
+	width: 100%;
+	padding: 0.625rem 1.125rem;
+	text-align: left;
+	transition: 0.2s ease-in;
+	cursor: pointer;
+	font-size: fs(p);
+	font-weight: fw(light);
+}
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked +label {
+	color: color(blue-secondary);
+}
+.no-touchevents input[type="checkbox"] + label:hover,
+.no-touchevents input[type="radio"] +label:hover {
+	background: color(light-gray-primary);
+	color: color(blue-secondary);
+}
+::-webkit-input-placeholder { color: rgba(color(dark-gray-primary), .6); }
+:-moz-placeholder { color: rgba(color(dark-gray-primary), .6); }
+::-moz-placeholder { color: rgba(color(dark-gray-primary), .6); }
+:-ms-input-placeholder { color: rgba(color(dark-gray-primary), .6); }
+button[type="submit"] {
+	display: inline-block;
+	padding: 10px;
+	font-size: fs(h5);
+	color: color(orange-secondary);
+	font-weight: fw(bold);
+	background: transparent;
+	outline: none;
+	span {
+		margin-right: 20px;
+	}
+	span, .icon {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	svg {
+		width: 25px;
+		height: 25px;
+		path { fill: color(orange-secondary); }
+	}
+}
+dd, dt {
+	margin: 0;
+	padding: 0;
+	font-family: $ff-primary;
+	font-size: fs(h5);
+}
+dt {
+	padding-right: 12px;
+	background-image: url('../images/global/arrow.png');
+	background-size: 12px 7px;
+	background-position: right center;
+	background-repeat: no-repeat;
+	text-align: left;
+}
+dd {
+	position: absolute;
+	width: 100%;
+	max-width: 250px;
+	top: 0;
+	left: 0;
+	padding-top: 1.125rem;
+	padding-bottom: 1.125rem;
+	background: color(white);
+	border: 1px solid #b5bbc9;
+	box-shadow: 0 1px 2px 0 rgba(color(black), .1);
+	z-index: 1;
+	border-radius: 5px;
+}
+.dropdown {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	color: rgba(color(dark-gray-primary), .6);
+	cursor: pointer;
+	border-bottom: $border-style;
+	&.alert { border-color: red; }
+	&.chosen {
+		color: color(blue-secondary);
+	}
+	li:first-of-type label {
+		//border-radius: 5px 5px 0 0;
+	}
+	li:last-of-type label {
+		//border-radius: 0 0 5px 5px;
+	}
+	dd { display: none; }
+}
+.dropdown-open {
+	dd { display: block; }
+}
+
+
+// Send Animation
+.sent-container {
+	position: absolute;
+	top: 10%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	.success + & {
+		opacity: 1;
+		visibility: visible;
+		transition: visibility 0s ease, opacity 0.6s 0.2s ease;
+		.sent-check,
+		.sent-message {
+			opacity: 1;
+			transition: opacity 0.6s ease;
+			animation: bounce-up 0.6s ease forwards;
+		}
+		.sent-check {
+			animation-delay: 0.6s;
+			transition-delay: 0.6s;
+		}
+		.sent-message {
+			animation-delay: 0.8s;
+			transition-delay: 0.8s;
+		}
+		.circle-item {
+			opacity: 1;
+			transition: opacity 0.6s 1.2s ease;
+		}
+	}
+}
+.sent-check {
+	display: block;
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border: 1px solid color(white);
+	background-color: rgba(color(white), .2);
+	border-radius: 50%;
+	margin: 0 auto;
+	transform: translateY(100px);
+	opacity: 0;
+}
+.sent-message {
+	display: block;
+	margin: 40px auto 0;
+	text-align: center;
+	font-size: fs(h2);
+	color: color(white);
+	opacity: 0;
+	transform: translateY(100px);
+}
+.circle-item {
+	position: absolute;
+	top: 40%;
+	width: 120px;
+	height: 120px;
+	border: 1px solid color(black);
+	background-color: rgba(color(black), .2);
+	border-radius: 50%;
+	opacity: 0;
+	.no-touchevents &:hover {
+		[class^="icon"] {
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+		.share-item {
+			opacity: 1;
+			transition: 0.3s 0.2s ease;
+		}
+	}
+	[class^="icon"], .share-item {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+	}
+	[class^="icon"] {
+		transition: 0.3s 0.2s ease;
+	}
+	.share-item {
+		opacity: 0;
+		z-index: 3;
+		transition: 0.3s ease;
+	}
+}
+
+.facebook-container { left: 2%; }
+.twitter-container { right: 2%; }
+@media screen and (min-width: $xs) {
+	.facebook-container { left: 8%; }
+	.twitter-container { right: 8%; }
+}

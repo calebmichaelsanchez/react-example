@@ -1,0 +1,20 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+html {
+	-webkit-font-smoothing: antialiased;
+}
+html,
+body,
+#app,
+.app-wrapper {
+	position: relative;
+	height: 100%;
+}
+body {
+	font-family: $ff-primary;
+}

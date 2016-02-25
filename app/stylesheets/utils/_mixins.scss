@@ -1,0 +1,32 @@
+@mixin hero($url) {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: url($url);
+}
+@mixin ghost($textAlign: left) {
+	text-align: center;
+	&:before {
+		content: '';
+		margin-right: -0.25em;
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+	> div, form {
+		position: relative;
+		width: 100%;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: $textAlign;
+		z-index: 1;
+	}
+}
+@mixin cta($color, $font-size, $text-align) {
+	display: inline-block;
+	color: color($color);
+	font-size: fs($font-size);
+	text-align: $text-align;
+	.no-touchevents &:hover, &:focus, &:active, &:visited { color: color($color); }
+}

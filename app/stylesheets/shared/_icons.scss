@@ -1,0 +1,194 @@
+.icon {
+	display: inline-block;
+}
+.icon-plus svg {
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
+}
+.icon-monstro svg {
+	height: 35px;
+	transition: all .4s ease;
+	@media screen and (min-width: $medium) {
+		height: 45px;
+		.scrolled & { height: 30px; }
+	}
+}
+
+// Footer Icons
+.icon-underbelly svg {
+	display: inline-block;
+	vertical-align: middle;
+	width: 110px;
+	height: 36px;
+	path {
+		fill: rgba(color(white), .8);
+	}
+}
+.icon-twitter svg,
+.icon-instagram svg,
+.icon-dribbble svg {
+	width: 25px;
+	height: 25px;
+	path {
+		fill: lighten(color(dark-blue-primary), 15%);
+		transition: 0.2s ease;
+	}
+	.no-touchevents &:hover path {
+		fill: color(blue-primary);
+	}
+}
+.icon-twitter svg {
+	height: 20px;
+}
+.icon-twitter.light svg {
+	width: 30px;
+	height: 25px;
+	path {
+		fill: color(white);
+	}
+}
+.icon-facebook svg {
+	height: 30px;
+	path {
+		fill: color(white);
+	}
+}
+
+.icon-ux,
+.icon-brand,
+.icon-dev {
+	display: block;
+	margin-bottom: 10px;
+	svg {
+		width: 80px;
+		height: 80px;
+		path {
+			fill: color(white);
+		}
+		@media screen and (min-width: $small) {
+			width: 100px;
+			height: 100px;
+		}
+	}
+}
+.icon-arrow.icon-btn {
+	position: relative;
+	vertical-align: middle;
+	opacity: 0;
+	margin-left: 0;
+	visibility: hidden;
+	transition: visibility 0s linear 0.4s, opacity 0.4s ease, margin-left 0.4s ease;
+	svg {
+		width: 0;
+		height: 12px;
+		transition: 0.4s ease;
+	}
+	&.light svg path { fill: color(white); }
+	&.dark svg path { fill: color(blue-secondary); }
+	.no-touchevents [class^="project-item"]:hover &,
+	.no-touchevents .product-btn:hover &,
+	.no-touchevents .link-btn:hover & {
+		opacity: 1;
+		visibility: visible;
+		margin-left: 10px;
+		transition: visibility 0s linear 0s, opacity 0.4s ease, margin-left 0.4s ease;
+		svg { width: 7px; }
+	}
+}
+.icon-arrow.icon-cta {
+	position: relative;
+	vertical-align: middle;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	transition: .1s ease;
+	margin-left: 10px;
+	svg {
+		position: absolute;
+		z-index: 3;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-40%) translateY(-50%);
+		width: 10px;
+		height: 17px;
+	}
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%) scale(0);
+	}
+	&:before {
+		width: 45px;
+		height: 45px;
+		border-width: 2px;
+		border-style: solid;
+		z-index: 1;
+	}
+	&:after {
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: transform 0.1s ease, opacity 0.2s ease;
+		z-index: 2;
+	}
+	.no-touchevents [class$="cta"]:hover & {
+		border-color: transparent;
+		&:before, &:after { transform: translateX(-50%) translateY(-50%) scale(1); }
+		&:before { transition: transform 0.2s 0.06s ease; }
+		&:after {
+			opacity: 1;
+			transition: transform 0.2s ease, opacity 0s;
+		}
+	}
+	&.light {
+		border-color: color(white);
+		svg path {
+			fill: color(white);
+			transition: 0.1s ease;
+		}
+		.no-touchevents [class$="cta"]:hover & svg path {
+			fill: color(blue-tertiary);
+		}
+		&:before {
+			border-color: color(white);
+		}
+		&:after {
+			background-color: color(white);
+		}
+	}
+	&.dark {
+		border-color: color(blue-secondary);
+		svg path {
+			fill: color(blue-secondary);
+			transition: 0.1s ease;
+		}
+		.no-touchevents [class$="cta"]:hover & svg path {
+			fill: color(white);
+		}
+		&:before {
+			border-color: color(blue-secondary);
+		}
+		&:after {
+			background-color: color(blue-secondary);
+		}
+	}
+}
+
+// contact page
+.icon-checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	svg {
+		height: 40px;
+		path {
+			fill: color(white);
+		}
+	}
+}
