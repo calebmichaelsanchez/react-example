@@ -6,13 +6,15 @@ class ProductItem extends Component {
 		super(props);
 	}
 	render() {
+		let { image, title, productLink, price } = this.props;
+		let style = { backgroundImage: "url(" + image + ")" }
 		return (
 			<div className="product-item">
-				<img src={this.props.img} alt=""/>
+				<div className="product-image" style={style}></div>
 				<div className="product-meta">
-					<span className="product-title">{this.props.title}</span>
-					<a href={this.props.productLink} target="_blank" className="product-btn">
-						{this.props.price}
+					<span className="product-title">{title}</span>
+					<a href={productLink} target="_blank" className="product-btn">
+						{price}
 						<Icon icon="arrow" type="icon-btn" theme="dark" />
 					</a>
 				</div>

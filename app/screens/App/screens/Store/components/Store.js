@@ -6,7 +6,10 @@ import Products from '../data/products';
 class Store extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { products: [] }
+		this.state = {
+			products: [],
+			productsLoaded: false
+		}
 		this.handleGetProducts = this.handleGetProducts.bind(this);
 	}
 	componentDidMount() {
@@ -18,11 +21,17 @@ class Store extends Component {
 		axios.post("/products")
 		.then((response) => {
 			console.log(response);
-			this.setState({ products: response.data.products })
+			this.setState({
+				products: response.data.products,
+				productsLoaded: true
+			})
 		})
 		.catch((response) => {
 			console.error(response);
-			this.setState({ products: Products });
+			this.setState({
+				products: Products,
+				productsLoaded: true
+			});
 		});
 	}
 	render(){
