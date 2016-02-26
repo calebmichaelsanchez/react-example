@@ -20,7 +20,6 @@ class ProductItems extends Component {
   }
   render() {
     let { products } = this.props;
-    let productItems = products.filter(this.filterProducts).map(this.renderProducts)
     return (
       <DocumentTitle title="Store | Underbelly Creative">
         <div className="shop">
@@ -28,7 +27,7 @@ class ProductItems extends Component {
             <span className="hero-lg">Shop</span>
           </header>
           <section className="products-container">
-            {products ? productItems : "Check back soon for more products!"}
+            {products ? products.filter(this.filterProducts).map(this.renderProducts) : "Check back soon for more products!"}
           </section>
         </div>
       </DocumentTitle>
