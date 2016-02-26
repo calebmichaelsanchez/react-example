@@ -16,9 +16,9 @@ class ProductItems extends Component {
       return product;
     }
   }
-  renderProducts({name, preview_url, short_url, price, id}) {
+  renderProducts({name, preview_url, short_url, formatted_price, id}) {
     return (
-      <ProductItem key={id} title={name} productLink={short_url} img={preview_url} price={price} />
+      <ProductItem key={id} title={name} productLink={short_url} img={preview_url} price={formatted_price} />
     )
   }
   render() {
