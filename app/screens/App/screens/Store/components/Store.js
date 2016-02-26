@@ -18,7 +18,7 @@ class Store extends Component {
 		axios.post("/products")
 		.then((response) => {
 			console.log(response);
-			this.setState({ products: response.products })
+			this.setState({ products: response.data.products })
 		})
 		.catch((response) => {
 			console.error(response);
