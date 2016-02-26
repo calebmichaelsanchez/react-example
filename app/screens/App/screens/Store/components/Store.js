@@ -20,6 +20,7 @@ class Store extends Component {
 			this.setState({ products: response.products })
 		})
 		.catch((response) => {
+			console.error(response);
 			this.setState({ products: Products });
 		});
 	}
