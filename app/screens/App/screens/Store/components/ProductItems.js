@@ -7,9 +7,6 @@ class ProductItems extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate() {
-    console.log(this.props);
-  }
   filterProducts(product) {
     if (!product.published) {
       return;
@@ -32,7 +29,7 @@ class ProductItems extends Component {
             <span className="hero-lg">Shop</span>
           </header>
           <section className={`products-container ${classes}`}>
-            {products ? products.filter(this.filterProducts).map(this.renderProducts) : "Check back soon for more products!"}
+            {products ? products.filter(this.filterProducts).map(this.renderProducts) : "Check back soon for products!"}
           </section>
         </div>
       </DocumentTitle>
