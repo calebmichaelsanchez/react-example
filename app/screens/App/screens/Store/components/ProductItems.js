@@ -6,6 +6,9 @@ class ProductItems extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidUpdate() {
+    console.log(this.props);
+  }
   filterProducts(product) {
     if (!product.published) {
       return;
