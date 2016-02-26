@@ -90,7 +90,7 @@
 	.no-touchevents .link-btn:hover & {
 		opacity: 1;
 		visibility: visible;
-		margin-left: 10px;
+		margin-left: 20px;
 		transition: visibility 0s linear 0s, opacity 0.4s ease, margin-left 0.4s ease;
 		svg { width: 7px; }
 	}
