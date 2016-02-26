@@ -35,9 +35,6 @@ class Home extends Component {
 			<DocumentTitle title='Home | Underbelly Creative'>
 				<div className="home">
 					<div className={`hero-home ${classes}`}>
-						<section className="hero-item">
-              <img id="home-hero" src={img.hero} />
-            </section>
 						<div className="what-we-do">
 							<div className="category-item">
 								<Icon icon="ux" />

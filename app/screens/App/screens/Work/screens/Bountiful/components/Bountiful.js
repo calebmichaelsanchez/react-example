@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
+import SeeMore from '../../../shared/SeeMore';
 
 class Bountiful extends Component {
 	constructor(props) {

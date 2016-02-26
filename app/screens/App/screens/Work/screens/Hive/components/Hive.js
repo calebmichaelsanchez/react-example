@@ -68,6 +68,26 @@ class Hive extends Component {
 						</div>
 					</section>
 					<div className="ui-elements"></div>
+					<section className="responsive-ui">
+						<div className="container-sm">
+							<div className="grid-1-2 copy">
+								<h1>Responsive UI</h1>
+								<p>On the go or in the office, we designed Hive to work for YOUR unique lifestyle. Create, assign, and complete on any device; it's that easy. And with realtime notifications, you'll never miss a thing.</p>
+							</div>
+							<div className="grid-1-2 copy">
+								<img src={img.responsive} alt=""/>
+							</div>
+						</div>
+					</section>
+					<div className="checklists"></div>
+					<section className="quote-container">
+						<div className="container-sm">
+							<div className="quote">
+								<p>"I have worked with Underbelly for over a year and they are very creative, produce awesome user interfaces and are easy and professional to work with."</p>
+								<span className="author">- Vivek Chugh</span>
+							</div>
+						</div>
+					</section>
 					<SeeMore items={[
 						{ url: "just-family", title: "Just Family", img: img.seeMore.one },
 						{ url: "nsac", title: "North Seattle Alliance Church", img: img.seeMore.two },
