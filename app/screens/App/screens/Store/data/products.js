@@ -158,6 +158,14 @@ const Products = [
     formatted_price: "$25",
     published: true,
     id: 19
+  },
+  {
+    name: "Just The Essentials - Poster",
+    preview_url: "https://static-2.gumroad.com/res/gumroad/8891324369611/asset_previews/94e507aee745c5f8f0dbec8f37a98b31/retina/UB_Icons_Poster.jpg",
+    short_url: "https://gumroad.com/l/ZpaYe",
+    formatted_price: "$25",
+    published: true,
+    id: 20
   }
 ]
 
