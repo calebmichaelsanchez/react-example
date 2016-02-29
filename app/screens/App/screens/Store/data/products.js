@@ -150,6 +150,14 @@ const Products = [
     formatted_price: "Free",
     published: true,
     id: 18
+  },
+  {
+    name: "Cafe Racer Tee",
+    preview_url: "https://static-2.gumroad.com/res/gumroad/8891324369611/asset_previews/d3753fe461022a6772f6e296774c5f94/retina/Shirt.jpg",
+    short_url: "https://gumroad.com/l/GIbj",
+    formatted_price: "$25",
+    published: true,
+    id: 19
   }
 ]
 
