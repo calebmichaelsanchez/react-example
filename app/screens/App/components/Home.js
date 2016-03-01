@@ -21,13 +21,13 @@ class Home extends Component {
 			hero: require('../../../images/home/hero-1.jpg'),
 			team: require('../../../images/home/team.jpg'),
 			clients: {
-				one: require('../../../images/home/clients/bright-bytes.png'),
-				two: require('../../../images/home/clients/xbox-one.png'),
-				three: require('../../../images/home/clients/just-family.png'),
-				four: require('../../../images/home/clients/little-ceasars.png'),
-				five: require('../../../images/home/clients/experticity.png'),
-				six: require('../../../images/home/clients/microsoft.png'),
-				seven: require('../../../images/home/clients/asurion.png'),
+				one   : require('../../../images/home/clients/bright-bytes.png'),
+				two   : require('../../../images/home/clients/xbox-one.png'),
+				three : require('../../../images/home/clients/just-family.png'),
+				four  : require('../../../images/home/clients/little-ceasars.png'),
+				five  : require('../../../images/home/clients/experticity.png'),
+				six   : require('../../../images/home/clients/microsoft.png'),
+				seven : require('../../../images/home/clients/asurion.png')
 			}
 		}
 		let classes = classNames({ 'loaded': this.state.loaded });
@@ -53,13 +53,13 @@ class Home extends Component {
 					</div>
 					<section className="clients">
 						<div className="container-sm">
-							<img src={img.clients.one} alt=""/>
-							<img src={img.clients.two} alt=""/>
-							<img src={img.clients.three} alt=""/>
-							<img src={img.clients.four} alt=""/>
-							<img src={img.clients.five} alt=""/>
-							<img src={img.clients.six} alt=""/>
-							<img src={img.clients.seven} alt=""/>
+							<img src={img.clients.one}   alt="BrightBytes Logo"/>
+							<img src={img.clients.two}   alt="Xbox One Logo"/>
+							<img src={img.clients.three} alt="Just Family Logo"/>
+							<img src={img.clients.four}  alt="Little Caesars Logo"/>
+							<img src={img.clients.five}  alt="Experticity Logo"/>
+							<img src={img.clients.six}   alt="Microsoft Logo"/>
+							<img src={img.clients.seven} alt="Asurion Logo"/>
 						</div>
 					</section>
 					<section className="mission">
@@ -68,10 +68,12 @@ class Home extends Component {
 						</div>
 					</section>
 					<section className="team-photo">
-						<img src={img.team} alt=""/>
+						<img src={img.team} alt="Team photo left to right (Anthony, Brad, Ben, Matt, Brittany, Scribner, Riley"/>
 					</section>
 					<section className="work-with-us">
-						<Link to="/all-ears" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="light" type="icon-cta" /></Link>
+						<Link to="/all-ears" className="h3 work-with-us-cta">
+							Work with us <Icon icon="arrow" theme="light" type="icon-cta" />
+						</Link>
 					</section>
 				</div>
 			</DocumentTitle>
@@ -79,8 +81,8 @@ class Home extends Component {
 	}
 }
 Home.propTypes = {
-	theme: React.PropTypes.string.isRequired,
-	setNavTheme: React.PropTypes.func
+	theme       : React.PropTypes.string.isRequired,
+	setNavTheme : React.PropTypes.func
 }
 Home.defaultProps = {
 	theme: 'dark'
