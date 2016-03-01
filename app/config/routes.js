@@ -14,7 +14,7 @@ import Hive        from '../screens/App/screens/Work/screens/Hive/components/Hiv
 import RentTree    from '../screens/App/screens/Work/screens/RentTree/components/RentTree';
 import Bountiful   from '../screens/App/screens/Work/screens/Bountiful/components/Bountiful';
 import Nsac        from '../screens/App/screens/Work/screens/Nsac/components/Nsac';
-//import NoMatch     from '../screens/App/screens/NoMatch/screens/NoMatch';
+import NoMatch     from '../screens/App/screens/NoMatch/components/NoMatch';
 
 const routes = (
   <Route path="/" component={App}>
@@ -32,6 +32,7 @@ const routes = (
       <Route path="/making-it-awesome-with/bountiful-dental" component={Bountiful} />
       <Route path="/making-it-awesome-with/nsac" component={Nsac} />
     </Route>
+    <Route path="*" component={NoMatch} />
   </Route>
 );
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
-import Icon from '../../../components/globals/icons/Icon.jsx';
+import Icon from '../../../shared/icons/Icon';
 
 class NoMatch extends Component {
 	constructor(props) {
@@ -12,13 +12,13 @@ class NoMatch extends Component {
 	}
 	render() {
 		let img = {
-			compass: require('../../../assets/img/404/compass.png')
+			compass: require('../../../../../images/404/compass.png')
 		}
 		let video = {
-			poster: require('../../../assets/img/404/404.jpg'),
-			webm: require('../../../assets/img/404/404.webm'),
-			mp4: require('../../../assets/img/404/404.mp4'),
-			ogv: require('../../../assets/img/404/404.ogv')
+			poster : require('../../../../../images/404/404.jpg'),
+			webm   : require('../../../../../images/404/404.webm'),
+			mp4    : require('../../../../../images/404/404.mp4'),
+			ogv    : require('../../../../../images/404/404.ogv')
 		}
 		return (
 			<DocumentTitle title="404 | Underbelly Creative">

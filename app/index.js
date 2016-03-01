@@ -3,8 +3,6 @@ import { render } from 'react-dom';
 import { Router, browserHistory } from 'react-router';
 import routes from './config/routes';
 
-//import rootRoute from './screens/'
-
 require("./images/favicon.ico");
 require("./stylesheets/index.scss");
 require("./shared/libs/modernizr.js");
