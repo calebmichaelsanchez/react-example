@@ -3,7 +3,6 @@ import DocumentTitle from 'react-document-title';
 import { findDOMNode } from 'react-dom';
 import Icon from '../shared/icons/Icon';
 import { Link } from 'react-router';
-import { scroll, lastPosition, transformThreeD, loop } from '../../../shared/util/helpers';
 import classNames from 'classnames';
 
 class Home extends Component {
