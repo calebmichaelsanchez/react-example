@@ -1,5 +1,6 @@
 var webpack           = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer      = require('autoprefixer');
 var precss            = require('precss');
 
@@ -16,7 +17,7 @@ module.exports = {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(svg)$/, exclude: /node_modules/, loader: 'raw-loader' },
-      { test: /\.scss$/, exclude: /node_modules/, loader: 'style!css!postcss!resolve-url!sass' },
+      { test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style', 'css!postcss!resolve-url!sass') },
       {
         test: /\.(jpe?g|png|gif|ico|mp4|webm|ogv)$/,
         exclude: /node_modules/,
@@ -33,6 +34,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin("/app/stylesheets/index.css"),
     new HtmlWebpackPlugin({
       title    : 'Underbelly Creative',
       template : './index.html',
@@ -41,6 +43,7 @@ module.exports = {
     })
   ] : [
     new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin("/app/stylesheets/index.css"),
     new HtmlWebpackPlugin({
       title    : 'Underbelly Creative',
       template : './index.html',
