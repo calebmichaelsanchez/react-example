@@ -1,42 +1,27 @@
-$fluid-primary: #e47c5d;
-$fluid-secondary: #92371a;
+$rio-primary: #020203;
+$rio-secondary: #101012;
 
 .run-it-once {
 	.hero {
 		@include ghost(center);
 		position: relative;
 		overflow: hidden;
-		color: color(black);
+		color: color(white);
 		.project-meta {
 			vertical-align: top;
 			padding-top: 14vh;
 		}
 	}
-	// .ipad {
-	// 	position: absolute;
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	top: 0;
-	// 	left: 0;
-	// 	text-align: center;
-	// 	z-index: 0;
-	// 	img {
-	// 		position: absolute;
-	// 		padding: 0 1em;
-	// 		left: 50%;
-	// 		transform: translate3d(-50%, 0, 0);
-	// 		top: 50%;
-	// 	}
-	// }
+
 	@media screen and (min-width: $medium) {
 		.ipad img {
 			top: 40%;
 		}
 	}
 	.case-study-info {
-		background-color: $fluid-primary;
+		background-color: $rio-primary;
 		h1, p { color: color(white); }
-		a { color: $fluid-secondary; display: block; margin-top: 1rem; }
+		a { color: $rio-secondary; display: block; margin-top: 1rem; }
 	}
 	.branding-exploration {
 		background-color: color(white);
