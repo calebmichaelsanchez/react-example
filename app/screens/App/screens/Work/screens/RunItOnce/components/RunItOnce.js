@@ -61,18 +61,19 @@ class RunItOnce extends Component {
 				<div className="case-study run-it-once">
 					<section id="rio-hero" className="hero">
 						<img src={img.hero.one} alt=""/>
-						hellos
 
-						// <div className="project-meta">
-						// 	<div className="hero-lg">Fluid Notes</div>
-						// 	<p>Brand Identity &amp; UI Design</p>
-						// </div>
+						<div className="card-box">
+							<img src={img.hero.three} alt=""/>
+							<img src={img.hero.four} alt=""/>
+							<img src={img.hero.five} alt=""/>
+							<img src={img.hero.six} alt=""/>
+							<img src={img.hero.seven} alt=""/>
+							<img src={img.hero.two} alt=""/>
+						</div>
+
 					</section>
 
 					<section className="two-cards">
-						<img src={img.hero.eight} alt=""/>
-
-
 					</section>
 
 					<section className="case-study-info">

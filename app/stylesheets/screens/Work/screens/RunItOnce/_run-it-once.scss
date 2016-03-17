@@ -8,62 +8,38 @@ $rio-secondary: #101012;
 		position: relative;
 		overflow: hidden;
 		color: color(white);
-		.project-meta {
-			vertical-align: top;
-			padding-top: 14vh;
-		}
-	}
 
-	@media screen and (min-width: $medium) {
-		.ipad img {
-			top: 40%;
-		}
-	}
-	.case-study-info {
-		background-color: $rio-primary;
-		h1, p { color: color(white); }
-		a { color: $rio-secondary; display: block; margin-top: 1rem; }
-	}
-	.branding-exploration {
-		background-color: color(white);
-		img {
-			display: block;
-			margin: 0 auto;
-		}
-	}
-	.mark-exploration {
-		background-color: color(light-gray-secondary);
-		img {
-			display: block;
-			width: 80%;
-			max-width: 170px;
-			margin: 0 auto;
-		}
-	}
-	.logotypes {
-		margin-bottom: 4rem;
-	}
-	.detailed-icon {
-		@include hero('../images/work/fluid/hero/03.jpg');
-		background-size: 300%;
-		h1 { color: color(white); }
-		img {
-			display: block;
-			margin: 0 auto;
-			max-width: 540px;
-		}
-		@media screen and (min-width: $medium) {
-			background-size: cover;
-		}
-	}
-	.lifestyle {
-		background-color: color(light-gray-secondary);
-		.video { margin-bottom: 15px; }
-		.quote {
-			padding-top: 3.6325rem;
-			@media screen and (min-width: $medium) {
-				padding-top: 5.625rem;
+		.card-box {
+			position: absolute;
+			bottom: 0;
+			height: 1px;
+			padding-bottom: 26%;
+			width: 75%;
+			max-width: 475px;
+	      background: red;
+	      left: 50%;
+	      transform: translate3d(-50%, 0, 0);
+
+			@media screen and (min-width: $small) {
+				width: 40%;
 			}
+
+			@media screen and (min-width: $medium) {
+				width: 33%;
+			}
+
 		}
+
+		.card-box > img {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			transform: translate3d(-50%, 0, 0);
+		}
+		
+	} // end hero
+	.two-cards {
+		@include hero('../images/work/run-it-once/hero/two-cards.png');
+		padding-bottom: 48%;
 	}
 }
