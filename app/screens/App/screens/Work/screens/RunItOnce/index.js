@@ -1,9 +1,9 @@
-import Fluid from "./components/Fluid";
+import RunItOnce from "./components/RunItOnce";
 
 module.exports = {
-	path: 'fluid',
+	path: 'run-it-once',
 
 	getComponent (location, cb) {
-		cb(null, Fluid);
+		cb(null, RunItOnce);
 	}
 }

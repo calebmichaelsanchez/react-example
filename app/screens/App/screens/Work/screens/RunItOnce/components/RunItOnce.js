@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import SeeMore from "../../../shared/SeeMore";
 
-class Fluid extends Component {
+class RunItOnce extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -12,21 +12,38 @@ class Fluid extends Component {
 	}
 	render() {
 		let img = {
-			ipad:  require("../../../../../../../images/work/fluid/hero/02.png"),
-			brand: require("../../../../../../../images/work/fluid/icon/fluid-icon-type-med.png"),
-			mark: {
-				one:   require("../../../../../../../images/work/fluid/branding/01.png"),
-				two:   require("../../../../../../../images/work/fluid/branding/02.png"),
-				three: require("../../../../../../../images/work/fluid/branding/03.png"),
-				four:  require("../../../../../../../images/work/fluid/branding/04.png"),
-				five:  require("../../../../../../../images/work/fluid/branding/05.png"),
-				six:   require("../../../../../../../images/work/fluid/branding/06.png")
+			hero: {
+				one:   require("../../../../../../../images/work/run-it-once/hero/rio-logo.png"),
+				two:   require("../../../../../../../images/work/run-it-once/hero/box-front.png"),
+				three: require("../../../../../../../images/work/run-it-once/hero/card-01.png"),
+				four:  require("../../../../../../../images/work/run-it-once/hero/card-02.png"),
+				five:  require("../../../../../../../images/work/run-it-once/hero/card-03.png"),
+				six:   require("../../../../../../../images/work/run-it-once/hero/lid-closed.png"),
+				six:   require("../../../../../../../images/work/run-it-once/hero/lid-open.png")
 			},
-			icon: {
-				md: require("../../../../../../../images/work/fluid/icon/icon-med.png"),
-				lg: require("../../../../../../../images/work/fluid/icon/icon-large.png")
+			two-cards: require("../../../../../../../images/work/run-it-once/two-cards/01.png"),
+			deck: {
+				one:   require("../../../../../../../images/work/run-it-once/deck/01.png"),
+				two:   require("../../../../../../../images/work/run-it-once/deck/02.png"),
+				three: require("../../../../../../../images/work/run-it-once/deck/03.png"),
+				four:  require("../../../../../../../images/work/run-it-once/deck/04.png"),
+				five:  require("../../../../../../../images/work/run-it-once/deck/05.png")
 			},
-			lifestyle: require("../../../../../../../images/work/fluid/lifestyle/01.jpg"),
+			gallery: {
+				one: require("../../../../../../../images/work/run-it-once/gallery/1.png"),
+				two: require("../../../../../../../images/work/run-it-once/gallery/2.png"),
+				three: require("../../../../../../../images/work/run-it-once/gallery/3.png")
+			},
+			cards: {
+				one: require("../../../../../../../images/work/run-it-once/cards/1.png"),
+				two: require("../../../../../../../images/work/run-it-once/cards/2.png"),
+				three: require("../../../../../../../images/work/run-it-once/cards/3.png")
+			},
+			gallery2: {
+				one: require("../../../../../../../images/work/run-it-once/gallery2/1.png"),
+				two: require("../../../../../../../images/work/run-it-once/gallery2/2.png"),
+				three: require("../../../../../../../images/work/run-it-once/gallery2/3.png")
+			},
 			seeMore: {
 				one:   require("../../../../../../../images/work/see-more/hive.jpg"),
 				two:   require("../../../../../../../images/work/see-more/just-family.jpg"),
@@ -37,7 +54,7 @@ class Fluid extends Component {
 		return (
 			<DocumentTitle title="Run It Once | Underbelly Creative">
 				<div className="case-study run-it-once">
-					<div id="fluid-hero" className="hero">
+					<section id="rio-hero" className="hero">
 						<section id="parallax-ipad-container" className="ipad">
 							<img id="parallax-ipad-item" src={img.ipad} alt=""/>
 						</section>
@@ -45,7 +62,7 @@ class Fluid extends Component {
 							<div className="hero-lg">Fluid Notes</div>
 							<p>Brand Identity &amp; UI Design</p>
 						</div>
-					</div>
+					</section>
 					<section className="case-study-info">
 						<div className="container-sm">
 							<div className="grid-1-2 grid-copy challenge">
@@ -121,13 +138,13 @@ class Fluid extends Component {
 		);
 	}
 }
-Fluid.propTypes = {
+RunItOnce.propTypes = {
 	name: React.PropTypes.string,
 	theme: React.PropTypes.string,
 	setNavTheme: React.PropTypes.func
 }
-Fluid.defaultProps = {
-	name: 'Fluid',
-	theme: 'light'
+RunItOnce.defaultProps = {
+	name: 'RunItOnce',
+	theme: 'dark'
 }
-export default Fluid;
+export default RunItOnce;
