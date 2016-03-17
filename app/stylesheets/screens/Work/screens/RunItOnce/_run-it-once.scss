@@ -16,6 +16,7 @@ $rio-secondary: #101012;
 			padding-bottom: 26%;
 			width: 75%;
 			max-width: 475px;
+			max-height: 375px;
 	      background: red;
 	      left: 50%;
 	      transform: translate3d(-50%, 0, 0);
@@ -36,10 +37,14 @@ $rio-secondary: #101012;
 			top: 0;
 			transform: translate3d(-50%, 0, 0);
 		}
-		
+
 	} // end hero
 	.two-cards {
 		@include hero('../images/work/run-it-once/hero/two-cards.png');
 		padding-bottom: 48%;
+	}
+
+	.case-study-gallery {
+		padding: 0;
 	}
 }

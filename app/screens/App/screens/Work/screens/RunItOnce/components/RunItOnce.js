@@ -76,17 +76,31 @@ class RunItOnce extends Component {
 					<section className="two-cards">
 					</section>
 
-					<section className="case-study-info">
+					<section className="case-study-deck">
 						<div className="container-sm">
-							<div className="grid-1-2 grid-copy challenge">
-								<h1>The Challenge</h1>
-								<p>Combining all of your family photos from mobile phones and computers is an ever growing problem. Just Family is an app that allows people to combine and organize photos from everyone in their household and access them from anywhere.</p>
+							<div className="grid-1-2 grid-copy">
+								<img src={img.deck.one} alt=""/>
+								<img src={img.deck.two} alt=""/>
+								<img src={img.deck.three} alt=""/>
+								<img src={img.deck.four} alt=""/>
+								<img src={img.deck.five} alt=""/>
+								<img src={img.deck.six} alt=""/>
 							</div>
-							<div className="grid-1-2 grid-copy challenge">
+							<div className="grid-1-2 grid-copy">
 								<h1>The Solution</h1>
 								<p>We worked on a daily basis with Just Family to create a cohesive brand identity and user experience that would highlight the ease and functionality of the app.</p>
 								// <p><a target="_blank" href="http://justfamily.com">JustFamily.com</a></p>
 							</div>
+						</div>
+					</section>
+
+					<section className="case-study-gallery">
+						<div className="grid-1-2">
+							<img src={img.gallery.one} alt=""/>
+						</div>
+						<div className="grid-1-2">
+							<img src={img.gallery.two} alt=""/>
+							<img src={img.gallery.three} alt=""/>
 						</div>
 					</section>
 
@@ -108,6 +122,6 @@ RunItOnce.propTypes = {
 }
 RunItOnce.defaultProps = {
 	name: 'run-it-once',
-	theme: 'dark'
+	theme: 'light'
 }
 export default RunItOnce;
