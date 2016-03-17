@@ -2,6 +2,7 @@ $rio-primary: #020203;
 $rio-secondary: #101012;
 
 .run-it-once {
+	background-color: $rio-primary;
 	.hero {
 		@include ghost(center);
 		position: relative;
