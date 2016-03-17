@@ -7,7 +7,7 @@ class Fluid extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		ga('send', 'pageview', '/making-it-awesome-with/fluid');
+		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
 	}
 	render() {
@@ -35,8 +35,8 @@ class Fluid extends Component {
 			}
 		}
 		return (
-			<DocumentTitle title="Fluid | Underbelly Creative">
-				<div className="case-study fluid">
+			<DocumentTitle title="Run It Once | Underbelly Creative">
+				<div className="case-study run-it-once">
 					<div id="fluid-hero" className="hero">
 						<section id="parallax-ipad-container" className="ipad">
 							<img id="parallax-ipad-item" src={img.ipad} alt=""/>
