@@ -1,9 +1,9 @@
-module.exports = {
-	path: 'experticity',
+import Fluid from "./components/Fluid";
 
-	getComponents (location, cb) {
-		require.ensure([], (require) => {
-			cb(null, require('./components/Experticity'));
-		});
+module.exports = {
+	path: 'fluid',
+
+	getComponent (location, cb) {
+		cb(null, Fluid);
 	}
 }
