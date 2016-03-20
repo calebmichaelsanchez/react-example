@@ -44,6 +44,15 @@ $rio-secondary: #101012;
 		padding-bottom: 48%;
 	}
 
+	.case-study-cards {
+		color: #fff;
+
+		.card {
+			display: block;
+			margin: -20px auto;
+		}
+	}
+
 	.case-study-gallery,
 	.case-study-gallery2 {
 		padding: 0;
