@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
+import ReactDom, { findDOMNode } from 'react-dom';
+// import classNames from 'classnames';
+
 import DocumentTitle from 'react-document-title';
 import SeeMore from "../../../shared/SeeMore";
 
 class RunItOnce extends Component {
 	constructor(props) {
 		super(props);
+		this.handleScroll = this.handleScroll.bind(this);
 	}
+
 	componentDidMount() {
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
+		window.addEventListener("scroll", this.handleScroll);
+		var card01 = findDOMNode(this.refs.card01);
 	}
+
+	handleScroll() {
+		var offset = window.scrollY;
+		if (offset >= 400) {
+			console.log("huh");
+			// document.getElementById("myDIV").style.transform = "rotate(7deg)";
+			this.refs.card01.style.transform = "rotate(70deg)";
+		} else {
+			//
+		}
+	}
+
 	render() {
+
+
 		let img = {
-			// two-cards: require("../../../../../../../images/work/run-it-once/two-cards/01.png"),
-			// ipad:  require("../../../../../../../images/work/fluid/hero/02.png"),
-			// brand: require("../../../../../../../images/work/fluid/icon/fluid-icon-type-med.png"),
+
 			hero: {
 				one:   require("../../../../../../../images/work/run-it-once/hero/rio-logo.png"),
 				two:   require("../../../../../../../images/work/run-it-once/hero/box-front.png"),
@@ -56,6 +75,7 @@ class RunItOnce extends Component {
 				four:  require("../../../../../../../images/work/see-more/rent-tree.jpg")
 			}
 		}
+
 		return (
 			<DocumentTitle title="Run It Once | Underbelly Creative">
 				<div className="case-study run-it-once">
@@ -76,10 +96,10 @@ class RunItOnce extends Component {
 					<section className="two-cards">
 					</section>
 
-					<section className="case-study-deck">
+					<section className="case-study-deck" >
 						<div className="container-sm">
 							<div className="grid-1-2">
-								<img src={img.deck.one} alt=""/>
+								<img src={img.deck.one} ref="card01" alt=""/>
 								<img src={img.deck.two} alt=""/>
 								<img src={img.deck.three} alt=""/>
 								<img src={img.deck.four} alt=""/>
@@ -96,41 +116,43 @@ class RunItOnce extends Component {
 
 					<section className="case-study-gallery">
 						<div className="grid-1-2">
-							<img src={img.gallery.one} alt=""/>
+							<img width="100%" src={img.gallery.one} alt=""/>
 						</div>
 						<div className="grid-1-2">
-							<img src={img.gallery.two} alt=""/>
-							<img src={img.gallery.three} alt=""/>
+							<img width="100%" src={img.gallery.two} alt=""/>
+							<img width="100%" src={img.gallery.three} alt=""/>
 						</div>
 					</section>
 
 					<section className="case-study-cards">
-						<div className="grid-1-3 grid-copy">
-						<p>Matching the palatial look and feel of Run It Once’s brand was no small feat. We took multiple approaches before finally landing on a style that was sleek, geometric, and modern. Each suit was designed with a unique personality to give the deck depth and variety while still remaining true to RIO’s brand. Diamonds crafted to be rugged and adventurous, spades strong and ruthless, clubs secretive and seductive, and hearts trustworthy and approachable.</p>
+						<div className="grid-1-2 grid-copy">
+							<p>Matching the palatial look and feel of Run It Once’s brand was no small feat. We took multiple approaches before finally landing on a style that was sleek, geometric, and modern. Each suit was designed with a unique personality to give the deck depth and variety while still remaining true to RIO’s brand. Diamonds crafted to be rugged and adventurous, spades strong and ruthless, clubs secretive and seductive, and hearts trustworthy and approachable.</p>
 
-						<p>The finished product is a world-class, unique deck of cards worthy of the most talented professional poker hands. However, no need to worry; you don’t have to have a bracelet under your belt to enjoy these cards. Anyone can purchase these beauties directly from RIO’s site- even if you’re one of those casual, low-stakes, hold-em folks. If you’re anything like us, you can’t pass up a hot deck of cards.</p>
-
+							<p>The finished product is a world-class, unique deck of cards worthy of the most talented professional poker hands. However, no need to worry; you don’t have to have a bracelet under your belt to enjoy these cards. Anyone can purchase these beauties directly from RIO’s site- even if you’re one of those casual, low-stakes, hold-em folks. If you’re anything like us, you can’t pass up a hot deck of cards.</p>
 						</div>
-						<div className="grid-2-3">
-							<img src={img.cards.one} alt=""/>
-							<img src={img.cards.two} alt=""/>
-							<img src={img.cards.three} alt=""/>
+						<div className="grid-1-2">
+							<img src={img.cards.one} className="card" alt=""/>
+							<img src={img.cards.two} className="card" alt=""/>
+							<img src={img.cards.three} className="card" alt=""/>
 						</div>
 					</section>
 
 					<section className="case-study-gallery2">
 						<div className="grid-1-3">
-							<img src={img.gallery2.one} alt=""/>
+							<img width="100%" src={img.gallery2.one} alt=""/>
 						</div>
 						<div className="grid-1-3">
-							<img src={img.gallery2.two} alt=""/>
+							<img width="100%" src={img.gallery2.two} alt=""/>
 						</div>
 						<div className="grid-1-3">
-							<img src={img.gallery2.three} alt=""/>
+							<img width="100%" src={img.gallery2.three} alt=""/>
 						</div>
 					</section>
 
 					<section className="case-study-final hero">
+						<div className="grid-1-2">
+							buy em now
+						</div>
 						<div className="grid-1-2">
 							<div className="card-box">
 								<img src={img.hero.three} alt=""/>
@@ -140,9 +162,6 @@ class RunItOnce extends Component {
 								<img src={img.hero.seven} alt=""/>
 								<img src={img.hero.two} alt=""/>
 							</div>
-						</div>
-						<div className="grid-1-2">
-							buy em now
 						</div>
 					</section>
 
