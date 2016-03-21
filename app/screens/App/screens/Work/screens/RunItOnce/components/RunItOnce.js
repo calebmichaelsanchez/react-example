@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
 import DocumentTitle from 'react-document-title';
 import SeeMore from "../../../shared/SeeMore";
-
-function isInViewport(element) {
-  var rect = element.getBoundingClientRect();
-  var html = document.documentElement;
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || html.clientHeight) &&
-    rect.right <= (window.innerWidth || html.clientWidth)
-  );
-}
 
 class RunItOnce extends Component {
 	constructor(props) {
@@ -26,24 +15,31 @@ class RunItOnce extends Component {
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
 
-		var deck = findDOMNode(this.refs.deck),
-			 deckCard01 = findDOMNode(this.refs.deckCard01);
-
-			//  var deckImg = deck.getElementsByTagName("img");
-			//  console.log(deckImg);
-
 		window.addEventListener("scroll", this.handleScroll);
 	}
 
    handleScroll() {
-      var offset = window.scrollY;
-      var test = this.refs.deck.getBoundingClientRect();
+      var offset = window.scrollY,
+          deckTop = this.refs.deck.getBoundingClientRect().top,
+          deckBottom = this.refs.deck.getBoundingClientRect().bottom,
+          inc = offset / 160;
 
-      if (offset > 400) {
-         console.log(test);
-         // document.getElementById("myDIV").style.transform = "rotate(7deg)";
-         this.refs.deckCard01.style.transform = "translateY(-" + offset / 25 +"px)";
-      }
+         // var deck = findDOMNode(this.refs.deck),
+         //     deckCard01 = findDOMNode(this.refs.deckCard01),
+         //     cardBox = findDOMNode(this.refs.cardBox);
+
+      if (offset > 10) {
+         this.refs.cardBox.className = 'animate';
+      };
+
+      if (offset >= deckTop) {
+         this.refs.deckCard01.style.transform = "translateY(-" + inc * 12 + "px)";
+         this.refs.deckCard02.style.transform = "translateY(-" + inc * 10 + "px)";
+         this.refs.deckCard03.style.transform = "translateY(-" + inc * 8 + "px)";
+         this.refs.deckCard04.style.transform = "translateY(-" + inc * 6 + "px)";
+         this.refs.deckCard05.style.transform = "translateY(-" + inc * 4 + "px)";
+      };
+
 
    }
 
@@ -100,13 +96,13 @@ class RunItOnce extends Component {
 					<section id="rio-hero" className="hero">
 						<img src={img.hero.one} alt=""/>
 
-						<div className="card-box">
-							<img src={img.hero.three} alt=""/>j
-							<img src={img.hero.four} alt=""/>
-							<img src={img.hero.five} alt=""/>
-							<img src={img.hero.six} alt=""/>
-							<img src={img.hero.seven} alt=""/>
-							<img src={img.hero.two} alt=""/>
+						<div id="cardBox" ref="cardBox">
+							<img src={img.hero.three} className="card01" alt=""/>
+							<img src={img.hero.four} className="card02" alt=""/>
+							<img src={img.hero.five} className="card03" alt=""/>
+							<img src={img.hero.six} className="" alt=""/>
+							<img src={img.hero.seven} className="" alt=""/>
+							<img src={img.hero.two} className="" alt=""/>
 						</div>
 
 					</section>
@@ -122,13 +118,14 @@ class RunItOnce extends Component {
 								<img src={img.deck.three} className="deckCard" ref="deckCard03" />
 								<img src={img.deck.four} className="deckCard" ref="deckCard04" />
 								<img src={img.deck.five} className="deckCard" ref="deckCard05" />
-								<img src={img.deck.six} className="deckCard" ref="deckCard06" />
 							</div>
 
 							<div className="grid-1-2 grid-copy">
 								<p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
 
 								<p>At Underbelly, we’re suckers for playing card designs. That’s one of the many reasons we were stoked to partner with Phil and the Run It Once crew on designing the first official Run It Once card deck.</p>
+
+                        <img src={img.deck.six} className="deckCard" ref="deckCard06" />
 							</div>
 						</div>
 					</section>

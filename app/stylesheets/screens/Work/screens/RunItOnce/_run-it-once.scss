@@ -7,21 +7,20 @@ $rio-borders: #898c8c;
 	background-color: $rio-primary;
 
 	.hero {
-		@include ghost(center);
 		position: relative;
 		overflow: hidden;
 		color: color(white);
+		@include ghost(center);
 
-		.card-box {
+		#cardBox {
 			position: absolute;
 			bottom: 0;
-			height: 1px;
-			padding-bottom: 26%;
+	      left: 50%;
 			width: 75%;
 			max-width: 475px;
+			height: 1px;
 			max-height: 375px;
-	      background: red;
-	      left: 50%;
+			padding-bottom: 26%;
 	      transform: translate3d(-50%, 0, 0);
 
 			@media screen and (min-width: $small) {
@@ -31,38 +30,61 @@ $rio-borders: #898c8c;
 			@media screen and (min-width: $medium) {
 				width: 33%;
 			}
-
 		}
 
-		.card-box > img {
+		#cardBox > img {
 			position: absolute;
-			left: 50%;
 			top: 0;
+			left: 50%;
+
+			transition: transform cubic-bezier(0.6, -0.4, 0.2, 0.4) 750ms;
 			transform: translate3d(-50%, 0, 0);
 		}
 
-	}
+		#cardBox > img.card01,
+		#cardBox > img.card02,
+		#cardBox > img.card03 {
+			width: calc(100% - 8px);
+		}
+
+		#cardBox.animate > img.card01 {
+			transform: translate3d(-50%, -225px, 0);
+		}
+
+		#cardBox.animate > img.card02 {
+			transform: translate3d(-50%, -170px, 0);
+		}
+
+		#cardBox.animate > img.card03 {
+			transform: translate3d(-50%, -105px, 0);
+		}
+
+	} // end hero
 
 	.two-cards {
-		@include hero('../images/work/run-it-once/hero/two-cards.png');
 		padding-bottom: 48%;
+
+		@include hero('../images/work/run-it-once/hero/two-cards.png');
 	}
 
 	.case-study-gallery {
 
 		@media screen and (min-width: $small) {
+			overflow: hidden;
+
 			border-top: 1px solid $rio-borders;
 			border-bottom: 1px solid $rio-borders;
-			overflow: hidden;
 		}
 
 		.galleryImg {
-			border-bottom: 1px solid $rio-borders;
 			margin-bottom: 1px;
 
+			border-bottom: 1px solid $rio-borders;
+
 			@media screen and (min-width: $small) {
-				border: none;
 				margin: 0;
+
+				border: none;
 			}
 		}
 
@@ -77,8 +99,9 @@ $rio-borders: #898c8c;
 
 		.galleryImg.two {
 			@media screen and (min-width: $small) {
-				border-bottom: 1px solid $rio-borders;
 				margin-bottom: 1px;
+
+				border-bottom: 1px solid $rio-borders;
 			}
 		}
 
@@ -86,19 +109,19 @@ $rio-borders: #898c8c;
 
 	.case-study-gallery2 {
 		@media screen and (min-width: $small) {
+			overflow: hidden;
 			border-top: 1px solid $rio-borders;
 			border-bottom: 1px solid $rio-borders;
-			overflow: hidden;
 		}
 
 		.gallery2Img {
-			border-bottom: 1px solid $rio-borders;
 			margin-bottom: 1px;
+			border-bottom: 1px solid $rio-borders;
 
 			@media screen and (min-width: $small) {
+				margin: 0;
 				border: none;
 				border-right: 1px solid $rio-borders;
-				margin: 0;
 			}
 		}
 
@@ -117,15 +140,28 @@ $rio-borders: #898c8c;
 	}
 
 	.case-study-deck {
+
+		.grid-1-2:first-of-type {
+			position: relative;
+			top: 100px;
+		}
+
 		.deckCard {
 			position: relative;
-			margin-bottom: -100px;
+			margin-bottom: -125px;
 
 			&:nth-child(1){ z-index: 6; }
 			&:nth-child(2){ z-index: 5; }
 			&:nth-child(3){ z-index: 4; }
 			&:nth-child(4){ z-index: 3; }
 			&:nth-child(5){ z-index: 2; margin-bottom: 0; }
+			&:nth-child(6){ margin-bottom: 0; position: absolute; }
+		}
+
+		.grid-copy p {
+			color: #fff;
+			line-height: 2;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -133,9 +169,9 @@ $rio-borders: #898c8c;
 		color: #fff;
 
 		.card {
+			position: relative;
 			display: block;
 			margin: 0 auto -50px;
-			position: relative;
 
 			&:nth-child(1){ z-index: 3; }
 			&:nth-child(2){ z-index: 2; }
