@@ -6,78 +6,99 @@ $rio-borders: #898c8c;
 .run-it-once {
 	background-color: $rio-primary;
 
+	.rioLogo {
+		margin-top: 20px;
+		max-width: 275px;
+	}
+
+	.grid-copy p {
+		color: #fff;
+		line-height: 2;
+		margin-bottom: 2rem;
+	}
+
 	.hero {
 		position: relative;
 		overflow: hidden;
 		color: color(white);
 		@include ghost(center);
+	}
 
-		#cardBox {
-			position: absolute;
-			bottom: 0;
-	      left: 50%;
-			width: 60%;
-			max-width: 475px;
-			height: 1px;
-			max-height: 375px;
-			padding-bottom: 26%;
-	      transform: translate3d(-50%, 0, 0);
+	#cardBox {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 50%;
+		max-width: 275px;
+		max-height: 375px;
+		// padding-bottom: 26%;
+		transform: translate3d(-50%, 0, 0);
 
-			@media screen and (min-width: $small) {
-				width: 35%;
-			}
-
-			@media screen and (min-width: $medium) {
-				width: 33%;
-			}
+		@media screen and (min-width: $small) {
+			width: 35%;
+			max-width: 300px;
 		}
 
-		#cardBox > img {
-			position: absolute;
-			bottom: 0;
-			left: 50%;
+		@media screen and (min-width: $medium) {
+			width: 33%;
+		}
+	}
 
-			transition: transform cubic-bezier(0.6, -0.4, 0.2, 0.4) 750ms;
-			transform: translate3d(-50%, 0, 0);
+	#cardBox > img {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+
+		transition: transform cubic-bezier(0.6, -0.4, 0.2, 0.4) 750ms;
+		transform: translate3d(-50%, 0, 0);
+	}
+
+	#cardBox {
+
+		.front {
+			position: relative;
 		}
 
-		#cardBox .frontLid,
-		#cardBox .backLid {
+		.frontLid,
+		.backLid {
 			bottom: initial;
-			top: -10px;
+			top: 0px;
 			width: calc(100% - 12px);
 		}
 
-		#cardBox.animate .frontLid,
-		#cardBox.animate .backLid {
-			transform: translate3d(-50%, -50px, 0);
-		}
-
-		#cardBox .card01,
-		#cardBox .card02,
-		#cardBox .card03 {
+		.card01, .card02, .card03 {
 			bottom: -50px;
 			transition-delay: 300ms;
 			width: calc(100% - 14px);
 		}
 
-		#cardBox.animate img.card01 {
-			transform: translate3d(-50%, -225px, 0);
+	}
+
+	#cardBox.animate {
+
+		.frontLid, .backLid {
+			transform: translate3d(-50%, -50px, 0);
 		}
-
-		#cardBox.animate img.card02 {
-			transform: translate3d(-50%, -170px, 0);
-		}
-
-		#cardBox.animate img.card03 {
-			transform: translate3d(-50%, -55px, 0);
-
+		img.card01 {
+			transform: translate3d(-50%, -180px, 0);
 			@media screen and (min-width: $small) {
-				transform: translate3d(-50%, -95px, 0);
+				transform: translate3d(-50%, -225px, 0);
+			}
+		}
+		img.card02 {
+			transform: translate3d(-50%, -140px, 0);
+			@media screen and (min-width: $small) {
+				transform: translate3d(-50%, -170px, 0);
+			}
+		}
+		img.card03 {
+			transform: translate3d(-50%, -95px, 0);
+			@media screen and (min-width: $small) {
+				transform: translate3d(-50%, -115px, 0);
 			}
 		}
 
-	} // end hero
+	}
 
 	.two-cards {
 		padding-bottom: 48%;
@@ -96,12 +117,10 @@ $rio-borders: #898c8c;
 
 		.galleryImg {
 			margin-bottom: 1px;
-
 			border-bottom: 1px solid $rio-borders;
 
 			@media screen and (min-width: $small) {
 				margin: 0;
-
 				border: none;
 			}
 		}
@@ -159,6 +178,8 @@ $rio-borders: #898c8c;
 
 	.case-study-deck {
 
+		overflow-y: hidden;
+
 		.grid-1-2:first-of-type {
 			@media screen and (min-width: $small) {
 				position: relative;
@@ -176,12 +197,6 @@ $rio-borders: #898c8c;
 			&:nth-child(4){ z-index: 3; }
 			&:nth-child(5){ z-index: 2; margin-bottom: 0; }
 			&:nth-child(6){ margin-bottom: 0; position: absolute; }
-		}
-
-		.grid-copy p {
-			color: #fff;
-			line-height: 2;
-			margin-bottom: 2rem;
 		}
 	}
 
@@ -203,4 +218,10 @@ $rio-borders: #898c8c;
 	.case-study-gallery2 {
 		padding: 0;
 	}
+}
+
+
+section.case-study-final {
+    position: relative;
+    min-height: 450px;
 }

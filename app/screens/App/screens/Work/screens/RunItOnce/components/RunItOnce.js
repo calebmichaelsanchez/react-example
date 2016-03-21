@@ -21,16 +21,13 @@ class RunItOnce extends Component {
    handleScroll() {
       var offset = window.scrollY,
           deckTop = this.refs.deck.getBoundingClientRect().top,
-          deckBottom = this.refs.deck.getBoundingClientRect().bottom,
-          inc = offset / 150;
-
-         // var deck = findDOMNode(this.refs.deck),
-         //     deckCard01 = findDOMNode(this.refs.deckCard01),
-         //     cardBox = findDOMNode(this.refs.cardBox);
+          rotateCardsTop = this.refs.rotateCards.getBoundingClientRect().top,
+          finalBott = this.refs.final.getBoundingClientRect().bottom,
+          inc = offset / 120;
 
       if (offset > 10) {
          this.refs.cardBox.className = 'animate';
-      };
+      }
 
       if (offset >= deckTop) {
          this.refs.deckCard01.style.transform = "translateY(-" + inc * 12 + "px)";
@@ -38,7 +35,18 @@ class RunItOnce extends Component {
          this.refs.deckCard03.style.transform = "translateY(-" + inc * 8 + "px)";
          this.refs.deckCard04.style.transform = "translateY(-" + inc * 6 + "px)";
          this.refs.deckCard05.style.transform = "translateY(-" + inc * 4 + "px)";
-      };
+      }
+
+      if (offset >= rotateCardsTop + 100) {
+         this.refs.rCard01.style.transform = "rotate(" + inc  + "deg)"
+         this.refs.rCard02.style.transform = "rotate(-" + inc  + "deg)"
+         this.refs.rCard03.style.transform = "rotate(" + inc  + "deg)"
+      }
+
+      if (offset >= finalBott) {
+         console.log('this is finalBott ' + finalBott + 'this is offset ' + offset);
+         // this.refs.cardBox2.className = '';
+      }
 
 
    }
@@ -94,7 +102,7 @@ class RunItOnce extends Component {
 			<DocumentTitle title="Run It Once | Underbelly Creative">
 				<div className="case-study run-it-once">
 					<section id="rio-hero" className="hero">
-						<img src={img.hero.one} alt=""/>
+						<img src={img.hero.one} className="rioLogo" alt="Run It Once Logo"/>
 
 						<div id="cardBox" ref="cardBox">
                      <img src={img.hero.seven} className="backLid"/>
@@ -140,16 +148,16 @@ class RunItOnce extends Component {
 						</div>
 					</section>
 
-					<section className="case-study-cards">
+					<section className="case-study-cards" ref="rotateCards">
 						<div className="grid-1-2 grid-copy">
 							<p>Matching the palatial look and feel of Run It Once’s brand was no small feat. We took multiple approaches before finally landing on a style that was sleek, geometric, and modern. Each suit was designed with a unique personality to give the deck depth and variety while still remaining true to RIO’s brand. Diamonds crafted to be rugged and adventurous, spades strong and ruthless, clubs secretive and seductive, and hearts trustworthy and approachable.</p>
 
 							<p>The finished product is a world-class, unique deck of cards worthy of the most talented professional poker hands. However, no need to worry; you don’t have to have a bracelet under your belt to enjoy these cards. Anyone can purchase these beauties directly from RIO’s site- even if you’re one of those casual, low-stakes, hold-em folks. If you’re anything like us, you can’t pass up a hot deck of cards.</p>
 						</div>
 						<div className="grid-1-2">
-							<img src={img.cards.one} className="card" alt=""/>
-							<img src={img.cards.two} className="card" alt=""/>
-							<img src={img.cards.three} className="card" alt=""/>
+							<img src={img.cards.one} className="card" ref="rCard01" alt=""/>
+							<img src={img.cards.two} className="card" ref="rCard02" alt=""/>
+							<img src={img.cards.three} className="card" ref="rCard03" alt=""/>
 						</div>
 					</section>
 
@@ -165,20 +173,15 @@ class RunItOnce extends Component {
 						</div>
 					</section>
 
-					<section className="case-study-final hero">
-						<div className="grid-1-2">
-							buy em now
-						</div>
-						<div className="grid-1-2">
-							<div className="card-box">
-								<img src={img.hero.three} alt=""/>
-								<img src={img.hero.four} alt=""/>
-								<img src={img.hero.five} alt=""/>
-								<img src={img.hero.six} alt=""/>
-								<img src={img.hero.seven} alt=""/>
-								<img src={img.hero.two} alt=""/>
-							</div>
-						</div>
+					<section className="case-study-final" ref="final">
+                  <div id="cardBox" ref="cardBox2">
+                     <img src={img.hero.seven} className="backLid"/>
+                     <img src={img.hero.six} className="frontLid"/>
+                     <img src={img.hero.three} className="card01"/>
+                     <img src={img.hero.four} className="card02"/>
+                     <img src={img.hero.five} className="card03"/>
+                     <img src={img.hero.two} className="front"/>
+                  </div>
 					</section>
 
 					<SeeMore items={[
