@@ -3,6 +3,7 @@ $rio-secondary: #101012;
 
 .run-it-once {
 	background-color: $rio-primary;
+
 	.hero {
 		@include ghost(center);
 		position: relative;
@@ -38,10 +39,60 @@ $rio-secondary: #101012;
 			transform: translate3d(-50%, 0, 0);
 		}
 
-	} // end hero
+	}
+
 	.two-cards {
 		@include hero('../images/work/run-it-once/hero/two-cards.png');
 		padding-bottom: 48%;
+	}
+
+	.case-study-gallery {
+
+		@media screen and (min-width: $small) {
+			border-top: 1px solid #898c8c;
+			border-bottom: 1px solid #898c8c;
+			overflow: hidden;
+		}
+
+		.galleryImg {
+			border-bottom: 1px solid #898c8c;
+			margin-bottom: 1px;
+
+			@media screen and (min-width: $small) {
+				border: none;
+				margin: 0;
+			}
+		}
+
+		.galleryImg.one {
+			border-top: 1px solid #898c8c;
+
+			@media screen and (min-width: $small) {
+				border: none;
+				border-right: 1px solid #898c8c;
+			}
+		}
+
+		.galleryImg.two {
+			@media screen and (min-width: $small) {
+				border-bottom: 1px solid #898c8c;
+				margin-bottom: 1px;
+			}
+		}
+
+	}
+
+	.case-study-deck {
+		.deckCard {
+			position: relative;
+			margin-bottom: -100px;
+
+			&:nth-child(1){ z-index: 6; }
+			&:nth-child(2){ z-index: 5; }
+			&:nth-child(3){ z-index: 4; }
+			&:nth-child(4){ z-index: 3; }
+			&:nth-child(5){ z-index: 2; margin-bottom: 0; }
+		}
 	}
 
 	.case-study-cards {
@@ -49,7 +100,12 @@ $rio-secondary: #101012;
 
 		.card {
 			display: block;
-			margin: -20px auto;
+			margin: 0 auto -50px;
+			position: relative;
+
+			&:nth-child(1){ z-index: 3; }
+			&:nth-child(2){ z-index: 2; }
+			&:nth-child(3){ z-index: 1; }
 		}
 	}
 
