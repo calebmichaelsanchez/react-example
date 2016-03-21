@@ -1,0 +1,20 @@
+.excerpt {
+  width: 100%;
+  max-width: rem-calc(687);
+  margin-left: auto;
+  margin-right: auto;
+  &--center {
+    text-align: center;
+  }
+  &--left {
+    text-align: left;
+    margin-left: 0;
+  }
+  &-title {
+    margin-bottom: rem-calc(40);
+  }
+  &-content p {
+    margin-bottom: rem-calc(25);
+    &:last-of-type { margin-bottom: 0; }
+  }
+}

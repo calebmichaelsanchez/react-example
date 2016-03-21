@@ -1,3 +1,8 @@
+// Calculate rems
+@function rem-calc($pixelValue, $baseValue: 16) {
+  @return ($pixelValue / $baseValue) * 1rem;
+}
+
 @function color($key) {
 	@if map-has-key($colors, $key) {
 		@return map-get($colors, $key)

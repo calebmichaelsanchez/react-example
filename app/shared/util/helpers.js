@@ -11,6 +11,12 @@ let helpers = {
     let dollars = price.slice(0, price.length - 2);
     let cents = price.slice(price.length - 2);
     return `${dollars}.${cents}`
+  },
+  isInViewport: function(elem, offset) {
+    let distance = elem.getBoundingClientRect();
+    return (
+      (distance.top >= 0 && distance.top <= ((window.innerHeight - offset) || (document.documentElement.clientHeight - offset)))
+    );
   }
 }
 

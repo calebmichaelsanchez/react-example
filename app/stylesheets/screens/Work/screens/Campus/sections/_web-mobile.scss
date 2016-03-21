@@ -1,0 +1,26 @@
+.web-mobile {
+  margin-top: rem-calc(300);
+  margin-bottom: rem-calc(300);
+  &-iphone {
+    position: relative;
+    max-width: rem-calc(1200);
+    margin-top: rem-calc(600);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.campus-icons {
+  max-width: rem-calc(1200);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0;
+  text-align: center;
+  &__item {
+    position: absolute;
+    left: 45%;
+    top: 0;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all .4s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  }
+}
