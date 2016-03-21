@@ -35,26 +35,17 @@ class RunItOnce extends Component {
 		window.addEventListener("scroll", this.handleScroll);
 	}
 
-	handleScroll() {
-		var offset = window.scrollY;
-		// var test = this.refs.deck.getBoundingClientRect();
-		var test = this.refs.deck;
+   handleScroll() {
+      var offset = window.scrollY;
+      var test = this.refs.deck.getBoundingClientRect();
 
-		var visible = isInViewport(test);
+      if (offset > 400) {
+         console.log(test);
+         // document.getElementById("myDIV").style.transform = "rotate(7deg)";
+         this.refs.deckCard01.style.transform = "translateY(-" + offset / 25 +"px)";
+      }
 
-		console.log(visible);
-
-		if (visible) {
-			console.log(test);
-			// document.getElementById("myDIV").style.transform = "rotate(7deg)";
-			this.refs.deckCard01.style.transform = "translateY(-" + offset / 2 +"px)";
-		}
-		//
-		// else {
-		// 	//
-		// 	this.refs.card01.style.transform = "translateY(" + offset / 2 +"px)";
-		// }
-	}
+   }
 
 	render() {
 
@@ -167,13 +158,13 @@ class RunItOnce extends Component {
 
 					<section className="case-study-gallery2">
 						<div className="grid-1-3">
-							<img width="100%" src={img.gallery2.one} alt=""/>
+							<img width="100%" className="gallery2Img one" src={img.gallery2.one} alt=""/>
 						</div>
 						<div className="grid-1-3">
-							<img width="100%" src={img.gallery2.two} alt=""/>
+							<img width="100%" className="gallery2Img two" src={img.gallery2.two} alt=""/>
 						</div>
 						<div className="grid-1-3">
-							<img width="100%" src={img.gallery2.three} alt=""/>
+							<img width="100%" className="gallery2Img three" src={img.gallery2.three} alt=""/>
 						</div>
 					</section>
 
