@@ -46,19 +46,21 @@ class WebMobile extends Component {
         middle                      = relativeY * 1.5,
         slowest                     = relativeY * .5;
         //console.log(iconsHeight);
+        //console.log(iconsArray);
+
     if (this.isInViewport(iconsContainer)) {
-      iconsArray[0].style.transform  = `translate3d( ${this.position(-500, 20,  slowest, 0)}px, ${this.position(-730, 120, slowest, 0)}px, 0)`;
-      iconsArray[1].style.transform  = `translate3d( ${this.position(-420, 20,  fastest, 0)}px, ${this.position(-590, 120, fastest, 0)}px, 0)`;
-      iconsArray[2].style.transform  = `translate3d( ${this.position(-290, 20,  fastest, 0)}px, ${this.position(-435, 120, fastest, 0)}px, 0)`;
-      iconsArray[3].style.transform  = `translate3d( ${this.position(-150, 20,  slowest, 0)}px, ${this.position(-520, 120, slowest, 0)}px, 0)`;
-      iconsArray[4].style.transform  = `translate3d( ${this.position(-145, 20,  slowest, 0)}px, ${this.position(-320, 120, slowest, 0)}px, 0)`;
-      iconsArray[5].style.transform  = `translate3d( 0px,   ${this.position(-440, 50, relativeY, 0)}px, 0)`;
-      iconsArray[6].style.transform  = `translate3d( -30px, ${this.position(-260, 50, fastest,   0)}px, 0)`;
-      iconsArray[7].style.transform  = `translate3d( ${this.position(200, -20, slowest,   0)}px, ${this.position(-510, 120, slowest,   0)}px, 0)`;
-      iconsArray[8].style.transform  = `translate3d( ${this.position(200, -20, middle,    0)}px, ${this.position(-340, 120, middle,    0)}px, 0)`;
-      iconsArray[9].style.transform  = `translate3d( ${this.position(360, -20, slowest,   0)}px, ${this.position(-345, 120, slowest,   0)}px, 0)`;
-      iconsArray[10].style.transform = `translate3d( ${this.position(385, -20, relativeY, 0)}px, ${this.position(-500, 120, relativeY, 0)}px, 0)`;
-      iconsArray[11].style.transform = `translate3d( ${this.position(530, -20, fastest,   0)}px, ${this.position(-660, 120, fastest,   0)}px, 0)`;
+      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
+      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
+      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
+      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
+      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
+      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 90, relativeY, 0)}px, 0)`;
+      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
+      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
+      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 90, middle,    0)}px, 0)`;
+      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
+      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 90, relativeY, 0)}px, 0)`;
+      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
     }
   }
   position(base, range, relativeY, offset) {
@@ -115,16 +117,15 @@ class WebMobile extends Component {
             "Our research focused on the primary audience targeted for The Campus — prospective and current college students. We ultimately determined most users would be using the service via mobile devices, so we chose a “mobile first” approach. The benefit of this approach is two fold. First, it gets the app in the hands of users faster. Secondly, it allowed us to work more efficiently and focused."
           ]}
         />
+        <div className="campus-icons-container">
+          <div className="campus-icons">
+            {icons.map((icon) => (
+              <div key={icon.name} className={`campus-icons__item campus-icons__item--${icon.name}`} dangerouslySetInnerHTML={{ __html: icon.svg }}></div>
+            ))}
+          </div>
+        </div>
         <div className="web-mobile-iphone">
           <img src={img} alt=""/>
-          <div className="campus-icons">
-            {
-              icons.map((icon) => {
-                let { name, svg } = icon;
-                return ( <div key={name} className={`campus-icons__item campus-icons__item--${name}`} dangerouslySetInnerHTML={{ __html: svg }}></div> )
-              })
-            }
-          </div>
         </div>
       </section>
     )

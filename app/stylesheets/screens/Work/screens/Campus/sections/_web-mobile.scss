@@ -1,26 +1,87 @@
 .web-mobile {
   margin-top: rem-calc(300);
   margin-bottom: rem-calc(300);
+  overflow: hidden;
   &-iphone {
     position: relative;
     max-width: rem-calc(1200);
-    margin-top: rem-calc(600);
+    //margin-top: rem-calc(600);
     margin-left: auto;
     margin-right: auto;
   }
 }
-.campus-icons {
-  max-width: rem-calc(1200);
+.campus-icons-container {
+  position: relative;
+  width: 100%;
+  width: rem-calc(1200);
+  height: 640px;
   margin-left: auto;
   margin-right: auto;
+  transform: translateX(-600px);
+  @include respond-to(sm) {
+    transform: translateY(-115px) translateX(25px);
+  }
+}
+.campus-icons {
   font-size: 0;
   text-align: center;
   &__item {
     position: absolute;
-    left: 45%;
+    left: 0;
     top: 0;
     display: inline-block;
     vertical-align: middle;
     transition: all .4s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    &--pen {
+
+    }
+    &--calendar {
+      top: percentage(121 / 640);
+      left: percentage(87 / 1200);
+    }
+    &--book {
+      top: percentage(287 / 640);
+      left: percentage(225 / 1200);
+    }
+    &--calculator {
+      top: percentage(207 / 640);
+      left: percentage(384 / 1200);
+    }
+    &--wallet {
+      top: percentage(388 / 640);
+      left: percentage(392 / 1200);
+    }
+    &--hat {
+      top: percentage(285 / 640);
+      left: percentage(515 / 1200);
+    }
+    &--backpack {
+      top: percentage(438 / 640);
+      left: percentage(475 / 1200);
+    }
+    &--glasses {
+      top: percentage(193 / 640);
+      left: percentage(689 / 1200);
+    }
+    &--pizza {
+      top: percentage(343 / 640);
+      left: percentage(689 / 1200);
+    }
+    &--pencil {
+      top: percentage(382 / 640);
+      left: percentage(891 / 1200);
+    }
+    &--notebook {
+      top: percentage(221 / 640);
+      left: percentage(912 / 1200);
+    }
+    &--headphones {
+      top: percentage(45 / 640);
+      left: percentage(1056 / 1200);
+    }
+    svg {
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 }
