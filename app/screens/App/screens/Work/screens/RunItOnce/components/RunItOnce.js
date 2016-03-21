@@ -5,6 +5,17 @@ import ReactDom, { findDOMNode } from 'react-dom';
 import DocumentTitle from 'react-document-title';
 import SeeMore from "../../../shared/SeeMore";
 
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  var html = document.documentElement;
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || html.clientHeight) &&
+    rect.right <= (window.innerWidth || html.clientWidth)
+  );
+}
+
 class RunItOnce extends Component {
 	constructor(props) {
 		super(props);
@@ -14,19 +25,35 @@ class RunItOnce extends Component {
 	componentDidMount() {
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
+
+		var deck = findDOMNode(this.refs.deck),
+			 deckCard01 = findDOMNode(this.refs.deckCard01);
+
+			//  var deckImg = deck.getElementsByTagName("img");
+			//  console.log(deckImg);
+
 		window.addEventListener("scroll", this.handleScroll);
-		var card01 = findDOMNode(this.refs.card01);
 	}
 
 	handleScroll() {
 		var offset = window.scrollY;
-		if (offset >= 400) {
-			console.log("huh");
+		// var test = this.refs.deck.getBoundingClientRect();
+		var test = this.refs.deck;
+
+		var visible = isInViewport(test);
+
+		console.log(visible);
+
+		if (visible) {
+			console.log(test);
 			// document.getElementById("myDIV").style.transform = "rotate(7deg)";
-			this.refs.card01.style.transform = "rotate(70deg)";
-		} else {
-			//
+			this.refs.deckCard01.style.transform = "translateY(-" + offset / 2 +"px)";
 		}
+		//
+		// else {
+		// 	//
+		// 	this.refs.card01.style.transform = "translateY(" + offset / 2 +"px)";
+		// }
 	}
 
 	render() {
@@ -83,7 +110,7 @@ class RunItOnce extends Component {
 						<img src={img.hero.one} alt=""/>
 
 						<div className="card-box">
-							<img src={img.hero.three} alt=""/>
+							<img src={img.hero.three} alt=""/>j
 							<img src={img.hero.four} alt=""/>
 							<img src={img.hero.five} alt=""/>
 							<img src={img.hero.six} alt=""/>
@@ -96,16 +123,17 @@ class RunItOnce extends Component {
 					<section className="two-cards">
 					</section>
 
-					<section className="case-study-deck" >
+					<section className="case-study-deck" ref="deck">
 						<div className="container-sm">
 							<div className="grid-1-2">
-								<img src={img.deck.one} ref="card01" alt=""/>
-								<img src={img.deck.two} alt=""/>
-								<img src={img.deck.three} alt=""/>
-								<img src={img.deck.four} alt=""/>
-								<img src={img.deck.five} alt=""/>
-								<img src={img.deck.six} alt=""/>
+								<img src={img.deck.one} className="deckCard" ref="deckCard01" />
+								<img src={img.deck.two} className="deckCard" ref="deckCard02" />
+								<img src={img.deck.three} className="deckCard" ref="deckCard03" />
+								<img src={img.deck.four} className="deckCard" ref="deckCard04" />
+								<img src={img.deck.five} className="deckCard" ref="deckCard05" />
+								<img src={img.deck.six} className="deckCard" ref="deckCard06" />
 							</div>
+
 							<div className="grid-1-2 grid-copy">
 								<p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
 
@@ -116,11 +144,11 @@ class RunItOnce extends Component {
 
 					<section className="case-study-gallery">
 						<div className="grid-1-2">
-							<img width="100%" src={img.gallery.one} alt=""/>
+							<img width="100%" className="galleryImg one" src={img.gallery.one} alt=""/>
 						</div>
 						<div className="grid-1-2">
-							<img width="100%" src={img.gallery.two} alt=""/>
-							<img width="100%" src={img.gallery.three} alt=""/>
+							<img width="100%" className="galleryImg two" src={img.gallery.two} alt=""/>
+							<img width="100%" className="galleryImg three" src={img.gallery.three} alt=""/>
 						</div>
 					</section>
 
