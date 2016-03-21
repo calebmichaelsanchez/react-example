@@ -1,5 +1,7 @@
+
 $rio-primary: #020203;
 $rio-secondary: #101012;
+$rio-borders: #898c8c;
 
 .run-it-once {
 	background-color: $rio-primary;
@@ -49,13 +51,13 @@ $rio-secondary: #101012;
 	.case-study-gallery {
 
 		@media screen and (min-width: $small) {
-			border-top: 1px solid #898c8c;
-			border-bottom: 1px solid #898c8c;
+			border-top: 1px solid $rio-borders;
+			border-bottom: 1px solid $rio-borders;
 			overflow: hidden;
 		}
 
 		.galleryImg {
-			border-bottom: 1px solid #898c8c;
+			border-bottom: 1px solid $rio-borders;
 			margin-bottom: 1px;
 
 			@media screen and (min-width: $small) {
@@ -65,20 +67,52 @@ $rio-secondary: #101012;
 		}
 
 		.galleryImg.one {
-			border-top: 1px solid #898c8c;
+			border-top: 1px solid $rio-borders;
 
 			@media screen and (min-width: $small) {
 				border: none;
-				border-right: 1px solid #898c8c;
+				border-right: 1px solid $rio-borders;
 			}
 		}
 
 		.galleryImg.two {
 			@media screen and (min-width: $small) {
-				border-bottom: 1px solid #898c8c;
+				border-bottom: 1px solid $rio-borders;
 				margin-bottom: 1px;
 			}
 		}
+
+	}
+
+	.case-study-gallery2 {
+		@media screen and (min-width: $small) {
+			border-top: 1px solid $rio-borders;
+			border-bottom: 1px solid $rio-borders;
+			overflow: hidden;
+		}
+
+		.gallery2Img {
+			border-bottom: 1px solid $rio-borders;
+			margin-bottom: 1px;
+
+			@media screen and (min-width: $small) {
+				border: none;
+				border-right: 1px solid $rio-borders;
+				margin: 0;
+			}
+		}
+
+		.gallery2Img.one {
+			border-top: 1px solid $rio-borders;
+			@media screen and (min-width: $small) {
+				border-top: none;
+			}
+		}
+
+		.gallery2Img.three {
+			border-right: none;
+		}
+
 
 	}
 
