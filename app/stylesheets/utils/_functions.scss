@@ -13,13 +13,13 @@
 }
 
 // Font-size function
-@function fs($key) {
-	@if map-has-key($fs, $key) {
-		@return map-get($fs, $key)
-	}
-	@warn "Unkown `#{key}` in $fs.";
-	@return null;
-}
+// @function fs($key) {
+// 	@if map-has-key($fs, $key) {
+// 		@return map-get($fs, $key)
+// 	}
+// 	@warn "Unkown `#{key}` in $fs.";
+// 	@return null;
+// }
 // Font-weight
 @function fw($key) {
 	@if map-has-key($fw, $key) {

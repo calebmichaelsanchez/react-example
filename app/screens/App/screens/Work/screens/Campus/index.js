@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hero from "./components/Hero";
+import TheNeed from "./components/TheNeed";
 import UserExperience from "./components/UserExperience";
 import Features from "./components/Features";
 import WebMobile from "./components/WebMobile";
@@ -18,6 +19,7 @@ class Campus extends Component {
     return (
       <section className="campus-container">
         <Hero />
+        <TheNeed />
         <UserExperience />
         <Features />
         <WebMobile />

@@ -2,12 +2,19 @@
   padding-top: rem-calc(90);
   padding-bottom: rem-calc(90);
   position: relative;
+  min-height: rem-calc(770);
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3023ae+1,5275da+100 */
   background: #3023ae; /* Old browsers */
   background: -moz-linear-gradient(-45deg,  #3023ae 1%, #5275da 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(-45deg,  #3023ae 1%,#5275da 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg,  #3023ae 1%,#5275da 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3023ae', endColorstr='#5275da',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  @include respond-to(sm) {
+    min-height: rem-calc(880);
+  }
+  @include respond-to(md) {
+    min-height: auto;
+  }
   &__item {
     position: relative;
     max-width: rem-calc(1030);
@@ -15,17 +22,30 @@
     margin-right: auto;
   }
   .excerpt {
-    max-width: rem-calc(460);
-    //padding-left: (200 / 1440) * 100%;
+    @include respond-to(md) {
+      max-width: rem-calc(460);
+    }
   }
   .excerpt-title, .excerpt-content p {
     color: color(white);
   }
   &-img {
     position: absolute;
-    //right: (210 / 1440) * 100%;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 100%;
+    right: 50%;
+    padding-top: rem-calc(40);
+    padding-left: rem-calc(32);
+    padding-right: rem-calc(32);
+    transform: translateX(50%);
+    @include respond-to(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include respond-to(md) {
+      top: 50%;
+      right: 0;
+      padding-top: 0;
+      transform: translateY(-50%);
+    }
   }
 }

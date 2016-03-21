@@ -1,13 +1,14 @@
 .campus-hero {
   @include hero("../images/work/campus/hero.jpg");
-  background-position: center bottom;
-  height: 80vh;
-  text-align: center;
-  &:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-    margin-right: -0.025rem;
+  min-height: rem-calc(213);
+  height: 45vh;
+  @include respond-to(sm) {
+    min-height: rem-calc(510);
+    height: 50vh;
+  }
+  @include respond-to(md) {
+    background-position: center bottom;
+    min-height: rem-calc(680);
+    height: 80vh;
   }
 }

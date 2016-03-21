@@ -1,6 +1,13 @@
 .the-need {
   position: relative;
-  display: inline-block;
-  vertical-align: bottom;
-  //transform: translateY(80%);
+  transform: translateY(-(rem-calc(65)));
+  @include respond-to(sm) {
+    transform: translateY(-(rem-calc(165)));
+  }
+  @include respond-to(md) {
+    transform: translateY(-(rem-calc(260)));
+  }
+  @include respond-to(lg) {
+    transform: translateY(-(rem-calc(370)));
+  }
 }
