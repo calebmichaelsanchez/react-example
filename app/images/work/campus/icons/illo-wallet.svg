@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="67px" height="65px" viewBox="0 0 67 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>illo-wallet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy" transform="translate(-538.000000, -3882.000000)">
+            <g id="Web-vs.-Mobile" transform="translate(97.000000, 3408.000000)">
+                <g id="Illos" transform="translate(48.000000, 84.000000)">
+                    <g id="illo-wallet" transform="translate(427.681686, 424.803006) rotate(-15.000000) translate(-427.681686, -424.803006) translate(399.181686, 393.303006)">
+                        <path d="M2.0364,7.4934 L18.0364,7.4934 L19.0364,1.4934 L43.9074,1.4934 L43.9074,7.4934 L55.9074,7.4934 L55.9074,9.2504 L55.9074,43.2504 L54.3854,46.4934 L33.9074,46.4934 L33.9074,60.2504 L32.1584,62.3134 L0.3424,47.5004 L0.4564,8.9584 L2.0364,7.4934 Z" id="Fill-1" fill="#FFFFFF"></path>
+                        <g id="Group-22" transform="translate(-0.000000, 0.501900)">
+                            <path d="M44.7031,9.7481 L18.5361,9.7481 L18.5361,3.1231 C18.5361,1.6731 19.7121,0.4981 21.1621,0.4981 L42.0781,0.4981 C43.5281,0.4981 44.7031,1.6731 44.7031,3.1231 L44.7031,9.7481 Z" id="Fill-2" fill="#C9D1EE"></path>
+                            <path d="M44.7031,18.7481 L18.5361,18.7481 L18.5361,17.1231 C18.5361,15.6731 19.7121,14.4981 21.1621,14.4981 L42.0781,14.4981 C43.5281,14.4981 44.7031,15.6731 44.7031,17.1231 L44.7031,18.7481 Z" id="Fill-4" fill="#C9D1EE"></path>
+                            <path d="M18.5365,8.7481 L18.5365,2.4981 C18.5365,1.3931 19.4315,0.4981 20.5365,0.4981 L42.7035,0.4981 C43.8075,0.4981 44.7035,1.3931 44.7035,2.4981 L44.7035,8.7481" id="Stroke-6" stroke="#5D74B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M0.5,41.5285 L0.5,8.4365 C0.5,7.1795 1.52,6.1595 2.777,6.1595 L12.536,6.1595" id="Stroke-8" stroke="#4969C5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M49.9069,9.9915 L12.9069,9.9915" id="Stroke-10" stroke="#8C9DD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M22.0364,14.4981 L42.7034,14.4981 C43.8074,14.4981 44.7034,15.3931 44.7034,16.4981 L44.7034,17.7481" id="Stroke-12" stroke="#5D74B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M49.9069,18.9915 L29.9069,18.9915" id="Stroke-14" stroke="#8C9DD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M0.5,12.6188 L0.5,45.2998 C0.5,46.4718 1.182,47.5358 2.246,48.0258 L30.929,61.2218 C32.917,62.1368 35.183,60.6838 35.183,58.4968 L35.183,27.4098 C35.183,26.2618 34.527,25.2138 33.494,24.7118 L6.184,11.4398" id="Stroke-16" stroke="#4969C5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M4.3927,42.4458 L27.2537,52.6438 C27.9157,52.9388 28.6617,52.4548 28.6617,51.7298 L28.6617,28.7458 C28.6617,28.3588 28.4377,28.0058 28.0887,27.8408 L4.3927,16.6578" id="Stroke-18" stroke="#8C9DD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M49.5365,6.1594 L54.2925,6.1594 C55.5505,6.1594 56.5705,7.1794 56.5705,8.4364 L56.5705,42.5284 C56.5705,43.7864 55.5505,44.8064 54.2925,44.8064 L40.5045,44.8064" id="Stroke-20" stroke="#4969C5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

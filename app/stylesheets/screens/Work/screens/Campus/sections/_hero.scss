@@ -1,0 +1,13 @@
+.campus-hero {
+  @include hero("../images/work/campus/hero.jpg");
+  background-position: center bottom;
+  height: 80vh;
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    margin-right: -0.025rem;
+  }
+}

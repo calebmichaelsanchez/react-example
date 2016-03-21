@@ -1,0 +1,30 @@
+.development {
+  position: relative;
+  padding-top: rem-calc(480);
+  padding-bottom: rem-calc(165);
+  @include hero("../images/work/campus/development.jpg");
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#414DC4, .9);
+    z-index: 1;
+  }
+  .excerpt {
+    position: relative;
+    z-index: 10;
+  }
+  .excerpt-title, .excerpt-content p {
+    color: color(white);
+  }
+  img {
+    position: absolute;
+    top: -(rem-calc(175));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+  }
+}
