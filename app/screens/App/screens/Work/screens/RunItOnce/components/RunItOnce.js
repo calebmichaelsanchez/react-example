@@ -22,7 +22,7 @@ class RunItOnce extends Component {
       var offset = window.scrollY,
           deckTop = this.refs.deck.getBoundingClientRect().top,
           deckBottom = this.refs.deck.getBoundingClientRect().bottom,
-          inc = offset / 160;
+          inc = offset / 150;
 
          // var deck = findDOMNode(this.refs.deck),
          //     deckCard01 = findDOMNode(this.refs.deckCard01),
@@ -97,12 +97,12 @@ class RunItOnce extends Component {
 						<img src={img.hero.one} alt=""/>
 
 						<div id="cardBox" ref="cardBox">
-							<img src={img.hero.three} className="card01" alt=""/>
-							<img src={img.hero.four} className="card02" alt=""/>
-							<img src={img.hero.five} className="card03" alt=""/>
-							<img src={img.hero.six} className="" alt=""/>
-							<img src={img.hero.seven} className="" alt=""/>
-							<img src={img.hero.two} className="" alt=""/>
+                     <img src={img.hero.seven} className="backLid"/>
+                     <img src={img.hero.six} className="frontLid"/>
+							<img src={img.hero.three} className="card01"/>
+							<img src={img.hero.four} className="card02"/>
+							<img src={img.hero.five} className="card03"/>
+							<img src={img.hero.two} className="front"/>
 						</div>
 
 					</section>

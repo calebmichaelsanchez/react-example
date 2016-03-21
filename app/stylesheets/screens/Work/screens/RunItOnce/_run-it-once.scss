@@ -16,7 +16,7 @@ $rio-borders: #898c8c;
 			position: absolute;
 			bottom: 0;
 	      left: 50%;
-			width: 75%;
+			width: 60%;
 			max-width: 475px;
 			height: 1px;
 			max-height: 375px;
@@ -24,7 +24,7 @@ $rio-borders: #898c8c;
 	      transform: translate3d(-50%, 0, 0);
 
 			@media screen and (min-width: $small) {
-				width: 40%;
+				width: 35%;
 			}
 
 			@media screen and (min-width: $medium) {
@@ -34,29 +34,47 @@ $rio-borders: #898c8c;
 
 		#cardBox > img {
 			position: absolute;
-			top: 0;
+			bottom: 0;
 			left: 50%;
 
 			transition: transform cubic-bezier(0.6, -0.4, 0.2, 0.4) 750ms;
 			transform: translate3d(-50%, 0, 0);
 		}
 
-		#cardBox > img.card01,
-		#cardBox > img.card02,
-		#cardBox > img.card03 {
-			width: calc(100% - 8px);
+		#cardBox .frontLid,
+		#cardBox .backLid {
+			bottom: initial;
+			top: -10px;
+			width: calc(100% - 12px);
 		}
 
-		#cardBox.animate > img.card01 {
+		#cardBox.animate .frontLid,
+		#cardBox.animate .backLid {
+			transform: translate3d(-50%, -50px, 0);
+		}
+
+		#cardBox .card01,
+		#cardBox .card02,
+		#cardBox .card03 {
+			bottom: -50px;
+			transition-delay: 300ms;
+			width: calc(100% - 14px);
+		}
+
+		#cardBox.animate img.card01 {
 			transform: translate3d(-50%, -225px, 0);
 		}
 
-		#cardBox.animate > img.card02 {
+		#cardBox.animate img.card02 {
 			transform: translate3d(-50%, -170px, 0);
 		}
 
-		#cardBox.animate > img.card03 {
-			transform: translate3d(-50%, -105px, 0);
+		#cardBox.animate img.card03 {
+			transform: translate3d(-50%, -55px, 0);
+
+			@media screen and (min-width: $small) {
+				transform: translate3d(-50%, -95px, 0);
+			}
 		}
 
 	} // end hero
@@ -142,8 +160,10 @@ $rio-borders: #898c8c;
 	.case-study-deck {
 
 		.grid-1-2:first-of-type {
-			position: relative;
-			top: 100px;
+			@media screen and (min-width: $small) {
+				position: relative;
+				top: 100px;
+			}
 		}
 
 		.deckCard {
