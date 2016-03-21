@@ -22,7 +22,7 @@ class RunItOnce extends Component {
       var offset = window.scrollY,
           deckTop = this.refs.deck.getBoundingClientRect().top,
           rotateCardsTop = this.refs.rotateCards.getBoundingClientRect().top,
-          finalBott = this.refs.final.getBoundingClientRect().bottom,
+          finalTop = this.refs.final.getBoundingClientRect().top,
           inc = offset / 120;
 
       if (offset > 10) {
@@ -43,9 +43,9 @@ class RunItOnce extends Component {
          this.refs.rCard03.style.transform = "rotate(" + inc  + "deg)"
       }
 
-      if (offset >= finalBott) {
-         console.log('this is finalBott ' + finalBott + 'this is offset ' + offset);
-         // this.refs.cardBox2.className = '';
+      if (finalTop < 200) {
+         console.log('this is finalTop ' + finalTop + 'this is offset ' + offset);
+         this.refs.cardBox2.className = '';
       }
 
 
@@ -174,7 +174,7 @@ class RunItOnce extends Component {
 					</section>
 
 					<section className="case-study-final" ref="final">
-                  <div id="cardBox" ref="cardBox2">
+                  <div id="cardBox" ref="cardBox2" className="animate">
                      <img src={img.hero.seven} className="backLid"/>
                      <img src={img.hero.six} className="frontLid"/>
                      <img src={img.hero.three} className="card01"/>
