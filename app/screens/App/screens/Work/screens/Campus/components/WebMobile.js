@@ -83,8 +83,7 @@ class WebMobile extends Component {
     return Math.max(min, Math.min(max, value));
   }
   isInViewport(elem) {
-    let distance = elem.getBoundingClientRect(),
-        { viewportHeight } = this.state;
+    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.state;
     return (distance.bottom > 0 && distance.top < viewportHeight);
   }
   getElementDistance(elem) {
@@ -130,15 +129,17 @@ class WebMobile extends Component {
             "Our research focused on the primary audience targeted for The Campus — prospective and current college students. We ultimately determined most users would be using the service via mobile devices, so we chose a “mobile first” approach. The benefit of this approach is two fold. First, it gets the app in the hands of users faster. Secondly, it allowed us to work more efficiently and focused."
           ]}
         />
-        <div className="campus-icons-container">
-          <div className="campus-icons">
-            {icons.map((icon) => (
-              <div key={icon.name} className={`campus-icons__item campus-icons__item--${icon.name}`} dangerouslySetInnerHTML={{ __html: icon.svg }}></div>
-            ))}
-          </div>
+        <div className="campus-icons">
+          {icons.map((icon) => (
+            <div
+              key={icon.name}
+              className={`campus-icons__item campus-icons__item--${icon.name}`}
+              dangerouslySetInnerHTML={{ __html: icon.svg }}
+            />
+          ))}
         </div>
         <div className="web-mobile-iphone">
-          <img src={img} alt=""/>
+          <img src={img} />
         </div>
       </section>
     )
