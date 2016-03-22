@@ -1,6 +1,8 @@
 .web-mobile {
-  margin-top: rem-calc(300);
-  margin-bottom: rem-calc(300);
+  margin-top: rem-calc(200);
+  @include respond-to(sm) { margin-top: rem-calc(160); }
+  @include respond-to(md) { margin-top: rem-calc(250); }
+  @include respond-to(lg) { margin-top: rem-calc(290); }
   overflow: hidden;
   &-iphone {
     position: relative;

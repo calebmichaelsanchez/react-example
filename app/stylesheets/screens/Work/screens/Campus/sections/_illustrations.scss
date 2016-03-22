@@ -1,5 +1,11 @@
 .illustrations {
-  padding-bottom: rem-calc(390);
+  margin-top: rem-calc(80);
+  margin-bottom: rem-calc(295);
+  @include respond-to(sm) {
+    margin-top: rem-calc(160);
+    margin-bottom: rem-calc(390);
+  }
+  @include respond-to(lg) { margin-top: rem-calc(230); }
 }
 .illustration-image {
   position: relative;

@@ -7,7 +7,12 @@ class WebMobile extends Component {
     super(props);
     this.state = {
       width          : window.innerWidth || document.documentElement.clientWidth,
-      height         : Math.max( document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight ),
+      height         : Math.max( document.body.scrollHeight,
+                                 document.documentElement.scrollHeight,
+                                 document.body.offsetHeight,
+                                 document.documentElement.offsetHeight,
+                                 document.body.clientHeight,
+                                 document.documentElement.clientHeight ),
       pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     }
@@ -27,7 +32,12 @@ class WebMobile extends Component {
     let { width, height } = this.state;
     this.setState({
       width: window.innerWidth || document.documentElement.clientWidth,
-      height: Math.max( document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight ),
+      height: Math.max( document.body.scrollHeight,
+                        document.documentElement.scrollHeight,
+                        document.body.offsetHeight,
+                        document.documentElement.offsetHeight,
+                        document.body.clientHeight,
+                        document.documentElement.clientHeight),
       pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     });
@@ -38,15 +48,18 @@ class WebMobile extends Component {
         iconsHeight                 = iconsContainer.clientHeight,
         icons                       = document.getElementsByClassName("campus-icons__item"),
         iconsArray                  = [...icons],
-        distance                    = iconsContainer.getBoundingClientRect(),
-        distanceTop                 = distance.top,
+        distanceTop                 = iconsContainer.getBoundingClientRect().top,
+        // containers distance from the top of the viewport
         context                     = (distanceTop - viewportHeight) * -1,
+        // containers distance from the bottom of the viewport
         relativeY                   = (context - 200) / (iconsHeight * 4),
+         // offsets context 200 pixes and divides by height of container * 4
+         // this gives us our value to set translate position with
         fastest                     = relativeY * 2,
         middle                      = relativeY * 1.5,
         slowest                     = relativeY * .5;
-        //console.log(iconsHeight);
-        //console.log(iconsArray);
+        // these last three values essentially set different scroll
+        // speeds, by multiplying the value of relativeY
 
     if (this.isInViewport(iconsContainer)) {
       iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;

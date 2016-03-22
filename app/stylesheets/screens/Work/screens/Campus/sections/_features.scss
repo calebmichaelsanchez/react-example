@@ -20,6 +20,12 @@
     max-width: rem-calc(1030);
     margin-left: auto;
     margin-right: auto;
+    @include respond-to(md) {
+      padding-left: 1rem;
+    }
+    @include respond-to(lg) {
+      padding-left: 0;
+    }
   }
   .excerpt {
     @include respond-to(md) {
@@ -33,19 +39,24 @@
     position: absolute;
     top: 100%;
     right: 50%;
+    max-width: rem-calc(320);
     padding-top: rem-calc(40);
     padding-left: rem-calc(32);
     padding-right: rem-calc(32);
     transform: translateX(50%);
     @include respond-to(sm) {
+      max-width: rem-calc(320);
       padding-left: 0;
       padding-right: 0;
     }
     @include respond-to(md) {
       top: 50%;
-      right: 0;
+      right: 1rem;
       padding-top: 0;
       transform: translateY(-50%);
+    }
+    @include respond-to(lg) {
+      right: 0;
     }
   }
 }
