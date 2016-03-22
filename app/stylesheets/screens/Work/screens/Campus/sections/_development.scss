@@ -1,8 +1,10 @@
 .development {
   position: relative;
-  padding-top: rem-calc(480);
-  padding-bottom: rem-calc(165);
+  padding-bottom: rem-calc(80);
   @include hero("../images/work/campus/development.jpg");
+  @include respond-to(sm) { padding-bottom: rem-calc(130); }
+  @include respond-to(md) { padding-bottom: rem-calc(150); }
+  @include respond-to(lg) { padding-bottom: rem-calc(160); }
   &:after {
     content: '';
     position: absolute;
@@ -15,16 +17,27 @@
   }
   .excerpt {
     position: relative;
+    padding-top: rem-calc(30);
     z-index: 10;
+    transform: translateY(-115px);
+    @include respond-to(sm) { padding-top: rem-calc(65); }
+    @include respond-to(md) { padding-top: rem-calc(70); }
   }
   .excerpt-title, .excerpt-content p {
     color: color(white);
   }
   img {
-    position: absolute;
-    top: -(rem-calc(175));
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+    position: relative;
     z-index: 9;
+    padding-left: rem-calc(20);
+    padding-right: rem-calc(20);
+    transform: translateY(-115px);
+    margin-left: auto;
+    margin-right: auto;
+    @include respond-to(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
