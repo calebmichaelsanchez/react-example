@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM, {findDOMNode} from 'react-dom';
+import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
 import Icon from '../../../shared/icons/Icon';
-import DocumentTitle from 'react-document-title';
-import axios from 'axios';
 import DribbbleContainer from './DribbbleContainer';
+import ProjectLg from './ProjectLg';
+import ProjectSm from './ProjectSm';
 
 class Projects extends Component {
 	constructor(props) {
@@ -16,141 +16,48 @@ class Projects extends Component {
 	}
 	render() {
 		return (
-			<section className="project-grid-container">
-				<header className="project-header">
+			<div>
+			<section className="projects">
+				<header className="projects__header">
 					<span className="hero-lg">Our Work</span>
 				</header>
-				{ /* Row 1 */ }
-				<Link to="/making-it-awesome-with/aiga" className="project-item-aiga project-item-lg">
-					<div className="project-meta project-meta-small">
-						<div>
-							<h3>AIGA 100 Show</h3>
-							<span className="btn">
-								View Project
-								<Icon icon="arrow" type="icon-btn" theme="light" />
-							</span>
-						</div>
-					</div>
-				</Link>
-				<div className="project-container">
-					<Link to="/making-it-awesome-with/just-family" className="project-item-sm">
-						<div className="project-image-just-family"></div>
-						<div className="project-meta project-meta-large left-project-meta-indicator">
-							<div>
-								<h3>JustFamily</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-					</Link>
-					<Link to="/making-it-awesome-with/traxion" className="project-item-sm">
-						<div className="project-meta project-meta-large right-project-meta-indicator">
-							<div>
-								<h3>Traxion App</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-						<div className="project-image-traxion"></div>
-					</Link>
+				<div className="projects__container projects__container--left">
+					<ProjectLg name="aiga" title="AIGA 100 Show" theme="light" />
 				</div>
-				<a href="http://saltcitybuilds.com/" className="project-item-scb project-item-full">
-					<div className="project-full-image-scb"></div>
-					<div className="project-meta project-meta-large left-project-meta-indicator">
-						<div>
-							<h3>Salt City Builds</h3>
-							<span className="btn">
-								View Site
-								<Icon icon="arrow" type="icon-btn" theme="light" />
-							</span>
-						</div>
-					</div>
-				</a>
-			{ /* Row 2 */ }
-				<div className="project-container">
-					<Link to="/making-it-awesome-with/rent-tree" className="project-item-sm">
-						<div className="project-image-rent-tree"></div>
-						<div className="project-meta project-meta-large left-project-meta-indicator">
-							<div>
-								<h3>RentTree</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-					</Link>
-					<Link to="/making-it-awesome-with/nsac" className="project-item-sm">
-						<div className="project-meta project-meta-large right-project-meta-indicator">
-							<div>
-								<h3>North Seattle Alliance Church</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-						<div className="project-image-alliance"></div>
-					</Link>
+				<div className="projects__container projects__container--right">
+					<ProjectSm direction="left" name="just-family" title="JustFamily" theme="dark" />
+					<ProjectSm direction="right" name="traxion" title="Traxion App" theme="dark" />
 				</div>
-				<Link to="/making-it-awesome-with/fluid" className="project-item-fluid project-item-lg">
-					<div className="project-meta project-meta-small">
-						<div>
-							<h3>Fluid</h3>
-							<span className="btn">
-								View Project
-								<Icon icon="arrow" type="icon-btn" theme="light" />
-							</span>
-						</div>
-					</div>
-				</Link>
-				{ /* Row 3 */ }
-				<a href="http://brightbytes.net/" target="_blank" className="project-item-bright-bytes project-item-lg">
-					<div className="project-meta project-meta-small">
-						<div>
-							<h3>BrightBytes</h3>
-							<span className="btn">
-								View Site
-								<Icon icon="arrow" type="icon-btn" theme="dark" />
-							</span>
-						</div>
-					</div>
-				</a>
-				<div className="project-container">
-					<Link to="/making-it-awesome-with/bountiful-dental" className="project-item-sm">
-						<div className="project-image-bountiful-dental"></div>
-						<div className="project-meta project-meta-large left-project-meta-indicator">
-							<div>
-								<h3>Bountiful Dental</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-					</Link>
-					<Link to="/making-it-awesome-with/hive" className="project-item-sm">
-						<div className="project-meta project-meta-large right-project-meta-indicator">
-							<div>
-								<h3>Hive Checklists</h3>
-								<span className="btn">
-									View Project
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-						<div className="project-image-hive"></div>
-					</Link>
+				<div className="projects__container projects__container--left">
+					<ProjectSm direction="left" name="rent-tree" title="RentTree" theme="dark" />
+					<ProjectSm direction="right" name="nsac" title="North Seattle Alliance Church" theme="dark" />
 				</div>
-				<DribbbleContainer />
-				<section className="work-with-us">
-					<Link to="/all-ears" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
-				</section>
+				<div className="projects__container projects__container--right">
+					<ProjectLg name="fluid" title="Fluid" theme="light" />
+				</div>
+				<div className="projects__container projects__container--left">
+					<a href="http://brightbytes.net/" target="_blank" className="projects__item projects__item--bright-bytes projects__item--lg">
+						<div className="projects__item-meta projects__item-meta--lg">
+							<div>
+								<h3>BrightBytes</h3>
+								<span className="projects__item-btn">
+									View Site
+									<Icon icon="arrow" type="icon-btn" theme="dark" />
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div className="projects__container projects__container--right">
+					<ProjectSm direction="left" name="bountiful-dental" title="Bountiful Dental" theme="dark" />
+					<ProjectSm direction="right" name="hive" title="Hive Checklists" theme="dark" />
+				</div>
 			</section>
+			<DribbbleContainer />
+			<section className="work-with-us">
+				<Link to="/all-ears" className="h3 work-with-us-cta">Work with us <Icon icon="arrow" theme="dark" type="icon-cta" /></Link>
+			</section>
+			</div>
 		);
 	}
 }
