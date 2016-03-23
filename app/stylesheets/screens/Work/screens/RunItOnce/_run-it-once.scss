@@ -2,9 +2,28 @@
 $rio-primary: #020203;
 $rio-secondary: #101012;
 $rio-borders: #898c8c;
+$rio-red: #B54A49;
 
 .run-it-once {
 	background-color: $rio-primary;
+
+	p {
+		font-size: 16px;
+	}
+
+	.button {
+		text-align: center;
+		background: transparent;
+		color: #B54A49;
+		border: 1px solid #B54A49;
+		border-radius: 25px;
+		font-size: 18px;
+		padding: 5px 10px;
+
+		&:hover {
+			color: #fff;
+		}
+	}
 
 	.rioLogo {
 		margin-top: 20px;
@@ -28,20 +47,20 @@ $rio-borders: #898c8c;
 		position: absolute;
 		bottom: 0;
 		left: 50%;
-		width: 50%;
+		// width: 50%;
 		max-width: 275px;
 		max-height: 375px;
 		// padding-bottom: 26%;
 		transform: translate3d(-50%, 0, 0);
 
-		@media screen and (min-width: $small) {
-			width: 35%;
-			max-width: 300px;
-		}
-
-		@media screen and (min-width: $medium) {
-			width: 33%;
-		}
+		// @media screen and (min-width: $small) {
+		// 	width: 35%;
+		// 	max-width: 300px;
+		// }
+		//
+		// @media screen and (min-width: $medium) {
+		// 	width: 33%;
+		// }
 	}
 
 	#cardBox > img {
@@ -180,23 +199,43 @@ $rio-borders: #898c8c;
 
 		overflow-y: hidden;
 
-		.grid-1-2:first-of-type {
+		.deckCopy {
 			@media screen and (min-width: $small) {
-				position: relative;
-				top: 100px;
+				width: 60%;
+				float: right;
+			}
+			@media screen and (min-width: $medium) {
+				// padding-left: 400px;
+				width: 50%;
+			}
+		}
+
+		.deckStack {
+			padding-top: 100px;
+
+			@media screen and (min-width: $small) {
+				width: 400px;
+				position: absolute;
+				left: -150px;
+				top: 0;
+			}
+
+			@media screen and (min-width: $medium) {
+				width: 45%;
+				left: 0;
 			}
 		}
 
 		.deckCard {
 			position: relative;
-			margin-bottom: -125px;
+			margin-bottom: -150px;
 
 			&:nth-child(1){ z-index: 6; }
 			&:nth-child(2){ z-index: 5; }
 			&:nth-child(3){ z-index: 4; }
 			&:nth-child(4){ z-index: 3; }
-			&:nth-child(5){ z-index: 2; margin-bottom: 0; }
-			&:nth-child(6){ margin-bottom: 0; position: absolute; }
+			&:nth-child(5){ z-index: 2; }
+			&:nth-child(6){ margin-bottom: 0; }
 		}
 	}
 
@@ -211,6 +250,28 @@ $rio-borders: #898c8c;
 			&:nth-child(1){ z-index: 3; }
 			&:nth-child(2){ z-index: 2; }
 			&:nth-child(3){ z-index: 1; }
+		}
+	}
+
+	.rText {
+		@media screen and (min-width: $small) {
+			width: 60%;
+			padding-left: 25px;
+			float: left;
+		}
+
+		@media screen and (min-width: $medium){
+			width: 55%;
+		}
+	}
+
+	.rCards {
+		@media screen and (min-width: $small) {
+			width: 38%;
+			float: right;
+		}
+		@media screen and (min-width: $medium){
+			width: 45%;
 		}
 	}
 
