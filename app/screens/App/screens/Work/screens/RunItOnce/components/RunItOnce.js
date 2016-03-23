@@ -119,12 +119,16 @@ class RunItOnce extends Component {
 					</section>
 
 					<section className="case-study-deck" ref="deck">
-						<div className="container-sm">
+						<div className="container-md">
 							<div className="deckCopy grid-copy">
-								<button className="button">Illustration</button> <button className="button">Photography</button>
+								<div className="button-wrap">
+									<a href="#" className="button">Illustration</a> <a href="#" className="button">Photography</a>
+								</div>
+
 								<p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
 
 								<p>At Underbelly, we’re suckers for playing card designs. That’s one of the many reasons we were stoked to partner with Phil and the Run It Once crew on designing the first official Run It Once card deck.</p>
+
 							</div>
 
 							<div className="deckStack">
@@ -150,7 +154,7 @@ class RunItOnce extends Component {
 					</section>
 
 					<section className="case-study-cards" ref="rotateCards">
-						<div className="container-sm">
+						<div className="container-md">
 							<div className="rText grid-copy">
 								<p>Matching the palatial look and feel of Run It Once’s brand was no small feat. We took multiple approaches before finally landing on a style that was sleek, geometric, and modern. Each suit was designed with a unique personality to give the deck depth and variety while still remaining true to RIO’s brand. Diamonds crafted to be rugged and adventurous, spades strong and ruthless, clubs secretive and seductive, and hearts trustworthy and approachable.</p>
 
@@ -177,6 +181,8 @@ class RunItOnce extends Component {
 					</section>
 
 					<section className="case-study-final" ref="final">
+						<a href="#" className="button buy-button">buy em now</a>
+
                   <div id="cardBox" ref="cardBox2" className="animate">
                      <img src={img.hero.seven} className="backLid"/>
                      <img src={img.hero.six} className="frontLid"/>
