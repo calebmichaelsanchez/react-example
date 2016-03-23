@@ -28,6 +28,20 @@ class Projects extends Component {
 					<ProjectSm direction="left" name="just-family" title="JustFamily" theme="dark" />
 					<ProjectSm direction="right" name="traxion" title="Traxion App" theme="dark" />
 				</div>
+				<div className="projects__container projects__container--full">
+					<a href="http://saltcitybuilds.com/" className="projects__item projects__item--scb projects__item--full">
+					  <div className="projects__item-image projects__item-image--full projects__item-image--scb"></div>
+					  <div className="projects__item-meta projects__item-meta--full projects__item-meta-indicator--left">
+					    <div>
+					      <h3>Salt City Builds</h3>
+					      <span className="projects__item-btn">
+					        View Site
+					        <Icon icon="arrow" type="icon-btn" theme="light" />
+					      </span>
+					    </div>
+					  </div>
+					</a>
+				</div>
 				<div className="projects__container projects__container--left">
 					<ProjectSm direction="left" name="rent-tree" title="RentTree" theme="dark" />
 					<ProjectSm direction="right" name="nsac" title="North Seattle Alliance Church" theme="dark" />

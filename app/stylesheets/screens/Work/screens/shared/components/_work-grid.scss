@@ -46,6 +46,9 @@
       	@include span(100%);
       }
     }
+    &--full {
+    	@include span(100%);
+    }
     // =================================
     // Project Item Meta
     // =================================
@@ -54,25 +57,6 @@
       text-align: center;
       @include respond-to(xs) {
       	display: block;
-      }
-      &--lg {
-        position: absolute;
-        left: 50%;
-        bottom: 10%;
-        transform: translateX(-50%);
-      }
-      &--sm {
-        @include span(50%);
-        position: relative;
-        height: 0;
-        padding-bottom: 50%;
-        > div {
-          position: absolute;
-          width: 80%;
-          top: 50%;
-          left: 50%;
-          transform: translate3d(-50%, -50%, 0);
-        }
       }
       // =================================
       // Project Meta Indicator
@@ -97,6 +81,37 @@
       	left: 100%;
       	border-left: 15px solid color(white);
       }
+      &--lg {
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        transform: translateX(-50%);
+      }
+      &--sm, &--full {
+				position: relative;
+				height: 0;
+				> div {
+				  position: absolute;
+				  width: 80%;
+				  top: 50%;
+				  left: 50%;
+				  transform: translate3d(-50%, -50%, 0);
+				}
+      }
+      &--sm {
+        @include span(50%);
+        padding-bottom: 50%;
+      }
+      &--full {
+      	@include span(50%);
+      	padding-bottom: 50%;
+      	@include respond-to(md) {
+      		@include span(25%);
+      		padding-bottom: 25%;
+      	}
+      	background-color: #4da8c7;
+      	&.projects__item-meta-indicator--left:after { border-right-color: #4da8c7; }
+      }
     }
     // =================================
     // Project Item Image
@@ -111,6 +126,17 @@
       @include respond-to(xs) {
       	@include span(50%);
       	padding-bottom: 50%;
+      }
+      &--full {
+      	@include span(100%);
+      	padding-bottom: 50%;
+      	@include respond-to(xs) {
+      		@include span(50%);
+      	}
+      	@include respond-to(md) {
+      		@include span(75%);
+      		padding-bottom: 25%;
+      	}
       }
     }
     // =================================
@@ -139,6 +165,7 @@
 .projects__item--fluid                  { background-image: url('../images/work/project-grid/fluid.jpg');            }
 .projects__item--bright-bytes           { background-image: url('../images/work/project-grid/bright-bytes.jpg');     }
 .projects__item-image--just-family      { background-image: url('../images/work/project-grid/just-family.jpg');      }
+.projects__item-image--scb              { background-image: url('../images/work/project-grid/salt-city-builds.jpg'); }
 .projects__item-image--traxion          { background-image: url('../images/work/project-grid/traxion.jpg');          }
 .projects__item-image--rent-tree        { background-image: url('../images/work/project-grid/rent-tree.jpg');        }
 .projects__item-image--nsac             { background-image: url('../images/work/project-grid/alliance.jpg');         }
