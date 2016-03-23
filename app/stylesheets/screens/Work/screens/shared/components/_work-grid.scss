@@ -16,10 +16,10 @@
   // =================================
   &__container {
     position: relative;
-    @include span(100%);
+    @include span(100% no-gutters);
     @extend %clearfix;
     @include respond-to(md) {
-      @include span(50%);
+      @include span(50% no-gutters);
     }
     &--full {
     	width: span(100%);
@@ -32,7 +32,7 @@
     position: relative;
     display: block;
     &--lg {
-      @include span(100%);
+      @include span(100% no-gutters);
       height: 0;
       padding-bottom: 100%;
       background-repeat: no-repeat;
@@ -40,14 +40,14 @@
       background-size: cover;
     }
     &--sm {
-      @include span(50%);
+      @include span(50% no-gutters);
       @extend %clearfix;
       @include respond-to(xs) {
-      	@include span(100%);
+      	@include span(100% no-gutters);
       }
     }
     &--full {
-    	@include span(100%);
+    	@include span(100% no-gutters);
     }
     // =================================
     // Project Item Meta
@@ -102,14 +102,14 @@
 				}
       }
       &--sm {
-        @include span(50%);
+        @include span(50% no-gutters);
         padding-bottom: 50%;
       }
       &--full {
-      	@include span(50%);
+      	@include span(50% no-gutters);
       	padding-bottom: 50%;
       	@include respond-to(md) {
-      		@include span(25%);
+      		@include span(25% no-gutters);
       		padding-bottom: 25%;
       	}
       	background-color: #4da8c7;
@@ -120,24 +120,24 @@
     // Project Item Image
     // =================================
     &-image {
-      @include span(100%);
+      @include span(100% no-gutters);
       height: 0;
       padding-bottom: 100%;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       @include respond-to(xs) {
-      	@include span(50%);
+      	@include span(50% no-gutters);
       	padding-bottom: 50%;
       }
       &--full {
-      	@include span(100%);
+      	@include span(100% no-gutters);
       	padding-bottom: 50%;
       	@include respond-to(xs) {
-      		@include span(50%);
+      		@include span(50% no-gutters);
       	}
       	@include respond-to(md) {
-      		@include span(75%);
+      		@include span(75% no-gutters);
       		padding-bottom: 25%;
       	}
       }
