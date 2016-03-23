@@ -8,10 +8,24 @@ $rio-sm: 940px;
 $rio-md: 1200px;
 $rio-lg: 1440px;
 
+.case-study.run-it-once ~ nav.light {
+	svg path {
+		fill: #F9FAFC;
+	}
+	.nav-item a {
+		color: #F9FAFC;
+	}
+}
+
 .run-it-once {
 	background-color: $rio-primary;
 
-	p { font-size: 16px; }
+	p {
+		font-size: 16px;
+		@media screen and (min-width: $rio-xs) {
+			font-size: 18px;
+		}
+	}
 
 	.button {
 		text-align: center;
@@ -25,6 +39,24 @@ $rio-lg: 1440px;
 		&:hover {
 			color: #fff;
 		}
+	}
+
+	.button.buy-button {
+	    background: #A47C3F;
+	    color: #fff;
+	    border: none;
+	    padding: 10px 50px;
+
+		 &:hover {
+			 color: $rio-primary;
+		 }
+
+		 @media screen and (min-width: $rio-md) {
+			 position: absolute;
+ 			 top: 306px;
+ 			 left: 60%;
+		 }
+
 	}
 
 	.rioLogo {
@@ -202,17 +234,30 @@ $rio-lg: 1440px;
 
 	}
 
+	.button-wrap {
+		text-align: center;
+		margin-bottom: 25px;
+
+		@media screen and (min-width: $rio-xs){
+			text-align: left;
+		}
+	}
+
 	.case-study-deck {
 
-		overflow-y: hidden;
+		// overflow-y: hidden;
+
+		@media screen and (min-width: $rio-md) {
+			padding-bottom: 200px
+		}
 
 		.deckCopy {
-			@media screen and (min-width: $small) {
-				width: 60%;
+			@media screen and (min-width: $rio-xs) {
+				width: calc(100% - 375px);
 				float: right;
-				padding-right: 25px;
+				padding-right: 50px;
 			}
-			@media screen and (min-width: $medium) {
+			@media screen and (min-width: $rio-md) {
 				// padding-left: 400px;
 				width: 50%;
 			}
@@ -221,14 +266,14 @@ $rio-lg: 1440px;
 		.deckStack {
 			padding-top: 100px;
 
-			@media screen and (min-width: $small) {
+			@media screen and (min-width: $rio-xs) {
 				width: 400px;
 				position: absolute;
-				left: -150px;
-				top: 0;
+				top: 0px;
+				left: -120px;
 			}
 
-			@media screen and (min-width: $medium) {
+			@media screen and (min-width: $rio-md) {
 				width: 45%;
 				left: 0;
 			}
@@ -236,7 +281,14 @@ $rio-lg: 1440px;
 
 		.deckCard {
 			position: relative;
-			margin-bottom: -150px;
+			margin: 0 auto -120px;
+			max-width: 450px;
+			display: block;
+			width: 100%;
+
+			@media screen and (min-width: $rio-sm) {
+				margin: 0 auto -155px;
+			}
 
 			&:nth-child(1){ z-index: 6; }
 			&:nth-child(2){ z-index: 5; }
@@ -251,6 +303,12 @@ $rio-lg: 1440px;
 		color: #fff;
 		overflow: hidden;
 
+		p {
+			@media screen and (min-width: $rio-sm) {
+
+			}
+		}
+
 		.card {
 			position: relative;
 			display: block;
@@ -263,23 +321,25 @@ $rio-lg: 1440px;
 	}
 
 	.rText {
-		@media screen and (min-width: $small) {
+		@media screen and (min-width: $rio-xs) {
 			width: 60%;
 			padding-left: 25px;
 			float: left;
+			padding-top: 10%;
 		}
 
-		@media screen and (min-width: $medium){
+		@media screen and (min-width: $rio-sm){
 			width: 55%;
+			padding-top: 20%;
 		}
 	}
 
 	.rCards {
-		@media screen and (min-width: $small) {
-			width: 38%;
+		@media screen and (min-width: $rio-xs){
+			width: 40%;
 			float: right;
 		}
-		@media screen and (min-width: $medium){
+		@media screen and (min-width: $rio-sm){
 			width: 45%;
 		}
 	}
@@ -294,4 +354,16 @@ $rio-lg: 1440px;
 section.case-study-final {
     position: relative;
     min-height: 450px;
+	 text-align: center;
+	 position: relative;
+
+	 @media screen and (min-width: $rio-xs) {
+		 height: 650px;
+	 }
+
+	 #cardBox {
+		 @media screen and (min-width: $rio-md) {
+			 left: 35%;
+		 }
+	 }
 }
