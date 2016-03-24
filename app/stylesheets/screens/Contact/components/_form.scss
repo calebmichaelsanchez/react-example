@@ -64,8 +64,7 @@ fieldset {
 	padding-right: 10px;
 	color: color(dark-gray-primary);
 	font-weight: fw(regular);
-	font-size: fs(h5);
-	font-family: $ff-primary;
+	@extend .h5;
 }
 .label, .fieldset-title,
 .input, .fieldset-group {
@@ -76,11 +75,10 @@ fieldset {
 	flex: 1;
 }
 label {
+	@extend .h5;
 	display: block;
 	color: color(dark-gray-primary);
-	font-size: fs(h5);
 	font-weight: fw(regular);
-	font-family: $ff-primary;
 	&.about {
 		margin-bottom: .5rem;
 	}
@@ -94,7 +92,7 @@ input {
 	border-bottom: $border-style;
 	color: color(blue-secondary);
 	padding-bottom: 5px;
-	font-size: fs(h5);
+	@extend .h5;
 	&:focus {
 		outline: none;
 		border-color: color(blue-secondary);
@@ -104,10 +102,10 @@ input {
 	}
 }
 textarea {
+	@extend .h5;
 	resize: none;
 	width: 100%;
 	min-height: 100px;
-	font-size: fs(h5);
 	margin-bottom: 1rem;
 	border: none;
 	background: none;
@@ -126,8 +124,7 @@ input[type="radio"] {
 	text-align: left;
 	transition: 0.2s ease-in;
 	cursor: pointer;
-	font-size: fs(p);
-	font-weight: fw(light);
+	@extend .p;
 }
 input[type="checkbox"]:checked + label,
 input[type="radio"]:checked +label {
@@ -145,7 +142,7 @@ input[type="radio"]:checked +label {
 button[type="submit"] {
 	display: inline-block;
 	padding: 10px;
-	font-size: fs(h5);
+	@extend .h5;
 	color: color(orange-secondary);
 	font-weight: fw(bold);
 	background: transparent;
@@ -166,8 +163,7 @@ button[type="submit"] {
 dd, dt {
 	margin: 0;
 	padding: 0;
-	font-family: $ff-primary;
-	font-size: fs(h5);
+	@extend .h5;
 }
 dt {
 	padding-right: 12px;
@@ -266,7 +262,7 @@ dd {
 	display: block;
 	margin: 40px auto 0;
 	text-align: center;
-	font-size: fs(h2);
+	@extend .h2;
 	color: color(white);
 	opacity: 0;
 	transform: translateY(100px);

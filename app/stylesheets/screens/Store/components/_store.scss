@@ -44,8 +44,7 @@
 	display: block;
 }
 .product-title {
-	font-size: fs(h4);
-	font-weight: fw(light);
+	@extend .h4;
 	margin-bottom: 8px;
 }
 .product-btn {
