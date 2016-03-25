@@ -5,7 +5,7 @@
   @include respond-to(sm) { padding-bottom: rem-calc(130); }
   @include respond-to(md) { padding-bottom: rem-calc(150); }
   @include respond-to(lg) { padding-bottom: rem-calc(160); }
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     top: 0;
