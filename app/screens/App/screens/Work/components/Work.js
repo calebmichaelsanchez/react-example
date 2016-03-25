@@ -6,8 +6,15 @@ class Work extends Component {
 		super(props);
 	}
 	render() {
+		let { setNavTheme, windowWidth, documentHeight, pageYOffset, viewportHeight } = this.props;
 		if (this.props.children) {
-			return React.cloneElement(this.props.children, { setNavTheme: this.props.setNavTheme});
+			return React.cloneElement(this.props.children, {
+		                      setNavTheme    : setNavTheme,
+		                      windowWidth    : windowWidth,
+		                      documentHeight : documentHeight,
+		                      pageYOffset    : pageYOffset,
+		                      viewportHeight : viewportHeight
+		                    });
 		} else {
 			return (
 				<section className="work">
