@@ -86,16 +86,6 @@ class WebMobile extends Component {
     let distance = elem.getBoundingClientRect(), { viewportHeight } = this.state;
     return (distance.bottom > 0 && distance.top < viewportHeight);
   }
-  getElementDistance(elem) {
-    let location = 0;
-    if (elem.offsetParent) {
-      do {
-        location += elem.offsetTop;
-        elem = elem.offsetParent;
-      } while (elem);
-    }
-    return location >= 0 ? location : 0;
-  }
   componentDidMount() {
     window.addEventListener("resize", this.onResize, false);
     window.addEventListener("scroll", this.onScroll, false);
