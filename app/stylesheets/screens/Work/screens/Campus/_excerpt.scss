@@ -1,10 +1,15 @@
 .excerpt {
+  &-container {
+    overflow: hidden;
+  }
   width: 100%;
+  max-width: rem-calc(687);
   padding-left: rem-calc(16);
   padding-right: rem-calc(16);
-  max-width: rem-calc(687);
   margin-left: auto;
   margin-right: auto;
+  // @include span(8 of 16 no-gutters);
+  // @include pre(4 of 16);
   &--center {
     text-align: center;
   }
