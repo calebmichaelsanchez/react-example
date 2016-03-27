@@ -5,48 +5,21 @@ import Excerpt from "../shared/Excerpt";
 class WebMobile extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width          : window.innerWidth || document.documentElement.clientWidth,
-      height         : Math.max( document.body.scrollHeight,
-                                 document.documentElement.scrollHeight,
-                                 document.body.offsetHeight,
-                                 document.documentElement.offsetHeight,
-                                 document.body.clientHeight,
-                                 document.documentElement.clientHeight ),
-      pageYOffset    : window.pageYOffset,
-      viewportHeight : window.innerHeight || document.documentElement.clientHeight
-    }
-    this.onResize           = this.onResize.bind(this);
     this.onScroll           = this.onScroll.bind(this);
     this.updateElements     = this.updateElements.bind(this);
     this.position           = this.position.bind(this);
     this.limit              = this.limit.bind(this);
     this.isInViewport       = this.isInViewport.bind(this);
-    this.getElementDistance = this.getElementDistance.bind(this);
+    this.setPaddingTop      = this.setPaddingTop.bind(this);
   }
   onScroll() {
-    this.setState({ pageYOffset: window.pageYOffset });
     window.requestAnimationFrame(this.updateElements);
   }
-  onResize() {
-    let { width, height } = this.state;
-    this.setState({
-      width: window.innerWidth || document.documentElement.clientWidth,
-      height: Math.max( document.body.scrollHeight,
-                        document.documentElement.scrollHeight,
-                        document.body.offsetHeight,
-                        document.documentElement.offsetHeight,
-                        document.body.clientHeight,
-                        document.documentElement.clientHeight),
-      pageYOffset    : window.pageYOffset,
-      viewportHeight : window.innerHeight || document.documentElement.clientHeight
-    });
-  }
   updateElements() {
-    let { pageYOffset, height, viewportHeight }     = this.state,
+    let { pageYOffset, viewportHeight } = this.props,
         iconsContainer              = findDOMNode(this.refs.iconsContainer),
         iconsHeight                 = iconsContainer.clientHeight,
-        icons                       = document.getElementsByClassName("campus-icons__item"),
+        icons                       = document.querySelectorAll(".campus-icons__container"),
         iconsArray                  = [...icons],
         distanceTop                 = iconsContainer.getBoundingClientRect().top,
         // containers distance from the top of the viewport
@@ -62,18 +35,30 @@ class WebMobile extends Component {
         // speeds, by multiplying the value of relativeY
 
     if (this.isInViewport(iconsContainer)) {
-      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
-      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
-      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
-      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
-      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
-      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 90, relativeY, 0)}px, 0)`;
-      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
-      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
-      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 90, middle,    0)}px, 0)`;
-      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 90, slowest,   0)}px, 0)`;
-      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 90, relativeY, 0)}px, 0)`;
-      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 90, fastest,   0)}px, 0)`;
+      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
+      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
+      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
+      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
+      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
+      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 120, relativeY, 0)}px, 0)`;
+      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
+      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
+      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 120, middle,    0)}px, 0)`;
+      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
+      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 120, relativeY, 0)}px, 0)`;
+      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
+    }
+  }
+  setPaddingTop() {
+    let icons = document.querySelectorAll(".campus-icons__container"),
+        iconsArray = [...icons],
+        i,
+        w,
+        h;
+    for (i = 0; i < iconsArray.length; i++) {
+      w = iconsArray[i].childNodes[0].childNodes[0].clientWidth;
+      h = iconsArray[i].childNodes[0].childNodes[0].clientHeight;
+      iconsArray[i].childNodes[0].style.paddingTop = (w / h) * 100 + "%";
     }
   }
   position(base, range, relativeY, offset) {
@@ -83,19 +68,17 @@ class WebMobile extends Component {
     return Math.max(min, Math.min(max, value));
   }
   isInViewport(elem) {
-    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.state;
+    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.props;
     return (distance.bottom > 0 && distance.top < viewportHeight);
   }
   componentDidMount() {
-    window.addEventListener("resize", this.onResize, false);
+    this.setPaddingTop();
     window.addEventListener("scroll", this.onScroll, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("resize", this.onResize, false);
     window.removeEventListener("scroll", this.onScroll, false);
   }
   render() {
-    let { title, excerpt } = this.props;
     let img = require("../../../../../../../images/work/campus/web-mobile-iphone.png");
     let icons = [
       { name: "pen"        , svg: require("../../../../../../../images/work/campus/icons/illo-pen.svg") },
@@ -120,13 +103,19 @@ class WebMobile extends Component {
           ]}
         />
         <div className="campus-icons">
-          {icons.map((icon) => (
-            <div
-              key={icon.name}
-              className={`campus-icons__item campus-icons__item--${icon.name}`}
-              dangerouslySetInnerHTML={{ __html: icon.svg }}
-            />
-          ))}
+          {icons.map((icon) => {
+            return (
+              <div key={icon.name} className={`campus-icons__container campus-icons__container--${icon.name}`}>
+                <div className="campus-icon__wrapper">
+                  <div
+                    ref={icon.name}
+                    className="campus-icons__item"
+                    dangerouslySetInnerHTML={{ __html: icon.svg }}
+                  />
+                </div>
+              </div>
+            )
+          })}
         </div>
         <div className="web-mobile-iphone">
           <img src={img} />
