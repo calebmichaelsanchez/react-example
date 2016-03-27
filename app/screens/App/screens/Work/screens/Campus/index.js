@@ -22,7 +22,7 @@ class Campus extends Component {
         <TheNeed />
         <UserExperience />
         <Features />
-        <WebMobile />
+        <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={pageYOffset} />
         <Illustrations />
         <Development />
       </section>

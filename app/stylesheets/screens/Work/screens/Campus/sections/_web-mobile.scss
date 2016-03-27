@@ -1,4 +1,5 @@
 .web-mobile {
+  position: relative;
   margin-top: rem-calc(200);
   @include respond-to(sm) { margin-top: rem-calc(160); }
   @include respond-to(md) { margin-top: rem-calc(250); }
@@ -7,23 +8,25 @@
   &-iphone {
     position: relative;
     max-width: rem-calc(1200);
-    //margin-top: rem-calc(600);
+    margin-top: rem-calc(600);
     margin-left: auto;
     margin-right: auto;
   }
 }
 .campus-icons {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 100%;
   width: rem-calc(1200);
   height: 640px;
   margin-left: auto;
   margin-right: auto;
-  transform: translateX(-600px);
-  @include respond-to(sm) {
-    transform: translateY(-115px) translateX(25px);
-  }
-  &__item {
+  transform: translateX(-50%) translateY(100px);
+  // @include respond-to(sm) {
+  //   transform: translateY(-115px) translateX(25px);
+  // }
+  &__container {
     position: absolute;
     display: block;
     transition: all .4s cubic-bezier(0.230, 1.000, 0.320, 1.000);
@@ -75,9 +78,15 @@
       top: percentage(45 / 640);
       left: percentage(1056 / 1200);
     }
+  }
+  &__item {
+    position: relative;
+    width: 100%;
+    height: 0;
     svg {
-      display: inline-block;
-      vertical-align: top;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }
