@@ -7,8 +7,13 @@ import SeeMore from "../../../shared/SeeMore";
 class RunItOnce extends Component {
 	constructor(props) {
 		super(props);
-		this.onScroll = this.onScroll.bind(this);
+    this.onScroll       = this.onScroll.bind(this);
     this.updateElements = this.updateElements.bind(this);
+    this.position       = this.position.bind(this);
+    this.limit          = this.limit.bind(this);
+    this.isInViewport   = this.isInViewport.bind(this);
+    this.updateCardboxElements = this.updateCardboxElements.bind(this);
+    this.updateDeckElements = this.updateDeckElements.bind(this);
 	}
 	componentDidMount() {
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
@@ -21,25 +26,50 @@ class RunItOnce extends Component {
   }
   // changed the name of the function the be more in line with what we have done historically
   onScroll() {
-    this.updateElements();
+    window.requestAnimationFrame(this.updateCardboxElements);
+  }
+  updateCardboxElements() {
+    let { pageYOffset, viewportHeight }  = this.props,
+        cardboxContainer = findDOMNode(this.refs.rioHero),
+        cardboxTop       = cardboxContainer.getBoundingClientRect().top,
+        cardboxHeight    = cardboxContainer.clientHeight,
+        cardboxNodes     = document.querySelectorAll(".cardbox__item"),
+        cardboxArray     = [...cardboxNodes],
+        context          = (pageYOffset - viewportHeight) * -1,
+        relativeY        = (pageYOffset / cardboxHeight) * 5;
+
+    cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(0, 80, relativeY, 0)}px, 0`;
+    cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(0, 80, relativeY, 0)}px, 0`;
+    cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(0, -100, relativeY, 0)}px, 0`;
+    cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(0, -40, relativeY, 0)}px, 0`;
+    cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(0, 50, relativeY, 0)}px, 0`;
+    cardboxArray[5].style.transform = `translate3d( -50%, ${this.position(0, 160, relativeY, 0)}px, 0`;
+  }
+  updateDeckElements() {
+    let { pageYOffset, viewportHeight }  = this.props,
+        deckContainer = findDOMNode(this.refs.deck),
+        deckTop       = deckContainer.getBoundingClientRect().top,
+        deckHeight    = deckContainer.clientHeight,
+        deckNodes     = document.querySelectorAll(".cardbox__item"),
+        deckArray     = [...deckNodes],
+        context          = (pageYOffset - viewportHeight) * -1,
+        relativeY        = (pageYOffset / cardboxHeight) * 5;
   }
   updateElements() {
-    let offset = window.scrollY,
-        deckTop = this.refs.deck.getBoundingClientRect().top,
-        rotateCardsTop = this.refs.rotateCards.getBoundingClientRect().top,
-        finalTop = this.refs.final.getBoundingClientRect().top,
-        inc = offset / 120;
-    if (offset > 10) {
-      this.refs.cardBox.className = 'animate';
-    }
-    if (offset >= deckTop) {
+    let { pageYOffset, viewportHeight }  = this.props,
+        deckTop          = findDOMNode(this.refs.deck).getBoundingClientRect().top,
+        rotateCardsTop   = findDOMNode(this.refs.rotateCards).getBoundingClientRect().top,
+        finalTop         = findDOMNode(this.refs.final).getBoundingClientRect().top,
+        inc              = pageYOffset / 120;
+
+    if (pageYOffset >= deckTop) {
       this.refs.deckCard01.style.transform = "translateY(-" + inc * 12 + "px)";
       this.refs.deckCard02.style.transform = "translateY(-" + inc * 10 + "px)";
       this.refs.deckCard03.style.transform = "translateY(-" + inc * 8 + "px)";
       this.refs.deckCard04.style.transform = "translateY(-" + inc * 6 + "px)";
       this.refs.deckCard05.style.transform = "translateY(-" + inc * 4 + "px)";
     }
-    if (offset >= rotateCardsTop + 100) {
+    if (pageYOffset >= rotateCardsTop + 100) {
       this.refs.rCard01.style.transform = "rotate(-" + inc * 0.45 + "deg)"
       this.refs.rCard02.style.transform = "rotate(" + inc * 0.45 + "deg)"
       this.refs.rCard03.style.transform = "rotate(-" + inc * 0.45 + "deg)"
@@ -48,61 +78,71 @@ class RunItOnce extends Component {
       this.refs.cardBox2.className = '';
     }
   }
+  position(base, range, relativeY, offset) {
+    return base + this.limit(0, 1, relativeY - offset) * range;
+  }
+  limit(min, max, value) {
+    return Math.max(min, Math.min(max, value));
+  }
+  isInViewport(elem) {
+    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.props;
+    return (distance.bottom > 0 && distance.top < viewportHeight);
+  }
 	render() {
 		let img = {
 			hero: {
-				one:   require("../../../../../../../images/work/run-it-once/hero/rio-logo.png"),
-				two:   require("../../../../../../../images/work/run-it-once/hero/box-front.png"),
-				three: require("../../../../../../../images/work/run-it-once/hero/card-01.png"),
-				four:  require("../../../../../../../images/work/run-it-once/hero/card-02.png"),
-				five:  require("../../../../../../../images/work/run-it-once/hero/card-03.png"),
-				six:   require("../../../../../../../images/work/run-it-once/hero/lid-closed.png"),
-				seven:   require("../../../../../../../images/work/run-it-once/hero/lid-open.png"),
-				eight:   require("../../../../../../../images/work/run-it-once/hero/two-cards.png")
+        one   : require("../../../../../../../images/work/run-it-once/hero/rio-logo.png"),
+        two   : require("../../../../../../../images/work/run-it-once/hero/box-front.png"),
+        three : require("../../../../../../../images/work/run-it-once/hero/card-01.png"),
+        four  : require("../../../../../../../images/work/run-it-once/hero/card-02.png"),
+        five  : require("../../../../../../../images/work/run-it-once/hero/card-03.png"),
+        six   : require("../../../../../../../images/work/run-it-once/hero/lid-closed.png"),
+        seven : require("../../../../../../../images/work/run-it-once/hero/lid-open.png"),
+        eight : require("../../../../../../../images/work/run-it-once/hero/two-cards.png")
 			},
 			deck: {
-				one:   require("../../../../../../../images/work/run-it-once/deck/01.png"),
-				two:   require("../../../../../../../images/work/run-it-once/deck/02.png"),
-				three: require("../../../../../../../images/work/run-it-once/deck/03.png"),
-				four:  require("../../../../../../../images/work/run-it-once/deck/04.png"),
-				five:  require("../../../../../../../images/work/run-it-once/deck/05.png"),
-				six:   require("../../../../../../../images/work/run-it-once/deck/06.png")
+        one   : require("../../../../../../../images/work/run-it-once/deck/01.png"),
+        two   : require("../../../../../../../images/work/run-it-once/deck/02.png"),
+        three : require("../../../../../../../images/work/run-it-once/deck/03.png"),
+        four  : require("../../../../../../../images/work/run-it-once/deck/04.png"),
+        five  : require("../../../../../../../images/work/run-it-once/deck/05.png"),
+        six   : require("../../../../../../../images/work/run-it-once/deck/06.png")
 			},
 			gallery: {
-				one: require("../../../../../../../images/work/run-it-once/gallery/1.png"),
-				two: require("../../../../../../../images/work/run-it-once/gallery/2.png"),
-				three: require("../../../../../../../images/work/run-it-once/gallery/3.png")
+        one   : require("../../../../../../../images/work/run-it-once/gallery/1.png"),
+        two   : require("../../../../../../../images/work/run-it-once/gallery/2.png"),
+        three : require("../../../../../../../images/work/run-it-once/gallery/3.png")
 			},
 			cards: {
-				one: require("../../../../../../../images/work/run-it-once/cards/1.png"),
-				two: require("../../../../../../../images/work/run-it-once/cards/2.png"),
-				three: require("../../../../../../../images/work/run-it-once/cards/3.png")
+        one   : require("../../../../../../../images/work/run-it-once/cards/1.png"),
+        two   : require("../../../../../../../images/work/run-it-once/cards/2.png"),
+        three : require("../../../../../../../images/work/run-it-once/cards/3.png")
 			},
 			gallery2: {
-				one: require("../../../../../../../images/work/run-it-once/gallery2/1.png"),
-				two: require("../../../../../../../images/work/run-it-once/gallery2/2.png"),
-				three: require("../../../../../../../images/work/run-it-once/gallery2/3.png")
+        one   : require("../../../../../../../images/work/run-it-once/gallery2/1.png"),
+        two   : require("../../../../../../../images/work/run-it-once/gallery2/2.png"),
+        three : require("../../../../../../../images/work/run-it-once/gallery2/3.png")
 			},
-			lifestyle: require("../../../../../../../images/work/fluid/lifestyle/01.jpg"),
+			lifestyle : require("../../../../../../../images/work/fluid/lifestyle/01.jpg"),
 			seeMore: {
-				one:   require("../../../../../../../images/work/see-more/hive.jpg"),
-				two:   require("../../../../../../../images/work/see-more/just-family.jpg"),
-				three: require("../../../../../../../images/work/see-more/nsac.jpg"),
-				four:  require("../../../../../../../images/work/see-more/rent-tree.jpg")
+        one   : require("../../../../../../../images/work/see-more/hive.jpg"),
+        two   : require("../../../../../../../images/work/see-more/just-family.jpg"),
+        three : require("../../../../../../../images/work/see-more/nsac.jpg"),
+        four  : require("../../../../../../../images/work/see-more/rent-tree.jpg")
 			}
 		}
 		return (
 			<DocumentTitle title="Run It Once | Underbelly Creative">
 				<div className="case-study run-it-once">
-					<section id="rio-hero" className="hero">
+					<section ref="rioHero" className="hero--rio">
 						<img src={img.hero.one} className="rioLogo" alt="Run It Once Logo"/>
-						<div id="cardBox" ref="cardBox">
-              <img src={img.hero.seven} className="backLid"/>
-              <img src={img.hero.six} className="frontLid"/>
-							<img src={img.hero.three} className="card01"/>
-							<img src={img.hero.four} className="card02"/>
-							<img src={img.hero.five} className="card03"/>
-							<img src={img.hero.two} className="front"/>
+						<div id="cardBox" className="cardbox" ref="cardbox">
+              <img src={img.hero.seven} className="cardbox__item backLid"/>
+              <img src={img.hero.six}   className="cardbox__item frontLid"/>
+              <img src={img.hero.three} className="cardbox__item card01"/>
+              <img src={img.hero.four}  className="cardbox__item card02"/>
+              <img src={img.hero.five}  className="cardbox__item card03"/>
+              <img src={img.hero.two}   className="cardbox__item front"/>
 						</div>
 					</section>
 					<section className="two-cards"></section>
@@ -115,13 +155,13 @@ class RunItOnce extends Component {
 								<p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
 								<p>At Underbelly, we’re suckers for playing card designs. That’s one of the many reasons we were stoked to partner with Phil and the Run It Once crew on designing the first official Run It Once card deck.</p>
 							</div>
-							<div className="deckStack">
-								<img src={img.deck.one} className="deckCard" ref="deckCard01" />
-								<img src={img.deck.two} className="deckCard" ref="deckCard02" />
-								<img src={img.deck.three} className="deckCard" ref="deckCard03" />
-								<img src={img.deck.four} className="deckCard" ref="deckCard04" />
-								<img src={img.deck.five} className="deckCard" ref="deckCard05" />
-								<img src={img.deck.six} className="deckCard" ref="deckCard06" />
+							<div className="deck">
+                <img src={img.deck.one}   className="deck__item" />
+                <img src={img.deck.two}   className="deck__item" />
+                <img src={img.deck.three} className="deck__item" />
+                <img src={img.deck.four}  className="deck__item" />
+                <img src={img.deck.five}  className="deck__item" />
+                <img src={img.deck.six}   className="deck__item" />
 							</div>
 						</div>
 					</section>

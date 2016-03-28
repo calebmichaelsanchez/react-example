@@ -17,6 +17,90 @@ $rio-lg: 1440px;
 	}
 }
 
+.hero--rio {
+	position: relative;
+	overflow: hidden;
+	color: color(white);
+	height: 375px;
+	text-align: center;
+
+	@media screen and (min-width: $rio-xs) {
+		height: 675px;
+	}
+	& .rioLogo {
+		margin-top: 20px;
+		width: 235px;
+
+		@media screen and (min-width: $rio-xs) {
+			width: 445px;
+		}
+	}
+}
+
+.cardbox {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 235px;
+	max-height: 375px;
+	transform: translate3d(-50%, 0px, 0);
+	transition: transform ease-in-out 500ms;
+
+	.front { position: relative; }
+
+	.frontLid,
+	.backLid {
+		bottom: initial;
+		top: 0px;
+		width: calc(100% - 12px);
+	}
+
+	.card01, .card02, .card03 {
+		bottom: -50px;
+		transition-delay: 0;
+		width: calc(100% - 14px);
+	}
+
+	> img {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
+	}
+	@media screen and (min-width: $rio-xs) {
+		width: 475px;
+	}
+}
+
+.cardbox.animate {
+	transform: translate3d(-50%, 125px, 0);
+	@media screen and (min-width: $rio-xs) {
+		transform: translate3d(-50%, 225px, 0);
+	}
+
+	.frontLid, .backLid {
+		transform: translate3d(-50%, -50px, 0);
+	}
+	img.card01 {
+		transform: translate3d(-50%, -185px, 0);
+		@media screen and (min-width: $rio-xs) {
+			transform: translate3d(-50%, -280px, 0);
+		}
+	}
+	img.card02 {
+		transform: translate3d(-50%, -150px, 0);
+		@media screen and (min-width: $rio-xs) {
+			transform: translate3d(-50%, -227px, 0);
+		}
+	}
+	img.card03 {
+		transform: translate3d(-50%, -110px, 0);
+		@media screen and (min-width: $rio-xs) {
+			transform: translate3d(-50%, -167px, 0);
+		}
+	}
+
+}
 .run-it-once {
 	background-color: $rio-primary;
 
@@ -59,103 +143,11 @@ $rio-lg: 1440px;
 
 	}
 
-	.rioLogo {
-		margin-top: 20px;
-		width: 235px;
-
-		@media screen and (min-width: $rio-xs) {
-			width: 445px;
-		}
-	}
 
 	.grid-copy p {
 		color: #fff;
 		line-height: 2;
 		margin-bottom: 2rem;
-	}
-
-	.hero {
-		position: relative;
-		overflow: hidden;
-		color: color(white);
-		@include ghost(center);
-		height: 375px;
-
-		@media screen and (min-width: $rio-xs) {
-			height: 675px;
-		}
-	}
-
-	#cardBox {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		width: 235px;
-		max-height: 375px;
-		transform: translate3d(-50%, 0px, 0);
-		transition: transform ease-in-out 500ms;
-
-		@media screen and (min-width: $rio-xs) {
-			width: 475px;
-		}
-	}
-
-	#cardBox > img {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-
-		transition: transform ease-in-out 750ms;
-		transform: translate3d(-50%, 0, 0);
-	}
-
-	#cardBox {
-
-		.front { position: relative; }
-
-		.frontLid,
-		.backLid {
-			bottom: initial;
-			top: 0px;
-			width: calc(100% - 12px);
-		}
-
-		.card01, .card02, .card03 {
-			bottom: -50px;
-			transition-delay: 0;
-			width: calc(100% - 14px);
-		}
-
-	}
-
-	#cardBox.animate {
-		transform: translate3d(-50%, 125px, 0);
-		@media screen and (min-width: $rio-xs) {
-			transform: translate3d(-50%, 225px, 0);
-		}
-
-		.frontLid, .backLid {
-			transform: translate3d(-50%, -50px, 0);
-		}
-		img.card01 {
-			transform: translate3d(-50%, -185px, 0);
-			@media screen and (min-width: $rio-xs) {
-				transform: translate3d(-50%, -280px, 0);
-			}
-		}
-		img.card02 {
-			transform: translate3d(-50%, -150px, 0);
-			@media screen and (min-width: $rio-xs) {
-				transform: translate3d(-50%, -227px, 0);
-			}
-		}
-		img.card03 {
-			transform: translate3d(-50%, -110px, 0);
-			@media screen and (min-width: $rio-xs) {
-				transform: translate3d(-50%, -167px, 0);
-			}
-		}
-
 	}
 
 	.two-cards {
