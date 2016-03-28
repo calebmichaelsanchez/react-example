@@ -85,7 +85,7 @@
 	}
 	&.light svg path { fill: color(white); }
 	&.dark svg path { fill: color(blue-secondary); }
-	.no-touchevents [class^="project-item"]:hover &,
+	.no-touchevents .projects__item:hover &,
 	.no-touchevents .product-btn:hover &,
 	.no-touchevents .link-btn:hover & {
 		opacity: 1;
