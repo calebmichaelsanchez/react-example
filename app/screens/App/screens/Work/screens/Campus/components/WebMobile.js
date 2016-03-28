@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import Excerpt from "../shared/Excerpt";
+import helpers from "../../../../../../../shared/util/helpers";
 
 class WebMobile extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class WebMobile extends Component {
     window.requestAnimationFrame(this.updateElements);
   }
   updateElements() {
-    let { pageYOffset, viewportHeight } = this.props,
+    let { viewportHeight } = this.props,
         iconsContainer              = findDOMNode(this.refs.iconsContainer),
         iconsHeight                 = iconsContainer.clientHeight,
         icons                       = document.querySelectorAll(".campus-icons__container"),
