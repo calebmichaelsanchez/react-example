@@ -36,18 +36,18 @@ class WebMobile extends Component {
         // speeds, by multiplying the value of relativeY
 
     if (this.isInViewport(iconsContainer)) {
-      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
-      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
-      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
-      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
-      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
-      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 120, relativeY, 0)}px, 0)`;
-      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
-      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
-      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 120, middle,    0)}px, 0)`;
-      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 120, slowest,   0)}px, 0)`;
-      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 120, relativeY, 0)}px, 0)`;
-      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 120, fastest,   0)}px, 0)`;
+      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
+      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
+      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
+      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
+      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
+      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 200, relativeY, 0)}px, 0)`;
+      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
+      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
+      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 200, middle,    0)}px, 0)`;
+      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
+      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 200, relativeY, 0)}px, 0)`;
+      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
     }
   }
   setPaddingTop() {
@@ -74,10 +74,11 @@ class WebMobile extends Component {
   }
   componentDidMount() {
     this.setPaddingTop();
-    window.addEventListener("scroll", this.onScroll, false);
+    this.throttledScroll = helpers.throttle(this.onScroll, 35);
+    window.addEventListener("scroll", this.throttledScroll, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
+    window.removeEventListener("scroll", this.throttledScroll, false);
   }
   render() {
     let img = require("../../../../../../../images/work/campus/web-mobile-iphone.png");
