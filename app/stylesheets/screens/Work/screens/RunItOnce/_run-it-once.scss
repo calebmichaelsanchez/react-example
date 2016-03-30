@@ -21,97 +21,252 @@ $rio-lg: 1440px;
 	position: relative;
 	overflow: hidden;
 	color: color(white);
-	height: 375px;
+	height: 437px;
 	text-align: center;
 
-	@media screen and (min-width: $rio-xs) {
-		height: 675px;
+	@include respond-to(xs) {
+		height: 762px;
 	}
-	& .rioLogo {
-		margin-top: 20px;
-		width: 235px;
-
-		@media screen and (min-width: $rio-xs) {
-			width: 445px;
-		}
+}
+.rio-logo {
+	margin-top: 126px;
+	width: 235px;
+	@include respond-to(xs) {
+		margin-top: 185px;
+		width: 445px;
 	}
 }
 
 .cardbox {
 	position: absolute;
-	bottom: 0;
+	bottom: -31%;
 	left: 50%;
 	width: 235px;
-	max-height: 375px;
 	transform: translate3d(-50%, 0px, 0);
-	transition: transform ease-in-out 500ms;
-
-	.front { position: relative; }
-
-	.frontLid,
-	.backLid {
-		bottom: initial;
-		top: 0px;
-		width: calc(100% - 12px);
+	@include respond-to(xs) {
+		width: 475px;
+		bottom: -38%;
 	}
-
-	.card01, .card02, .card03 {
-		bottom: -50px;
-		transition-delay: 0;
-		width: calc(100% - 14px);
-	}
-
-	> img {
+	&__item {
 		position: absolute;
 		bottom: 0;
 		left: 50%;
 		transform: translate3d(-50%, 0, 0);
-	}
-	@media screen and (min-width: $rio-xs) {
-		width: 475px;
+		&--front { position: relative; }
+		&--lid {
+			bottom: initial;
+			top: 0;
+			width: calc(100% - 12px);
+		}
+		&--card {
+			bottom: initial;
+			top: 10%;
+			transition-delay: 0;
+			width: calc(100% - 14px);
+		}
 	}
 }
 
-.cardbox.animate {
-	transform: translate3d(-50%, 125px, 0);
-	@media screen and (min-width: $rio-xs) {
-		transform: translate3d(-50%, 225px, 0);
-	}
-
-	.frontLid, .backLid {
-		transform: translate3d(-50%, -50px, 0);
-	}
-	img.card01 {
-		transform: translate3d(-50%, -185px, 0);
-		@media screen and (min-width: $rio-xs) {
-			transform: translate3d(-50%, -280px, 0);
-		}
-	}
-	img.card02 {
-		transform: translate3d(-50%, -150px, 0);
-		@media screen and (min-width: $rio-xs) {
-			transform: translate3d(-50%, -227px, 0);
-		}
-	}
-	img.card03 {
-		transform: translate3d(-50%, -110px, 0);
-		@media screen and (min-width: $rio-xs) {
-			transform: translate3d(-50%, -167px, 0);
-		}
-	}
-
+.two-cards {
+	@include hero('../images/work/run-it-once/hero/two-cards.png');
+	height: 50vh;
+	@include respond-to(sm) { height: 583; }
+	@include respond-to(md) { height: 100vh; }
 }
+
+.deck {
+	padding: 70px 22px 60px;
+	@include respond-to(sm) {
+		padding: 143px 0 0;
+		height: 1200px;
+	}
+
+	&-container {
+		width: 100%;
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		@extend %clearfix;
+		&__item {
+
+		}
+	}
+
+	&-copy {
+		padding-bottom: 100px;
+		@include respond-to(sm) {
+			max-width: 410px;
+			margin-right: percentage(123 / 1440);
+			float: right;
+		}
+		@include respond-to(lg) {
+			max-width: 500px;
+		}
+	}
+
+	&-cards {
+		position: relative;
+		margin: 0 auto 0;
+		width: 330px;
+		display: block;
+		height: 494px;
+		@include respond-to(sm) {
+			position: absolute;
+			width: 1042px;
+			height: 934px;
+			top: 0;
+			right: -15px;
+		}
+		@include respond-to(md) {
+			right: percentage(135 / 1024);
+		}
+		&__item {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			//width: 100%;
+			transform: translate3d(-50%, 0, 0);
+			@include respond-to(sm) {
+				left: 0;
+				transform: none;
+			}
+			&:nth-of-type(1) {
+				z-index: 6;
+				width: percentage(327.59 / 330);
+				@include respond-to(sm) {
+					width: percentage(502 / 1042);
+				}
+			}
+			&:nth-of-type(2) {
+				top: 97px;
+				width: percentage(326.94 / 330);
+				z-index: 5;
+				@include respond-to(sm) {
+					width: percentage(501 / 1042);
+					top: 149px;
+				}
+			}
+			&:nth-of-type(3) {
+				top: 185px;
+				width: percentage(326.29 / 330);
+				z-index: 4;
+				@include respond-to(sm) {
+					width: percentage(500 / 1042);
+					top: 283px;
+				}
+			}
+			&:nth-of-type(4) {
+				top: 279px;
+				width: percentage(324.33 / 330);
+				z-index: 3;
+				@include respond-to(sm) {
+					width: percentage(497 / 1042);
+					top: 427px;
+				}
+			}
+			&:nth-of-type(5) {
+				top: 348px;
+				width: percentage(323.68 / 330);
+				z-index: 2;
+				@include respond-to(sm) {
+					width: percentage(496 / 1042);
+					top: 533px;
+					left: 60px;
+				}
+			}
+			&:nth-of-type(6) {
+				display: none;
+				z-index: 1;
+				@include respond-to(sm) {
+					display: block;
+					top: 648px;
+					left: 450px;
+				}
+			}
+		}
+	}
+}
+
+.cards {
+	overflow: hidden;
+	&-container {
+		position: relative;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		@extend %clearfix;
+		padding: 45px 20px 90px;
+		@include respond-to(sm) {
+			max-width: 768px;
+			padding: 184px 20px;
+		}
+		@include respond-to(md) {
+			max-width: 978px;
+			padding: 320px 20px;
+		}
+		@include respond-to(lg) { padding: 320px 20px; }
+	}
+	&-copy {
+		width: 335px;
+		margin-left: auto;
+		margin-right: auto;
+		@include respond-to(xs) {
+			width: 80%
+		}
+		@include respond-to(sm) {
+			width: 387px;
+			float: left;
+		}
+
+		@include respond-to(md) {
+			width: 512px;
+		}
+	}
+	&-cards {
+		position: relative;
+		padding-top: 100px;
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		@include respond-to(sm) {
+			padding-top: 0;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 285px;
+		}
+		@include respond-to(md) {
+			width: 335px;
+		}
+		&__item {
+			position: relative;
+			display: block;
+			margin: 0 auto -50px;
+
+			&:nth-child(1){ z-index: 3; }
+			&:nth-child(2){ z-index: 2; }
+			&:nth-child(3){ z-index: 1; }
+		}
+	}
+}
+
 .run-it-once {
 	background-color: $rio-primary;
 
 	p {
-		font-size: 16px;
-		@media screen and (min-width: $rio-xs) {
-			font-size: 18px;
+		color: #fff;
+		line-height: 2.25;
+		margin-bottom: 2rem;
+		&:last-of-type {
+			margin-bottom: 0;
 		}
 	}
 
 	.button {
+		display: inline-block;
 		text-align: center;
 		background: transparent;
 		color: #B54A49;
@@ -141,19 +296,6 @@ $rio-lg: 1440px;
  			 left: 60%;
 		 }
 
-	}
-
-
-	.grid-copy p {
-		color: #fff;
-		line-height: 2;
-		margin-bottom: 2rem;
-	}
-
-	.two-cards {
-		padding-bottom: 48%;
-
-		@include hero('../images/work/run-it-once/hero/two-cards.png');
 	}
 
 	.case-study-gallery {
@@ -232,107 +374,6 @@ $rio-lg: 1440px;
 
 		@media screen and (min-width: $rio-xs){
 			text-align: left;
-		}
-	}
-
-	.case-study-deck {
-
-		// overflow-y: hidden;
-
-		@media screen and (min-width: $rio-md) {
-			padding-bottom: 200px
-		}
-
-		.deckCopy {
-			@media screen and (min-width: $rio-xs) {
-				width: calc(100% - 375px);
-				float: right;
-				padding-right: 50px;
-			}
-			@media screen and (min-width: $rio-md) {
-				// padding-left: 400px;
-				width: 50%;
-			}
-		}
-
-		.deckStack {
-			padding-top: 100px;
-
-			@media screen and (min-width: $rio-xs) {
-				width: 400px;
-				position: absolute;
-				top: 0px;
-				left: -120px;
-			}
-
-			@media screen and (min-width: $rio-md) {
-				width: 45%;
-				left: 0;
-			}
-		}
-
-		.deckCard {
-			position: relative;
-			margin: 0 auto -120px;
-			max-width: 450px;
-			display: block;
-			width: 100%;
-
-			@media screen and (min-width: $rio-sm) {
-				margin: 0 auto -155px;
-			}
-
-			&:nth-child(1){ z-index: 6; }
-			&:nth-child(2){ z-index: 5; }
-			&:nth-child(3){ z-index: 4; }
-			&:nth-child(4){ z-index: 3; }
-			&:nth-child(5){ z-index: 2; }
-			&:nth-child(6){ margin-bottom: 0; }
-		}
-	}
-
-	.case-study-cards {
-		color: #fff;
-		overflow: hidden;
-
-		p {
-			@media screen and (min-width: $rio-sm) {
-
-			}
-		}
-
-		.card {
-			position: relative;
-			display: block;
-			margin: 0 auto -50px;
-
-			&:nth-child(1){ z-index: 3; }
-			&:nth-child(2){ z-index: 2; }
-			&:nth-child(3){ z-index: 1; }
-		}
-	}
-
-	.rText {
-		@media screen and (min-width: $rio-xs) {
-			width: 60%;
-			padding-left: 25px;
-			float: left;
-			padding-top: 10%;
-		}
-
-		@media screen and (min-width: $rio-sm){
-			width: 55%;
-			padding-top: 20%;
-		}
-	}
-
-	.rCards {
-		@media screen and (min-width: $rio-xs){
-			width: 40%;
-			float: right;
-		}
-		@media screen and (min-width: $rio-sm){
-			width: 45%;
 		}
 	}
 

@@ -8,12 +8,7 @@ class App extends Component {
     this.state = {
       navTheme       : '',
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
-      documentHeight : Math.max( document.body.scrollHeight,
-                                 document.documentElement.scrollHeight,
-                                 document.body.offsetHeight,
-                                 document.documentElement.offsetHeight,
-                                 document.body.clientHeight,
-                                 document.documentElement.clientHeight ),
+      documentHeight : document.body.clientHeight,
       pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     }
@@ -35,12 +30,7 @@ class App extends Component {
   onResize() {
     this.setState({
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
-      documentHeight : Math.max( document.body.scrollHeight,
-                                 document.documentElement.scrollHeight,
-                                 document.body.offsetHeight,
-                                 document.documentElement.offsetHeight,
-                                 document.body.clientHeight,
-                                 document.documentElement.clientHeight ),
+      documentHeight : document.documentElement.clientHeight,
       pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     });
