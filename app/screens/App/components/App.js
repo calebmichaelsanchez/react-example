@@ -9,7 +9,6 @@ class App extends Component {
       navTheme       : '',
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
       documentHeight : document.body.clientHeight,
-      pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     }
     this.setNavTheme = this.setNavTheme.bind(this);
@@ -25,13 +24,12 @@ class App extends Component {
     window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
-    this.setState({ pageYOffset: window.pageYOffset });
+
   }
   onResize() {
     this.setState({
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
       documentHeight : document.documentElement.clientHeight,
-      pageYOffset    : window.pageYOffset,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     });
   }
@@ -44,7 +42,6 @@ class App extends Component {
                           setNavTheme    : this.setNavTheme,
                           windowWidth    : windowWidth,
                           documentHeight : documentHeight,
-                          pageYOffset    : pageYOffset,
                           viewportHeight : viewportHeight
                         });
     return (

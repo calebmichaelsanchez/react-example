@@ -8,14 +8,14 @@ $rio-sm: 940px;
 $rio-md: 1200px;
 $rio-lg: 1440px;
 
-.case-study.run-it-once ~ nav.light {
-	svg path {
-		fill: #F9FAFC;
-	}
-	.nav-item a {
-		color: #F9FAFC;
-	}
-}
+// .case-study.run-it-once ~ nav.light {
+// 	svg path {
+// 		fill: #F9FAFC;
+// 	}
+// 	.nav-item a {
+// 		color: #F9FAFC;
+// 	}
+// }
 
 .hero--rio {
 	position: relative;
@@ -23,9 +23,39 @@ $rio-lg: 1440px;
 	color: color(white);
 	height: 437px;
 	text-align: center;
+	&--final {
+		height: 400px;
+		.cardbox { bottom: -20%; }
+	}
 
 	@include respond-to(xs) {
 		height: 762px;
+		&--final {
+			height: 720px;
+		}
+	}
+	.button.buy-button {
+	    background: #A47C3F;
+	    color: #fff;
+	    border: none;
+	    padding: 10px 0;
+	    min-width: 195px;
+		 	position: absolute;
+		 	top: 14%;
+		 	left: 50%;
+		 	transform: translate3d(-50%, 30px, 0);
+			opacity: 0;
+			transition: 600ms ease;
+			@include respond-to(sm) {
+				top: 12%;
+			}
+			&.active {
+				opacity: 1;
+				transform: translate3d(-50%, 0, 0);
+			}
+		 &:hover {
+			 color: $rio-primary;
+		 }
 	}
 }
 .rio-logo {
@@ -47,7 +77,7 @@ $rio-lg: 1440px;
 		width: 475px;
 		bottom: -38%;
 	}
-	&__item {
+	&__item, &-ending__item {
 		position: absolute;
 		bottom: 0;
 		left: 50%;
@@ -108,9 +138,12 @@ $rio-lg: 1440px;
 	&-cards {
 		position: relative;
 		margin: 0 auto 0;
-		width: 330px;
+		width: 100%;
 		display: block;
 		height: 494px;
+		@media screen and (min-width: 330px) {
+			width: 330px;
+		}
 		@include respond-to(sm) {
 			position: absolute;
 			width: 1042px;
@@ -125,7 +158,6 @@ $rio-lg: 1440px;
 			position: absolute;
 			top: 0;
 			left: 50%;
-			//width: 100%;
 			transform: translate3d(-50%, 0, 0);
 			@include respond-to(sm) {
 				left: 0;
@@ -280,24 +312,6 @@ $rio-lg: 1440px;
 		}
 	}
 
-	.button.buy-button {
-	    background: #A47C3F;
-	    color: #fff;
-	    border: none;
-	    padding: 10px 50px;
-
-		 &:hover {
-			 color: $rio-primary;
-		 }
-
-		 @media screen and (min-width: $rio-md) {
-			 position: absolute;
- 			 top: 306px;
- 			 left: 60%;
-		 }
-
-	}
-
 	.case-study-gallery {
 
 		@media screen and (min-width: $small) {
@@ -381,22 +395,4 @@ $rio-lg: 1440px;
 	.case-study-gallery2 {
 		padding: 0;
 	}
-}
-
-
-section.case-study-final {
-    position: relative;
-    min-height: 450px;
-	 text-align: center;
-	 position: relative;
-
-	 @media screen and (min-width: $rio-xs) {
-		 height: 650px;
-	 }
-
-	 #cardBox {
-		 @media screen and (min-width: $rio-md) {
-			 left: 35%;
-		 }
-	 }
 }

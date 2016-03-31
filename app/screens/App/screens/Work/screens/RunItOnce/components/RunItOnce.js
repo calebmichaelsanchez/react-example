@@ -8,44 +8,56 @@ import helpers from "../../../../../../../shared/util/helpers";
 class RunItOnce extends Component {
 	constructor(props) {
 		super(props);
-    this.onScroll       = this.onScroll.bind(this);
-    this.updateElements = this.updateElements.bind(this);
-    this.position       = this.position.bind(this);
-    this.limit          = this.limit.bind(this);
-    this.isInViewport   = this.isInViewport.bind(this);
+    this.onScroll              = this.onScroll.bind(this);
+    this.position              = this.position.bind(this);
+    this.limit                 = this.limit.bind(this);
+    this.isInViewport          = this.isInViewport.bind(this);
     this.updateCardboxElements = this.updateCardboxElements.bind(this);
-    this.updateDeckElements = this.updateDeckElements.bind(this);
-    this.updateCardElements = this.updateCardElements.bind(this);
+    this.updateDeckElements    = this.updateDeckElements.bind(this);
+    this.updateCardElements    = this.updateCardElements.bind(this);
+    this.requestTick           = this.requestTick.bind(this);
+    this.updateEndingElements  = this.updateEndingElements.bind(this);
 	}
 	componentDidMount() {
+    this.lastKnownScroll = 0;
+    this.ticking         = false;
+    this.throttledScroll = helpers.throttle(this.onScroll, 30);
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
-    this.throttledScroll = helpers.throttle(this.onScroll, 30);
 		window.addEventListener("scroll", this.throttledScroll, false);
 	}
   componentWillUnmount() {
-    // removes event listener to keep onScroll from running on other pages
     window.removeEventListener("scroll", this.throttledScroll, false);
   }
-  // changed the name of the function the be more in line with what we have done historically
   onScroll() {
-    window.requestAnimationFrame(this.updateCardboxElements);
-    window.requestAnimationFrame(this.updateDeckElements);
-    window.requestAnimationFrame(this.updateCardElements);
+    this.lastKnownScroll = window.pageYOffset;
+    this.requestTick();
+  }
+  requestTick() {
+    if(!this.ticking) {
+      window.requestAnimFrame(this.updateCardboxElements);
+      window.requestAnimFrame(this.updateDeckElements);
+      window.requestAnimFrame(this.updateCardElements);
+      window.requestAnimFrame(this.updateEndingElements);
+    }
+    this.ticking = true;
   }
   updateCardboxElements() {
-    let { pageYOffset, viewportHeight, windowWidth }  = this.props,
-        cardboxContainer = findDOMNode(this.refs.rioHero),
-        cardboxTop       = cardboxContainer.getBoundingClientRect().top,
-        cardboxBottom    = cardboxContainer.getBoundingClientRect().bottom,
-        cardboxHeight    = cardboxContainer.clientHeight,
-        cardboxNodes     = document.querySelectorAll(".cardbox__item"),
-        cardboxArray     = [...cardboxNodes],
-        context          = (pageYOffset - viewportHeight) * -1,
-        relativeY        = (pageYOffset / cardboxHeight) * 4,
-        values           = [];
+    this.ticking = false ;
+    let { viewportHeight, windowWidth }  = this.props,
+        currentScrollPosition = this.lastKnownScroll,
+        cardboxContainer      = findDOMNode(this.refs.rioHero),
+        cardboxDimensions     = cardboxContainer.getBoundingClientRect(),
+        cardboxBottom         = cardboxDimensions.bottom,
+        cardboxHeight         = cardboxContainer.clientHeight,
+        cardboxNodes          = document.querySelectorAll(".cardbox__item"),
+        cardboxArray          = [...cardboxNodes],
+        context               = (currentScrollPosition - viewportHeight) * -1,
+        relativeY             = (currentScrollPosition / cardboxHeight) * 4,
+        values                = [];
 
     (windowWidth <= 640) ? values = [ 80/2, -120/2, -40/2, 40/2.25, 160/1.5] : values = [ 80, -120, -40, 40, 160 ];
+
     if (context >= 0 && cardboxBottom >= 0) {
       cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(0, values[0], relativeY, 0)}px, 0`;
       cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(0, values[1], relativeY, 0)}px, 0`;
@@ -55,18 +67,21 @@ class RunItOnce extends Component {
     }
   }
   updateDeckElements() {
+    this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
-        deckContainer = findDOMNode(this.refs.deck),
-        deckTop       = deckContainer.getBoundingClientRect().top,
-        deckBottom    = deckContainer.getBoundingClientRect().bottom,
-        deckHeight    = deckContainer.clientHeight,
-        deckNodes     = document.querySelectorAll(".deck-cards__item"),
-        deckArray     = [...deckNodes],
-        context       = (deckTop - viewportHeight) * -1,
-        relativeY     = (context / (deckHeight * 2)),
-        values        = [];
+        deckContainer  = findDOMNode(this.refs.deck),
+        deckDimensions = deckContainer.getBoundingClientRect(),
+        deckTop        = deckDimensions.top,
+        deckBottom     = deckDimensions.bottom,
+        deckHeight     = deckContainer.clientHeight,
+        deckNodes      = document.querySelectorAll(".deck-cards__item"),
+        deckArray      = [...deckNodes],
+        context        = (deckTop - viewportHeight) * -1,
+        relativeY      = (context / (deckHeight * 2)),
+        values         = [];
 
-    (windowWidth <= 768) ? values = [ [26], [-50, -145] ] : values = [ [100], [0, -220] ];
+    (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -220] ];
+
     if (context >= 0 && deckBottom >= 0) {
       deckArray[0].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], relativeY, 0)}px, 0`;
       deckArray[1].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .8),  0)}px, 0`;
@@ -77,46 +92,60 @@ class RunItOnce extends Component {
     }
   }
   updateCardElements() {
+    this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
-        cardsContainer = findDOMNode(this.refs.cards),
-        cardsTop       = cardsContainer.getBoundingClientRect().top,
-        cardsBottom    = cardsContainer.getBoundingClientRect().bottom,
-        cardsHeight    = cardsContainer.clientHeight,
-        cardsNodes     = document.querySelectorAll(".cards-cards__item"),
-        cardsArray     = [...cardsNodes],
-        context        = (cardsTop - viewportHeight) * -1,
-        relativeY      = (context / (cardsHeight * 2)),
-        values         = [];
+        cardsContainer  = findDOMNode(this.refs.cards),
+        cardsDimensions = cardsContainer.getBoundingClientRect(),
+        cardsTop        = cardsDimensions.top,
+        cardsBottom     = cardsDimensions.bottom,
+        cardsHeight     = cardsContainer.clientHeight,
+        cardsNodes      = document.querySelectorAll(".cards-cards__item"),
+        cardsArray      = [...cardsNodes],
+        context         = (cardsTop - viewportHeight) * -1,
+        relativeY       = (context / (cardsHeight * 2));
 
-    //(windowWidth <= 768) ? values = [ [0], [-50, -160] ] : values = [ [100], [0, -220] ];
     if (context >= 0 && cardsBottom >= 0) {
       cardsArray[0].style.transform = `rotate( ${this.position(0, -15, relativeY, 0)}deg)`;
       cardsArray[1].style.transform = `rotate( ${this.position(0,  15, relativeY, 0)}deg)`;
       cardsArray[2].style.transform = `rotate( ${this.position(0, -15, relativeY, 0)}deg)`;
     }
   }
-  updateElements() {
-    let { pageYOffset, viewportHeight }  = this.props,
-        deckTop          = findDOMNode(this.refs.deck).getBoundingClientRect().top,
-        rotateCardsTop   = findDOMNode(this.refs.rotateCards).getBoundingClientRect().top,
-        finalTop         = findDOMNode(this.refs.final).getBoundingClientRect().top,
-        inc              = pageYOffset / 120;
+  updateEndingElements() {
+    this.ticking = false ;
+    let { viewportHeight, windowWidth }  = this.props,
+        currentScrollPosition = this.lastKnownScroll,
+        cardboxContainer      = findDOMNode(this.refs.ending),
+        cardboxDimensions     = cardboxContainer.getBoundingClientRect(),
+        cardboxTop            = cardboxDimensions.top,
+        cardboxBottom         = cardboxDimensions.bottom,
+        cardboxHeight         = cardboxContainer.clientHeight,
+        cardboxNodes          = document.querySelectorAll(".cardbox-ending__item"),
+        cardboxArray          = [...cardboxNodes],
+        viewportHeightPlus    = viewportHeight * 1.05,
+        context               = (cardboxTop - viewportHeightPlus) * -1,
+        contextPlus           = context - 250,
+        relativeY             = (contextPlus / cardboxHeight),
+        values                = [],
+        buyButton             = findDOMNode(this.refs.buy),
+        showButtonValue       = 0;
 
-    if (pageYOffset >= deckTop) {
-      this.refs.deckCard01.style.transform = "translateY(-" + inc * 12 + "px)";
-      this.refs.deckCard02.style.transform = "translateY(-" + inc * 10 + "px)";
-      this.refs.deckCard03.style.transform = "translateY(-" + inc * 8 + "px)";
-      this.refs.deckCard04.style.transform = "translateY(-" + inc * 6 + "px)";
-      this.refs.deckCard05.style.transform = "translateY(-" + inc * 4 + "px)";
+    if (windowWidth <= 640) {
+      values = [ [-10, 10], [-140, 240], [-80, 180], [-30, 100], [60, -60] ]
+      showButtonValue = 350;
+    } else {
+      showButtonValue = 500;
+      values = [ [-20, 20], [-220, 280], [-120, 220], [-10, 140], [120, -120] ];
     }
-    if (pageYOffset >= rotateCardsTop + 100) {
-      this.refs.rCard01.style.transform = "rotate(-" + inc * 0.45 + "deg)"
-      this.refs.rCard02.style.transform = "rotate(" + inc * 0.45 + "deg)"
-      this.refs.rCard03.style.transform = "rotate(-" + inc * 0.45 + "deg)"
+
+    if (context >= 0 && cardboxBottom >= 0) {
+      cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(values[0][0], values[0][1], relativeY, 0)}px, 0`;
+      cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(values[1][0], values[1][1], relativeY  * 2,    0)}px, 0`;
+      cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(values[2][0], values[2][1], relativeY  * 2,    0)}px, 0`;
+      cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(values[3][0], values[3][1], relativeY  * 2,    0)}px, 0`;
+      cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(values[4][0], values[4][1], relativeY  * 1.15, 0)}px, 0`;
     }
-    if (finalTop < 200) {
-      this.refs.cardBox2.className = '';
-    }
+
+    (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
   }
   position(base, range, relativeY, offset) {
     let returnVal = base + this.limit(0, 1, relativeY - offset) * range;
@@ -133,18 +162,12 @@ class RunItOnce extends Component {
 		let img = {
 			hero: {
         one   : require("../../../../../../../images/work/run-it-once/hero/logo.png"),
-        two   : require("../../../../../../../images/work/run-it-once/hero/box-front.png"),
-        three : require("../../../../../../../images/work/run-it-once/hero/card-01.png"),
-        four  : require("../../../../../../../images/work/run-it-once/hero/card-02.png"),
-        five  : require("../../../../../../../images/work/run-it-once/hero/card-03.png"),
-        six   : require("../../../../../../../images/work/run-it-once/hero/lid-closed.png"),
-        seven : require("../../../../../../../images/work/run-it-once/hero/lid-open.png"),
         eight : require("../../../../../../../images/work/run-it-once/hero/two-cards.png")
 			},
       cardbox: {
-        lid: require("../../../../../../../images/work/run-it-once/hero/lid-lip.png"),
-        front: require("../../../../../../../images/work/run-it-once/hero/box-front-01.png"),
-        card: require("../../../../../../../images/work/run-it-once/hero/card.png")
+        lid   : require("../../../../../../../images/work/run-it-once/hero/lid-lip.png"),
+        front : require("../../../../../../../images/work/run-it-once/hero/box-front-01.png"),
+        card  : require("../../../../../../../images/work/run-it-once/hero/card.png")
       },
 			deck: {
         one   : require("../../../../../../../images/work/run-it-once/deck/01.png"),
@@ -233,27 +256,20 @@ class RunItOnce extends Component {
 						</div>
 					</div>
 					<section className="case-study-gallery2">
-						<div className="grid-1-3">
-							<img width="100%" className="gallery2Img one" src={img.gallery2.one} alt=""/>
-						</div>
-						<div className="grid-1-3">
-							<img width="100%" className="gallery2Img two" src={img.gallery2.two} alt=""/>
-						</div>
-						<div className="grid-1-3">
-							<img width="100%" className="gallery2Img three" src={img.gallery2.three} alt=""/>
-						</div>
+						<div className="grid-1-3"><img width="100%" className="gallery2Img one" src={img.gallery2.one} alt=""/></div>
+						<div className="grid-1-3"><img width="100%" className="gallery2Img two" src={img.gallery2.two} alt=""/></div>
+						<div className="grid-1-3"><img width="100%" className="gallery2Img three" src={img.gallery2.three} alt=""/></div>
 					</section>
-					<section className="case-study-final" ref="final">
-						<a href="#" className="button buy-button">buy em now</a>
-            <div id="cardBox" ref="cardBox2" className="animate">
-              <img src={img.hero.seven} className="backLid"/>
-              <img src={img.hero.six} className="frontLid"/>
-              <img src={img.hero.three} className="card01"/>
-              <img src={img.hero.four} className="card02"/>
-              <img src={img.hero.five} className="card03"/>
-              <img src={img.hero.two} className="front"/>
+          <div ref="ending" className="hero--rio hero--rio--final">
+            <a ref="buy" href="#" className="button buy-button">buy em now</a>
+            <div id="cardBox" className="cardbox" ref="cardbox">
+              <img src={img.cardbox.lid}   className="cardbox-ending__item cardbox-ending__item--lid"   />
+              <img src={img.cardbox.card}  className="cardbox-ending__item cardbox-ending__item--card"  />
+              <img src={img.cardbox.card}  className="cardbox-ending__item cardbox-ending__item--card"  />
+              <img src={img.cardbox.card}  className="cardbox-ending__item cardbox-ending__item--card"  />
+              <img src={img.cardbox.front} className="cardbox-ending__item cardbox-ending__item--front" />
             </div>
-					</section>
+          </div>
 					<SeeMore items={[
 						{ url: "hive", title: "Hive", img: img.seeMore.one },
 						{ url: "just-family", title: "Just Family", img: img.seeMore.two },
