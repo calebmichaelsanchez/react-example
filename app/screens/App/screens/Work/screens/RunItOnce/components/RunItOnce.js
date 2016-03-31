@@ -45,6 +45,7 @@ class RunItOnce extends Component {
   updateCardboxElements() {
     this.ticking = false ;
     let { viewportHeight, windowWidth }  = this.props,
+        { transformThreeD }   = helpers,
         currentScrollPosition = this.lastKnownScroll,
         cardboxContainer      = findDOMNode(this.refs.rioHero),
         cardboxDimensions     = cardboxContainer.getBoundingClientRect(),
@@ -59,16 +60,17 @@ class RunItOnce extends Component {
     (windowWidth <= 640) ? values = [ 80/2, -120/2, -40/2, 40/2.25, 160/1.5] : values = [ 80, -120, -40, 40, 160 ];
 
     if (context >= 0 && cardboxBottom >= 0) {
-      cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(0, values[0], relativeY, 0)}px, 0`;
-      cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(0, values[1], relativeY, 0)}px, 0`;
-      cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(0, values[2], relativeY, 0)}px, 0`;
-      cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(0, values[3], relativeY, 0)}px, 0`;
-      cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(0, values[4], relativeY, 0)}px, 0`;
+      transformThreeD(cardboxArray[0], -50, "%",  this.position(0, values[0], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(0, values[1], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(0, values[2], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(0, values[3], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(0, values[4], relativeY, 0), "px", 0, "px");
     }
   }
   updateDeckElements() {
     this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
+        { transformThreeD }   = helpers,
         deckContainer  = findDOMNode(this.refs.deck),
         deckDimensions = deckContainer.getBoundingClientRect(),
         deckTop        = deckDimensions.top,
@@ -83,17 +85,18 @@ class RunItOnce extends Component {
     (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -220] ];
 
     if (context >= 0 && deckBottom >= 0) {
-      deckArray[0].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], relativeY, 0)}px, 0`;
-      deckArray[1].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .8),  0)}px, 0`;
-      deckArray[2].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .6),  0)}px, 0`;
-      deckArray[3].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .4),  0)}px, 0`;
-      deckArray[4].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .2),  0)}px, 0`;
-      deckArray[5].style.transform = `translate3d( ${values[1][0]}%, ${this.position(values[0][0], values[1][1], (relativeY * .05), 0)}px, 0`;
+      transformThreeD(deckArray[0], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY, 0), "px", 0, "px");
+      transformThreeD(deckArray[1], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .8, 0), "px", 0, "px");
+      transformThreeD(deckArray[2], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .6, 0), "px", 0, "px");
+      transformThreeD(deckArray[3], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .4, 0), "px", 0, "px");
+      transformThreeD(deckArray[4], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .2, 0), "px", 0, "px");
+      transformThreeD(deckArray[5], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .15, 0), "px", 0, "px");
     }
   }
   updateCardElements() {
     this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
+        { transformRotate }              = helpers,
         cardsContainer  = findDOMNode(this.refs.cards),
         cardsDimensions = cardsContainer.getBoundingClientRect(),
         cardsTop        = cardsDimensions.top,
@@ -105,14 +108,15 @@ class RunItOnce extends Component {
         relativeY       = (context / (cardsHeight * 2));
 
     if (context >= 0 && cardsBottom >= 0) {
-      cardsArray[0].style.transform = `rotate( ${this.position(0, -15, relativeY, 0)}deg)`;
-      cardsArray[1].style.transform = `rotate( ${this.position(0,  15, relativeY, 0)}deg)`;
-      cardsArray[2].style.transform = `rotate( ${this.position(0, -15, relativeY, 0)}deg)`;
+      transformRotate(cardsArray[0], this.position(0, -15, relativeY, 0));
+      transformRotate(cardsArray[1], this.position(0,  15, relativeY, 0));
+      transformRotate(cardsArray[2], this.position(0, -15, relativeY, 0));
     }
   }
   updateEndingElements() {
     this.ticking = false ;
     let { viewportHeight, windowWidth }  = this.props,
+        { transformThreeD }   = helpers,
         currentScrollPosition = this.lastKnownScroll,
         cardboxContainer      = findDOMNode(this.refs.ending),
         cardboxDimensions     = cardboxContainer.getBoundingClientRect(),
@@ -138,11 +142,17 @@ class RunItOnce extends Component {
     }
 
     if (context >= 0 && cardboxBottom >= 0) {
-      cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(values[0][0], values[0][1], relativeY, 0)}px, 0`;
-      cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(values[1][0], values[1][1], relativeY  * 2,    0)}px, 0`;
-      cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(values[2][0], values[2][1], relativeY  * 2,    0)}px, 0`;
-      cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(values[3][0], values[3][1], relativeY  * 2,    0)}px, 0`;
-      cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(values[4][0], values[4][1], relativeY  * 1.15, 0)}px, 0`;
+      transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * 1.15, 0), "px", 0, "px");
+
+      // cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(values[0][0], values[0][1], relativeY, 0)}px, 0`;
+      // cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(values[1][0], values[1][1], relativeY  * 2,    0)}px, 0`;
+      // cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(values[2][0], values[2][1], relativeY  * 2,    0)}px, 0`;
+      // cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(values[3][0], values[3][1], relativeY  * 2,    0)}px, 0`;
+      // cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(values[4][0], values[4][1], relativeY  * 1.15, 0)}px, 0`;
     }
 
     (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
