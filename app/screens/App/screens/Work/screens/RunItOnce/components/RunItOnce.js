@@ -54,7 +54,7 @@ class RunItOnce extends Component {
         cardboxNodes          = document.querySelectorAll(".cardbox__item"),
         cardboxArray          = [...cardboxNodes],
         context               = (currentScrollPosition - viewportHeight) * -1,
-        relativeY             = (currentScrollPosition / cardboxHeight) * 4,
+        relativeY             = (currentScrollPosition / cardboxHeight),
         values                = [];
 
     (windowWidth <= 640) ? values = [ 80/2, -120/2, -40/2, 40/2.25, 160/1.5] : values = [ 80, -120, -40, 40, 160 ];
@@ -126,9 +126,9 @@ class RunItOnce extends Component {
         cardboxNodes          = document.querySelectorAll(".cardbox-ending__item"),
         cardboxArray          = [...cardboxNodes],
         viewportHeightPlus    = viewportHeight * 1.05,
-        context               = (cardboxTop - viewportHeightPlus) * -1,
+        context               = (cardboxTop - viewportHeight) * -1,
         contextPlus           = context - 250,
-        relativeY             = (contextPlus / cardboxHeight),
+        relativeY             = (context / cardboxHeight),
         values                = [],
         buyButton             = findDOMNode(this.refs.buy),
         showButtonValue       = 0;
@@ -142,17 +142,17 @@ class RunItOnce extends Component {
     }
 
     if (context >= 0 && cardboxBottom >= 0) {
-      transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 2, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 2, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 2, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * 1.15, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 2, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 2, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 2, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * 1.15, 0), "px", 0, "px");
 
-      // cardboxArray[0].style.transform = `translate3d( -50%, ${this.position(values[0][0], values[0][1], relativeY, 0)}px, 0`;
-      // cardboxArray[1].style.transform = `translate3d( -50%, ${this.position(values[1][0], values[1][1], relativeY  * 2,    0)}px, 0`;
-      // cardboxArray[2].style.transform = `translate3d( -50%, ${this.position(values[2][0], values[2][1], relativeY  * 2,    0)}px, 0`;
-      // cardboxArray[3].style.transform = `translate3d( -50%, ${this.position(values[3][0], values[3][1], relativeY  * 2,    0)}px, 0`;
-      // cardboxArray[4].style.transform = `translate3d( -50%, ${this.position(values[4][0], values[4][1], relativeY  * 1.15, 0)}px, 0`;
+      transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY * .75, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * .75, 0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
