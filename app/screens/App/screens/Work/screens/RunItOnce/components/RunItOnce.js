@@ -148,10 +148,10 @@ class RunItOnce extends Component {
       // transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 2, 0), "px", 0, "px");
       // transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * 1.15, 0), "px", 0, "px");
 
-      transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY * .75, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY * .85, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 1, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 1, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 1, 0), "px", 0, "px");
       transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * .75, 0), "px", 0, "px");
     }
 
