@@ -15,6 +15,7 @@ $splat-lg: 1440px;
 		position: relative;
 		width: 100%;
 		margin: 0 auto;
+		height: 100%;
 		@include respond-to(xs) {max-width: $splat-xs;}
 		@include respond-to(sm) {max-width: $splat-sm;}
 		@include respond-to(md) {max-width: $splat-md;}
@@ -28,25 +29,38 @@ $splat-lg: 1440px;
 
 		@include respond-to(sm) {
 			@include hero('../images/work/sizzling-platter/hero/hero-bg.png');
-			height: 775px;
+			height: 615px;
 			overflow: hidden;
 		}
+
+		@include respond-to(md) { height: 720px; }
 
 		&-container__item {
 			width: percentage(334 / 375);
 			margin: 0 auto;
 			display: block;
+			z-index: 2;
 
-			&:nth-child(2) { left: 25%; display: none; }
-			&:nth-child(3) { left: 75%; display: none; }
+			&:nth-child(2) { left: 35%; display: none; z-index: 1; }
+			&:nth-child(3) { left: 65%; display: none; z-index: 1; }
 
 			@include respond-to(sm) {
-				width: percentage(635 / 940);
+				width: 635px;
+				max-width: 750px;
 				position: absolute;
 				left: 50%;
+				bottom: -350px;
 				transform: translate3d(-50%, 0, 0);
-				display: block;
+
+				&:nth-child(2), &:nth-child(3) { display: block; bottom: 0; }
 			}
+
+			@include respond-to(md) {
+				width: 750px;
+				bottom: -465px;
+			}
+
+
 		}
 
 	}
