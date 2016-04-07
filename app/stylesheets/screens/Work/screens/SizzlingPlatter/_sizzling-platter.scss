@@ -59,28 +59,35 @@ $splat-lg: 1440px;
 				width: 750px;
 				bottom: -465px;
 			}
-
-
 		}
-
 	}
 
 	.prep {
 		background: $splat-primary;
-		text-align: center;
-		font-family: Lato-Light;
+		padding: 50px 0 300px;
+
+		&-container {
+			width: 90%;
+			text-align: center;
+			@include respond-to(sm) { text-align: center; }
+		}
 
 		h1 {
 			font-size: 32px;
 			color: #6E6B6B;
-			letter-spacing: 3.15px;
-			@include respond-to(xs) { font-size: 36px; letter-spacing: 3.54px; }
+			margin-bottom: 25px;
+			@include respond-to(sm) { font-size: 36px; letter-spacing: 3.54px; }
 		}
 
 		p {
 			font-size: 16px;
+			line-height: 1.35;
 			color: #343030;
-			@include respond-to(xs) { font-size: 18px; }
+			text-align: left;
+			max-width: 670px;
+			margin-left: auto;
+			margin-right: auto;
+			@include respond-to(sm) { font-size: 18px; text-align: center; }
 		}
 	}
 
