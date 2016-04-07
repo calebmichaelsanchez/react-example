@@ -171,8 +171,9 @@ class SizzlingPlatter extends Component {
 	render() {
 		let img = {
 			hero: {
-	        mobile   : require("../../../../../../../images/work/sizzling-platter/hero/hero--splat-mobile.png"),
-	        tablet : require("../../../../../../../images/work/sizzling-platter/hero/hero--splat-tablet.png")
+	        one   : require("../../../../../../../images/work/sizzling-platter/hero/hero-screen-front.png"),
+	        two   : require("../../../../../../../images/work/sizzling-platter/hero/hero-screen-left.png"),
+					three   : require("../../../../../../../images/work/sizzling-platter/hero/hero-screen-right.png")
 			},
 			patterns: {
 				peppers		: require("../../../../../../../images/work/sizzling-platter/patterns/peppers.png"),
@@ -203,7 +204,14 @@ class SizzlingPlatter extends Component {
 		return (
 			<DocumentTitle title="Sizzling Platter | Underbelly Creative">
 				<div className="case-study sizzling-platter">
-					<div className="hero--splat" ref="heroSplat"></div>
+
+					<div className="hero--splat" ref="heroSplat">
+						<div className="hero--splat-container">
+							<img className="hero--splat-container__item" src={img.hero.one} />
+							<img className="hero--splat-container__item" src={img.hero.two} />
+							<img className="hero--splat-container__item" src={img.hero.three} />
+						</div>
+					</div>
 
 					<div className="prep" ref="prep">
 						<div className="prep-container">

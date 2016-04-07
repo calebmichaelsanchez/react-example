@@ -1,5 +1,5 @@
 
-$splat-primary: #020203;
+$splat-primary: #fff;
 $splat-secondary: #101012;
 $splat-borders: #898c8c;
 $splat-red: #B54A49;
@@ -8,279 +8,67 @@ $splat-sm: 940px;
 $splat-md: 1200px;
 $splat-lg: 1440px;
 
-.hero--splat {
-	@include hero('../images/work/sizzling-platter/hero/hero--splat-mobile.png');
-	height: 550px;
-	// 	height: 50vh;
-	// 	@include respond-to(sm) { height: 583; }
-	// 	@include respond-to(md) { height: 100vh; }
-
-	// &--final {
-	// 	height: 400px;
-	// 	.cardbox { bottom: -20%; }
-	// }
-
-	@include respond-to(xs) {
-		@include hero('../images/work/sizzling-platter/hero/hero--splat-tablet.png');
-		height: 775px;
-	}
-
-}
-
-
-// .button.buy-button {
-//     background: #A47C3F;
-//     color: #fff;
-//     border: none;
-//     padding: 10px 0;
-//     min-width: 195px;
-// 	 	position: absolute;
-// 	 	top: 14%;
-// 	 	left: 50%;
-// 	 	transform: translate3d(-50%, 30px, 0);
-// 		opacity: 0;
-// 		transition: 600ms ease;
-// 		@include respond-to(sm) {
-// 			top: 12%;
-// 		}
-// 		&.active {
-// 			opacity: 1;
-// 			transform: translate3d(-50%, 0, 0);
-// 		}
-// 	 &:hover {
-// 		 color: $rio-primary;
-// 	 }
-// }
-
-// .rio-logo {
-// 	margin-top: 126px;
-// 	width: 235px;
-// 	@include respond-to(xs) {
-// 		margin-top: 185px;
-// 		width: 445px;
-// 	}
-// }
-
-// .cardbox {
-// 	position: absolute;
-// 	bottom: -31%;
-// 	left: 50%;
-// 	width: 235px;
-// 	transform: translate3d(-50%, 0px, 0);
-// 	@include respond-to(xs) {
-// 		width: 475px;
-// 		bottom: -38%;
-// 	}
-// 	&__item, &-ending__item {
-// 		position: absolute;
-// 		bottom: 0;
-// 		left: 50%;
-// 		transform: translate3d(-50%, 0, 0);
-// 		&--front { position: relative; }
-// 		&--lid {
-// 			bottom: initial;
-// 			top: 0;
-// 			width: calc(100% - 12px);
-// 		}
-// 		&--card {
-// 			bottom: initial;
-// 			top: 10%;
-// 			transition-delay: 0;
-// 			width: calc(100% - 14px);
-// 		}
-// 	}
-// }
-
-// .two-cards {
-// 	@include hero('../images/work/run-it-once/hero/two-cards.png');
-// 	height: 50vh;
-// 	@include respond-to(sm) { height: 583; }
-// 	@include respond-to(md) { height: 100vh; }
-// }
-
-// .deck {
-// 	padding: 70px 22px 60px;
-// 	@include respond-to(sm) {
-// 		padding: 143px 0 0;
-// 		height: 1200px;
-// 	}
-//
-// 	&-container {
-// 		width: 100%;
-// 		max-width: 1440px;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 		position: relative;
-// 		@extend %clearfix;
-// 		&__item {
-//
-// 		}
-// 	}
-//
-// 	&-copy {
-// 		padding-bottom: 100px;
-// 		@include respond-to(sm) {
-// 			max-width: 410px;
-// 			margin-right: percentage(123 / 1440);
-// 			float: right;
-// 		}
-// 		@include respond-to(lg) {
-// 			max-width: 500px;
-// 		}
-// 	}
-//
-// 	&-cards {
-// 		position: relative;
-// 		margin: 0 auto 0;
-// 		width: 100%;
-// 		display: block;
-// 		height: 494px;
-// 		@media screen and (min-width: 330px) {
-// 			width: 330px;
-// 		}
-// 		@include respond-to(sm) {
-// 			position: absolute;
-// 			width: 1042px;
-// 			height: 934px;
-// 			top: 0;
-// 			right: -15px;
-// 		}
-// 		@include respond-to(md) {
-// 			right: percentage(135 / 1024);
-// 		}
-// 		&__item {
-// 			position: absolute;
-// 			top: 0;
-// 			left: 50%;
-// 			transform: translate3d(-50%, 0, 0);
-// 			@include respond-to(sm) {
-// 				left: 0;
-// 				transform: none;
-// 			}
-// 			&:nth-of-type(1) {
-// 				z-index: 6;
-// 				width: percentage(327.59 / 330);
-// 				@include respond-to(sm) {
-// 					width: percentage(502 / 1042);
-// 				}
-// 			}
-// 			&:nth-of-type(2) {
-// 				top: 97px;
-// 				width: percentage(326.94 / 330);
-// 				z-index: 5;
-// 				@include respond-to(sm) {
-// 					width: percentage(501 / 1042);
-// 					top: 149px;
-// 				}
-// 			}
-// 			&:nth-of-type(3) {
-// 				top: 185px;
-// 				width: percentage(326.29 / 330);
-// 				z-index: 4;
-// 				@include respond-to(sm) {
-// 					width: percentage(500 / 1042);
-// 					top: 283px;
-// 				}
-// 			}
-// 			&:nth-of-type(4) {
-// 				top: 279px;
-// 				width: percentage(324.33 / 330);
-// 				z-index: 3;
-// 				@include respond-to(sm) {
-// 					width: percentage(497 / 1042);
-// 					top: 427px;
-// 				}
-// 			}
-// 			&:nth-of-type(5) {
-// 				top: 348px;
-// 				width: percentage(323.68 / 330);
-// 				z-index: 2;
-// 				@include respond-to(sm) {
-// 					width: percentage(496 / 1042);
-// 					top: 533px;
-// 					left: 60px;
-// 				}
-// 			}
-// 			&:nth-of-type(6) {
-// 				display: none;
-// 				z-index: 1;
-// 				@include respond-to(sm) {
-// 					display: block;
-// 					top: 648px;
-// 					left: 450px;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-// .cards {
-// 	overflow: hidden;
-// 	&-container {
-// 		position: relative;
-// 		max-width: 100%;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 		width: 100%;
-// 		@extend %clearfix;
-// 		padding: 45px 20px 90px;
-// 		@include respond-to(sm) {
-// 			max-width: 768px;
-// 			padding: 184px 20px;
-// 		}
-// 		@include respond-to(md) {
-// 			max-width: 978px;
-// 			padding: 320px 20px;
-// 		}
-// 		@include respond-to(lg) { padding: 320px 20px; }
-// 	}
-// 	&-copy {
-// 		width: 335px;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 		@include respond-to(xs) {
-// 			width: 80%
-// 		}
-// 		@include respond-to(sm) {
-// 			width: 387px;
-// 			float: left;
-// 		}
-//
-// 		@include respond-to(md) {
-// 			width: 512px;
-// 		}
-// 	}
-// 	&-cards {
-// 		position: relative;
-// 		padding-top: 100px;
-// 		width: 300px;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 		@include respond-to(sm) {
-// 			padding-top: 0;
-// 			position: absolute;
-// 			right: 0;
-// 			top: 50%;
-// 			transform: translateY(-50%);
-// 			width: 285px;
-// 		}
-// 		@include respond-to(md) {
-// 			width: 335px;
-// 		}
-// 		&__item {
-// 			position: relative;
-// 			display: block;
-// 			margin: 0 auto -50px;
-//
-// 			&:nth-child(1){ z-index: 3; }
-// 			&:nth-child(2){ z-index: 2; }
-// 			&:nth-child(3){ z-index: 1; }
-// 		}
-// 	}
-// }
-
 .sizzling-platter {
 	background-color: $splat-primary;
+
+	[class$=container] {
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+		@include respond-to(xs) {max-width: $splat-xs;}
+		@include respond-to(sm) {max-width: $splat-sm;}
+		@include respond-to(md) {max-width: $splat-md;}
+		@include respond-to(lg) {max-width: $splat-lg;}
+	}
+
+	.hero--splat {
+		@include hero('../images/work/sizzling-platter/hero/hero-bg-mobile.png');
+		background-color: #0A0808;
+		padding-top: 120px;
+
+		@include respond-to(sm) {
+			@include hero('../images/work/sizzling-platter/hero/hero-bg.png');
+			height: 775px;
+			overflow: hidden;
+		}
+
+		&-container__item {
+			width: percentage(334 / 375);
+			margin: 0 auto;
+			display: block;
+
+			&:nth-child(2) { left: 25%; display: none; }
+			&:nth-child(3) { left: 75%; display: none; }
+
+			@include respond-to(sm) {
+				width: percentage(635 / 940);
+				position: absolute;
+				left: 50%;
+				transform: translate3d(-50%, 0, 0);
+				display: block;
+			}
+		}
+
+	}
+
+	.prep {
+		background: $splat-primary;
+		text-align: center;
+		font-family: Lato-Light;
+
+		h1 {
+			font-size: 32px;
+			color: #6E6B6B;
+			letter-spacing: 3.15px;
+			@include respond-to(xs) { font-size: 36px; letter-spacing: 3.54px; }
+		}
+
+		p {
+			font-size: 16px;
+			color: #343030;
+			@include respond-to(xs) { font-size: 18px; }
+		}
+	}
 
 	p {
 		color: #fff;
