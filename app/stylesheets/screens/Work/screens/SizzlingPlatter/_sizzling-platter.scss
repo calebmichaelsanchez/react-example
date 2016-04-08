@@ -63,8 +63,13 @@ $splat-lg: 1440px;
 	}
 
 	.prep {
-		background: $splat-primary;
+		background-color: $splat-primary;
 		padding: 50px 0 300px;
+		@include hero('../images/work/sizzling-platter/prep/Shrooms-mobile.png');
+		background-position: 50% 100%;
+		background-size: 100% auto;
+		@include respond-to(sm) { padding: 150px 0 300px; }
+		@include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
 
 		&-container {
 			width: 90%;
@@ -91,13 +96,36 @@ $splat-lg: 1440px;
 		}
 	}
 
+	.patterns {
+		background: #F7F7F7;
+		text-align: center;
+		padding: 100px 0;
+		position: relative;
+		overflow: hidden;
+		@include respond-to(sm) { padding: 150px 0; }
+
+		h1, p {
+			color: #6E6B6B;
+			margin-bottom: 50px;
+			position: relative;
+			z-index: 2;
+		}
+
+		&-container__item { position: relative; z-index: 2; margin-bottom: 125px; }
+
+		&__item { position: absolute; z-index: 1; }
+		&__item:nth-child(2) { top: 0; left: 0; width: percentage(690 / 1440); max-width: 300px; }
+		&__item:nth-child(3) { bottom: 0; left: 0; width: percentage(750 / 1440); max-width: 600px; }
+		&__item:nth-child(4) { top: 25%; right: 0; width: percentage(635 / 1440); max-width: 300px; }
+	}
+
 	p {
 		color: #fff;
 		line-height: 2.25;
 		margin-bottom: 2rem;
-		&:last-of-type {
-			margin-bottom: 0;
-		}
+		// &:last-of-type {
+		// 	margin-bottom: 0;
+		// }
 	}
 
 	.button {

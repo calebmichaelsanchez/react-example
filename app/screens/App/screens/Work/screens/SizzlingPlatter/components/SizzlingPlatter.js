@@ -176,6 +176,7 @@ class SizzlingPlatter extends Component {
 					three   : require("../../../../../../../images/work/sizzling-platter/hero/hero-screen-right.png")
 			},
 			patterns: {
+				swatches		: require("../../../../../../../images/work/sizzling-platter/patterns/swatches.png"),
 				peppers		: require("../../../../../../../images/work/sizzling-platter/patterns/peppers.png"),
 				pepperonis	: require("../../../../../../../images/work/sizzling-platter/patterns/pepperonis.png"),
 				sprinkles	: require("../../../../../../../images/work/sizzling-platter/patterns/sprinkles.png")
@@ -222,6 +223,20 @@ class SizzlingPlatter extends Component {
 							</div>
 							<a href="#" className="button">Web Design</a> <a href="#" className="button">Photography</a> <a href="#" className="button">Development</a>
 						</div>
+					</div>
+
+					<div className="patterns" ref="patterns">
+						<div className="patterns-container">
+							<h1>COLORS</h1>
+							<img className="patterns-container__item" src={img.patterns.swatches} />
+							<h1>LATO LIGHT</h1>
+							<p>A B C D E F G H I J K L M N O <br/>
+							P Q R S T U V W X Y Z <br/>
+							0 1 2 3 4 5 6 7 8 9</p>
+						</div>
+						<img className="patterns__item" src={img.patterns.peppers} />
+						<img className="patterns__item" src={img.patterns.pepperonis} />
+						<img className="patterns__item" src={img.patterns.sprinkles} />
 					</div>
 
 					<div className="ingredients">
