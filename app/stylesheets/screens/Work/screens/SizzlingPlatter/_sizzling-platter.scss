@@ -64,8 +64,8 @@ $splat-lg: 1440px;
 
 	.prep {
 		background-color: $splat-primary;
-		padding: 50px 0 300px;
 		@include hero('../images/work/sizzling-platter/prep/Shrooms-mobile.png');
+		padding: 50px 0 300px;
 		background-position: 50% 100%;
 		background-size: 100% auto;
 		@include respond-to(sm) { padding: 150px 0 300px; }
@@ -99,7 +99,7 @@ $splat-lg: 1440px;
 	.patterns {
 		background: #F7F7F7;
 		text-align: center;
-		padding: 100px 0;
+		padding: 50px 0;
 		position: relative;
 		overflow: hidden;
 		@include respond-to(sm) { padding: 150px 0; }
@@ -114,18 +114,154 @@ $splat-lg: 1440px;
 		&-container__item { position: relative; z-index: 2; margin-bottom: 125px; }
 
 		&__item { position: absolute; z-index: 1; }
-		&__item:nth-child(2) { top: 0; left: 0; width: percentage(690 / 1440); max-width: 300px; }
-		&__item:nth-child(3) { bottom: 0; left: 0; width: percentage(750 / 1440); max-width: 600px; }
-		&__item:nth-child(4) { top: 25%; right: 0; width: percentage(635 / 1440); max-width: 300px; }
+		&__item:nth-child(2) {
+			top: -75px; left: -100px;
+			width: percentage(690 / 1440);
+			max-width: 300px;
+			@include respond-to(sm) { left: -25px; }
+			@include respond-to(md) { left: 0; }
+		}
+		&__item:nth-child(3) {
+			bottom: 0; left: -75px;
+			width: percentage(850 / 1440);
+			max-width: 600px;
+		}
+		&__item:nth-child(4) {
+			top: 25%; right: -75px;
+			width: percentage(635 / 1440);
+			max-width: 325px;
+			@include respond-to(md) { right: 0; }
+		}
 	}
+
+	.ingredients {
+		background: #040203;
+		text-align: center;
+		padding: 50px 0 0;
+		@include respond-to(sm) { padding: 150px 0 0; }
+
+		h1 {
+			color: #fff; margin-bottom: 25px;
+			@include respond-to(sm) { margin-bottom: 50px; }
+		}
+
+		p {
+			max-width: 850px;
+			line-height: 1.75;
+			font-size: 18px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		&-container { padding: 0 2rem 0; }
+
+		&-hero {
+			background: #040203;
+
+			@include hero('../images/work/sizzling-platter/ingredients/bg-mobile.png');
+			padding: 25% 0 400px;
+			min-height: 450px;
+
+			@include respond-to(sm) {
+				@include hero('../images/work/sizzling-platter/ingredients/bg.png');
+				min-height: 550px;
+			}
+
+			@include respond-to(md) {min-height: 750px;}
+			@include respond-to(lg) {min-height: 950px;}
+		}
+
+		&-gallery > img {
+			width: 100%;
+		}
+
+	}
+
+	.design--dev {
+		text-align: center;
+		color: #6E6B6B;
+		padding: 50px 0;
+		overflow: hidden;
+
+		@include respond-to(sm) {
+			background-image: url('../images/work/sizzling-platter/design-dev/bg-left-tablet.png'),
+			url('../images/work/sizzling-platter/design-dev/bg-right-tablet.png');
+			background-repeat: no-repeat, no-repeat;
+			background-position: 0 50px, 100% 50px;
+			padding: 250px 0 150px;
+		}
+
+		@include respond-to(md) {
+			background-image: url('../images/work/sizzling-platter/design-dev/bg-left-desktop.png'),
+			url('../images/work/sizzling-platter/design-dev/bg-right-desktop.png');
+			background-repeat: no-repeat, no-repeat;
+			background-position: 0 25px, 100% 25px;
+		}
+
+		@include respond-to(lg) {
+			background-image: url('../images/work/sizzling-platter/design-dev/design-dev-bg-left.png'),
+			url('../images/work/sizzling-platter/design-dev/design-dev-bg-right.png');
+			background-repeat: no-repeat, no-repeat;
+			background-position: 0 0, 100% 0;
+		}
+
+		h1 { margin-bottom: 25px; }
+
+		p {
+			color: #646469;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			line-height: 1.75;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 800px;
+		}
+
+		.iphone {
+			position: relative;
+
+			&__item:nth-child(2),
+			&__item:nth-child(3) {
+				position: absolute;
+				top: 150px;
+			}
+
+			&__item:nth-child(2) {
+				left: calc(50% - 450px);
+			}
+		}
+
+		.ss { margin-top: 50px; margin-bottom: 50px; }
+
+		.squarespace {
+			position: relative;
+			&__item {
+				position: absolute;
+				left:50%;
+				top: 0;
+				transform: translate3d(-50%, 0, 0);
+			}
+		}
+
+
+		.laptop {
+			padding: 50px 2rem;
+			position: relative;
+			respond-to(sm) { padding: 100px 2rem 100px; }
+			respond-to(lg) { padding: 150px 2rem 150px; }
+		}
+
+	}
+
+	.see-more-container {
+		max-width: 100%;
+	}
+
 
 	p {
 		color: #fff;
 		line-height: 2.25;
 		margin-bottom: 2rem;
-		// &:last-of-type {
-		// 	margin-bottom: 0;
-		// }
 	}
 
 	.button {
@@ -143,87 +279,4 @@ $splat-lg: 1440px;
 		}
 	}
 
-	.case-study-gallery {
-
-		@media screen and (min-width: $small) {
-			overflow: hidden;
-
-			border-top: 1px solid $rio-borders;
-			border-bottom: 1px solid $rio-borders;
-		}
-
-		.galleryImg {
-			margin-bottom: 1px;
-			border-bottom: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				margin: 0;
-				border: none;
-			}
-		}
-
-		.galleryImg.one {
-			border-top: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				border: none;
-				border-right: 1px solid $rio-borders;
-			}
-		}
-
-		.galleryImg.two {
-			@media screen and (min-width: $small) {
-				margin-bottom: 1px;
-
-				border-bottom: 1px solid $rio-borders;
-			}
-		}
-
-	}
-
-	.case-study-gallery2 {
-		@media screen and (min-width: $small) {
-			overflow: hidden;
-			border-top: 1px solid $rio-borders;
-			border-bottom: 1px solid $rio-borders;
-		}
-
-		.gallery2Img {
-			margin-bottom: 1px;
-			border-bottom: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				margin: 0;
-				border: none;
-				border-right: 1px solid $rio-borders;
-			}
-		}
-
-		.gallery2Img.one {
-			border-top: 1px solid $rio-borders;
-			@media screen and (min-width: $small) {
-				border-top: none;
-			}
-		}
-
-		.gallery2Img.three {
-			border-right: none;
-		}
-
-
-	}
-
-	.button-wrap {
-		text-align: center;
-		margin-bottom: 25px;
-
-		@media screen and (min-width: $rio-xs){
-			text-align: left;
-		}
-	}
-
-	.case-study-gallery,
-	.case-study-gallery2 {
-		padding: 0;
-	}
 }
