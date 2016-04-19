@@ -15,35 +15,41 @@ class RunItOnce extends Component {
     this.updateCardboxElements = this.updateCardboxElements.bind(this);
     this.updateDeckElements    = this.updateDeckElements.bind(this);
     this.updateCardElements    = this.updateCardElements.bind(this);
-    this.requestTick           = this.requestTick.bind(this);
     this.updateEndingElements  = this.updateEndingElements.bind(this);
 	}
 	componentDidMount() {
     this.lastKnownScroll = 0;
-    this.ticking         = false;
-    this.throttledScroll = helpers.throttle(this.onScroll, 30);
+    this.tickingOne      = false;
+    this.tickingTwo      = false;
+    this.tickingThree    = false;
+    this.tickingFour     = false;
 		ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
 		this.props.setNavTheme(this.props.theme);
-		window.addEventListener("scroll", this.throttledScroll, false);
+		window.addEventListener("scroll", this.onScroll, false);
 	}
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.throttledScroll, false);
+    window.removeEventListener("scroll", this.onScroll, false);
   }
   onScroll() {
     this.lastKnownScroll = window.pageYOffset;
-    this.requestTick();
-  }
-  requestTick() {
-    if(!this.ticking) {
+    if(!this.tickingOne)   {
       window.requestAnimFrame(this.updateCardboxElements);
-      window.requestAnimFrame(this.updateDeckElements);
-      window.requestAnimFrame(this.updateCardElements);
-      window.requestAnimFrame(this.updateEndingElements);
+      this.tickingOne = true;
     }
-    this.ticking = true;
+    if(!this.tickingTwo)   {
+      window.requestAnimFrame(this.updateDeckElements);
+      this.tickingTwo = true;
+    }
+    if(!this.tickingThree) {
+      window.requestAnimFrame(this.updateCardElements);
+      this.tickingThree = true;
+    }
+    if(!this.tickingFour)  {
+      window.requestAnimFrame(this.updateEndingElements);
+      this.tickingFour = true;
+    }
   }
   updateCardboxElements() {
-    this.ticking = false ;
     let { viewportHeight, windowWidth }  = this.props,
         { transformThreeD }   = helpers,
         currentScrollPosition = this.lastKnownScroll,
@@ -56,19 +62,18 @@ class RunItOnce extends Component {
         context               = (currentScrollPosition - viewportHeight) * -1,
         relativeY             = (currentScrollPosition / cardboxHeight),
         values                = [];
-
     (windowWidth <= 640) ? values = [ 80/2, -120/2, -40/2, 40/2.25, 160/1.5] : values = [ 80, -120, -40, 40, 160 ];
 
     if (context >= 0 && cardboxBottom >= 0) {
-      transformThreeD(cardboxArray[0], -50, "%",  this.position(0, values[0], relativeY, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%",  this.position(0, values[1], relativeY, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(0, values[2], relativeY, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position(0, values[3], relativeY, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[4], -50, "%",  this.position(0, values[4], relativeY, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[0], -50, "%",  this.position(0, values[0], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(0, values[1], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(0, values[2], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(0, values[3], relativeY * 2, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(0, values[4], relativeY * 2, 0), "px", 0, "px");
     }
+    this.tickingOne = false ;
   }
   updateDeckElements() {
-    this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
         { transformThreeD }   = helpers,
         deckContainer  = findDOMNode(this.refs.deck),
@@ -82,19 +87,19 @@ class RunItOnce extends Component {
         relativeY      = (context / (deckHeight * 2)),
         values         = [];
 
-    (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -220] ];
+    (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -320] ];
 
     if (context >= 0 && deckBottom >= 0) {
-      transformThreeD(deckArray[0], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY, 0), "px", 0, "px");
-      transformThreeD(deckArray[1], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .8, 0), "px", 0, "px");
-      transformThreeD(deckArray[2], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .6, 0), "px", 0, "px");
-      transformThreeD(deckArray[3], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .4, 0), "px", 0, "px");
-      transformThreeD(deckArray[4], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .2, 0), "px", 0, "px");
-      transformThreeD(deckArray[5], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .15, 0), "px", 0, "px");
+      transformThreeD(deckArray[0], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY,       0), "px", 0, "px");
+      transformThreeD(deckArray[1], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .8,  0), "px", 0, "px");
+      transformThreeD(deckArray[2], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .5,  0), "px", 0, "px");
+      transformThreeD(deckArray[3], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .3,  0), "px", 0, "px");
+      transformThreeD(deckArray[4], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .2,  0), "px", 0, "px");
+      transformThreeD(deckArray[5], values[1][0], "%", this.position(values[0][0], values[1][1], relativeY * .1,  0), "px", 0, "px");
     }
+    this.tickingTwo = false;
   }
   updateCardElements() {
-    this.setState({ ticking: false });
     let { viewportHeight, windowWidth }  = this.props,
         { transformRotate }              = helpers,
         cardsContainer  = findDOMNode(this.refs.cards),
@@ -112,9 +117,9 @@ class RunItOnce extends Component {
       transformRotate(cardsArray[1], this.position(0,  15, relativeY, 0));
       transformRotate(cardsArray[2], this.position(0, -15, relativeY, 0));
     }
+    this.tickingThree = false;
   }
   updateEndingElements() {
-    this.ticking = false ;
     let { viewportHeight, windowWidth }  = this.props,
         { transformThreeD }   = helpers,
         currentScrollPosition = this.lastKnownScroll,
@@ -149,13 +154,15 @@ class RunItOnce extends Component {
       // transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * 1.15, 0), "px", 0, "px");
 
       transformThreeD(cardboxArray[0], -50, "%",  this.position(values[0][0], values[0][1], relativeY * .85, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 1, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 1, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 1, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(values[1][0], values[1][1], relativeY * 1,   0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(values[2][0], values[2][1], relativeY * 1,   0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position(values[3][0], values[3][1], relativeY * 1,   0), "px", 0, "px");
       transformThreeD(cardboxArray[4], -50, "%",  this.position(values[4][0], values[4][1], relativeY * .75, 0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
+
+    this.tickingFour = false;
   }
   position(base, range, relativeY, offset) {
     let returnVal = base + this.limit(0, 1, relativeY - offset) * range;
