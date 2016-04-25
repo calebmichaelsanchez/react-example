@@ -44,9 +44,6 @@ $rio-xs: 760px;
 			opacity: 0;
 			transition: 600ms ease;
 			z-index: 0;
-			@media screen and (min-height: 640px) and (min-width: 640px) {
-				top: 20%;
-			}
 			&.active {
 				opacity: 1;
 				transform: translate3d(-50%, 0, 0);
@@ -369,7 +366,7 @@ $rio-xs: 760px;
 		transition: 800ms ease;
 		&:hover {
 			transform: scale(1.15);
-			transition: 12s ease;
+			transition: 10s ease;
 		}
 	}
 }

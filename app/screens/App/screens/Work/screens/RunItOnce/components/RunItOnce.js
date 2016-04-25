@@ -328,7 +328,7 @@ class RunItOnce extends Component {
               </div>
               <div className="intrinsic">
                 <div className="intrinsic__inner intrinsic__inner--half">
-                  <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${img.gallery.three})`}}></div>
+                  <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${img.gallery.three})`, backgroundPosition: "left center"}}></div>
                 </div>
               </div>
             </div>
@@ -370,7 +370,7 @@ class RunItOnce extends Component {
             </div>
 					</section>
           <div ref="ending" className="hero--rio hero--rio--final">
-            <a ref="buy" href="#" className="button buy-button">buy em now</a>
+            <a ref="buy" href="#" className="button buy-button">buy 'em now</a>
             <div id="cardBox" className="cardbox" ref="cardbox">
               <img src={img.cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
               {/*<img src={img.cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />*/}
