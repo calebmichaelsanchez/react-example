@@ -194,13 +194,13 @@ class RunItOnce extends Component {
         relativeYPlus       = (contextPlus / (cardboxHeight)),
         values              = [],
         buyButton           = findDOMNode(this.refs.buy),
-        showButtonValue     = 0,
-        movement1             = cardboxHeight * .08,
-        movement2             = cardboxHeight * (-.2),
-        movement3             = cardboxHeight * (-.1),
-        movement4             = cardboxHeight * .01,
-        movement5             = cardboxHeight * .165,
-        lidSpeed              = windowWidth >= 1440 ? 3 : 4;
+        showButtonValue     = cardboxHeight * .2,
+        movement1           = cardboxHeight * .08,
+        movement2           = cardboxHeight * (-.2),
+        movement3           = cardboxHeight * (-.1),
+        movement4           = cardboxHeight * .01,
+        movement5           = cardboxHeight * .165,
+        lidSpeed            = windowWidth >= 1440 ? 3 : 4;
 
     // if (windowWidth <= 640) {
     //   values = [ [-10, 10], [-140, 240], [-80, 180], [-30, 100], [60, -60] ]
