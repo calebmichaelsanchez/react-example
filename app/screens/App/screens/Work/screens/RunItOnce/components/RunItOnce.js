@@ -172,9 +172,9 @@ class RunItOnce extends Component {
     (context >= cardsHeight / 3) ? this.elementThree.classList.add("active") : this.elementThree.classList.remove("active");
 
     if (context >= 0 && cardsBottom >= 0) {
-      transformRotate(cardsArray[0], this.position(0, -25, relativeY, 0));
-      transformRotate(cardsArray[1], this.position(0,  25, relativeY, 0));
-      transformRotate(cardsArray[2], this.position(0, -25, relativeY, 0));
+      transformRotate(cardsArray[0], this.position(15,  -15, relativeY, 0));
+      transformRotate(cardsArray[1], this.position(-15,  15, relativeY, 0));
+      transformRotate(cardsArray[2], this.position(15,  -15, relativeY, 0));
     }
     this.tickingThree = false;
   }
@@ -187,7 +187,8 @@ class RunItOnce extends Component {
         cardboxNodes        = document.querySelectorAll(".cardbox-ending__item"),
         cardboxArray        = [...cardboxNodes],
         viewportHeightPlus  = viewportHeight * 1.05,
-        context             = (cardboxTop - (viewportHeight * .75) ) * -1,
+        context             = (cardboxTop - (viewportHeight * .6) ) * -1,
+        contextView         = (cardboxTop - (viewportHeight) ) * -1,
         contextPlus         = context - (cardboxHeight * .6),
         relativeY           = (context / (cardboxHeight)),
         relativeYPlus       = (contextPlus / (cardboxHeight)),
@@ -198,24 +199,25 @@ class RunItOnce extends Component {
         movement2             = cardboxHeight * (-.2),
         movement3             = cardboxHeight * (-.1),
         movement4             = cardboxHeight * .01,
-        movement5             = cardboxHeight * .165;
+        movement5             = cardboxHeight * .165,
+        lidSpeed              = windowWidth >= 1440 ? 3 : 4;
 
-    if (windowWidth <= 640) {
-      values = [ [-10, 10], [-140, 240], [-80, 180], [-30, 100], [60, -60] ]
-      showButtonValue = 75;
-    } else {
-      showButtonValue = 150;
-      values = [ [-20, 20], [-220, 280], [-120, 220], [-10, 140], [120, -120] ];
-    }
+    // if (windowWidth <= 640) {
+    //   values = [ [-10, 10], [-140, 240], [-80, 180], [-30, 100], [60, -60] ]
+    //   showButtonValue = 75;
+    // } else {
+    //   showButtonValue = 150;
+    //   values = [ [-20, 20], [-220, 280], [-120, 220], [-10, 140], [120, -120] ];
+    // }
 
-    if (context >= 0 && cardboxBottom >= 0) {
-      transformThreeD(cardboxArray[0], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * 2.75, 0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * 2.75, 0), "px", 0, "px");
+    if (contextView >= 0) {
+      transformThreeD(cardboxArray[0], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
+      // transformThreeD(cardboxArray[1], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * 2.75, 0), "px", 0, "px");
 
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(movement2,       (movement2 * -1), relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position(movement3,       (movement3 * -1), relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[4], -50, "%",  this.position((movement4 * -1), movement4,       relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[5], -50, "%",  this.position(movement5,       (movement5 * -1), relativeY * 1.5,   0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(movement2,       (movement2 * -1), relativeY * 1.5,     0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(movement3,       (movement3 * -1), relativeY * 1.5,     0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position((movement4 * -1), movement4,       relativeY * 1.5,     0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(movement5,       (movement5 * -1), relativeY * 1.5,   0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
@@ -371,7 +373,7 @@ class RunItOnce extends Component {
             <a ref="buy" href="#" className="button buy-button">buy em now</a>
             <div id="cardBox" className="cardbox" ref="cardbox">
               <img src={img.cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
-              <img src={img.cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />
+              {/*<img src={img.cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />*/}
               <img src={img.cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
               <img src={img.cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
               <img src={img.cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />

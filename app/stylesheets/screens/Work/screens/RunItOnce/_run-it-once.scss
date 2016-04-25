@@ -11,14 +11,23 @@ $rio-xs: 760px;
 	color: color(white);
 	min-height: 520px;
 	text-align: center;
-	@media screen and (min-height: 640px) {
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		height: 60vh;
+	}
+	@media screen and (min-height: 640px) and (min-width: 768px) {
+		height: 75vh;
+	}
+	@media screen and (min-height: 640px) and (min-width: 1024px) {
 		height: 90vh;
 	}
 	&--final {
 		// height: 400px;
 		// .cardbox { bottom: -20%; }
-		min-height: 420px;
-		@media screen and (min-height: 640px) {
+		min-height: 520px;
+		@media screen and (min-height: 640px) and (min-width: 640px) {
+			height: 50vh;
+		}
+		@media screen and (min-height: 640px) and (min-width: 768px) {
 			height: 75vh;
 		}
 	}
@@ -73,9 +82,9 @@ $rio-xs: 760px;
 	max-width: 235px;
 	// 475
 	transform: translate3d(-50%, 0px, 0);
-	@media screen and (min-height: 640px) {
-		bottom: -10%;
-	}
+	// @media screen and (min-height: 640px) {
+	// 	bottom: -15%;
+	// }
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		max-width: 300px;
 		bottom: -20%;
@@ -89,7 +98,7 @@ $rio-xs: 760px;
 		bottom: -30%;
 	}
 	@media screen and (min-height: 1024px) and (min-width: 1024px) {
-		bottom: -25%;
+		bottom: -30%;
 	}
 	&__item, &-ending__item {
 		position: absolute;
@@ -298,24 +307,27 @@ $rio-xs: 760px;
 	&-cards {
 		position: relative;
 		padding-top: 100px;
-		max-width: 300px;
+		max-width: 250px;
 		margin-left: auto;
 		margin-right: auto;
 		@include respond-to(sm) {
 			padding-top: 0;
 			position: absolute;
-			right: 0;
+			right: 5%;
 			top: 50%;
 			transform: translate3d(0, -50%, 0);
-			max-width: 285px;
+			max-width: 200px;
 		}
 		@include respond-to(md) {
-			max-width: 335px;
+			max-width: 200px;
+		}
+		@include respond-to(lg) {
+			right: 0;
 		}
 		&__item {
 			position: relative;
 			display: block;
-			margin: 0 auto -50px;
+			margin: 0 auto 0;
 
 			&:nth-child(1){ z-index: 3; }
 			&:nth-child(2){ z-index: 2; }
