@@ -4,34 +4,22 @@ $rio-secondary: #101012;
 $rio-borders: #898c8c;
 $rio-red: #B54A49;
 $rio-xs: 760px;
-$rio-sm: 940px;
-$rio-md: 1200px;
-$rio-lg: 1440px;
-
-// .case-study.run-it-once ~ nav.light {
-// 	svg path {
-// 		fill: #F9FAFC;
-// 	}
-// 	.nav-item a {
-// 		color: #F9FAFC;
-// 	}
-// }
 
 .hero--rio {
 	position: relative;
 	overflow: hidden;
 	color: color(white);
-	height: 437px;
+	min-height: 520px;
 	text-align: center;
-	&--final {
-		height: 400px;
-		.cardbox { bottom: -20%; }
+	@media screen and (min-height: 640px) {
+		height: 90vh;
 	}
-
-	@include respond-to(xs) {
-		height: 762px;
-		&--final {
-			height: 720px;
+	&--final {
+		// height: 400px;
+		// .cardbox { bottom: -20%; }
+		min-height: 420px;
+		@media screen and (min-height: 640px) {
+			height: 75vh;
 		}
 	}
 	.button.buy-button {
@@ -41,13 +29,14 @@ $rio-lg: 1440px;
 	    padding: 10px 0;
 	    min-width: 195px;
 		 	position: absolute;
-		 	top: 14%;
+		 	top: 18%;
 		 	left: 50%;
 		 	transform: translate3d(-50%, 30px, 0);
 			opacity: 0;
 			transition: 600ms ease;
-			@include respond-to(sm) {
-				top: 12%;
+			z-index: 0;
+			@media screen and (min-height: 640px) and (min-width: 640px) {
+				top: 20%;
 			}
 			&.active {
 				opacity: 1;
@@ -59,40 +48,72 @@ $rio-lg: 1440px;
 	}
 }
 .rio-logo {
-	margin-top: 126px;
-	width: 235px;
-	@include respond-to(xs) {
-		margin-top: 185px;
-		width: 445px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	transform: translate3d(-50%, 0, 0);
+	max-width: 235px;
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		top: 25%;
+		max-width: 300px;
+	}
+	@media screen and (min-height: 768px) and (min-width: 768px) {
+		max-width: 320px;
+	}
+	@media screen and (min-height: 900px) and (min-width: 1024px) {
+		max-width: 475px;
 	}
 }
 
 .cardbox {
 	position: absolute;
-	bottom: -31%;
+	bottom: -30%;
 	left: 50%;
-	width: 235px;
+	width: 100%;
+	max-width: 235px;
+	// 475
 	transform: translate3d(-50%, 0px, 0);
-	@include respond-to(xs) {
-		width: 475px;
-		bottom: -38%;
+	@media screen and (min-height: 640px) {
+		bottom: -10%;
+	}
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		max-width: 300px;
+		bottom: -20%;
+	}
+	@media screen and (min-height: 768px) and (min-width: 768px) {
+		max-width: 320px;
+		bottom: -15%;
+	}
+	@media screen and (min-height: 900px) and (min-width: 1024px) {
+		max-width: 475px;
+		bottom: -30%;
+	}
+	@media screen and (min-height: 1024px) and (min-width: 1024px) {
+		bottom: -25%;
 	}
 	&__item, &-ending__item {
 		position: absolute;
 		bottom: 0;
 		left: 50%;
 		transform: translate3d(-50%, 0, 0);
-		&--front { position: relative; }
-		&--lid {
+		&--front {
+			position: relative;
+			z-index: 5;
+		}
+		&--lid, &--lidback {
 			bottom: initial;
 			top: 0;
 			width: calc(100% - 12px);
+			z-index: 2;
+		}
+		&--lidback {
+			z-index: 1;
 		}
 		&--card {
 			bottom: initial;
 			top: 10%;
-			transition-delay: 0;
 			width: calc(100% - 14px);
+			z-index: 4;
 		}
 	}
 }
@@ -100,6 +121,7 @@ $rio-lg: 1440px;
 .two-cards {
 	@include hero('../images/work/run-it-once/hero/two-cards.png');
 	height: 50vh;
+	min-height: 510px;
 	@include respond-to(sm) { height: 583; }
 	@include respond-to(md) { height: 100vh; }
 }
@@ -110,7 +132,12 @@ $rio-lg: 1440px;
 		padding: 143px 0 0;
 		height: 1200px;
 	}
-
+	&.active {
+		.deck-copy {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
 	&-container {
 		width: 100%;
 		max-width: 1440px;
@@ -124,6 +151,9 @@ $rio-lg: 1440px;
 	}
 
 	&-copy {
+		transform: translate3d(0, 30px, 0);
+		opacity: 0;
+		transition: 600ms ease;
 		padding-bottom: 100px;
 		@include respond-to(sm) {
 			max-width: 410px;
@@ -142,11 +172,11 @@ $rio-lg: 1440px;
 		display: block;
 		height: 494px;
 		@media screen and (min-width: 330px) {
-			width: 330px;
+			max-width: 330px;
 		}
 		@include respond-to(sm) {
 			position: absolute;
-			width: 1042px;
+			max-width: 1042px;
 			height: 934px;
 			top: 0;
 			right: -15px;
@@ -165,44 +195,44 @@ $rio-lg: 1440px;
 			}
 			&:nth-of-type(1) {
 				z-index: 6;
-				width: percentage(327.59 / 330);
+				max-width: percentage(327.59 / 330);
 				@include respond-to(sm) {
-					width: percentage(502 / 1042);
+					max-width: percentage(502 / 1042);
 				}
 			}
 			&:nth-of-type(2) {
 				top: 97px;
-				width: percentage(326.94 / 330);
+				max-width: percentage(326.94 / 330);
 				z-index: 5;
 				@include respond-to(sm) {
-					width: percentage(501 / 1042);
+					max-width: percentage(501 / 1042);
 					top: 149px;
 				}
 			}
 			&:nth-of-type(3) {
 				top: 185px;
-				width: percentage(326.29 / 330);
+				max-width: percentage(326.29 / 330);
 				z-index: 4;
 				@include respond-to(sm) {
-					width: percentage(500 / 1042);
+					max-width: percentage(500 / 1042);
 					top: 283px;
 				}
 			}
 			&:nth-of-type(4) {
 				top: 279px;
-				width: percentage(324.33 / 330);
+				max-width: percentage(324.33 / 330);
 				z-index: 3;
 				@include respond-to(sm) {
-					width: percentage(497 / 1042);
+					max-width: percentage(497 / 1042);
 					top: 427px;
 				}
 			}
 			&:nth-of-type(5) {
 				top: 348px;
-				width: percentage(323.68 / 330);
+				max-width: percentage(323.68 / 330);
 				z-index: 2;
 				@include respond-to(sm) {
-					width: percentage(496 / 1042);
+					max-width: percentage(496 / 1042);
 					top: 533px;
 					left: 60px;
 				}
@@ -222,6 +252,12 @@ $rio-lg: 1440px;
 
 .cards {
 	overflow: hidden;
+	&.active {
+		.cards-copy {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
 	&-container {
 		position: relative;
 		max-width: 100%;
@@ -241,25 +277,28 @@ $rio-lg: 1440px;
 		@include respond-to(lg) { padding: 320px 20px; }
 	}
 	&-copy {
-		width: 335px;
+		max-width: 335px;
 		margin-left: auto;
 		margin-right: auto;
+		opacity: 0;
+		transform: translate3d(0, 35px, 0);
+		transition: 600ms ease;
 		@include respond-to(xs) {
-			width: 80%
+			max-width: 80%
 		}
 		@include respond-to(sm) {
-			width: 387px;
+			max-width: 387px;
 			float: left;
 		}
 
 		@include respond-to(md) {
-			width: 512px;
+			max-width: 512px;
 		}
 	}
 	&-cards {
 		position: relative;
 		padding-top: 100px;
-		width: 300px;
+		max-width: 300px;
 		margin-left: auto;
 		margin-right: auto;
 		@include respond-to(sm) {
@@ -267,11 +306,11 @@ $rio-lg: 1440px;
 			position: absolute;
 			right: 0;
 			top: 50%;
-			transform: translateY(-50%);
-			width: 285px;
+			transform: translate3d(0, -50%, 0);
+			max-width: 285px;
 		}
 		@include respond-to(md) {
-			width: 335px;
+			max-width: 335px;
 		}
 		&__item {
 			position: relative;
@@ -312,74 +351,34 @@ $rio-lg: 1440px;
 		}
 	}
 
+.case-study-gallery,
+.case-study-gallery2 {
+	.intrinsic__inner-magic {
+		transition: 800ms ease;
+		&:hover {
+			transform: scale(1.15);
+			transition: 12s ease;
+		}
+	}
+}
+
 	.case-study-gallery {
-
-		@media screen and (min-width: $small) {
-			overflow: hidden;
-
-			border-top: 1px solid $rio-borders;
-			border-bottom: 1px solid $rio-borders;
+		@include border(1px solid $rio-borders, top, bottom);
+		> div:first-of-type {
+			@include border(1px solid $rio-borders, right);
 		}
-
-		.galleryImg {
-			margin-bottom: 1px;
-			border-bottom: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				margin: 0;
-				border: none;
-			}
+		> div:last-of-type > div:first-of-type {
+			@include border(1px solid $rio-borders, bottom);
 		}
-
-		.galleryImg.one {
-			border-top: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				border: none;
-				border-right: 1px solid $rio-borders;
-			}
-		}
-
-		.galleryImg.two {
-			@media screen and (min-width: $small) {
-				margin-bottom: 1px;
-
-				border-bottom: 1px solid $rio-borders;
-			}
-		}
-
 	}
 
 	.case-study-gallery2 {
-		@media screen and (min-width: $small) {
-			overflow: hidden;
-			border-top: 1px solid $rio-borders;
-			border-bottom: 1px solid $rio-borders;
-		}
-
-		.gallery2Img {
-			margin-bottom: 1px;
-			border-bottom: 1px solid $rio-borders;
-
-			@media screen and (min-width: $small) {
-				margin: 0;
-				border: none;
-				border-right: 1px solid $rio-borders;
+		> div {
+			@include border(1px solid $rio-borders, top, right, bottom);
+			&:last-of-type {
+				border-right-color: transparent;
 			}
 		}
-
-		.gallery2Img.one {
-			border-top: 1px solid $rio-borders;
-			@media screen and (min-width: $small) {
-				border-top: none;
-			}
-		}
-
-		.gallery2Img.three {
-			border-right: none;
-		}
-
-
 	}
 
 	.button-wrap {
