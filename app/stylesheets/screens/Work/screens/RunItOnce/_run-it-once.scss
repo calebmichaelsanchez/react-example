@@ -86,11 +86,11 @@ $rio-xs: 760px;
 	transform: translate3d(-50%, 0px, 0);
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		max-width: 300px;
-		bottom: -20%;
+		bottom: -30%;
 	}
 	@media screen and (min-height: 768px) and (min-width: 768px) {
 		max-width: 320px;
-		bottom: -15%;
+		bottom: -25%;
 	}
 	@media screen and (min-height: 900px) and (min-width: 1024px) {
 		max-width: 475px;
@@ -372,7 +372,11 @@ $rio-xs: 760px;
 		border: 1px solid #B54A49;
 		border-radius: 25px;
 		font-size: 18px;
-		padding: 5px 10px;
+		padding: 5px 20px;
+		margin-right: 12px;
+		&:last-of-type {
+			margin-right: 0;
+		}
 
 		&:hover {
 			color: #fff;
