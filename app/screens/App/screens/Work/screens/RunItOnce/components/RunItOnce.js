@@ -205,10 +205,10 @@ class RunItOnce extends Component {
     if (contextView >= 0) {
       transformThreeD(cardboxArray[0], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
 
-      transformThreeD(cardboxArray[1], -50, "%",  this.position(movement2,       (movement2 * -1), relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%",  this.position(movement3,       (movement3 * -1), relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%",  this.position((movement4 * -1), movement4,       relativeY * 1.5,     0), "px", 0, "px");
-      transformThreeD(cardboxArray[4], -50, "%",  this.position(movement5,       (movement5 * -1), relativeY * 1.5,   0), "px", 0, "px");
+      transformThreeD(cardboxArray[1], -50, "%",  this.position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[2], -50, "%",  this.position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[3], -50, "%",  this.position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[4], -50, "%",  this.position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? buyButton.classList.add("active") : buyButton.classList.remove("active");
