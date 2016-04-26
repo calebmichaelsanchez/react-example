@@ -13,42 +13,59 @@ class WebMobile extends Component {
     this.isInViewport       = this.isInViewport.bind(this);
     this.setPaddingTop      = this.setPaddingTop.bind(this);
   }
-  onScroll() {
+  componentDidMount() {
+    this.ticking           = false;
+    this.element           = findDOMNode(this.refs.iconsContainer);
+    this.elementHeight     = this.element.clientHeight;
+    this.elementDimensions = 0;
+    this.icons             = document.querySelectorAll(".campus-icons__container");
+    this.iconsArray        = [...this.icons];
+
+    this.setPaddingTop();
+
+    window.addEventListener("scroll", this.onScroll, false);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll, false);
+  }
+  onResize() {
+    this.elementDimensions = this.element.getBoundingClientRect();
     window.requestAnimationFrame(this.updateElements);
+  }
+  onScroll() {
+    this.elementDimensions = this.element.getBoundingClientRect();
+
+    if(!this.ticking) {
+      window.requestAnimationFrame(this.updateElements);
+      this.ticking = true;
+    }
   }
   updateElements() {
     let { viewportHeight } = this.props,
-        iconsContainer              = findDOMNode(this.refs.iconsContainer),
-        iconsHeight                 = iconsContainer.clientHeight,
-        icons                       = document.querySelectorAll(".campus-icons__container"),
-        iconsArray                  = [...icons],
-        distanceTop                 = iconsContainer.getBoundingClientRect().top,
-        // containers distance from the top of the viewport
-        context                     = (distanceTop - viewportHeight) * -1,
-        // containers distance from the bottom of the viewport
-        relativeY                   = (context - 200) / (iconsHeight * 4),
-         // offsets context 200 pixes and divides by height of container * 4
-         // this gives us our value to set translate position with
-        fastest                     = relativeY * 2,
-        middle                      = relativeY * 1.5,
-        slowest                     = relativeY * .5;
-        // these last three values essentially set different scroll
-        // speeds, by multiplying the value of relativeY
+        iconsHeight                 = this.elementHeight,
+        iconsTop                    = this.elementDimensions.top,
+        iconsBottom                 = this.elementDimensions.bottom,
+        context                     = ( (iconsTop + 200) - viewportHeight) * -1,
+        relativeY                   = context / (iconsHeight + viewportHeight),
+        fastest                     = relativeY * 1,
+        middle                      = relativeY * .8,
+        slowest                     = relativeY * .65;
 
-    if (this.isInViewport(iconsContainer)) {
-      iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
-      iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
-      iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
-      iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
-      iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
-      iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 200, relativeY, 0)}px, 0)`;
-      iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
-      iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
-      iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 200, middle,    0)}px, 0)`;
-      iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 200, slowest,   0)}px, 0)`;
-      iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 200, relativeY, 0)}px, 0)`;
-      iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 200, fastest,   0)}px, 0)`;
+    if (context >= 0 && iconsBottom >= 0) {
+      this.iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 150, relativeY, 0)}px, 0)`;
+      this.iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,    0)}px, 0)`;
+      this.iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 150, relativeY, 0)}px, 0)`;
+      this.iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
     }
+    this.ticking = false;
   }
   setPaddingTop() {
     let icons = document.querySelectorAll(".campus-icons__container"),
@@ -71,14 +88,6 @@ class WebMobile extends Component {
   isInViewport(elem) {
     let distance = elem.getBoundingClientRect(), { viewportHeight } = this.props;
     return (distance.bottom > 0 && distance.top < viewportHeight);
-  }
-  componentDidMount() {
-    this.setPaddingTop();
-    this.throttledScroll = helpers.throttle(this.onScroll, 35);
-    window.addEventListener("scroll", this.throttledScroll, false);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.throttledScroll, false);
   }
   render() {
     let img = require("../../../../../../../images/work/campus/web-mobile-iphone.png");
