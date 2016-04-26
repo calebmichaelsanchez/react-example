@@ -30,6 +30,9 @@ $rio-xs: 760px;
 		@media screen and (min-height: 640px) and (min-width: 768px) {
 			height: 75vh;
 		}
+		@media screen and (min-height: 640px) and (min-width: 1024px) {
+			height: 90vh;
+		}
 	}
 	.button.buy-button {
 	    background: #A47C3F;
@@ -44,6 +47,9 @@ $rio-xs: 760px;
 			opacity: 0;
 			transition: 600ms ease;
 			z-index: 0;
+			@media screen and (min-height: 640px) and (min-width: 640px) {
+				top: 20%;
+			}
 			&.active {
 				opacity: 1;
 				transform: translate3d(-50%, 0, 0);
@@ -73,15 +79,11 @@ $rio-xs: 760px;
 
 .cardbox {
 	position: absolute;
-	bottom: -30%;
+	bottom: -20%;
 	left: 50%;
 	width: 100%;
 	max-width: 235px;
-	// 475
 	transform: translate3d(-50%, 0px, 0);
-	// @media screen and (min-height: 640px) {
-	// 	bottom: -15%;
-	// }
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		max-width: 300px;
 		bottom: -20%;
@@ -304,7 +306,7 @@ $rio-xs: 760px;
 	&-cards {
 		position: relative;
 		padding-top: 100px;
-		max-width: 250px;
+		max-width: 200px;
 		margin-left: auto;
 		margin-right: auto;
 		@include respond-to(sm) {
@@ -374,7 +376,10 @@ $rio-xs: 760px;
 	.case-study-gallery {
 		@include border(1px solid $rio-borders, top, bottom);
 		> div:first-of-type {
-			@include border(1px solid $rio-borders, right);
+			@include border(1px solid $rio-borders, bottom);
+			@include respond-to(sm) {
+				@include border(1px solid $rio-borders, right);
+			}
 		}
 		> div:last-of-type > div:first-of-type {
 			@include border(1px solid $rio-borders, bottom);
@@ -382,10 +387,19 @@ $rio-xs: 760px;
 	}
 
 	.case-study-gallery2 {
+		@include border(1px solid $rio-borders, top);
+		@include respond-to(md) {
+			border: none;
+		}
 		> div {
-			@include border(1px solid $rio-borders, top, right, bottom);
+			@include border(1px solid $rio-borders, bottom)
+			@include respond-to(md) {
+				@include border(1px solid $rio-borders, top, right, bottom);
+			}
 			&:last-of-type {
-				border-right-color: transparent;
+				@include respond-to(md) {
+					border-right-color: transparent;
+				}
 			}
 		}
 	}

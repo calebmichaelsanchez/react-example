@@ -202,17 +202,8 @@ class RunItOnce extends Component {
         movement5           = cardboxHeight * .165,
         lidSpeed            = windowWidth >= 1440 ? 3 : 4;
 
-    // if (windowWidth <= 640) {
-    //   values = [ [-10, 10], [-140, 240], [-80, 180], [-30, 100], [60, -60] ]
-    //   showButtonValue = 75;
-    // } else {
-    //   showButtonValue = 150;
-    //   values = [ [-20, 20], [-220, 280], [-120, 220], [-10, 140], [120, -120] ];
-    // }
-
     if (contextView >= 0) {
       transformThreeD(cardboxArray[0], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
-      // transformThreeD(cardboxArray[1], -50, "%",  this.position((movement1 * -1), movement1, relativeYPlus * 2.75, 0), "px", 0, "px");
 
       transformThreeD(cardboxArray[1], -50, "%",  this.position(movement2,       (movement2 * -1), relativeY * 1.5,     0), "px", 0, "px");
       transformThreeD(cardboxArray[2], -50, "%",  this.position(movement3,       (movement3 * -1), relativeY * 1.5,     0), "px", 0, "px");
