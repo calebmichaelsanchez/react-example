@@ -115,6 +115,7 @@ app.post('/contact-form', function(req, res) {
      res.send("sent");
     } else {
      res.send(status);
+     console.log(status);
     }
   });
 });
