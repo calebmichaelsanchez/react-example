@@ -3,6 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer      = require('autoprefixer');
 var precss            = require('precss');
+var definePlugin      = new webpack.DefinePlugin({
+  NODE_ENV: process.env.NODE_ENV === 'production' ? 'production' : 'development'
+});
 
 module.exports = {
   entry: './app/index.js',
@@ -31,6 +34,11 @@ module.exports = {
   },
 
   plugins: process.env.NODE_ENV === 'production' ? [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
