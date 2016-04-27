@@ -1,14 +1,21 @@
 .campus-hero {
+  position: relative;
   @include hero("../images/work/campus/hero.jpg");
-  min-height: rem-calc(213);
-  height: 45vh;
+  background-position: center bottom;
+  height: rem-calc(213);
+  //height: 45vh;
   @include respond-to(sm) {
-    min-height: rem-calc(510);
-    height: 50vh;
+    height: rem-calc(510);
+    //height: 50vh;
   }
   @include respond-to(md) {
     background-position: center bottom;
-    min-height: rem-calc(680);
-    height: 80vh;
+    height: rem-calc(680);
+    //height: 80vh;
+  }
+  @include respond-to(lg) {
+    background-position: center bottom;
+    height: rem-calc(960);
+    //height: 80vh;
   }
 }

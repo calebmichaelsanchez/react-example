@@ -6,12 +6,13 @@ import helpers from "../../../../../../../shared/util/helpers";
 class WebMobile extends Component {
   constructor(props) {
     super(props);
-    this.onScroll           = this.onScroll.bind(this);
-    this.updateElements     = this.updateElements.bind(this);
-    this.position           = this.position.bind(this);
-    this.limit              = this.limit.bind(this);
-    this.isInViewport       = this.isInViewport.bind(this);
-    this.setPaddingTop      = this.setPaddingTop.bind(this);
+    this.onScroll       = this.onScroll.bind(this);
+    this.updateElements = this.updateElements.bind(this);
+    this.position       = this.position.bind(this);
+    this.limit          = this.limit.bind(this);
+    this.isInViewport   = this.isInViewport.bind(this);
+    this.setPaddingTop  = this.setPaddingTop.bind(this);
+    this.onResize       = this.onResize.bind(this);
   }
   componentDidMount() {
     this.ticking           = false;
@@ -24,13 +25,19 @@ class WebMobile extends Component {
     this.setPaddingTop();
 
     window.addEventListener("scroll", this.onScroll, false);
+    window.addEventListener("resize", this.onResize, false);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll, false);
+    window.removeEventListener("resize", this.onResize, false);
   }
   onResize() {
     this.elementDimensions = this.element.getBoundingClientRect();
-    window.requestAnimationFrame(this.updateElements);
+    this.elementHeight = this.element.clientHeight;
+    if(!this.ticking) {
+      window.requestAnimationFrame(this.updateElements);
+      this.ticking = true;
+    }
   }
   onScroll() {
     this.elementDimensions = this.element.getBoundingClientRect();
@@ -68,15 +75,19 @@ class WebMobile extends Component {
     this.ticking = false;
   }
   setPaddingTop() {
-    let icons = document.querySelectorAll(".campus-icons__container"),
+    let icons = document.querySelectorAll(".campus-icons__container svg"),
+        iconsContainer = document.querySelectorAll(".campus-icons__container"),
+        iconsWrapper = document.querySelectorAll(".campus-icons__item"),
         iconsArray = [...icons],
-        i,
-        w,
-        h;
+        iconsContainerArray = [...iconsContainer],
+        iconsWrapperArray = [...iconsWrapper],
+        i, w, h;
     for (i = 0; i < iconsArray.length; i++) {
-      w = iconsArray[i].childNodes[0].childNodes[0].clientWidth;
-      h = iconsArray[i].childNodes[0].childNodes[0].clientHeight;
-      iconsArray[i].childNodes[0].style.paddingTop = (w / h) * 100 + "%";
+      w = iconsArray[i].viewBox.baseVal.width;
+      h = iconsArray[i].viewBox.baseVal.height;
+      iconsContainer[i].style.width = ((w / 1200) * 100) + "%";
+      iconsContainer[i].style.height = ((h / 640) * 100) + "%";
+      iconsWrapperArray[i].style.paddingBottom = (h / w) * 100 + "%";
     }
   }
   position(base, range, relativeY, offset) {
@@ -117,13 +128,11 @@ class WebMobile extends Component {
           {icons.map((icon) => {
             return (
               <div key={icon.name} className={`campus-icons__container campus-icons__container--${icon.name}`}>
-                <div className="campus-icon__wrapper">
-                  <div
-                    ref={icon.name}
-                    className="campus-icons__item"
-                    dangerouslySetInnerHTML={{ __html: icon.svg }}
-                  />
-                </div>
+                <div
+                  ref={icon.name}
+                  className="campus-icons__item"
+                  dangerouslySetInnerHTML={{ __html: icon.svg }}
+                />
               </div>
             )
           })}

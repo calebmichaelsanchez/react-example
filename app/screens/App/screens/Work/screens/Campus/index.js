@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import DocumentTitle from 'react-document-title';
 import Hero from "./components/Hero";
+import Dubai from "./components/Dubai";
 import TheNeed from "./components/TheNeed";
 import UserExperience from "./components/UserExperience";
 import Features from "./components/Features";
@@ -17,15 +19,17 @@ class Campus extends Component {
   }
   render() {
     return (
-      <section className="campus-container">
-        <Hero />
-        <TheNeed />
-        <UserExperience />
-        <Features />
-        <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={pageYOffset} />
-        <Illustrations />
-        <Development />
-      </section>
+      <DocumentTitle title="Campus | Underbelly Creative">
+        <section className="campus-container">
+          <Hero />
+          <Dubai />
+          <UserExperience />
+          <Features />
+          <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={pageYOffset} />
+          <Illustrations />
+          <Development />
+        </section>
+      </DocumentTitle>
     )
   }
 }
