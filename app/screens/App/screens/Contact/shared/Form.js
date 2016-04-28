@@ -125,6 +125,7 @@ class Form extends Component {
 		this.setState({ submitting: true});
 		axios.post('/contact-form', model)
 			.then(function (res) {
+				console.log(res);
 				if (res.data === "sent") {
 					self.setState({ success: true });
 				}
