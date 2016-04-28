@@ -16,11 +16,11 @@ class App extends Component {
     this.onResize = this.onResize.bind(this);
   }
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll, false);
+    //window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
+    //window.removeEventListener("scroll", this.onScroll, false);
     window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
