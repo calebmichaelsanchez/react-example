@@ -5,7 +5,7 @@ import Icon from '../../../shared/icons/Icon';
 class ProjectLg extends Component {
   render() {
     let { link, name, title, theme } = this.props;
-    let linkTo = link ? link : `/making-it-awesome-with${name}`;
+    let linkTo = link ? link : `/making-it-awesome-with/${name}`;
     return (
       <Link to={linkTo} className={`projects__item projects__item--${name} projects__item--lg`}>
         <div className={`projects__item-meta projects__item-meta--lg`}>
