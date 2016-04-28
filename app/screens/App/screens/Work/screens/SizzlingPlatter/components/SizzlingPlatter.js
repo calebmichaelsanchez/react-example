@@ -21,13 +21,13 @@ class SizzlingPlatter extends Component {
 	componentDidMount() {
     this.lastKnownScroll = 0;
     this.ticking         = false;
-    this.throttledScroll = helpers.throttle(this.onScroll, 30);
+    //this.throttledScroll = helpers.throttle(this.onScroll, 30);
 		ga('send', 'pageview', '/making-it-awesome-with/sizzling-platter');
 		this.props.setNavTheme(this.props.theme);
-		window.addEventListener("scroll", this.throttledScroll, false);
+		//window.addEventListener("scroll", this.throttledScroll, false);
 	}
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.throttledScroll, false);
+    //window.removeEventListener("scroll", this.throttledScroll, false);
   }
   onScroll() {
     this.lastKnownScroll = window.pageYOffset;
