@@ -14,7 +14,7 @@ class ProductItem extends Component {
 				<div className="product-meta">
 					<span className="product-title">{title}</span>
 					<a href={productLink} target="_blank" className="product-btn">
-						{price}
+						<span>{price}</span>
 						<Icon icon="arrow" type="icon-btn" theme="dark" />
 					</a>
 				</div>
