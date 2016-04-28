@@ -1,0 +1,17 @@
+$top: percentage(570 / 960);
+.the-need {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, 138px, 0);
+  @include respond-to(sm) {
+    transform: translate3d(-50%, 333px, 0);
+  }
+  @include respond-to(md) {
+    transform: translate3d(-50%, 409px, 0);
+  }
+  @include respond-to(lg) {
+    transform: translate3d(-50%, 570px, 0);
+  }
+}

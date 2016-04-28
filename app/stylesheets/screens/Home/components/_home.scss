@@ -20,7 +20,9 @@
 	max-width: 760px;
 }
 .category-title {
-	@extend .hero-xs;
+	font-size: 1.333rem;
+	color: color(white);
+	text-transform: uppercase;
 	opacity: 0;
 	.loaded & {
 		animation: fadeIn .4s forwards ease, dropDown .6s forwards ease;
@@ -76,7 +78,7 @@
 	padding: 3.6325rem 2rem;
 	background-color: #edf2f5;
 	p {
-		font-size: fs(h4);
+		@extend .h4;
 		text-align: center;
 	}
 	@media screen and (min-width: 1024px) {

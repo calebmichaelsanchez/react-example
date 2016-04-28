@@ -5,7 +5,7 @@
 	padding: 3.75rem 1rem;
 	> a {
 		display: inline-block;
-		font-size: fs(h4);
+		@extend .h4;
 	}
 }
 .shot-container {
@@ -51,7 +51,7 @@
 	padding: 1.25rem;
 	text-align: center;
 	color: color(blue-secondary);
-	font-size: fs(p);
+	@extend .p;
 	z-index: 3;
 	transition: transform 0.2s 0.04s ease;
 }

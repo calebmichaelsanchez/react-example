@@ -1,0 +1,34 @@
+.illustrations {
+  margin-top: rem-calc(80);
+  margin-bottom: rem-calc(295);
+  @include respond-to(sm) {
+    margin-top: rem-calc(160);
+    margin-bottom: rem-calc(390);
+  }
+  @include respond-to(lg) { margin-top: rem-calc(230); }
+}
+.illustration-image {
+  position: relative;
+  max-width: rem-calc(807);
+  margin-top: rem-calc(80);
+  margin-left: auto;
+  margin-right: auto;
+  &__item {
+    transition: opacity 1.5s ease;
+    &--one {
+      opacity: 1;
+      .illustration--active & {
+        opacity: 0.02;
+      }
+    }
+    &--two {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      .illustration--active & {
+        opacity: 1;
+      }
+    }
+  }
+}

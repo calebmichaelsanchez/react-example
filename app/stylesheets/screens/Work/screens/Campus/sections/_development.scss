@@ -1,0 +1,43 @@
+.development {
+  position: relative;
+  padding-bottom: rem-calc(80);
+  @include hero("../images/work/campus/development.jpg");
+  @include respond-to(sm) { padding-bottom: rem-calc(130); }
+  @include respond-to(md) { padding-bottom: rem-calc(150); }
+  @include respond-to(lg) { padding-bottom: rem-calc(160); }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#414DC4, .9);
+    z-index: 1;
+  }
+  .excerpt {
+    position: relative;
+    padding-top: rem-calc(30);
+    z-index: 10;
+    transform: translateY(-115px);
+    @include respond-to(sm) { padding-top: rem-calc(65); }
+    @include respond-to(md) { padding-top: rem-calc(70); }
+  }
+  .excerpt-title, .excerpt-content p {
+    color: color(white);
+  }
+  img {
+    display: block;
+    position: relative;
+    z-index: 9;
+    padding-left: rem-calc(20);
+    padding-right: rem-calc(20);
+    transform: translateY(-115px);
+    margin-left: auto;
+    margin-right: auto;
+    @include respond-to(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
