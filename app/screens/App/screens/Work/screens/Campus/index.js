@@ -26,7 +26,7 @@ class Campus extends Component {
           <UserExperience />
           <Features />
           <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={pageYOffset} />
-          <Illustrations />
+          <Illustrations viewportHeight={this.props.viewportHeight} />
           <Development />
         </section>
       </DocumentTitle>

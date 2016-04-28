@@ -1,30 +1,43 @@
 import React, { Component } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import Excerpt from "../shared/Excerpt";
-import helpers, { isInViewport } from "../../../../../../../shared/util/helpers";
 
 class Illustrations extends Component {
   constructor(props) {
     super(props);
     this.onScroll = this.onScroll.bind(this);
+    this.updateElements = this.updateElements.bind(this);
   }
   componentDidMount() {
+    this.ticking = false;
+    this.element = findDOMNode(this.refs.illustration);
+    this.elementDimensions = {};
     window.addEventListener("scroll", this.onScroll, false);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll, false);
   }
   onScroll() {
-    let elem = findDOMNode(this.refs.illustration);
-    if (helpers.isInViewport(elem, 500)) {
-      elem.classList.add("illustration--active");
+    this.elementDimensions = this.element.getBoundingClientRect();
+    if (!this.ticking) {
+      window.requestAnimationFrame(this.updateElements);
+      this.ticking = true;
     }
+  }
+  updateElements() {
+    let { viewportHeight } = this.props,
+        illustrationTop = this.elementDimensions.top,
+        context = (illustrationTop - viewportHeight) * -1;
+
+    (context >= viewportHeight / 2) ? this.element.classList.add("illustration--active") : this.element.classList.remove("illustration--active");
+
+    this.ticking = false;
   }
   render() {
     let { title, excerpt } = this.props;
     let img = {
-      sketch: require("../../../../../../../images/work/campus/sketch.jpg"),
-      illustration: require("../../../../../../../images/work/campus/illustration.png")
+      sketch: require("../../../../../../../images/work/campus/illustration/sketch.png"),
+      illustration: require("../../../../../../../images/work/campus/illustration/illustration.png")
     }
     return (
       <section className="illustrations">
