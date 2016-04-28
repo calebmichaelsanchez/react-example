@@ -13,60 +13,61 @@ class Nav extends Component {
 			scrolled: false
 		}
 		this.handleNavigation = this.handleNavigation.bind(this);
-		this.handleScroll = this.handleScroll.bind(this);
-		this.handleWidth = this.handleWidth.bind(this);
-		this.handleTheme = this.handleTheme.bind(this);
-		this.toggleOpen = this.toggleOpen.bind(this);
+		this.onScroll         = this.onScroll.bind(this);
+		this.handleWidth      = this.handleWidth.bind(this);
+		this.handleTheme      = this.handleTheme.bind(this);
+		this.toggleOpen       = this.toggleOpen.bind(this);
+		this.update           = this.update.bind(this);
+		this.requestTick			= this.requestTick.bind(this);
 	}
 	componentDidMount() {
+		this.lastKnownScroll = 0;
+		this.ticking 				 = false;
 		this.setState({theme: this.props.theme});
-		window.addEventListener("scroll", this.handleScroll);
-		window.addEventListener("resize", this.handleWidth);
+		window.addEventListener("scroll", this.onScroll), false;
+		window.addEventListener("resize", this.handleWidth, false);
+	}
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.onScroll, false);
+		window.removeEventListener("resize", this.handleWidth, false);
 	}
 	handleWidth() {
-		var el = findDOMNode(this.refs.nav);
-		var w = window.innerWidth;
+		let w  = window.innerWidth;
 		if (w >= 768 && this.state.open) {
 			this.setState({
 				open: false
 			});
 		}
 	}
-	handleScroll() {
-		var el = findDOMNode(this.refs.nav);
-		var offset = window.scrollY;
-		if (offset >= 40) {
-			this.setState({
-				scrolled: true
-			});
-		} else {
-			this.setState({
-				scrolled: false
-			})
+	onScroll() {
+		this.lastKnownScroll = window.pageYOffset;
+		this.requestTick();
+	}
+	requestTick() {
+		if(!this.ticking) {
+			window.requestAnimFrame(this.update);
+			this.ticking = true;
 		}
+	}
+	update() {
+		let currentScrollPosition = this.lastKnownScroll;
+		currentScrollPosition >= 40 ? this.setState({ scrolled: true }) : this.setState({ scrolled: false });
+		this.ticking = false;
 	}
 	handleTheme() {
 		if(this.props.theme === "dark") {
-			this.setState({
-				dark: true
-			});
+			this.setState({ dark: true });
 		} else if (this.props.theme === "light") {
-			this.setState({
-				light: true
-			});
+			this.setState({ light: true });
 		}
 	}
 	toggleOpen(e) {
 		e.preventDefault();
-		this.setState({
-			open: !this.state.open
-		});
+		this.setState({ open: !this.state.open });
 	}
 	handleNavigation() {
 		if (this.state.open) {
-			this.setState({
-				open: !this.state.open
-			});
+			this.setState({ open: !this.state.open });
 		}
 	}
 	render() {

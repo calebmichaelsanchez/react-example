@@ -12,7 +12,8 @@ module.exports = {
 			require('./screens/JustFamily'),
 			require('./screens/Nsac'),
 			require('./screens/RentTree'),
-			require('./screens/Traxion')
+			require('./screens/Traxion'),
+			require('./screens/RunItOnce')
 		])
 	},
 

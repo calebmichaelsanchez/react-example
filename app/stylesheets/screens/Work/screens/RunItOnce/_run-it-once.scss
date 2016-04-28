@@ -1,0 +1,444 @@
+
+$rio-primary: #020203;
+$rio-secondary: #101012;
+$rio-borders: #898c8c;
+$rio-red: #B54A49;
+$rio-xs: 760px;
+
+.hero--rio {
+	position: relative;
+	overflow: hidden;
+	color: color(white);
+	min-height: 520px;
+	text-align: center;
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		height: 60vh;
+	}
+	@media screen and (min-height: 640px) and (min-width: 768px) {
+		height: 75vh;
+	}
+	@media screen and (min-height: 640px) and (min-width: 1024px) {
+		height: 90vh;
+	}
+	&--final {
+		// height: 400px;
+		// .cardbox { bottom: -20%; }
+		min-height: 520px;
+		@media screen and (min-height: 640px) and (min-width: 640px) {
+			height: 50vh;
+		}
+		@media screen and (min-height: 640px) and (min-width: 768px) {
+			height: 75vh;
+		}
+		@media screen and (min-height: 640px) and (min-width: 1024px) {
+			height: 90vh;
+		}
+	}
+	.button.buy-button {
+	    background: #A47C3F;
+	    color: #fff;
+	    border: none;
+	    padding: 10px 0;
+	    min-width: 195px;
+		 	position: absolute;
+		 	top: 18%;
+		 	left: 50%;
+		 	transform: translate3d(-50%, 30px, 0);
+			opacity: 0;
+			transition: 600ms ease;
+			z-index: 0;
+			@media screen and (min-height: 640px) and (min-width: 640px) {
+				top: 20%;
+			}
+			&.active {
+				opacity: 1;
+				transform: translate3d(-50%, 0, 0);
+			}
+		 &:hover {
+			 color: $rio-primary;
+		 }
+	}
+}
+.rio-logo {
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	transform: translate3d(-50%, 0, 0);
+	max-width: 235px;
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		top: 25%;
+		max-width: 300px;
+	}
+	@media screen and (min-height: 768px) and (min-width: 768px) {
+		max-width: 320px;
+	}
+	@media screen and (min-height: 900px) and (min-width: 1024px) {
+		max-width: 475px;
+	}
+}
+
+.cardbox {
+	position: absolute;
+	bottom: -20%;
+	left: 50%;
+	width: 100%;
+	max-width: 235px;
+	transform: translate3d(-50%, 0px, 0);
+	@media screen and (min-height: 640px) and (min-width: 640px) {
+		max-width: 300px;
+		bottom: -30%;
+	}
+	@media screen and (min-height: 768px) and (min-width: 768px) {
+		max-width: 320px;
+		bottom: -25%;
+	}
+	@media screen and (min-height: 900px) and (min-width: 1024px) {
+		max-width: 475px;
+		bottom: -30%;
+	}
+	@media screen and (min-height: 1024px) and (min-width: 1024px) {
+		bottom: -15%;
+	}
+	&__item, &-ending__item {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
+		&--front {
+			position: relative;
+			z-index: 5;
+		}
+		&--lid, &--lidback {
+			bottom: initial;
+			top: 0;
+			width: calc(100% - 12px);
+			z-index: 2;
+		}
+		&--lidback {
+			z-index: 1;
+		}
+		&--card {
+			bottom: initial;
+			top: 10%;
+			width: calc(100% - 14px);
+			z-index: 4;
+		}
+	}
+}
+
+.two-cards {
+	@include hero('../images/work/run-it-once/hero/two-cards.png');
+	height: 50vh;
+	min-height: 510px;
+	@include respond-to(sm) { height: 583; }
+	@include respond-to(md) { height: 100vh; }
+}
+
+.deck {
+	padding: 70px 22px 60px;
+	@include respond-to(sm) {
+		padding: 143px 0 0;
+		height: 1200px;
+	}
+	&.active {
+		.deck-copy {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	&-container {
+		width: 100%;
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		@extend %clearfix;
+		&__item {
+
+		}
+	}
+
+	&-copy {
+		transform: translate3d(0, 30px, 0);
+		opacity: 0;
+		transition: 600ms ease;
+		padding-bottom: 100px;
+		@include respond-to(sm) {
+			max-width: 410px;
+			margin-right: percentage(123 / 1440);
+			float: right;
+		}
+		@include respond-to(lg) {
+			max-width: 500px;
+		}
+	}
+
+	&-cards {
+		position: relative;
+		margin: 0 auto 0;
+		width: 100%;
+		display: block;
+		height: 494px;
+		@media screen and (min-width: 330px) {
+			max-width: 330px;
+		}
+		@include respond-to(sm) {
+			position: absolute;
+			max-width: 1042px;
+			height: 934px;
+			top: 0;
+			right: -15px;
+		}
+		@include respond-to(md) {
+			right: percentage(135 / 1024);
+		}
+		&__item {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate3d(-50%, 0, 0);
+			@include respond-to(sm) {
+				left: 0;
+				transform: none;
+			}
+			&:nth-of-type(1) {
+				z-index: 6;
+				max-width: percentage(327.59 / 330);
+				@include respond-to(sm) {
+					max-width: percentage(502 / 1042);
+				}
+			}
+			&:nth-of-type(2) {
+				top: 97px;
+				max-width: percentage(326.94 / 330);
+				z-index: 5;
+				@include respond-to(sm) {
+					max-width: percentage(501 / 1042);
+					top: 149px;
+				}
+			}
+			&:nth-of-type(3) {
+				top: 185px;
+				max-width: percentage(326.29 / 330);
+				z-index: 4;
+				@include respond-to(sm) {
+					max-width: percentage(500 / 1042);
+					top: 283px;
+				}
+			}
+			&:nth-of-type(4) {
+				top: 279px;
+				max-width: percentage(324.33 / 330);
+				z-index: 3;
+				@include respond-to(sm) {
+					max-width: percentage(497 / 1042);
+					top: 427px;
+				}
+			}
+			&:nth-of-type(5) {
+				top: 348px;
+				max-width: percentage(323.68 / 330);
+				z-index: 2;
+				@include respond-to(sm) {
+					max-width: percentage(496 / 1042);
+					top: 533px;
+					left: 60px;
+				}
+			}
+			&:nth-of-type(6) {
+				display: none;
+				z-index: 1;
+				@include respond-to(sm) {
+					display: block;
+					top: 648px;
+					left: 450px;
+				}
+			}
+		}
+	}
+}
+
+.cards {
+	position: relative;
+	background-color: $rio-secondary;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#252529+0,000000+100&0.65+0,0+100 */
+		background: -moz-linear-gradient(top,  rgba(37,37,41,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(37,37,41,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(37,37,41,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6252529', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	}
+	&.active {
+		.cards-copy {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	&-container {
+		position: relative;
+		z-index: 2;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		@extend %clearfix;
+		padding: 45px 20px 90px;
+		@include respond-to(sm) {
+			max-width: 768px;
+			padding: 184px 20px;
+		}
+		@include respond-to(md) {
+			max-width: 978px;
+			padding: 320px 20px;
+		}
+		@include respond-to(lg) { padding: 320px 20px; }
+	}
+	&-copy {
+		max-width: 335px;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0;
+		transform: translate3d(0, 35px, 0);
+		transition: 600ms ease;
+		@include respond-to(xs) {
+			max-width: 80%
+		}
+		@include respond-to(sm) {
+			max-width: 387px;
+			float: left;
+		}
+
+		@include respond-to(md) {
+			max-width: 512px;
+		}
+	}
+	&-cards {
+		position: relative;
+		padding-top: 100px;
+		max-width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+		@include respond-to(sm) {
+			padding-top: 0;
+			position: absolute;
+			right: 5%;
+			top: 50%;
+			transform: translate3d(0, -50%, 0);
+			max-width: 200px;
+		}
+		@include respond-to(md) {
+			max-width: 200px;
+		}
+		@include respond-to(lg) {
+			right: 0;
+		}
+		&__item {
+			position: relative;
+			display: block;
+			margin: 0 auto 0;
+
+			&:nth-child(1){ z-index: 3; }
+			&:nth-child(2){ z-index: 2; }
+			&:nth-child(3){ z-index: 1; }
+		}
+	}
+}
+
+.run-it-once {
+	background-color: $rio-primary;
+
+	p {
+		color: #fff;
+		line-height: 2.25;
+		margin-bottom: 2rem;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.button {
+		display: inline-block;
+		text-align: center;
+		background: transparent;
+		color: #B54A49;
+		border: 1px solid #B54A49;
+		border-radius: 25px;
+		font-size: 18px;
+		padding: 5px 20px;
+		margin-right: 12px;
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&:hover {
+			color: #fff;
+		}
+	}
+
+.case-study-gallery,
+.case-study-gallery2 {
+	.intrinsic__inner-magic {
+		transition: 800ms ease;
+		&:hover {
+			transform: scale(1.15);
+			transition: 10s ease;
+		}
+	}
+}
+
+	.case-study-gallery {
+		@include border(1px solid $rio-borders, top, bottom);
+		> div:first-of-type {
+			@include border(1px solid $rio-borders, bottom);
+			@include respond-to(sm) {
+				border-bottom: none;
+				@include border(1px solid $rio-borders, right);
+			}
+		}
+		> div:last-of-type {
+			> div:last-of-type {
+				@include border(1px solid $rio-borders, top);
+			}
+		}
+	}
+
+	.case-study-gallery2 {
+		@include border(1px solid $rio-borders, top);
+		@include respond-to(md) {
+			border: none;
+		}
+		> div {
+			@include border(1px solid $rio-borders, bottom)
+			@include respond-to(md) {
+				@include border(1px solid $rio-borders, top, right, bottom);
+			}
+			&:last-of-type {
+				@include respond-to(md) {
+					border-right-color: transparent;
+				}
+			}
+		}
+	}
+
+	.button-wrap {
+		text-align: center;
+		margin-bottom: 25px;
+
+		@media screen and (min-width: $rio-xs){
+			text-align: left;
+		}
+	}
+
+	.case-study-gallery,
+	.case-study-gallery2 {
+		padding: 0;
+	}
+}
