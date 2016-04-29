@@ -125,7 +125,7 @@ $rio-xs: 760px;
 }
 
 .two-cards {
-	@include hero('../images/work/run-it-once/hero/two-cards.png');
+	@include hero('../images/work/run-it-once/hero/two-cards.jpg');
 	height: 50vh;
 	min-height: rem-calc(510);
 	@include respond-to(sm) { height: 583; }
