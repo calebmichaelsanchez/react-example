@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
+import classNames from 'classnames';
 import helpers from "../../../../../../../shared/util/helpers";
 
 class RioHero extends Component {
@@ -9,6 +10,11 @@ class RioHero extends Component {
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
     this.update   = this.update.bind(this);
+    this.onLoad   = this.onLoad.bind(this);
+
+    this.state = {
+      loaded: false
+    }
   }
   componentDidMount() {
     this.lastKnownScroll = 0;
@@ -41,6 +47,9 @@ class RioHero extends Component {
       this.ticking = true;
     }
   }
+  onLoad() {
+    this.setState({ loaded: true });
+  }
   update() {
     let { viewportHeight, windowWidth }  = this.props,
         { transformThreeD, position }   = helpers,
@@ -72,16 +81,19 @@ class RioHero extends Component {
   }
   render() {
     let { hero, cardbox } = this.props;
+    let loaded = classNames({
+      'loaded': this.state.loaded
+    });
     return (
       <div ref="rioHero" className="hero--rio">
         <img src={hero.one} className="rio-logo" alt="Run It Once Logo" />
-        <div id="cardBox" className="cardbox">
+        <div id="cardBox" className={`cardbox cardbox--intro ${loaded}`}>
           <img src={cardbox.lid}     className="cardbox__item cardbox__item--lid" />
           <img src={cardbox.lidBack} className="cardbox__item cardbox__item--lidback" />
           <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
           <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
           <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
-          <img src={cardbox.front}   className="cardbox__item cardbox__item--front" />
+          <img onLoad={this.onLoad} src={cardbox.front}   className="cardbox__item cardbox__item--front" />
         </div>
       </div>
     )

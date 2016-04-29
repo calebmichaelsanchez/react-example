@@ -81,7 +81,16 @@ $rio-xs: 760px;
 	left: 50%;
 	width: 100%;
 	max-width: rem-calc(235);
-	transform: translate3d(-50%, 0px, 0);
+	transform: translate3d(-50%, 0, 0);
+	&--intro {
+		opacity: 0;
+		transform: translate3d(-50%, 80px, 0);
+		transition: 600ms ease-out;
+		&.loaded {
+			opacity: 1;
+			transform: translate3d(-50%, 0, 0);
+		}
+	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		max-width: rem-calc(300);
 		bottom: -30%;
