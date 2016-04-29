@@ -246,9 +246,9 @@ class RunItOnce extends Component {
         six   : require("../../../../../../../images/work/run-it-once/deck/06.png")
 			},
 			gallery: {
-        one   : require("../../../../../../../images/work/run-it-once/gallery/01.jpg"),
-        two   : require("../../../../../../../images/work/run-it-once/gallery/02.jpg"),
-        three : require("../../../../../../../images/work/run-it-once/gallery/03.jpg")
+        one   : require("../../../../../../../images/work/run-it-once/gallery/01-no-border.jpg"),
+        two   : require("../../../../../../../images/work/run-it-once/gallery/02-no-border.jpg"),
+        three : require("../../../../../../../images/work/run-it-once/gallery/03-no-border.jpg")
 			},
 			cards: {
         one   : require("../../../../../../../images/work/run-it-once/cards/1.png"),
@@ -256,9 +256,9 @@ class RunItOnce extends Component {
         three : require("../../../../../../../images/work/run-it-once/cards/3.png")
 			},
 			gallery2: {
-        one   : require("../../../../../../../images/work/run-it-once/gallery2/1.jpg"),
-        two   : require("../../../../../../../images/work/run-it-once/gallery2/2.jpg"),
-        three : require("../../../../../../../images/work/run-it-once/gallery2/3.jpg")
+        one   : require("../../../../../../../images/work/run-it-once/gallery2/01-no-border.jpg"),
+        two   : require("../../../../../../../images/work/run-it-once/gallery2/02-no-border.jpg"),
+        three : require("../../../../../../../images/work/run-it-once/gallery2/03-no-border.jpg")
 			},
 			lifestyle : require("../../../../../../../images/work/fluid/lifestyle/01.jpg"),
 			seeMore: {
