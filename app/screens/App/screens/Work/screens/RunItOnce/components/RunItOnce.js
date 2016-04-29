@@ -287,6 +287,7 @@ class RunItOnce extends Component {
 					<div className="deck" ref="deck">
 						<div className="deck-container">
 							<div className="deck-container__item deck-copy">
+                <h1>Backstory</h1>
 								<div className="button-wrap">
 									<a href="#" className="button">Illustration</a> <a href="#" className="button">Photography</a>
 								</div>
