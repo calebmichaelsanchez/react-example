@@ -15,7 +15,7 @@ import Hive        from '../screens/App/screens/Work/screens/Hive/components/Hiv
 import RentTree    from '../screens/App/screens/Work/screens/RentTree/components/RentTree';
 import Bountiful   from '../screens/App/screens/Work/screens/Bountiful/components/Bountiful';
 import Nsac        from '../screens/App/screens/Work/screens/Nsac/components/Nsac';
-import RunItOnce   from '../screens/App/screens/Work/screens/RunItOnce/components/RunItOnce';
+import RunItOnce   from '../screens/App/screens/Work/screens/RunItOnce/';
 import NoMatch     from '../screens/App/screens/NoMatch/components/NoMatch';
 
 const routes = (
