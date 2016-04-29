@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title';
 import SeeMore from "../../shared/SeeMore";
 import helpers from "../../../../../../shared/util/helpers";
 import RioHero from "./components/RioHero";
+import TwoCards from "./components/TwoCards";
 import Deck from "./components/Deck";
 import Cards from "./components/Cards";
 import FinalCards from "./components/FinalCards";
@@ -20,9 +21,8 @@ class RunItOnce extends Component {
   }
   render() {
     let img = {
-      hero: {
-        one   : require("../../../../../../images/work/run-it-once/hero/logo.png")
-      },
+      logo: require("../../../../../../images/work/run-it-once/hero/logo.png"),
+      hero: require("../../../../../../images/work/run-it-once/hero/two-cards.jpg"),
       cardbox: {
         lid     : require("../../../../../../images/work/run-it-once/hero/lid-lip.png"),
         lidBack : require("../../../../../../images/work/run-it-once/hero/lid-open.png"),
@@ -63,8 +63,8 @@ class RunItOnce extends Component {
     return (
       <DocumentTitle title="Run It Once | Underbelly Creative">
         <div className="case-study run-it-once">
-          <RioHero hero={img.hero} cardbox={img.cardbox} {...this.props} />
-          <section className="two-cards"></section>
+          <RioHero logo={img.logo} cardbox={img.cardbox} {...this.props} />
+          <TwoCards hero={img.hero} />
           <Deck deck={img.deck} {...this.props} />
           <GalleryOne gallery={img.gallery} />
           <Cards cards={img.cards} {...this.props} />

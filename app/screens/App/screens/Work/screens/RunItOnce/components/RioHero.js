@@ -80,13 +80,13 @@ class RioHero extends Component {
     this.ticking = false ;
   }
   render() {
-    let { hero, cardbox } = this.props;
+    let { logo, cardbox } = this.props;
     let loaded = classNames({
       'loaded': this.state.loaded
     });
     return (
       <div ref="rioHero" className="hero--rio">
-        <img src={hero.one} className="rio-logo" alt="Run It Once Logo" />
+        <img src={logo} className="rio-logo" alt="Run It Once Logo" />
         <div id="cardBox" className={`cardbox cardbox--intro ${loaded}`}>
           <img src={cardbox.lid}     className="cardbox__item cardbox__item--lid" />
           <img src={cardbox.lidBack} className="cardbox__item cardbox__item--lidback" />

@@ -78,7 +78,7 @@ class FinalCards extends Component {
     let { cardbox } = this.props;
     return (
       <div ref="ending" className="hero--rio hero--rio--final">
-        <a ref="buy" href="#" className="button buy-button">buy 'em now</a>
+        <a ref="buy" href="http://store.runitonce.com/products/1st-edition-playing-cards" target="_blank" className="button buy-button">buy 'em now</a>
         <div id="cardBox" className="cardbox" ref="cardbox">
           <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
           <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
