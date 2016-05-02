@@ -16,7 +16,7 @@ import RentTree    from '../screens/App/screens/Work/screens/RentTree/components
 import Bountiful   from '../screens/App/screens/Work/screens/Bountiful/components/Bountiful';
 import Nsac        from '../screens/App/screens/Work/screens/Nsac/components/Nsac';
 import RunItOnce   from '../screens/App/screens/Work/screens/RunItOnce/';
-import SizzlingPlatter from '../screens/App/screens/Work/screens/SizzlingPlatter/components/SizzlingPlatter';
+import Splat from '../screens/App/screens/Work/screens/SizzlingPlatter';
 import NoMatch     from '../screens/App/screens/NoMatch/components/NoMatch';
 
 const routes = (
@@ -36,7 +36,7 @@ const routes = (
       <Route path="/making-it-awesome-with/bountiful-dental" component={Bountiful} />
       <Route path="/making-it-awesome-with/nsac" component={Nsac} />
       <Route path="/making-it-awesome-with/run-it-once" component={RunItOnce} />
-      <Route path="/making-it-awesome-with/sizzling-platter" component={SizzlingPlatter} />
+      <Route path="/making-it-awesome-with/sizzling-platter" component={Splat} />
     </Route>
     <Route path="*" component={NoMatch} />
   </Route>
