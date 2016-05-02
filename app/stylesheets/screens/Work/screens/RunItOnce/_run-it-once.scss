@@ -134,6 +134,7 @@ $rio-xs: 760px;
 
 .two-cards {
 	position: relative;
+	overflow: hidden;
 	//@include hero('../images/work/run-it-once/hero/two-cards.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -159,6 +160,7 @@ $rio-xs: 760px;
 }
 
 .deck {
+	overflow: hidden;
 	padding: rem-calc(70) rem-calc(22) rem-calc(60);
 	@include respond-to(sm) {
 		padding: rem-calc(143) 0 0;
@@ -412,16 +414,16 @@ $rio-xs: 760px;
 		}
 	}
 
-.case-study-gallery,
-.case-study-gallery2 {
-	.intrinsic__inner-magic {
-		transition: 800ms ease;
-		&:hover {
-			transform: scale(1.15);
-			transition: 10s ease;
+	.case-study-gallery,
+	.case-study-gallery2 {
+		.intrinsic__inner-magic {
+			transition: 800ms ease;
+			&:hover {
+				transform: scale(1.15);
+				transition: 10s ease;
+			}
 		}
 	}
-}
 
 	.case-study-gallery {
 		@include border(rem-calc(1) solid $rio-borders, top, bottom);
