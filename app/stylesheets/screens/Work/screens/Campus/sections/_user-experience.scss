@@ -1,0 +1,34 @@
+.user-experience {
+  margin-top: rem-calc(145);
+  padding-top: rem-calc(16);
+  padding-bottom: rem-calc(80);
+  //@include hero("../images/work/campus/user-experience.jpg");
+  @include respond-to(sm) {
+    margin-top: rem-calc(125);
+    padding-bottom: rem-calc(160);
+  }
+  @include respond-to(md) {
+    margin-top: rem-calc(0);
+    padding-bottom: rem-calc(340);
+  }
+  @include respond-to(lg) {
+    margin-top: rem-calc(0);
+    padding-bottom: rem-calc(270);
+  }
+}
+.site-map {
+  max-width: rem-calc(960);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem-calc(40);
+  @include respond-to(sm) {
+    margin-top: rem-calc(80);
+  }
+  text-align: center;
+  padding: 1rem;
+  svg {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+}

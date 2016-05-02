@@ -30,7 +30,7 @@
 		display: inline-block;
 		padding-left: 10px;
 		color: color(white);
-		font-size: fs(small);
 		font-weight: fw(regular);
+		@extend .small;
 	}
 }

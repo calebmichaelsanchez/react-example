@@ -1,51 +1,14 @@
 $ff-primary: 'proxima-nova', "Helvetica Neue", "Helvetica", sans-serif;
+$fw: ( light: 300, regular: 400, bold: 700 );
 
-$fw: (
-	light: 300,
-	regular: 400,
-	bold: 700
-);
-
-$fs: (
-	hero-xl: 4.5rem,
-	hero-lg: 3.375rem,
-	hero-md: 3rem,
-	hero-sm: 2.625rem,
-	hero-xs: 1.333rem,
-	h1: 2.25rem,
-	h2: 2rem,
-	h3: 1.6875rem,
-	h4: 1.5rem,
-	h5: 1.3125rem,
-	h6: 1.125rem,
-	p: 1.125rem,
-	caption: .875rem,
-	small: 1rem
-);
-
-
-// Typography
 html {
-	font-size: 12px;
-	@media screen and (min-width: $small) {
-		font-size: 14px;
-	}
-	@media screen and (min-width: $medium) {
-		font-size: 16px;
-	}
-}
-h1, h2, h3, h4, h5, h6,
-.hero-xl, .hero-lg, .hero-md, .hero-sm, .hero-xs,
-p, .small, a {
+	font-size: 100%;
+	color: color(black);
 	font-family: $ff-primary;
 	font-weight: fw(light);
 }
-span {
-	font-family: $ff-primary;
-}
 
 a {
-	font-size: fs(p);
 	text-decoration: none;
 	color: color(blue-secondary);
 	border: none;
@@ -63,32 +26,81 @@ a {
 
 strong { font-weight: fw(bold); }
 
-.hero-xl { font-size: fs(hero-xl); }
-.hero-lg { font-size: fs(hero-lg); }
-.hero-md { font-size: fs(hero-md); }
-.hero-sm { font-size: fs(hero-sm); }
+.hero-xl { font-size: rem-calc(56); font-weight: fw(light); }
+.hero-lg { font-size: rem-calc(48); font-weight: fw(light); }
+.hero-md { font-size: rem-calc(40); font-weight: fw(light); }
+.hero-sm { font-size: rem-calc(36); font-weight: fw(light); }
+.hero-xs { font-size: rem-calc(32); font-weight: fw(light); }
+.h1      { font-size: rem-calc(28); font-weight: fw(light); }
+.h2      { font-size: rem-calc(24); font-weight: fw(light); }
+.h3      { font-size: rem-calc(20); font-weight: fw(light); }
+.h4      { font-size: rem-calc(18); font-weight: fw(light); }
+.h5      { font-size: rem-calc(16); font-weight: fw(light); }
+.h6      { font-size: rem-calc(14); font-weight: fw(light); }
+.p       { font-size: rem-calc(16); font-weight: fw(light); }
+.small	 { font-size: rem-calc(16); font-weight: fw(light); }
+
+@media screen and (min-width: 48em) {
+	.hero-xl { font-size: rem-calc(64); }
+	.hero-lg { font-size: rem-calc(56); }
+	.hero-md { font-size: rem-calc(48); }
+	.hero-sm { font-size: rem-calc(40); }
+	.hero-xs { font-size: rem-calc(36); }
+	.h1      { font-size: rem-calc(32); }
+	.h2      { font-size: rem-calc(28); }
+	.h3      { font-size: rem-calc(24); }
+	.h4      { font-size: rem-calc(20); }
+	.h5      { font-size: rem-calc(18); }
+	.h6      { font-size: rem-calc(16); }
+	.p       { font-size: rem-calc(18); }
+}
+
+@media screen and (min-width: 64em) {
+	.hero-xl { font-size: rem-calc(72); }
+	.hero-lg { font-size: rem-calc(64); }
+	.hero-md { font-size: rem-calc(56); }
+	.hero-sm { font-size: rem-calc(48); }
+	.hero-xs { font-size: rem-calc(40); }
+	.h1      { font-size: rem-calc(36); }
+	.h2      { font-size: rem-calc(32); }
+	.h3      { font-size: rem-calc(28); }
+	.h4      { font-size: rem-calc(24); }
+	.h5      { font-size: rem-calc(20); }
+	.h6      { font-size: rem-calc(18); }
+	.p       { font-size: rem-calc(18); }
+}
+
+@media screen and (min-width: 90em) {
+	.hero-xl { font-size: rem-calc(72); }
+	.hero-lg { font-size: rem-calc(64); }
+	.hero-md { font-size: rem-calc(56); }
+	.hero-sm { font-size: rem-calc(48); }
+	.hero-xs { font-size: rem-calc(40); }
+	.h1      { font-size: rem-calc(36); }
+	.h2      { font-size: rem-calc(32); }
+	.h3      { font-size: rem-calc(28); }
+	.h4      { font-size: rem-calc(24); }
+	.h5      { font-size: rem-calc(20); }
+	.h6      { font-size: rem-calc(18); }
+	.p       { font-size: rem-calc(18); }
+}
+
+h1       { @extend .h1; }
+h2       { @extend .h2; }
+h3       { @extend .h3; }
+h4       { @extend .h4; }
+h5       { @extend .h5; }
+h6       { @extend .h6; }
+p        { @extend .p; }
+
+p { line-height: 1.5; }
 .hero-xs {
-	font-size: fs(hero-xs);
 	display: block;
 	color: color(white);
 	text-align: center;
 	text-transform: uppercase;
 	vertical-align: bottom;
 }
-
-h1 { font-size: fs(h1); color: color(black); }
-h2 { font-size: fs(h2); }
-h3 { font-size: fs(h3); }
-h4 { font-size: fs(h4); }
-h5 { font-size: fs(h5); }
-h6 { font-size: fs(h6); }
-
-p {
-	font-size: fs(p);
-	line-height: 1.35;
-}
-// Forms
-//label, input, select, option, textarea { font-size: fs(h5); }
 
 .quote {
 	text-align: center;

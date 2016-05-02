@@ -18,6 +18,19 @@ let helpers = {
     let cents = price.slice(price.length - 2);
     return `${dollars}.${cents}`
   },
+  isInViewport: function(elem, offset) {
+    let distance = elem.getBoundingClientRect();
+    return (
+      (distance.top >= 0 && distance.top <= ((window.innerHeight - offset) || (document.documentElement.clientHeight - offset)))
+    );
+  },
+  position: function(base, range, relativeY, offset) {
+    let returnVal = base + helpers.limit(0, 1, relativeY - offset) * range;
+    return returnVal;
+  },
+  limit: function(min, max, value) {
+    return Math.max(min, Math.min(max, value));
+  },
   // Underscores Throttle
   throttle: function(func, wait, options) {
     var context, args, result;

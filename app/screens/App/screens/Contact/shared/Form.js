@@ -5,16 +5,15 @@ import classNames from 'classnames';
 import Icon from '../../../shared/icons/Icon';
 
 let pick = function (o, ...fields) {
-    return fields.reduce((a, x) => {
-        if(o.hasOwnProperty(x)) a[x] = o[x];
-        return a;
-    }, {});
+  return fields.reduce((a, x) => {
+      if(o.hasOwnProperty(x)) a[x] = o[x];
+      return a;
+  }, {});
 }
 
 let gatherTruthy = function () {
 	let keys = Array.prototype.slice.call(arguments);
 	let result = [];
-
 	let obj = keys.shift();
 
 	keys.map((key) => {
@@ -43,16 +42,16 @@ class Form extends Component {
 			submitting: false,
 			success: false
 		}
-		this.handlePageClick = this.handlePageClick.bind(this);
-		this.getModel = this.getModel.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.alertClass = this.alertClass.bind(this);
-		this.validate = this.validate.bind(this);
-		this.send = this.send.bind(this);
-		this.error = this.error.bind(this);
+		this.handlePageClick  = this.handlePageClick.bind(this);
+		this.getModel         = this.getModel.bind(this);
+		this.handleSubmit     = this.handleSubmit.bind(this);
+		this.alertClass       = this.alertClass.bind(this);
+		this.validate         = this.validate.bind(this);
+		this.send             = this.send.bind(this);
+		this.error            = this.error.bind(this);
 		this.handleTitleClick = this.handleTitleClick.bind(this);
 		this.handleLabelClick = this.handleLabelClick.bind(this);
-		this.handleUpdate = this.handleUpdate.bind(this);
+		this.handleUpdate     = this.handleUpdate.bind(this);
 	}
 
 	componentDidMount() {
@@ -75,7 +74,7 @@ class Form extends Component {
 	}
 
 	getModel() {
-		var model = pick(this.state, "name", "email", "service", "timeline", "budget", "about");
+		let model = pick(this.state, "name", "email", "service", "timeline", "budget", "about");
 		return model;
 	}
 
@@ -126,19 +125,15 @@ class Form extends Component {
 		this.setState({ submitting: true});
 		axios.post('/contact-form', model)
 			.then(function (res) {
+				console.log(res);
 				if (res.data === "sent") {
-					self.setState({
-						success: true
-					});
+					self.setState({ success: true });
 				}
 			})
 			.catch(function (res) {
-				if (res.data != "sent")  {
-					alert("The server could not accept your data. Please try again later!");
-					self.setState({
-						error: true
-					});
-				}
+				console.error(res);
+				alert("The server could not accept your data. Please try again later!");
+				self.setState({ error: true });
 			});
 		this.setState({ submitting: false});
 	}

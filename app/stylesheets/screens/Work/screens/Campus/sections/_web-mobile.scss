@@ -1,0 +1,126 @@
+.web-mobile {
+  position: relative;
+  margin-top: rem-calc(200);
+  @include respond-to(sm) { margin-top: rem-calc(160); }
+  @include respond-to(md) { margin-top: rem-calc(250); }
+  @include respond-to(lg) { margin-top: rem-calc(290); }
+  overflow: hidden;
+  &-iphone {
+    position: relative;
+    max-width: rem-calc(1200);
+    margin-top: rem-calc(300);
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (min-width: 375px) {
+      margin-top: rem-calc(350);
+    }
+    @media screen and (min-width: 425px) {
+      margin-top: rem-calc(400);
+    }
+    @media screen and (min-width: 520px) {
+      margin-top: rem-calc(450);
+    }
+    @include respond-to(xs) {
+      margin-top: rem-calc(480);
+    }
+    @include respond-to(sm) {
+      margin-top: rem-calc(550);
+    }
+    @include respond-to(md) {
+      margin-top: rem-calc(650);
+    }
+  }
+}
+.campus-icons {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: rem-calc(1200 * .4);
+  height: rem-calc(640 * .4);
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-50%) translateY(250px);
+  @media screen and (min-width: 425px) {
+    transform: translateX(-50%) translateY(200px);
+    width: rem-calc(1200 * .5);
+    height: rem-calc(640 * .5);
+  }
+  @include respond-to(xs) {
+    width: rem-calc(1200 * .65);
+    height: rem-calc(640 * .65);
+    transform: translateX(-50%) translateY(150px);
+  }
+  @include respond-to(sm) {
+    width: rem-calc(1200 * .8);
+    height: rem-calc(640 * .8);
+    transform: translateX(-50%) translateY(100px);
+  }
+  @include respond-to(md) {
+    width: rem-calc(1200);
+    height: rem-calc(640);
+  }
+  &__container {
+    position: absolute;
+    display: block;
+    &--pen {
+      top: 0;
+      left: 0;
+    }
+    &--calendar {
+      top: percentage(121 / 640);
+      left: percentage(87 / 1200);
+    }
+    &--book {
+      top: percentage(287 / 640);
+      left: percentage(225 / 1200);
+    }
+    &--calculator {
+      top: percentage(207 / 640);
+      left: percentage(384 / 1200);
+    }
+    &--wallet {
+      top: percentage(388 / 640);
+      left: percentage(392 / 1200);
+    }
+    &--hat {
+      top: percentage(285 / 640);
+      left: percentage(515 / 1200);
+    }
+    &--backpack {
+      top: percentage(438 / 640);
+      left: percentage(475 / 1200);
+    }
+    &--glasses {
+      top: percentage(193 / 640);
+      left: percentage(689 / 1200);
+    }
+    &--pizza {
+      top: percentage(343 / 640);
+      left: percentage(689 / 1200);
+    }
+    &--pencil {
+      top: percentage(382 / 640);
+      left: percentage(891 / 1200);
+    }
+    &--notebook {
+      top: percentage(221 / 640);
+      left: percentage(912 / 1200);
+    }
+    &--headphones {
+      top: percentage(45 / 640);
+      left: percentage(1056 / 1200);
+    }
+  }
+  &__item {
+    position: relative;
+    width: 100%;
+    height: 0;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // width: 100%;
+      // height: 100%;
+    }
+  }
+}

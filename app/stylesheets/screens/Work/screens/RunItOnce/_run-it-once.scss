@@ -7,9 +7,8 @@ $rio-xs: 760px;
 
 .hero--rio {
 	position: relative;
-	overflow: hidden;
 	color: color(white);
-	min-height: 520px;
+	min-height: rem-calc(520);
 	text-align: center;
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		height: 60vh;
@@ -21,9 +20,7 @@ $rio-xs: 760px;
 		height: 90vh;
 	}
 	&--final {
-		// height: 400px;
-		// .cardbox { bottom: -20%; }
-		min-height: 520px;
+		min-height: rem-calc(520);
 		@media screen and (min-height: 640px) and (min-width: 640px) {
 			height: 50vh;
 		}
@@ -38,17 +35,17 @@ $rio-xs: 760px;
 	    background: #A47C3F;
 	    color: #fff;
 	    border: none;
-	    padding: 10px 0;
-	    min-width: 195px;
+	    padding: rem-calc(10) 0;
+	    min-width: rem-calc(195);
 		 	position: absolute;
-		 	top: 18%;
+		 	top: 25%;
 		 	left: 50%;
 		 	transform: translate3d(-50%, 30px, 0);
 			opacity: 0;
 			transition: 600ms ease;
 			z-index: 0;
 			@media screen and (min-height: 640px) and (min-width: 640px) {
-				top: 20%;
+				top: 30%;
 			}
 			&.active {
 				opacity: 1;
@@ -64,16 +61,16 @@ $rio-xs: 760px;
 	left: 50%;
 	top: 30%;
 	transform: translate3d(-50%, 0, 0);
-	max-width: 235px;
+	max-width: rem-calc(235);
 	@media screen and (min-height: 640px) and (min-width: 640px) {
 		top: 25%;
-		max-width: 300px;
+		max-width: rem-calc(300);
 	}
 	@media screen and (min-height: 768px) and (min-width: 768px) {
-		max-width: 320px;
+		max-width: rem-calc(320);
 	}
 	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		max-width: 475px;
+		max-width: rem-calc(475);
 	}
 }
 
@@ -82,18 +79,27 @@ $rio-xs: 760px;
 	bottom: -20%;
 	left: 50%;
 	width: 100%;
-	max-width: 235px;
-	transform: translate3d(-50%, 0px, 0);
+	max-width: rem-calc(235);
+	transform: translate3d(-50%, 0, 0);
+	&--intro {
+		opacity: 0;
+		transform: translate3d(-50%, 80px, 0);
+		transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+		&.loaded {
+			opacity: 1;
+			transform: translate3d(-50%, 0, 0);
+		}
+	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
-		max-width: 300px;
+		max-width: rem-calc(300);
 		bottom: -30%;
 	}
 	@media screen and (min-height: 768px) and (min-width: 768px) {
-		max-width: 320px;
+		max-width: rem-calc(320);
 		bottom: -25%;
 	}
 	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		max-width: 475px;
+		max-width: rem-calc(475);
 		bottom: -30%;
 	}
 	@media screen and (min-height: 1024px) and (min-width: 1024px) {
@@ -127,18 +133,38 @@ $rio-xs: 760px;
 }
 
 .two-cards {
-	@include hero('../images/work/run-it-once/hero/two-cards.png');
+	position: relative;
+	overflow: hidden;
+	//@include hero('../images/work/run-it-once/hero/two-cards.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 	height: 50vh;
-	min-height: 510px;
-	@include respond-to(sm) { height: 583; }
+	min-height: rem-calc(510);
+	@include respond-to(sm) { height: rem-calc(583); }
 	@include respond-to(md) { height: 100vh; }
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: $rio-primary;
+		opacity: 1;
+		transition: 600ms ease;
+	}
+	&.loaded:before {
+		opacity: 0;
+	}
 }
 
 .deck {
-	padding: 70px 22px 60px;
+	overflow: hidden;
+	padding: rem-calc(70) rem-calc(22) rem-calc(60);
 	@include respond-to(sm) {
-		padding: 143px 0 0;
-		height: 1200px;
+		padding: rem-calc(143) 0 0;
+		height: rem-calc(1200);
 	}
 	&.active {
 		.deck-copy {
@@ -148,7 +174,7 @@ $rio-xs: 760px;
 	}
 	&-container {
 		width: 100%;
-		max-width: 1440px;
+		max-width: rem-calc(1440);
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
@@ -159,17 +185,22 @@ $rio-xs: 760px;
 	}
 
 	&-copy {
+		color: color(white);
+		margin-bottom: rem-calc(25);
 		transform: translate3d(0, 30px, 0);
 		opacity: 0;
 		transition: 600ms ease;
-		padding-bottom: 100px;
+		padding-bottom: rem-calc(100);
 		@include respond-to(sm) {
-			max-width: 410px;
+			max-width: rem-calc(410);
 			margin-right: percentage(123 / 1440);
 			float: right;
 		}
 		@include respond-to(lg) {
-			max-width: 500px;
+			max-width: rem-calc(500);
+		}
+		h1 {
+			margin-bottom: rem-calc(25);
 		}
 	}
 
@@ -178,16 +209,16 @@ $rio-xs: 760px;
 		margin: 0 auto 0;
 		width: 100%;
 		display: block;
-		height: 494px;
+		height: rem-calc(494);
 		@media screen and (min-width: 330px) {
-			max-width: 330px;
+			max-width: rem-calc(330);
 		}
 		@include respond-to(sm) {
 			position: absolute;
-			max-width: 1042px;
-			height: 934px;
+			max-width: rem-calc(1042);
+			height: rem-calc(934);
 			top: 0;
-			right: -15px;
+			right: -(rem-calc(15));
 		}
 		@include respond-to(md) {
 			right: percentage(135 / 1024);
@@ -209,40 +240,40 @@ $rio-xs: 760px;
 				}
 			}
 			&:nth-of-type(2) {
-				top: 97px;
+				top: rem-calc(97);
 				max-width: percentage(326.94 / 330);
 				z-index: 5;
 				@include respond-to(sm) {
 					max-width: percentage(501 / 1042);
-					top: 149px;
+					top: rem-calc(149);
 				}
 			}
 			&:nth-of-type(3) {
-				top: 185px;
+				top: rem-calc(185);
 				max-width: percentage(326.29 / 330);
 				z-index: 4;
 				@include respond-to(sm) {
 					max-width: percentage(500 / 1042);
-					top: 283px;
+					top: rem-calc(283);
 				}
 			}
 			&:nth-of-type(4) {
-				top: 279px;
+				top: rem-calc(279);
 				max-width: percentage(324.33 / 330);
 				z-index: 3;
 				@include respond-to(sm) {
 					max-width: percentage(497 / 1042);
-					top: 427px;
+					top: rem-calc(427);
 				}
 			}
 			&:nth-of-type(5) {
-				top: 348px;
+				top: rem-calc(348);
 				max-width: percentage(323.68 / 330);
 				z-index: 2;
 				@include respond-to(sm) {
 					max-width: percentage(496 / 1042);
-					top: 533px;
-					left: 60px;
+					top: rem-calc(533);
+					left: rem-calc(60);
 				}
 			}
 			&:nth-of-type(6) {
@@ -250,8 +281,8 @@ $rio-xs: 760px;
 				z-index: 1;
 				@include respond-to(sm) {
 					display: block;
-					top: 648px;
-					left: 450px;
+					top: rem-calc(648);
+					left: rem-calc(450);
 				}
 			}
 		}
@@ -290,19 +321,19 @@ $rio-xs: 760px;
 		margin-right: auto;
 		width: 100%;
 		@extend %clearfix;
-		padding: 45px 20px 90px;
+		padding: rem-calc(45) rem-calc(20) rem-calc(90);
 		@include respond-to(sm) {
-			max-width: 768px;
-			padding: 184px 20px;
+			max-width: rem-calc(768);
+			padding: rem-calc(184) rem-calc(20);
 		}
 		@include respond-to(md) {
-			max-width: 978px;
-			padding: 320px 20px;
+			max-width: rem-calc(978);
+			padding: rem-calc(320) rem-calc(20);
 		}
-		@include respond-to(lg) { padding: 320px 20px; }
+		@include respond-to(lg) { padding: rem-calc(320) rem-calc(20); }
 	}
 	&-copy {
-		max-width: 335px;
+		max-width: rem-calc(335);
 		margin-left: auto;
 		margin-right: auto;
 		opacity: 0;
@@ -312,18 +343,18 @@ $rio-xs: 760px;
 			max-width: 80%
 		}
 		@include respond-to(sm) {
-			max-width: 387px;
+			max-width: rem-calc(387);
 			float: left;
 		}
 
 		@include respond-to(md) {
-			max-width: 512px;
+			max-width: rem-calc(512);
 		}
 	}
 	&-cards {
 		position: relative;
-		padding-top: 100px;
-		max-width: 200px;
+		padding-top: rem-calc(100);
+		max-width: rem-calc(200);
 		margin-left: auto;
 		margin-right: auto;
 		@include respond-to(sm) {
@@ -332,10 +363,10 @@ $rio-xs: 760px;
 			right: 5%;
 			top: 50%;
 			transform: translate3d(0, -50%, 0);
-			max-width: 200px;
+			max-width: rem-calc(200);
 		}
 		@include respond-to(md) {
-			max-width: 200px;
+			max-width: rem-calc(200);
 		}
 		@include respond-to(lg) {
 			right: 0;
@@ -369,11 +400,11 @@ $rio-xs: 760px;
 		text-align: center;
 		background: transparent;
 		color: #B54A49;
-		border: 1px solid #B54A49;
-		border-radius: 25px;
-		font-size: 18px;
-		padding: 5px 20px;
-		margin-right: 12px;
+		border: rem-calc(1) solid #B54A49;
+		border-radius: rem-calc(25);
+		font-size: rem-calc(18);
+		padding: rem-calc(5) rem-calc(20);
+		margin-right: rem-calc(12);
 		&:last-of-type {
 			margin-right: 0;
 		}
@@ -383,42 +414,42 @@ $rio-xs: 760px;
 		}
 	}
 
-.case-study-gallery,
-.case-study-gallery2 {
-	.intrinsic__inner-magic {
-		transition: 800ms ease;
-		&:hover {
-			transform: scale(1.15);
-			transition: 10s ease;
+	.case-study-gallery,
+	.case-study-gallery2 {
+		.intrinsic__inner-magic {
+			transition: 800ms ease;
+			&:hover {
+				transform: scale(1.15);
+				transition: 10s ease;
+			}
 		}
 	}
-}
 
 	.case-study-gallery {
-		@include border(1px solid $rio-borders, top, bottom);
+		@include border(rem-calc(1) solid $rio-borders, top, bottom);
 		> div:first-of-type {
-			@include border(1px solid $rio-borders, bottom);
+			@include border(rem-calc(1) solid $rio-borders, bottom);
 			@include respond-to(sm) {
 				border-bottom: none;
-				@include border(1px solid $rio-borders, right);
+				@include border(rem-calc(1) solid $rio-borders, right);
 			}
 		}
 		> div:last-of-type {
 			> div:last-of-type {
-				@include border(1px solid $rio-borders, top);
+				@include border(rem-calc(1) solid $rio-borders, top);
 			}
 		}
 	}
 
 	.case-study-gallery2 {
-		@include border(1px solid $rio-borders, top);
+		@include border(rem-calc(1) solid $rio-borders, top);
 		@include respond-to(md) {
 			border: none;
 		}
 		> div {
-			@include border(1px solid $rio-borders, bottom)
+			@include border(rem-calc(1) solid $rio-borders, bottom)
 			@include respond-to(md) {
-				@include border(1px solid $rio-borders, top, right, bottom);
+				@include border(rem-calc(1) solid $rio-borders, top, right, bottom);
 			}
 			&:last-of-type {
 				@include respond-to(md) {
@@ -430,7 +461,7 @@ $rio-xs: 760px;
 
 	.button-wrap {
 		text-align: center;
-		margin-bottom: 25px;
+		margin-bottom: rem-calc(25);
 
 		@media screen and (min-width: $rio-xs){
 			text-align: left;

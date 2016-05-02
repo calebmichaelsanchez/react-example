@@ -20,8 +20,7 @@ $aiga-secondary: #d5a44f;
   padding: 0 0 1.5rem 0;
   cursor: pointer;
   color: color(blue-primary);
-  font-size: fs(p);
-  font-weight: fw(light);
+  @extend .p;
   @media screen and (min-width: 440px) {
   	display: inline-block;
   	border-bottom: 5px solid transparent;

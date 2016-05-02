@@ -6,8 +6,8 @@
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "webpack-dev-server --inline --history-api-fallback",
     "start:prod": "npm run build",
-    "build:client": "webpack",
-    "build:server": "webpack --config webpack.server.config.js",
+    "build:client": "webpack -p",
+    "build:server": "webpack -p --config webpack.server.config.js",
     "build": "npm run build:client && npm run build:server"
   },
   "repository": {
@@ -65,6 +65,7 @@
     "compression": "^1.6.1",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
+    "mailgun": "^0.5.0",
     "mandrill-api": "^1.0.45"
   }
 }
