@@ -7,7 +7,6 @@ $rio-xs: 760px;
 
 .hero--rio {
 	position: relative;
-	z-index: 10;
 	color: color(white);
 	min-height: rem-calc(520);
 	text-align: center;
@@ -85,7 +84,7 @@ $rio-xs: 760px;
 	&--intro {
 		opacity: 0;
 		transform: translate3d(-50%, 80px, 0);
-		transition: 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+		transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 		&.loaded {
 			opacity: 1;
 			transform: translate3d(-50%, 0, 0);
@@ -135,7 +134,6 @@ $rio-xs: 760px;
 
 .two-cards {
 	position: relative;
-	z-index: 20;
 	//@include hero('../images/work/run-it-once/hero/two-cards.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
