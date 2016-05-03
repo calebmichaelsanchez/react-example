@@ -1,6 +1,7 @@
 .development {
   position: relative;
   padding-bottom: rem-calc(80);
+  text-align: center;
   @include hero("../images/work/campus/development.jpg");
   @include respond-to(sm) { padding-bottom: rem-calc(130); }
   @include respond-to(md) { padding-bottom: rem-calc(150); }
@@ -39,5 +40,19 @@
       padding-left: 0;
       padding-right: 0;
     }
+  }
+  .btn {
+    position: relative;
+    @extend h4;
+    padding: rem-calc(18) rem-calc(70);
+    display: inline-block;
+    text-align: center;
+    color: #3023AE;
+    background-color: rgba(#F9FAFC, .8);
+    margin-top: rem-calc(40);
+    z-index: 10;
+    border-radius: rem-calc(30);
+    box-shadow: 0 rem-calc(3) rem-calc(25) 0 rgba(0,0,0,0.15);
+    transform: translateY(-115px);
   }
 }

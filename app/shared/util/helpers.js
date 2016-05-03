@@ -31,6 +31,9 @@ let helpers = {
   limit: function(min, max, value) {
     return Math.max(min, Math.min(max, value));
   },
+  easeOutCubic: function(currentIteration, startValue, changeInValue, totalIterations) {
+      return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
+  },
   // Underscores Throttle
   throttle: function(func, wait, options) {
     var context, args, result;

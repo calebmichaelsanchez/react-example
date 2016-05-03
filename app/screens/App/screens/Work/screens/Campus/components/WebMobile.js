@@ -7,10 +7,7 @@ class WebMobile extends Component {
   constructor(props) {
     super(props);
     this.onScroll       = this.onScroll.bind(this);
-    this.updateElements = this.updateElements.bind(this);
-    this.position       = this.position.bind(this);
-    this.limit          = this.limit.bind(this);
-    this.isInViewport   = this.isInViewport.bind(this);
+    this.update         = this.update.bind(this);
     this.setPaddingTop  = this.setPaddingTop.bind(this);
     this.onResize       = this.onResize.bind(this);
   }
@@ -35,7 +32,7 @@ class WebMobile extends Component {
     this.elementDimensions = this.element.getBoundingClientRect();
     this.elementHeight = this.element.clientHeight;
     if(!this.ticking) {
-      window.requestAnimationFrame(this.updateElements);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
@@ -43,34 +40,35 @@ class WebMobile extends Component {
     this.elementDimensions = this.element.getBoundingClientRect();
 
     if(!this.ticking) {
-      window.requestAnimationFrame(this.updateElements);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
-  updateElements() {
+  update() {
     let { viewportHeight } = this.props,
-        iconsHeight                 = this.elementHeight,
-        iconsTop                    = this.elementDimensions.top,
-        iconsBottom                 = this.elementDimensions.bottom,
-        context                     = ( (iconsTop + 200) - viewportHeight) * -1,
-        relativeY                   = context / (iconsHeight + viewportHeight),
-        fastest                     = relativeY * 1,
-        middle                      = relativeY * .8,
-        slowest                     = relativeY * .65;
+        { position, transformThreeD } = helpers,
+        iconsHeight = this.elementHeight,
+        iconsTop    = this.elementDimensions.top,
+        iconsBottom = this.elementDimensions.bottom,
+        context     = ( (iconsTop + 200) - viewportHeight) * -1,
+        relativeY   = context / (iconsHeight + viewportHeight),
+        fastest     = relativeY * 1,
+        middle      = relativeY * .8,
+        slowest     = relativeY * .65;
 
     if (context >= 0 && iconsBottom >= 0) {
-      this.iconsArray[0].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
-      this.iconsArray[1].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
-      this.iconsArray[2].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
-      this.iconsArray[3].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
-      this.iconsArray[4].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
-      this.iconsArray[5].style.transform  = `translate3d( 0px, ${this.position(0, 150, relativeY, 0)}px, 0)`;
-      this.iconsArray[6].style.transform  = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
-      this.iconsArray[7].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
-      this.iconsArray[8].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,    0)}px, 0)`;
-      this.iconsArray[9].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
-      this.iconsArray[10].style.transform = `translate3d( 0px, ${this.position(0, 150, relativeY, 0)}px, 0)`;
-      this.iconsArray[11].style.transform = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      transformThreeD(this.iconsArray[0],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[1],  "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[2],  "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[3],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[4],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[5],  "0", "px", position(0, 150, relativeY, 0), "px", 0, "px");
+      transformThreeD(this.iconsArray[6],  "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[7],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[8],  "0", "px", position(0, 150, middle,    0), "px", 0, "px");
+      transformThreeD(this.iconsArray[9],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
+      transformThreeD(this.iconsArray[10], "0", "px", position(0, 150, relativeY, 0), "px", 0, "px");
+      transformThreeD(this.iconsArray[11], "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
     }
     this.ticking = false;
   }
@@ -89,16 +87,6 @@ class WebMobile extends Component {
       iconsContainer[i].style.height = ((h / 640) * 100) + "%";
       iconsWrapperArray[i].style.paddingBottom = (h / w) * 100 + "%";
     }
-  }
-  position(base, range, relativeY, offset) {
-    return base + this.limit(0, 1, relativeY - offset) * range;
-  }
-  limit(min, max, value) {
-    return Math.max(min, Math.min(max, value));
-  }
-  isInViewport(elem) {
-    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.props;
-    return (distance.bottom > 0 && distance.top < viewportHeight);
   }
   render() {
     let img = require("../../../../../../../images/work/campus/web-mobile-iphone.png");
