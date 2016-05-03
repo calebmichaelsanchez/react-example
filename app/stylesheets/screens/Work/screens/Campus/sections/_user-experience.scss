@@ -24,6 +24,9 @@
   @include respond-to(sm) {
     margin-top: rem-calc(80);
   }
+  @include respond-to(md) {
+    max-width: 80%;
+  }
   text-align: center;
   padding: 1rem;
   svg {
