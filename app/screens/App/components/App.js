@@ -8,13 +8,7 @@ class App extends Component {
     this.state = {
       navTheme       : '',
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
-      documentHeight : Math.max( document.body.scrollHeight,
-                                 document.documentElement.scrollHeight,
-                                 document.body.offsetHeight,
-                                 document.documentElement.offsetHeight,
-                                 document.body.clientHeight,
-                                 document.documentElement.clientHeight ),
-      pageYOffset    : window.pageYOffset,
+      documentHeight : document.body.clientHeight,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     }
     this.setNavTheme = this.setNavTheme.bind(this);
@@ -22,26 +16,20 @@ class App extends Component {
     this.onResize = this.onResize.bind(this);
   }
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll, false);
+    //window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
+    //window.removeEventListener("scroll", this.onScroll, false);
     window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
-    this.setState({ pageYOffset: window.pageYOffset });
+
   }
   onResize() {
     this.setState({
       windowWidth    : window.innerWidth || document.documentElement.clientWidth,
-      documentHeight : Math.max( document.body.scrollHeight,
-                                 document.documentElement.scrollHeight,
-                                 document.body.offsetHeight,
-                                 document.documentElement.offsetHeight,
-                                 document.body.clientHeight,
-                                 document.documentElement.clientHeight ),
-      pageYOffset    : window.pageYOffset,
+      documentHeight : document.documentElement.clientHeight,
       viewportHeight : window.innerHeight || document.documentElement.clientHeight
     });
   }
@@ -54,7 +42,6 @@ class App extends Component {
                           setNavTheme    : this.setNavTheme,
                           windowWidth    : windowWidth,
                           documentHeight : documentHeight,
-                          pageYOffset    : pageYOffset,
                           viewportHeight : viewportHeight
                         });
     return (

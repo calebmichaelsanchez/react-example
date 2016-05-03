@@ -13,8 +13,33 @@ body,
 #app,
 .app-wrapper {
 	position: relative;
-	height: 100%;
+	//height: 100%;
 }
 body {
 	font-family: $ff-primary;
+}
+
+.intrinsic {
+  width: 100%;
+  overflow: hidden;
+  &__inner {
+    position: relative;
+    height: 0;
+    &--full {
+      padding-bottom: 100%;
+    }
+    &--half {
+      padding-bottom: 50%;
+    }
+    &-magic {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
 }

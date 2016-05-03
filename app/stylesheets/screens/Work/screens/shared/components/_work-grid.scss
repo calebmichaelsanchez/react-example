@@ -153,20 +153,22 @@
   		text-transform: uppercase;
   		border: 1px solid color(blue-primary);
   		border-radius: 20px;
-  		padding: 8px 15px 10px;
+  		padding: 10px 15px 10px;
   		span { vertical-align: middle; }
   	}
   	&--aiga .projects__item-meta,
   	&--fluid .projects__item-meta,
-  	&--scb .projects__item-meta {
+  	&--scb .projects__item-meta,
+    &--run-it-once .projects__item-meta {
 			h3, span { color: color(white); }
 			span { border-color: color(white); }
   	}
   }
 }
+.projects__item--run-it-once            { background-image: url('../images/work/project-grid/run-it-once.jpg');      }
 .projects__item--aiga                   { background-image: url('../images/work/project-grid/aiga.jpg');             }
-.projects__item--fluid                  { background-image: url('../images/work/project-grid/fluid.jpg');            }
 .projects__item--bright-bytes           { background-image: url('../images/work/project-grid/bright-bytes.jpg');     }
+.projects__item-image--fluid            { background-image: url('../images/work/project-grid/fluid.jpg');            }
 .projects__item-image--just-family      { background-image: url('../images/work/project-grid/just-family.jpg');      }
 .projects__item-image--scb              { background-image: url('../images/work/project-grid/salt-city-builds.jpg'); }
 .projects__item-image--traxion          { background-image: url('../images/work/project-grid/traxion.jpg');          }

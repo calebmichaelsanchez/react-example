@@ -1,10 +1,16 @@
 let helpers = {
-	transformThreeD: function(e, x, y, z) {
-		e.style.webkitTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-		   e.style.MozTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-		     e.style.OTransform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-		  		e.style.transform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
+	transformThreeD: function(e, x, xUnit, y, yUnit, z, zUnit) {
+		e.style.webkitTransform = "translate3d(" + x + xUnit + ", " + y + yUnit + ", " + z + zUnit + ")";
+		   e.style.MozTransform = "translate3d(" + x + xUnit + ", " + y + yUnit + ", " + z + zUnit + ")";
+		     e.style.OTransform = "translate3d(" + x + xUnit + ", " + y + yUnit + ", " + z + zUnit + ")";
+		  		e.style.transform = "translate3d(" + x + xUnit + ", " + y + yUnit + ", " + z + zUnit + ")";
 	},
+  transformRotate: function(e, value) {
+    e.style.webkitTransform = "rotate(" + value + "deg)";
+       e.style.MozTransform = "rotate(" + value + "deg)";
+         e.style.OTransform = "rotate(" + value + "deg)";
+          e.style.transform = "rotate(" + value + "deg)";
+  },
 	toDollars: function(x) {
     if (x === 0) { return '0.00' }
     let price = x.toString();
@@ -17,6 +23,13 @@ let helpers = {
     return (
       (distance.top >= 0 && distance.top <= ((window.innerHeight - offset) || (document.documentElement.clientHeight - offset)))
     );
+  },
+  position: function(base, range, relativeY, offset) {
+    let returnVal = base + helpers.limit(0, 1, relativeY - offset) * range;
+    return returnVal;
+  },
+  limit: function(min, max, value) {
+    return Math.max(min, Math.min(max, value));
   },
   // Underscores Throttle
   throttle: function(func, wait, options) {

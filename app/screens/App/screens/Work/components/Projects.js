@@ -22,7 +22,7 @@ class Projects extends Component {
 					<span className="hero-lg">Our Work</span>
 				</header>
 				<div className="projects__container projects__container--left">
-					<ProjectLg name="aiga" title="AIGA 100 Show" theme="light" />
+					<ProjectLg name="run-it-once" title="Run It Once" theme="light" />
 				</div>
 				<div className="projects__container projects__container--right">
 					<ProjectSm direction="left" name="just-family" title="JustFamily" theme="dark" />
@@ -47,7 +47,7 @@ class Projects extends Component {
 					<ProjectSm direction="right" name="nsac" title="North Seattle Alliance Church" theme="dark" />
 				</div>
 				<div className="projects__container projects__container--right">
-					<ProjectLg name="fluid" title="Fluid" theme="light" />
+					<ProjectLg name="aiga" title="AIGA 100 Show" theme="light" />
 				</div>
 				<div className="projects__container projects__container--left">
 					<a href="http://brightbytes.net/" target="_blank" className="projects__item projects__item--bright-bytes projects__item--lg">
@@ -63,7 +63,7 @@ class Projects extends Component {
 					</a>
 				</div>
 				<div className="projects__container projects__container--right">
-					<ProjectSm direction="left" name="bountiful-dental" title="Bountiful Dental" theme="dark" />
+					<ProjectSm direction="left" name="fluid" title="Fluid" theme="dark" />
 					<ProjectSm direction="right" name="hive" title="Hive Checklists" theme="dark" />
 				</div>
 			</section>

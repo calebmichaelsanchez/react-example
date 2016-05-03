@@ -31,6 +31,24 @@
 	.no-touchevents &:hover, &:focus, &:active, &:visited { color: color($color); }
 }
 
+@mixin border ($style,  $sides...){
+  @if ($style != "") {
+    @if ($sides == "") {
+      border: $style;
+    } @else {
+      @each $side in $sides {
+       @if ($side == 'top' or
+            $side == 'right' or
+            $side == 'bottom' or
+            $side == 'left') {
+            border-#{$side}: $style;
+        }
+      }
+    }
+  }
+}
+
+
 $breakpoints: (
 	'xs'  : ( min-width: 40em ), // 640px
   'sm'  : ( min-width: 48em ), // 768px
