@@ -11,10 +11,10 @@ $rio-xs: 760px;
 	min-height: rem-calc(520);
 	text-align: center;
 	@media screen and (min-height: 640px) and (min-width: 640px) {
-		height: 60vh;
+		height: 70vh;
 	}
 	@media screen and (min-height: 640px) and (min-width: 768px) {
-		height: 75vh;
+		height: 80vh;
 	}
 	@media screen and (min-height: 640px) and (min-width: 1024px) {
 		height: 90vh;
@@ -22,10 +22,10 @@ $rio-xs: 760px;
 	&--final {
 		min-height: rem-calc(520);
 		@media screen and (min-height: 640px) and (min-width: 640px) {
-			height: 50vh;
+			height: 70vh;
 		}
 		@media screen and (min-height: 640px) and (min-width: 768px) {
-			height: 75vh;
+			height: 80vh;
 		}
 		@media screen and (min-height: 640px) and (min-width: 1024px) {
 			height: 90vh;
@@ -58,23 +58,41 @@ $rio-xs: 760px;
 }
 .rio-logo {
 	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
 	left: 50%;
-	top: 30%;
-	transform: translate3d(-50%, 0, 0);
-	max-width: rem-calc(235);
+	width: rem-calc(235);
+	transform: translate3d(-50%, -100px, 0);
+	transition: opacity 4000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+	transition-delay: 800ms;
+	opacity: 0;
+	&__inner {
+		position: relative;
+		height: 0;
+		padding-bottom: percentage(82.7 / 560);
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
-		top: 25%;
-		max-width: rem-calc(300);
+		transform: translate3d(-50%, -150px, 0);
+		width: rem-calc(450);
 	}
 	@media screen and (min-height: 768px) and (min-width: 768px) {
-		max-width: rem-calc(320);
+		transform: translate3d(-50%, -200px, 0);
+		width: rem-calc(480);
 	}
 	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		max-width: rem-calc(475);
+		width: rem-calc(712);
 	}
 }
 
-.cardbox {
+.cardbox-container {
 	position: absolute;
 	bottom: -20%;
 	left: 50%;
@@ -82,12 +100,19 @@ $rio-xs: 760px;
 	max-width: rem-calc(235);
 	transform: translate3d(-50%, 0, 0);
 	&--intro {
-		opacity: 0;
-		transform: translate3d(-50%, 80px, 0);
-		transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
-		&.loaded {
-			opacity: 1;
-			transform: translate3d(-50%, 0, 0);
+		.cardbox {
+			opacity: 0;
+			transform: translate3d(0, 80px, 0);
+			transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+		}
+		&.loaded, {
+			.cardbox {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+			.rio-logo {
+				opacity: 1;
+			}
 		}
 	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
@@ -105,6 +130,8 @@ $rio-xs: 760px;
 	@media screen and (min-height: 1024px) and (min-width: 1024px) {
 		bottom: -15%;
 	}
+}
+.cardbox {
 	&__item, &-ending__item {
 		position: absolute;
 		bottom: 0;
@@ -189,7 +216,7 @@ $rio-xs: 760px;
 		margin-bottom: rem-calc(25);
 		transform: translate3d(0, 30px, 0);
 		opacity: 0;
-		transition: 600ms ease;
+		transition: opacity 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 		padding-bottom: rem-calc(100);
 		@include respond-to(sm) {
 			max-width: rem-calc(410);
@@ -218,7 +245,7 @@ $rio-xs: 760px;
 			max-width: rem-calc(1042);
 			height: rem-calc(934);
 			top: 0;
-			right: -(rem-calc(15));
+			right: rem-calc(115);
 		}
 		@include respond-to(md) {
 			right: percentage(135 / 1024);

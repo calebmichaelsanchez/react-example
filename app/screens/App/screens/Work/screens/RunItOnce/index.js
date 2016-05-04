@@ -21,7 +21,7 @@ class RunItOnce extends Component {
   }
   render() {
     let img = {
-      logo: require("../../../../../../images/work/run-it-once/hero/logo.png"),
+      logo: require("../../../../../../images/work/run-it-once/hero/logo.svg"),
       hero: require("../../../../../../images/work/run-it-once/hero/two-cards.jpg"),
       cardbox: {
         lid     : require("../../../../../../images/work/run-it-once/hero/lid-lip.png"),
