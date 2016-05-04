@@ -64,10 +64,11 @@ class FinalCards extends Component {
 
     if (contextView >= 0) {
       transformThreeD(this.cardboxArray[0], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[1], -50, "%", position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[2], -50, "%", position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[3], -50, "%", position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[4], -50, "%", position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[1], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[2], -50, "%", position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[3], -50, "%", position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[4], -50, "%", position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[5], -50, "%", position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? this.buyButton.classList.add("active") : this.buyButton.classList.remove("active");
@@ -82,6 +83,7 @@ class FinalCards extends Component {
         <div className="cardbox-container">
           <div id="cardBox" className="cardbox" ref="cardbox">
             <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
+            <img src={cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />
             <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
             <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
             <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
