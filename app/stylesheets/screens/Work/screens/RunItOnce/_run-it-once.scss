@@ -427,7 +427,7 @@ $rio-xs: 760px;
 		text-align: center;
 		background: transparent;
 		color: #B54A49;
-		border: rem-calc(1) solid #B54A49;
+		border: 1px solid #B54A49;
 		border-radius: rem-calc(25);
 		font-size: rem-calc(18);
 		padding: rem-calc(5) rem-calc(20);
@@ -443,6 +443,7 @@ $rio-xs: 760px;
 
 	.case-study-gallery,
 	.case-study-gallery2 {
+		font-size: 0;
 		.intrinsic__inner-magic {
 			transition: 800ms ease;
 			&:hover {
@@ -453,30 +454,72 @@ $rio-xs: 760px;
 	}
 
 	.case-study-gallery {
-		@include border(rem-calc(1) solid $rio-borders, top, bottom);
+		position: relative;
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			left: 0;
+			background-color: $rio-borders;
+			z-index: 5;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
 		> div:first-of-type {
-			@include border(rem-calc(1) solid $rio-borders, bottom);
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				background-color: $rio-borders;
+				z-index: 5;
+			}
+			&:before {
+				width: 1px;
+				height: 100%;
+				top: 0;
+				right: 0;
+			}
+			&:after {
+				width: 100%;
+				height: 1px;
+				bottom: 0;
+				left: 0;
+			}
 			@include respond-to(sm) {
-				border-bottom: none;
-				@include border(rem-calc(1) solid $rio-borders, right);
+				&:after {
+					display: none;
+				}
 			}
 		}
 		> div:last-of-type {
 			> div:last-of-type {
-				@include border(rem-calc(1) solid $rio-borders, top);
+				&:before {
+					content: '';
+					position: absolute;
+					background-color: $rio-borders;
+					z-index: 5;
+					width: 100%;
+					height: 1px;
+					top: 0;
+					left: 0;
+				}
 			}
 		}
 	}
 
 	.case-study-gallery2 {
-		@include border(rem-calc(1) solid $rio-borders, top);
+		@include border(1px solid $rio-borders, top);
 		@include respond-to(md) {
 			border: none;
 		}
 		> div {
-			@include border(rem-calc(1) solid $rio-borders, bottom)
+			@include border(1px solid $rio-borders, bottom)
 			@include respond-to(md) {
-				@include border(rem-calc(1) solid $rio-borders, top, right, bottom);
+				@include border(1px solid $rio-borders, top, right, bottom);
 			}
 			&:last-of-type {
 				@include respond-to(md) {
