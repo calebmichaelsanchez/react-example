@@ -79,12 +79,14 @@ class FinalCards extends Component {
     return (
       <div ref="ending" className="hero--rio hero--rio--final">
         <a ref="buy" href="http://store.runitonce.com/products/1st-edition-playing-cards" target="_blank" className="button buy-button">buy 'em now</a>
-        <div id="cardBox" className="cardbox" ref="cardbox">
-          <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.front}   className="cardbox-ending__item cardbox-ending__item--front" />
+        <div className="cardbox-container">
+          <div id="cardBox" className="cardbox" ref="cardbox">
+            <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.front}   className="cardbox-ending__item cardbox-ending__item--front" />
+          </div>
         </div>
       </div>
     )
