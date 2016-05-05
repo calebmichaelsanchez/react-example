@@ -5,6 +5,11 @@ $rio-borders: #898c8c;
 $rio-red: #B54A49;
 $rio-xs: 760px;
 
+.run-it-once {
+	// font-family: "Montserrat", sans-serif;
+	// font-weight: 400;
+}
+
 .hero--rio {
 	position: relative;
 	color: color(white);
@@ -228,6 +233,7 @@ $rio-xs: 760px;
 			max-width: rem-calc(500);
 		}
 		h1 {
+			text-transform: uppercase;
 			margin-bottom: rem-calc(25);
 		}
 	}
@@ -413,9 +419,9 @@ $rio-xs: 760px;
 
 .run-it-once {
 	background-color: $rio-primary;
-
+	h1 { color: #fefefe; }
 	p {
-		color: #fff;
+		color: #fefefe;
 		line-height: 2.25;
 		margin-bottom: 2rem;
 		&:last-of-type {
