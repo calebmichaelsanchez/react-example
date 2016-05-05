@@ -10,18 +10,10 @@ import Cards from "./components/Cards";
 import FinalCards from "./components/FinalCards";
 import GalleryOne from "./components/GalleryOne";
 import GalleryTwo from "./components/GalleryTwo";
-import WebFont from "webfontloader";
 
 class RunItOnce extends Component {
   constructor(props) {
     super(props);
-  }
-  componentWillMount() {
-    WebFont.load({
-      google: {
-        families: ['Montserrat']
-      }
-    });
   }
   componentDidMount() {
     ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
