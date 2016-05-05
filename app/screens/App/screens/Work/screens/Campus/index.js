@@ -24,8 +24,8 @@ class Campus extends Component {
           <Hero />
           <Dubai />
           <UserExperience />
-          <Features />
-          <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={pageYOffset} />
+          <Features viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
+          <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={this.props.pageYOffset} />
           <Illustrations viewportHeight={this.props.viewportHeight} />
           <Development />
         </section>

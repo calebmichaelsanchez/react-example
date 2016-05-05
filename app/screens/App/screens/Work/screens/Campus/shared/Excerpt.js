@@ -5,7 +5,7 @@ class Excerpt extends Component {
     let { title, excerpt, position } = this.props;
     return (
       <div className={`excerpt excerpt--${position}`}>
-        <h1 className="excerpt-title">{title}</h1>
+        <h2 className="excerpt-title">{title}</h2>
         <div className="excerpt-content">
           {excerpt.map((item, index) => (
             <p key={index}>{item}</p>

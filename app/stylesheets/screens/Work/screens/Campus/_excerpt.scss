@@ -22,7 +22,13 @@
     }
   }
   &-title {
-    margin-bottom: rem-calc(40);
+    margin-bottom: rem-calc(25);
+    @include respond-to(sm) {
+      margin-bottom: rem-calc(35);
+    }
+    @include respond-to(md) {
+      margin-bottom: rem-calc(30);
+    }
   }
   &-content p {
     margin-bottom: rem-calc(25);
