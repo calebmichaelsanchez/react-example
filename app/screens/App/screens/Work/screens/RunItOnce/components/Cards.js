@@ -49,7 +49,7 @@ class Cards extends Component {
         context     = (cardsTop - viewportHeight) * -1,
         relativeY   = (context / (cardsHeight * 2));
 
-    (context >= cardsHeight / 3) ? this.element.classList.add("active") : this.element.classList.remove("active");
+    (context >= viewportHeight / (windowWidth >= 1024 ? 1.8 : 2.5)) ? this.element.classList.add("active") : this.element.classList.remove("active");
 
     if (context >= 0 && cardsBottom >= 0) {
       transformRotate(this.cardsArray[0], position(15,  -15, relativeY, 0));

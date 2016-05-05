@@ -5,9 +5,9 @@ class TagsContainer extends Component {
   render() {
     let { tags, context } = this.props;
     return (
-      <div className="tags">
+      <div className={`tags tags--${context}`}>
         {tags.map((tag, index) => (
-          <TagItem key={index} title={tag} context={context} />
+          <TagItem key={index} title={tag} />
         ))}
       </div>
     )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
+import TagsContainer from "../../../shared/TagsContainer";
 import helpers from "../../../../../../../shared/util/helpers";
 
 class Deck extends Component {
@@ -52,7 +53,7 @@ class Deck extends Component {
 
     (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -320] ];
 
-    (context >= deckHeight / 3) ? this.element.classList.add("active") : this.element.classList.remove("active");
+    (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
 
     if (context >= 0 && deckBottom >= 0) {
       transformThreeD(this.deckArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,       0), "px", 0, "px");
@@ -71,9 +72,7 @@ class Deck extends Component {
         <div className="deck-container">
           <div className="deck-container__item deck-copy">
             <h1>Backstory</h1>
-            <div className="button-wrap">
-              <a href="#" className="button">Illustration</a> <a href="#" className="button">Photography</a>
-            </div>
+            <TagsContainer context="run-it-once" tags={[ "Illustration", "Photography" ]} />
             <p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
             <p>At Underbelly, we’re suckers for playing card designs. That’s one of the many reasons we were stoked to partner with Phil and the Run It Once crew on designing the first official Run It Once card deck.</p>
           </div>

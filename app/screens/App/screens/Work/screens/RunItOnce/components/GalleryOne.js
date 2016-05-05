@@ -23,7 +23,7 @@ class GalleryOne extends Component {
           </div>
           <div className="intrinsic">
             <div className="intrinsic__inner intrinsic__inner--half">
-              <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${gallery.three})`, backgroundPosition: "left center"}}></div>
+              <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${gallery.three})`}}></div>
             </div>
           </div>
         </div>

@@ -12,16 +12,14 @@ class RioHero extends Component {
     this.update   = this.update.bind(this);
     this.onLoad   = this.onLoad.bind(this);
 
-    this.state = {
-      loaded: false
-    }
+    this.state = { loaded: false }
   }
   componentDidMount() {
     this.lastKnownScroll = 0;
-    this.ticking = false;
-    this.element = findDOMNode(this.refs.rioHero);
-    this.height = this.element.clientHeight;
-    this.dimensions = {};
+    this.ticking         = false;
+    this.element         = findDOMNode(this.refs.rioHero);
+    this.height          = this.element.clientHeight;
+    this.dimensions      = {};
 
     window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
@@ -32,7 +30,7 @@ class RioHero extends Component {
   }
   onScroll() {
     this.lastKnownScroll = window.pageYOffset;
-    this.dimensions = this.element.getBoundingClientRect();
+    this.dimensions      = this.element.getBoundingClientRect();
     if (!this.ticking) {
       window.requestAnimFrame(this.update);
       this.ticking = true;
@@ -52,7 +50,7 @@ class RioHero extends Component {
   }
   update() {
     let { viewportHeight, windowWidth }  = this.props,
-        { transformThreeD, position }   = helpers,
+        { transformThreeD, position }    = helpers,
         currentScrollPosition = this.lastKnownScroll,
         cardboxBottom         = this.dimensions.bottom,
         cardboxHeight         = this.height,
@@ -80,20 +78,22 @@ class RioHero extends Component {
     this.ticking = false ;
   }
   render() {
-    let { logo, cardbox } = this.props;
-    let loaded = classNames({
-      'loaded': this.state.loaded
-    });
+    let { logo, cardbox } = this.props,
+        loaded = classNames({ 'loaded': this.state.loaded });
     return (
       <div ref="rioHero" className="hero--rio">
-        <img src={logo} className="rio-logo" alt="Run It Once Logo" />
-        <div id="cardBox" className={`cardbox cardbox--intro ${loaded}`}>
-          <img src={cardbox.lid}     className="cardbox__item cardbox__item--lid" />
-          <img src={cardbox.lidBack} className="cardbox__item cardbox__item--lidback" />
-          <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
-          <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
-          <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
-          <img onLoad={this.onLoad} src={cardbox.front}   className="cardbox__item cardbox__item--front" />
+        <div id="cardBox" className={`cardbox-container cardbox-container--intro ${loaded}`}>
+          <div className="rio-logo">
+            <div className="rio-logo__inner" dangerouslySetInnerHTML={{ __html: logo }}></div>
+          </div>
+          <div className="cardbox">
+            <img src={cardbox.lid}     className="cardbox__item cardbox__item--lid" />
+            <img src={cardbox.lidBack} className="cardbox__item cardbox__item--lidback" />
+            <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
+            <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
+            <img src={cardbox.card}    className="cardbox__item cardbox__item--card" />
+            <img onLoad={this.onLoad} src={cardbox.front}   className="cardbox__item cardbox__item--front" />
+          </div>
         </div>
       </div>
     )
