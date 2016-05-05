@@ -20,6 +20,7 @@
       font-size: rem-calc(16);
       border-color: #B54A49;
       color: #B54A49;
+      box-shadow: 0 0 1px 0 #B54A49 inset, 0 0 1px 0 #B54A49 inset;
       @include respond-to(sm) {
         font-size: rem-calc(18);
       }
