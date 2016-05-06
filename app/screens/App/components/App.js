@@ -37,7 +37,7 @@ class App extends Component {
     this.setState({ navTheme: theme });
   }
   render(){
-    let { navTheme, windowWidth, documentHeight, pageYOffset, viewportHeight } = this.state,
+    let { navTheme, windowWidth, documentHeight, viewportHeight } = this.state,
         children     = React.cloneElement(this.props.children, {
                           setNavTheme    : this.setNavTheme,
                           windowWidth    : windowWidth,

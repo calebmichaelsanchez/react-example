@@ -11,19 +11,6 @@ let pick = function (o, ...fields) {
   }, {});
 }
 
-let gatherTruthy = function () {
-	let keys = Array.prototype.slice.call(arguments);
-	let result = [];
-	let obj = keys.shift();
-
-	keys.map((key) => {
-		if (obj[key] && result.indexOf(key) === -1) {
-			result.push(key);
-		}
-	});
-	return result;
-}
-
 class Form extends Component {
 	constructor(props) {
 		super(props);
@@ -120,7 +107,6 @@ class Form extends Component {
 	send() {
 		let model = this.getModel();
 		let self = this;
-		let form = findDOMNode(this.refs.form);
 
 		this.setState({ submitting: true});
 		axios.post('/contact-form', model)

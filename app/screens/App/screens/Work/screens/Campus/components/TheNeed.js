@@ -4,7 +4,6 @@ import TagsContainer from "../../../shared/TagsContainer";
 
 class TheNeed extends Component {
   render() {
-    let { title, excerpt } = this.props;
     return (
       <section className="the-need">
         <Excerpt

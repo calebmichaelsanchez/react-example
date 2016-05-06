@@ -47,7 +47,6 @@ class FinalCards extends Component {
         cardboxTop          = this.dimensions.top,
         cardboxBottom       = this.dimensions.bottom,
         cardboxHeight       = this.height,
-        viewportHeightPlus  = viewportHeight * 1.05,
         context             = (cardboxTop - (viewportHeight * .6) ) * -1,
         contextView         = (cardboxTop - (viewportHeight) ) * -1,
         contextPlus         = context - (cardboxHeight * .64),

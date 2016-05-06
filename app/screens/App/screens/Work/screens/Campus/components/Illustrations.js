@@ -34,7 +34,6 @@ class Illustrations extends Component {
     this.ticking = false;
   }
   render() {
-    let { title, excerpt } = this.props;
     let img = {
       sketch: require("../../../../../../../images/work/campus/illustration/sketch.png"),
       illustration: require("../../../../../../../images/work/campus/illustration/illustration.png")

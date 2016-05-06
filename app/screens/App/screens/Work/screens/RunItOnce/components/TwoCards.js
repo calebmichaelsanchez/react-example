@@ -21,7 +21,6 @@ class TwoCards extends Component {
     this.setState({ loaded: true });
   }
   render() {
-    let { hero } = this.props;
     let loaded = classNames({
       'loaded': this.state.loaded
     });
