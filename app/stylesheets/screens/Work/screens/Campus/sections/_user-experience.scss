@@ -2,7 +2,6 @@
   margin-top: rem-calc(145);
   padding-top: rem-calc(16);
   padding-bottom: rem-calc(80);
-  //@include hero("../images/work/campus/user-experience.jpg");
   @include respond-to(sm) {
     margin-top: rem-calc(125);
     padding-bottom: rem-calc(160);
