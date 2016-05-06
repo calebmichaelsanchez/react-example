@@ -22,8 +22,8 @@ class Home extends Component {
 			clients: {
 				one   : require('../../../images/home/clients/bright-bytes.png'),
 				two   : require('../../../images/home/clients/xbox-one.png'),
-				three : require('../../../images/home/clients/just-family.png'),
-				four  : require('../../../images/home/clients/little-ceasars.png'),
+				three : require('../../../images/home/clients/facebook.png'),
+				four  : require('../../../images/home/clients/little-caesars.png'),
 				five  : require('../../../images/home/clients/experticity.png'),
 				six   : require('../../../images/home/clients/microsoft.png'),
 				seven : require('../../../images/home/clients/asurion.png')
@@ -52,13 +52,13 @@ class Home extends Component {
 					</div>
 					<section className="clients">
 						<div className="container-sm">
-							<img src={img.clients.one}   alt="BrightBytes Logo"/>
 							<img src={img.clients.two}   alt="Xbox One Logo"/>
-							<img src={img.clients.three} alt="Just Family Logo"/>
-							<img src={img.clients.four}  alt="Little Caesars Logo"/>
+							<img src={img.clients.one}   alt="BrightBytes Logo"/>
 							<img src={img.clients.five}  alt="Experticity Logo"/>
-							<img src={img.clients.six}   alt="Microsoft Logo"/>
+							<img src={img.clients.three} alt="Facebook Logo"/>
 							<img src={img.clients.seven} alt="Asurion Logo"/>
+							<img src={img.clients.four}  alt="Little Caesars Logo"/>
+							<img src={img.clients.six}   alt="Microsoft Logo"/>
 						</div>
 					</section>
 					<section className="mission">
