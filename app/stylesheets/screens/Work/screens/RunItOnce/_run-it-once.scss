@@ -228,6 +228,7 @@ $rio-xs: 760px;
 			max-width: rem-calc(500);
 		}
 		h1 {
+			text-transform: uppercase;
 			margin-bottom: rem-calc(25);
 		}
 	}
@@ -413,9 +414,9 @@ $rio-xs: 760px;
 
 .run-it-once {
 	background-color: $rio-primary;
-
+	h1 { color: #efefef; }
 	p {
-		color: #fff;
+		color: #efefef;
 		line-height: 2.25;
 		margin-bottom: 2rem;
 		&:last-of-type {
@@ -469,7 +470,7 @@ $rio-xs: 760px;
 			top: 0;
 		}
 		&:after {
-			bottom: 0;
+			bottom: -1px;
 		}
 		> div:first-of-type {
 			&:before, &:after {
