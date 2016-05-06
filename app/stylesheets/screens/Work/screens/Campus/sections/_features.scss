@@ -15,7 +15,7 @@
   @include respond-to(md) {
     padding-top: rem-calc(87);
     padding-bottom: rem-calc(87);
-    min-height: auto;
+    min-height: initial;
   }
   @include respond-to(lg) {
     padding-top: rem-calc(90);
@@ -48,8 +48,6 @@
     width: 100%;
     max-width: rem-calc(354);
     margin-top: rem-calc(40);
-    // padding-left: rem-calc(32);
-    // padding-right: rem-calc(32);
     transform: translateX(50%);
     video {
       position: absolute;

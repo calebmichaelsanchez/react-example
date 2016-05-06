@@ -47,20 +47,10 @@ class Projects extends Component {
 					<ProjectSm direction="right" name="nsac" title="North Seattle Alliance Church" theme="dark" />
 				</div>
 				<div className="projects__container projects__container--right">
-					<ProjectLg name="aiga" title="AIGA 100 Show" theme="light" />
+					<ProjectLg name="campus" title="The Campus" theme="dark" />
 				</div>
 				<div className="projects__container projects__container--left">
-					<a href="http://brightbytes.net/" target="_blank" className="projects__item projects__item--bright-bytes projects__item--lg">
-						<div className="projects__item-meta projects__item-meta--lg">
-							<div>
-								<h3>BrightBytes</h3>
-								<span className="projects__item-btn">
-									View Site
-									<Icon icon="arrow" type="icon-btn" theme="dark" />
-								</span>
-							</div>
-						</div>
-					</a>
+					<ProjectLg name="aiga" title="AIGA 100 Show" theme="light" />
 				</div>
 				<div className="projects__container projects__container--right">
 					<ProjectSm direction="left" name="fluid" title="Fluid" theme="dark" />

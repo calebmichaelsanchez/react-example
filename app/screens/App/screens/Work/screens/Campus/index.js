@@ -41,7 +41,7 @@ Campus.propTypes = {
 };
 Campus.defaultProps = {
   name: 'campus',
-  theme: 'dark'
+  theme: 'light'
 };
 
 export default Campus;

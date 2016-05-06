@@ -44,7 +44,7 @@ class Illustrations extends Component {
         <Excerpt
           title="ILLUSTRATIONS"
           excerpt={[
-            "The Campus has fun a fun and inviting brand. With the launch of the app, we hoped to expand upon thes characteristics to breath even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages."
+            "The Campus has fun and inviting brand. With the launch of the app, we hoped to expand upon these characteristics to breathe even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages."
           ]}
         />
         <div ref="illustration" className="illustration-image">
