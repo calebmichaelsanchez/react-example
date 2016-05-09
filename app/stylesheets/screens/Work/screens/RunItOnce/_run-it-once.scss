@@ -10,50 +10,47 @@ $rio-xs: 760px;
 	color: color(white);
 	min-height: rem-calc(520);
 	text-align: center;
-	@media screen and (min-height: 640px) and (min-width: 640px) {
-		height: 70vh;
+	@media screen and (min-width: 768px) {
+		height: 75vh;
 	}
-	@media screen and (min-height: 640px) and (min-width: 768px) {
-		height: 80vh;
-	}
-	@media screen and (min-height: 640px) and (min-width: 1024px) {
+	@media screen and (min-width: 1024px) {
 		height: 90vh;
 	}
-	&--final {
-		min-height: rem-calc(520);
-		@media screen and (min-height: 640px) and (min-width: 640px) {
-			height: 70vh;
+	.button.buy-button {
+		position: absolute;
+		top: -150px;
+		left: 50%;
+    background: #A47C3F;
+    color: #fff;
+    border: none;
+    padding: rem-calc(10) 0;
+    min-width: rem-calc(195);
+	 	transform: translate3d(-50%, 30px, 0);
+		opacity: 0;
+		transition: 600ms ease;
+		z-index: 0;
+		@media screen and (min-height: 580px) and (min-width: 768px) {
+			top: -130px;
 		}
 		@media screen and (min-height: 640px) and (min-width: 768px) {
-			height: 80vh;
+			top: -170px;
 		}
-		@media screen and (min-height: 640px) and (min-width: 1024px) {
-			height: 90vh;
+		@media screen and (min-height: 768px) and (min-width: 1024px) {
+			top: -220px;
 		}
-	}
-	.button.buy-button {
-	    background: #A47C3F;
-	    color: #fff;
-	    border: none;
-	    padding: rem-calc(10) 0;
-	    min-width: rem-calc(195);
-		 	position: absolute;
-		 	top: 25%;
-		 	left: 50%;
-		 	transform: translate3d(-50%, 30px, 0);
-			opacity: 0;
-			transition: 600ms ease;
-			z-index: 0;
-			@media screen and (min-height: 640px) and (min-width: 640px) {
-				top: 30%;
-			}
-			&.active {
-				opacity: 1;
-				transform: translate3d(-50%, 0, 0);
-			}
-		 &:hover {
-			 color: $rio-primary;
-		 }
+		@media screen and (min-height: 1000px) and (min-width: 1024px) {
+			top: -230px;
+		}
+		@media screen and (min-height: 1200px) and (min-width: 1024px) {
+			top: -270px;
+		}
+		&.active {
+			opacity: 1;
+			transform: translate3d(-50%, 0, 0);
+		}
+		&:hover {
+			color: $rio-primary;
+		}
 	}
 }
 .rio-logo {
@@ -62,7 +59,7 @@ $rio-xs: 760px;
 	margin-right: auto;
 	top: 0;
 	left: 50%;
-	width: rem-calc(235);
+	width: 100%;
 	transform: translate3d(-50%, -100px, 0);
 	transition: opacity 4000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 	transition-delay: 800ms;
@@ -79,25 +76,27 @@ $rio-xs: 760px;
 			height: 100%;
 		}
 	}
-	@media screen and (min-height: 640px) and (min-width: 640px) {
+	@media screen and (min-height: 580px) and (min-width: 768px) {
+		transform: translate3d(-50%, -120px, 0);
+		//width: rem-calc(450);
+	}
+	@media screen and (min-height: 768px) and (min-width: 1024px) {
 		transform: translate3d(-50%, -150px, 0);
-		width: rem-calc(450);
 	}
-	@media screen and (min-height: 768px) and (min-width: 768px) {
-		transform: translate3d(-50%, -200px, 0);
-		width: rem-calc(480);
+	@media screen and (min-height: 1000px) and (min-width: 1024px) {
+		transform: translate3d(-50%, -180px, 0);
 	}
-	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		width: rem-calc(712);
+	@media screen and (min-height: 1200px) and (min-width: 1024px) {
+		transform: translate3d(-50%, -220px, 0);
 	}
 }
 
 .cardbox-container {
 	position: absolute;
-	bottom: -20%;
+	bottom: -(rem-calc(100));
 	left: 50%;
 	width: 100%;
-	max-width: rem-calc(235);
+	max-width: rem-calc(252);
 	transform: translate3d(-50%, 0, 0);
 	&--intro {
 		.cardbox {
@@ -115,20 +114,24 @@ $rio-xs: 760px;
 			}
 		}
 	}
-	@media screen and (min-height: 640px) and (min-width: 640px) {
-		max-width: rem-calc(300);
-		bottom: -30%;
+	@media screen and (min-height: 580px) and (min-width: 768px) {
+		max-width: rem-calc(350);
+		bottom: -(rem-calc(180));
 	}
-	@media screen and (min-height: 768px) and (min-width: 768px) {
-		max-width: rem-calc(320);
-		bottom: -25%;
+	@media screen and (min-height: 768px) and (min-width: 1024px) {
+		max-width: rem-calc(400);
+		bottom: -(rem-calc(240));
 	}
-	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		max-width: rem-calc(475);
-		bottom: -30%;
+	@media screen and (min-height: 1000px) and (min-width: 1024px) {
+		max-width: rem-calc(484);
+		bottom: -(rem-calc(160));
 	}
-	@media screen and (min-height: 1024px) and (min-width: 1024px) {
-		bottom: -15%;
+	@media screen and (min-height: 768px) and (min-width: 1440px) {
+		max-width: rem-calc(484);
+		bottom: -(rem-calc(290));
+	}
+	@media screen and (min-height: 1000px) and (min-width: 1440px) {
+		bottom: -(rem-calc(160));
 	}
 }
 .cardbox {
