@@ -121,11 +121,10 @@ $rio-xs: 760px;
 	}
 	@media screen and (min-height: 580px) and (min-width: 768px) {
 		max-width: rem-calc(350);
-		bottom: -(rem-calc(180));
+		bottom: -(rem-calc(240));
 	}
 	@media screen and (min-height: 768px) and (min-width: 1024px) {
 		max-width: rem-calc(400);
-		bottom: -(rem-calc(240));
 	}
 	@media screen and (min-height: 1000px) and (min-width: 1024px) {
 		max-width: rem-calc(484);
