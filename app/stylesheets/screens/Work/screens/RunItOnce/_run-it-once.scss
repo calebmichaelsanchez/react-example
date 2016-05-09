@@ -78,7 +78,6 @@ $rio-xs: 760px;
 	}
 	@media screen and (min-height: 580px) and (min-width: 768px) {
 		transform: translate3d(-50%, -120px, 0);
-		//width: rem-calc(450);
 	}
 	@media screen and (min-height: 768px) and (min-width: 1024px) {
 		transform: translate3d(-50%, -150px, 0);
@@ -88,6 +87,12 @@ $rio-xs: 760px;
 	}
 	@media screen and (min-height: 1200px) and (min-width: 1024px) {
 		transform: translate3d(-50%, -220px, 0);
+	}
+	@media screen and (min-height: 850px) and (min-width: 1440px) {
+		transform: translate3d(-50%, -200px, 0);
+	}
+	@media screen and (min-height: 1100px) and (min-width: 1440px) {
+		transform: translate3d(-50%, -240px, 0);
 	}
 }
 
@@ -126,11 +131,11 @@ $rio-xs: 760px;
 		max-width: rem-calc(484);
 		bottom: -(rem-calc(160));
 	}
-	@media screen and (min-height: 768px) and (min-width: 1440px) {
+	@media screen and (min-height: 850px) and (min-width: 1440px) {
 		max-width: rem-calc(484);
 		bottom: -(rem-calc(290));
 	}
-	@media screen and (min-height: 1000px) and (min-width: 1440px) {
+	@media screen and (min-height: 1100px) and (min-width: 1440px) {
 		bottom: -(rem-calc(160));
 	}
 }
