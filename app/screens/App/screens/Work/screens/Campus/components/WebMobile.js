@@ -77,7 +77,6 @@ class WebMobile extends Component {
         iconsContainer = document.querySelectorAll(".campus-icons__container"),
         iconsWrapper = document.querySelectorAll(".campus-icons__item"),
         iconsArray = [...icons],
-        iconsContainerArray = [...iconsContainer],
         iconsWrapperArray = [...iconsWrapper],
         i, w, h;
     for (i = 0; i < iconsArray.length; i++) {

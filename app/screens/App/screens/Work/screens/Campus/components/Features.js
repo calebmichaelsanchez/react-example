@@ -47,7 +47,7 @@ class Features extends Component {
     window.requestAnimFrame(this.update);
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props,
+    let { viewportHeight } = this.props,
         top     = this.dimensions.top,
         bottom  = this.dimensions.bottom,
         context = (top - viewportHeight) * -1;

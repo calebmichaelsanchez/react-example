@@ -3,7 +3,6 @@ import Excerpt from "../shared/Excerpt";
 
 class UserExperience extends Component {
   render() {
-    let { title, excerpt } = this.props;
     let siteMap = require("../../../../../../../images/work/campus/user-experience/site-map.svg");
     return (
       <section className="user-experience">

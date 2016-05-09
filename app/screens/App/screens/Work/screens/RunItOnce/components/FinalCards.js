@@ -47,7 +47,6 @@ class FinalCards extends Component {
         cardboxTop          = this.dimensions.top,
         cardboxBottom       = this.dimensions.bottom,
         cardboxHeight       = this.height,
-        viewportHeightPlus  = viewportHeight * 1.05,
         context             = (cardboxTop - (viewportHeight * .6) ) * -1,
         contextView         = (cardboxTop - (viewportHeight) ) * -1,
         contextPlus         = context - (cardboxHeight * .64),
@@ -79,8 +78,8 @@ class FinalCards extends Component {
     let { cardbox } = this.props;
     return (
       <div ref="ending" className="hero--rio hero--rio--final">
-        <a ref="buy" href="http://store.runitonce.com/products/1st-edition-playing-cards" target="_blank" className="button buy-button">buy 'em now</a>
         <div className="cardbox-container">
+          <a ref="buy" href="http://store.runitonce.com/products/1st-edition-playing-cards" target="_blank" className="button buy-button">buy 'em now</a>
           <div id="cardBox" className="cardbox" ref="cardbox">
             <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
             <img src={cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />
