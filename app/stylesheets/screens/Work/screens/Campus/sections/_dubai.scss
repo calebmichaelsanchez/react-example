@@ -3,21 +3,21 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: rem-calc(620);
-  @media screen and (min-width: 425px) {
-    margin-top: rem-calc(450);
-  }
+  // @media screen and (min-width: 425px) {
+  //   margin-top: rem-calc(450);
+  // }
   @include respond-to(xs) {
-    margin-top: rem-calc(320);
+    margin-top: rem-calc(520);
   }
   @include respond-to(sm) {
-    margin-top: rem-calc(280);
+    margin-top: rem-calc(420);
   }
   @include respond-to(md) {
     max-width: rem-calc(1440);
-    margin-top: rem-calc(160);
+    margin-top: rem-calc(320);
   }
   @include respond-to(lg) {
-    margin-top: rem-calc(50);
+    margin-top: rem-calc(280);
   }
   &__inner {
     position: relative;

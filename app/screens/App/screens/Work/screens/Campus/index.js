@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
-import Hero from "./components/Hero";
+import CampusHero from "./components/Hero";
 import Dubai from "./components/Dubai";
 import TheNeed from "./components/TheNeed";
 import UserExperience from "./components/UserExperience";
@@ -21,7 +21,7 @@ class Campus extends Component {
     return (
       <DocumentTitle title="Campus | Underbelly Creative">
         <section className="campus-container">
-          <Hero />
+          <CampusHero />
           <Dubai />
           <UserExperience />
           <Features viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />

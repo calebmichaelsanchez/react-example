@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TheNeed from "./TheNeed";
 
-class Hero extends Component {
+class CampusHero extends Component {
   render() {
     return (
       <div className="campus-hero">
@@ -11,4 +11,4 @@ class Hero extends Component {
   }
 }
 
-export default Hero;
+export default CampusHero;

@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Excerpt extends Component {
   render() {
     let { img, title, excerpt, position } = this.props;
-    console.log(this.props);
     return (
       <div className={`excerpt excerpt--${position}`}>
         { (() => {

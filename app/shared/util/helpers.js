@@ -11,6 +11,9 @@ let helpers = {
          e.style.OTransform = "rotate(" + value + "deg)";
           e.style.transform = "rotate(" + value + "deg)";
   },
+  transformOpacity: function(e, value) {
+    e.style.opacity = value;
+  },
 	toDollars: function(x) {
     if (x === 0) { return '0.00' }
     let price = x.toString();

@@ -1,25 +1,37 @@
 import React, { Component } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import Excerpt from "../shared/Excerpt";
+import helpers from "../../../../../../../shared/util/helpers";
 
 class Illustrations extends Component {
   constructor(props) {
     super(props);
     this.onScroll = this.onScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
     this.update = this.update.bind(this);
   }
   componentDidMount() {
-    this.ticking = false;
-    this.element = findDOMNode(this.refs.illustration);
-    this.height = this.element.clientHeight;
-    this.elementDimensions = {};
-    // window.addEventListener("scroll", this.onScroll, false);
+    this.ticking           = false;
+    this.element           = findDOMNode(this.refs.illustration);
+    this.dimensions        = {};
+    this.images            = document.querySelectorAll(".illustration-image__item");
+    this.imagesArray       = [...this.images];
+    window.addEventListener("scroll", this.onScroll, false);
+    window.addEventListener("resize", this.onResize, false);
   }
   componentWillUnmount() {
-    // window.removeEventListener("scroll", this.onScroll, false);
+    window.removeEventListener("scroll", this.onScroll, false);
+    window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
-    this.elementDimensions = this.element.getBoundingClientRect();
+    this.dimensions = this.element.getBoundingClientRect();
+    if (!this.ticking) {
+      window.requestAnimationFrame(this.update);
+      this.ticking = true;
+    }
+  }
+  onResize() {
+    this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
@@ -27,13 +39,16 @@ class Illustrations extends Component {
   }
   update() {
     let { viewportHeight } = this.props,
-        height  = this.height,
-        top     = this.elementDimensions.top,
-        context = (top - viewportHeight) * -1;
-    console.log("top", top);
-    console.log("height", height);
-    //(context >= viewportHeight / 1.5) ? this.element.classList.add("illustration--active") : this.element.classList.remove("illustration--active");
-    (top <= 0 && (top * -1) <= height / 2) ? this.element.classList.add("illustration--active") : this.element.classList.remove("illustration--active");
+        { transformOpacity, position } = helpers,
+        items   = this.imagesArray,
+        height  = this.dimensions.height,
+        top     = this.dimensions.top,
+        context = (top - (viewportHeight - (viewportHeight * .5) )) * -1,
+        relativeY = (context / height) * 1.9;
+    if (context >= 0) {
+      items[0].style.opacity = position(1, -1, relativeY, 0);
+      items[1].style.opacity = position(0, 1, relativeY, 0);
+    }
     this.ticking = false;
   }
   render() {
@@ -50,20 +65,12 @@ class Illustrations extends Component {
           ]}
         />
         <div ref="illustration" className="illustration-image">
-          <div className="illustration-intrinsic">
-            <div className="illustration-intrinsic__inner">
-              <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.sketch})`}}></div>
-            </div>
+          <div className="illustration-image__item illustration-image__item--one" >
+            <img src={img.sketch} />
           </div>
-          <div className="illustration-intrinsic">
-            <div className="illustration-intrinsic__inner">
-              <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.illustration})`}}></div>
-            </div>
+          <div className="illustration-image__item illustration-image__item--two" >
+            <img src={img.illustration} />
           </div>
-        {/*
-          <div className="illustration-image__item illustration-image__item--one" />
-          <div className="illustration-image__item illustration-image__item--two" />
-        */}
         </div>
       </section>
     )
@@ -71,3 +78,16 @@ class Illustrations extends Component {
 }
 
 export default Illustrations;
+
+/*
+  <div className="illustration-intrinsic">
+    <div className="illustration-intrinsic__inner">
+      <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.sketch})`}}></div>
+    </div>
+  </div>
+  <div className="illustration-intrinsic">
+    <div className="illustration-intrinsic__inner">
+      <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.illustration})`}}></div>
+    </div>
+  </div>
+*/
