@@ -79,6 +79,12 @@ $rio-xs: 760px;
 	@media screen and (min-height: 580px) and (min-width: 768px) {
 		transform: translate3d(-50%, -120px, 0);
 	}
+	@media screen and (min-height: 900px) and (min-width: 768px) {
+		transform: translate3d(-50%, -150px, 0);
+	}
+	@media screen and (min-height: 1100px) and (min-width: 768px) {
+		transform: translate3d(-50%, -180px, 0);
+	}
 	@media screen and (min-height: 768px) and (min-width: 1024px) {
 		transform: translate3d(-50%, -150px, 0);
 	}
@@ -122,6 +128,14 @@ $rio-xs: 760px;
 	@media screen and (min-height: 580px) and (min-width: 768px) {
 		max-width: rem-calc(350);
 		bottom: -(rem-calc(240));
+	}
+	@media screen and (min-height: 900px) and (min-width: 768px) {
+		max-width: rem-calc(380);
+		bottom: -(rem-calc(170));
+	}
+	@media screen and (min-height: 1100px) and (min-width: 768px) {
+		max-width: rem-calc(410);
+		bottom: -(rem-calc(130));
 	}
 	@media screen and (min-height: 768px) and (min-width: 1024px) {
 		max-width: rem-calc(400);
