@@ -11,10 +11,10 @@ $rio-xs: 760px;
 	min-height: rem-calc(520);
 	text-align: center;
 	@media screen and (min-height: 640px) and (min-width: 640px) {
-		height: 60vh;
+		height: 70vh;
 	}
 	@media screen and (min-height: 640px) and (min-width: 768px) {
-		height: 75vh;
+		height: 80vh;
 	}
 	@media screen and (min-height: 640px) and (min-width: 1024px) {
 		height: 90vh;
@@ -22,10 +22,10 @@ $rio-xs: 760px;
 	&--final {
 		min-height: rem-calc(520);
 		@media screen and (min-height: 640px) and (min-width: 640px) {
-			height: 50vh;
+			height: 70vh;
 		}
 		@media screen and (min-height: 640px) and (min-width: 768px) {
-			height: 75vh;
+			height: 80vh;
 		}
 		@media screen and (min-height: 640px) and (min-width: 1024px) {
 			height: 90vh;
@@ -58,23 +58,41 @@ $rio-xs: 760px;
 }
 .rio-logo {
 	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
 	left: 50%;
-	top: 30%;
-	transform: translate3d(-50%, 0, 0);
-	max-width: rem-calc(235);
+	width: rem-calc(235);
+	transform: translate3d(-50%, -100px, 0);
+	transition: opacity 4000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+	transition-delay: 800ms;
+	opacity: 0;
+	&__inner {
+		position: relative;
+		height: 0;
+		padding-bottom: percentage(82.7 / 560);
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
-		top: 25%;
-		max-width: rem-calc(300);
+		transform: translate3d(-50%, -150px, 0);
+		width: rem-calc(450);
 	}
 	@media screen and (min-height: 768px) and (min-width: 768px) {
-		max-width: rem-calc(320);
+		transform: translate3d(-50%, -200px, 0);
+		width: rem-calc(480);
 	}
 	@media screen and (min-height: 900px) and (min-width: 1024px) {
-		max-width: rem-calc(475);
+		width: rem-calc(712);
 	}
 }
 
-.cardbox {
+.cardbox-container {
 	position: absolute;
 	bottom: -20%;
 	left: 50%;
@@ -82,12 +100,19 @@ $rio-xs: 760px;
 	max-width: rem-calc(235);
 	transform: translate3d(-50%, 0, 0);
 	&--intro {
-		opacity: 0;
-		transform: translate3d(-50%, 80px, 0);
-		transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
-		&.loaded {
-			opacity: 1;
-			transform: translate3d(-50%, 0, 0);
+		.cardbox {
+			opacity: 0;
+			transform: translate3d(0, 80px, 0);
+			transition: transform 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity 2000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+		}
+		&.loaded, {
+			.cardbox {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+			.rio-logo {
+				opacity: 1;
+			}
 		}
 	}
 	@media screen and (min-height: 640px) and (min-width: 640px) {
@@ -105,6 +130,8 @@ $rio-xs: 760px;
 	@media screen and (min-height: 1024px) and (min-width: 1024px) {
 		bottom: -15%;
 	}
+}
+.cardbox {
 	&__item, &-ending__item {
 		position: absolute;
 		bottom: 0;
@@ -121,6 +148,7 @@ $rio-xs: 760px;
 			z-index: 2;
 		}
 		&--lidback {
+			opacity: .7;
 			z-index: 1;
 		}
 		&--card {
@@ -189,7 +217,7 @@ $rio-xs: 760px;
 		margin-bottom: rem-calc(25);
 		transform: translate3d(0, 30px, 0);
 		opacity: 0;
-		transition: 600ms ease;
+		transition: opacity 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 		padding-bottom: rem-calc(100);
 		@include respond-to(sm) {
 			max-width: rem-calc(410);
@@ -200,6 +228,7 @@ $rio-xs: 760px;
 			max-width: rem-calc(500);
 		}
 		h1 {
+			text-transform: uppercase;
 			margin-bottom: rem-calc(25);
 		}
 	}
@@ -218,7 +247,7 @@ $rio-xs: 760px;
 			max-width: rem-calc(1042);
 			height: rem-calc(934);
 			top: 0;
-			right: -(rem-calc(15));
+			right: rem-calc(115);
 		}
 		@include respond-to(md) {
 			right: percentage(135 / 1024);
@@ -338,7 +367,7 @@ $rio-xs: 760px;
 		margin-right: auto;
 		opacity: 0;
 		transform: translate3d(0, 35px, 0);
-		transition: 600ms ease;
+		transition: opacity 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 1500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 		@include respond-to(xs) {
 			max-width: 80%
 		}
@@ -385,9 +414,9 @@ $rio-xs: 760px;
 
 .run-it-once {
 	background-color: $rio-primary;
-
+	h1 { color: #efefef; }
 	p {
-		color: #fff;
+		color: #efefef;
 		line-height: 2.25;
 		margin-bottom: 2rem;
 		&:last-of-type {
@@ -400,7 +429,7 @@ $rio-xs: 760px;
 		text-align: center;
 		background: transparent;
 		color: #B54A49;
-		border: rem-calc(1) solid #B54A49;
+		border: 1px solid #B54A49;
 		border-radius: rem-calc(25);
 		font-size: rem-calc(18);
 		padding: rem-calc(5) rem-calc(20);
@@ -416,6 +445,7 @@ $rio-xs: 760px;
 
 	.case-study-gallery,
 	.case-study-gallery2 {
+		font-size: 0;
 		.intrinsic__inner-magic {
 			transition: 800ms ease;
 			&:hover {
@@ -426,30 +456,72 @@ $rio-xs: 760px;
 	}
 
 	.case-study-gallery {
-		@include border(rem-calc(1) solid $rio-borders, top, bottom);
+		position: relative;
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			left: 0;
+			background-color: $rio-borders;
+			z-index: 5;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: -1px;
+		}
 		> div:first-of-type {
-			@include border(rem-calc(1) solid $rio-borders, bottom);
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				background-color: $rio-borders;
+				z-index: 5;
+			}
+			&:after {
+				width: 100%;
+				height: 1px;
+				bottom: 0;
+				left: 0;
+			}
 			@include respond-to(sm) {
-				border-bottom: none;
-				@include border(rem-calc(1) solid $rio-borders, right);
+				&:before {
+					width: 1px;
+					height: 100%;
+					top: 0;
+					right: 0;
+				}
+				&:after {
+					display: none;
+				}
 			}
 		}
 		> div:last-of-type {
 			> div:last-of-type {
-				@include border(rem-calc(1) solid $rio-borders, top);
+				&:before {
+					content: '';
+					position: absolute;
+					background-color: $rio-borders;
+					z-index: 5;
+					width: 100%;
+					height: 1px;
+					top: 0;
+					left: 0;
+				}
 			}
 		}
 	}
 
 	.case-study-gallery2 {
-		@include border(rem-calc(1) solid $rio-borders, top);
+		@include border(1px solid $rio-borders, top);
 		@include respond-to(md) {
 			border: none;
 		}
 		> div {
-			@include border(rem-calc(1) solid $rio-borders, bottom)
+			@include border(1px solid $rio-borders, bottom)
 			@include respond-to(md) {
-				@include border(rem-calc(1) solid $rio-borders, top, right, bottom);
+				@include border(1px solid $rio-borders, top, right, bottom);
 			}
 			&:last-of-type {
 				@include respond-to(md) {

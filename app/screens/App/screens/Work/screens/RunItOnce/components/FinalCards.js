@@ -50,24 +50,25 @@ class FinalCards extends Component {
         viewportHeightPlus  = viewportHeight * 1.05,
         context             = (cardboxTop - (viewportHeight * .6) ) * -1,
         contextView         = (cardboxTop - (viewportHeight) ) * -1,
-        contextPlus         = context - (cardboxHeight * .6),
+        contextPlus         = context - (cardboxHeight * .64),
         relativeY           = (context / (cardboxHeight)),
         relativeYPlus       = (contextPlus / (cardboxHeight)),
         values              = [],
         showButtonValue     = cardboxHeight * .2,
         movement1           = cardboxHeight * .08,
-        movement2           = cardboxHeight * (-.2),
-        movement3           = cardboxHeight * (-.1),
-        movement4           = cardboxHeight * .01,
+        movement2           = cardboxHeight * (-.25),
+        movement3           = cardboxHeight * (-.15),
+        movement4           = cardboxHeight * .06,
         movement5           = cardboxHeight * .165,
         lidSpeed            = windowWidth >= 1440 ? 3 : 4;
 
     if (contextView >= 0) {
       transformThreeD(this.cardboxArray[0], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[1], -50, "%", position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[2], -50, "%", position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[3], -50, "%", position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[4], -50, "%", position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[1], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[2], -50, "%", position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[3], -50, "%", position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[4], -50, "%", position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[5], -50, "%", position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
     }
 
     (context >= showButtonValue) ? this.buyButton.classList.add("active") : this.buyButton.classList.remove("active");
@@ -79,12 +80,15 @@ class FinalCards extends Component {
     return (
       <div ref="ending" className="hero--rio hero--rio--final">
         <a ref="buy" href="http://store.runitonce.com/products/1st-edition-playing-cards" target="_blank" className="button buy-button">buy 'em now</a>
-        <div id="cardBox" className="cardbox" ref="cardbox">
-          <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
-          <img src={cardbox.front}   className="cardbox-ending__item cardbox-ending__item--front" />
+        <div className="cardbox-container">
+          <div id="cardBox" className="cardbox" ref="cardbox">
+            <img src={cardbox.lid}     className="cardbox-ending__item cardbox-ending__item--lid"   />
+            <img src={cardbox.lidBack} className="cardbox-ending__item cardbox-ending__item--lidback" />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.card}    className="cardbox-ending__item cardbox-ending__item--card"  />
+            <img src={cardbox.front}   className="cardbox-ending__item cardbox-ending__item--front" />
+          </div>
         </div>
       </div>
     )
