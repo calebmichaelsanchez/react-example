@@ -13,13 +13,9 @@
     min-height: rem-calc(880);
   }
   @include respond-to(md) {
-    padding-top: rem-calc(87);
-    padding-bottom: rem-calc(87);
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(80);
     min-height: initial;
-  }
-  @include respond-to(lg) {
-    padding-top: rem-calc(90);
-    padding-bottom: rem-calc(90);
   }
   &__item {
     position: relative;
@@ -63,7 +59,7 @@
       top: 50%;
       right: 1rem;
       margin-top: 0;
-      transform: translateY(-50%);
+      transform: translateY(-48.25%);
     }
     @include respond-to(lg) {
       right: 0;

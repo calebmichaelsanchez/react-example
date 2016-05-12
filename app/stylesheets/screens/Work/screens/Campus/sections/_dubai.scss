@@ -1,5 +1,7 @@
 .dubai {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: rem-calc(620);
   @media screen and (min-width: 425px) {
     margin-top: rem-calc(450);
@@ -11,6 +13,7 @@
     margin-top: rem-calc(280);
   }
   @include respond-to(md) {
+    max-width: rem-calc(1440);
     margin-top: rem-calc(160);
   }
   @include respond-to(lg) {

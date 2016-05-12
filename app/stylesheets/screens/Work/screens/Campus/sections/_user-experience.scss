@@ -16,15 +16,21 @@
   }
 }
 .site-map {
+  width: 100%;
   max-width: rem-calc(960);
   margin-left: auto;
   margin-right: auto;
   margin-top: rem-calc(40);
+  padding-left: 1rem;
+  padding-right: 1rem;
   @include respond-to(sm) {
     margin-top: rem-calc(80);
   }
   @include respond-to(md) {
-    max-width: 80%;
+    width: 90%;
+    max-width: rem-calc(1440);
+    padding-left: 0;
+    padding-right: 0;
   }
   text-align: center;
   padding: 1rem;

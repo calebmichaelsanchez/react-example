@@ -1,11 +1,21 @@
 .development {
   position: relative;
+  padding-top: rem-calc(80);
   padding-bottom: rem-calc(80);
   text-align: center;
   @include hero("../images/work/campus/development/development.jpg");
-  @include respond-to(sm) { padding-bottom: rem-calc(130); }
-  @include respond-to(md) { padding-bottom: rem-calc(150); }
-  @include respond-to(lg) { padding-bottom: rem-calc(160); }
+  @include respond-to(sm) {
+    padding-bottom: rem-calc(130);
+    padding-top: rem-calc(130);
+  }
+  @include respond-to(md) {
+    padding-bottom: rem-calc(150);
+    padding-top: rem-calc(150);
+  }
+  @include respond-to(lg) {
+    padding-bottom: rem-calc(160);
+    padding-top: rem-calc(160);
+  }
   &:before {
     content: '';
     position: absolute;
@@ -20,7 +30,7 @@
     position: relative;
     padding-top: rem-calc(45);
     z-index: 10;
-    transform: translateY(-115px);
+    // transform: translateY(-115px);
     @include respond-to(xs) { padding-top: rem-calc(65); }
     @include respond-to(sm) { padding-top: rem-calc(70); }
   }
@@ -33,7 +43,7 @@
     z-index: 9;
     padding-left: rem-calc(20);
     padding-right: rem-calc(20);
-    transform: translateY(-115px);
+    // transform: translateY(-115px);
     margin-left: auto;
     margin-right: auto;
     @include respond-to(lg) {
@@ -53,6 +63,6 @@
     z-index: 10;
     border-radius: rem-calc(30);
     box-shadow: 0 rem-calc(3) rem-calc(25) 0 rgba(0,0,0,0.15);
-    transform: translateY(-115px);
+    // transform: translateY(-115px);
   }
 }
