@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import Excerpt from "../shared/Excerpt";
+import classNames from "classnames";
 
 class Features extends Component {
   constructor(props) {
@@ -10,9 +11,11 @@ class Features extends Component {
     this.onResize = this.onResize.bind(this);
     this.update   = this.update.bind(this);
     this.isTouch  = this.isTouch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      touch: null
+      touch: null,
+      isPlaying: false
     }
   }
   componentDidMount() {
@@ -31,7 +34,7 @@ class Features extends Component {
     window.removeEventListener("resize", this.onResize, false);
   }
   isTouch() {
-    let html = document.querySelector("html");
+    let html = document.documentElement;
     if (html.classList.contains("no-touchevents")) {
       this.setState({ touch: false });
     } else {
@@ -45,6 +48,16 @@ class Features extends Component {
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
     window.requestAnimFrame(this.update);
+  }
+  handleClick() {
+    let { touch, isPlaying } = this.state;
+    if (touch && !isPlaying) {
+      this.video.play();
+      this.setState({ isPlaying: true });
+    } else if (touch && isPlaying) {
+      this.video.currentTime = 0;
+      this.video.play();
+    }
   }
   update() {
     let { viewportHeight } = this.props,
@@ -60,6 +73,9 @@ class Features extends Component {
     }
   }
   render() {
+    let isPlaying = classNames({
+      'playing': this.state.isPlaying,
+    });
     let img = require("../../../../../../../images/work/campus/features/device.png"),
         screen = require("../../../../../../../images/work/campus/features/screen.jpg"),
         video = {
@@ -79,7 +95,8 @@ class Features extends Component {
           />
           <div className="features-img">
             <img src={img} alt="iPhone 6"/>
-            <div ref="video" className="video">
+            <div ref="video" className={`video ${isPlaying}`} onClick={this.handleClick}>
+              <div className="video__overlay"></div>
               <div className="video__inner">
                 <video poster={screen}>
                   <source src={video.one} />

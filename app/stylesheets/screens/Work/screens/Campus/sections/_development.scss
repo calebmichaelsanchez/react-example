@@ -61,10 +61,11 @@
     }
   }
   .btn {
+    display: inline-block;
+    display: none;
     position: relative;
     @extend h4;
     padding: rem-calc(18) rem-calc(70);
-    display: inline-block;
     text-align: center;
     color: #3023AE;
     background-color: rgba(#F9FAFC, .8);

@@ -59,7 +59,7 @@
       top: 50%;
       right: 1rem;
       margin-top: 0;
-      transform: translateY(-48.25%);
+      transform: translateY(-48.5%);
     }
     @include respond-to(lg) {
       right: 0;
@@ -72,6 +72,22 @@
   left: percentage(114 / 778);
   width: percentage(554 / 778);
   height: percentage(985 / 1440);
+  .touchevents &.playing .video__overlay {
+    opacity: 0;
+  }
+  .touchevents &__overlay {
+    display: block;
+    position: absolute;
+    top: percentage(200 / 1440);
+    left: percentage(114 / 778);
+    width: percentage(554 / 778);
+    height: percentage(985 / 1440);
+    background: url("../images/work/campus/features/play.png") no-repeat center center;
+    background-size: 80px 80px;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 600ms ease;
+  }
   &__inner {
     position: relative;
     height: 0;
