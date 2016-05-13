@@ -46,7 +46,7 @@ class WebMobile extends Component {
   }
   update() {
     let { viewportHeight } = this.props,
-        { position, transformThreeD } = helpers,
+        { position, transformThreeD, transformRotate } = helpers,
         iconsHeight = this.elementHeight,
         iconsTop    = this.elementDimensions.top,
         iconsBottom = this.elementDimensions.bottom,
@@ -69,6 +69,17 @@ class WebMobile extends Component {
       transformThreeD(this.iconsArray[9],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
       transformThreeD(this.iconsArray[10], "0", "px", position(0, 150, relativeY, 0), "px", 0, "px");
       transformThreeD(this.iconsArray[11], "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
+
+      transformRotate(this.iconsArray[0].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[1].children[0],  position(-20, 20, fastest,   0));
+      transformRotate(this.iconsArray[2].children[0],  position(-20, 20, fastest,   0));
+      transformRotate(this.iconsArray[3].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[4].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[7].children[0],  position(20, -20, slowest,   0));
+      transformRotate(this.iconsArray[8].children[0],  position(20, -20, middle,    0));
+      transformRotate(this.iconsArray[9].children[0],  position(20, -20, slowest,   0));
+      transformRotate(this.iconsArray[10].children[0], position(20, -20, relativeY, 0));
+      transformRotate(this.iconsArray[11].children[0], position(20, -20, fastest,   0));
     }
     this.ticking = false;
   }

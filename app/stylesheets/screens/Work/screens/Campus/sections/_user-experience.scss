@@ -1,5 +1,5 @@
 .user-experience {
-  margin-top: rem-calc(145);
+  margin-top: rem-calc(75);
   padding-top: rem-calc(16);
   padding-bottom: rem-calc(80);
   @include respond-to(sm) {
@@ -28,7 +28,7 @@
   }
   @include respond-to(md) {
     width: 90%;
-    max-width: rem-calc(1440);
+    max-width: rem-calc(1200);
     padding-left: 0;
     padding-right: 0;
   }

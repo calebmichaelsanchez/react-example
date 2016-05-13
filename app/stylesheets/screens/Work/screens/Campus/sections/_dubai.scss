@@ -13,7 +13,7 @@
     margin-top: rem-calc(420);
   }
   @include respond-to(md) {
-    max-width: rem-calc(1440);
+    max-width: rem-calc(1200);
     margin-top: rem-calc(320);
   }
   @include respond-to(lg) {

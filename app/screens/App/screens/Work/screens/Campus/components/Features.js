@@ -43,11 +43,17 @@ class Features extends Component {
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
-    window.requestAnimFrame(this.update);
+    if (!this.ticking) {
+      window.requestAnimFrame(this.update);
+      this.ticking = true;
+    }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
-    window.requestAnimFrame(this.update);
+    if (!this.ticking) {
+      window.requestAnimFrame(this.update);
+      this.ticking = true;
+    }
   }
   handleClick() {
     let { touch, isPlaying } = this.state;
@@ -71,6 +77,7 @@ class Features extends Component {
       this.video.pause();
       this.video.currentTime = 0;
     }
+    this.ticking = false;
   }
   render() {
     let isPlaying = classNames({
