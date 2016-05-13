@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// use react-slick component for this carousel
+
 class Gallery extends Component {
   constructor(props) {
     super(props);

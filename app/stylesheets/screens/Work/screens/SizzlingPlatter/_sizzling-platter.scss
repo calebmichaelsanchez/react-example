@@ -65,10 +65,10 @@ $splat-lg: 1440px;
 	.prep {
 		background-color: $splat-primary;
 		@include hero('../images/work/sizzling-platter/prep/Shrooms-mobile.png');
-		padding: 50px 0 300px;
 		background-position: 50% 100%;
 		background-size: 100% auto;
-		@include respond-to(sm) { padding: 150px 0 300px; }
+		padding: 50px 0 255px;
+		@include respond-to(sm) { padding: 150px 0 285px; }
 		@include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
 
 		&-container {
@@ -271,12 +271,19 @@ $splat-lg: 1440px;
 		color: #B54A49;
 		border: 1px solid #B54A49;
 		border-radius: 25px;
-		font-size: 18px;
-		padding: 5px 10px;
+		padding: 5px 13px;
+		margin-right: 4px;
+		font-size: 12px;
+		@include respond-to(sm) { font-size: 16px; }
 
 		&:hover {
 			color: #fff;
 		}
+
+		&:last-child {
+			margin-right: 0px;
+		}
+
 	}
 
 }

@@ -16,8 +16,8 @@ class Deck extends Component {
     this.element = findDOMNode(this.refs.deck);
     this.height = this.element.clientHeight;
     this.dimensions = {};
-    this.deckNodes = document.querySelectorAll(".deck-cards__item");
-    this.deckArray = [...this.deckNodes];
+    this.deckNodes = document.querySelectorAll(".deck-cards__item"); // html collection
+    this.deckArray = [...this.deckNodes]; // assures we are working with an array
 
     window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
@@ -27,9 +27,10 @@ class Deck extends Component {
     window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
-    this.dimensions = this.element.getBoundingClientRect();
+    this.dimensions = this.element.getBoundingClientRect(); // getting the tbrl values. 
+    // when top is 0, element is at top of viewport
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimFrame(this.update); // helper to throttle and ensure 60fps
       this.ticking = true;
     }
   }
@@ -42,13 +43,14 @@ class Deck extends Component {
     }
   }
   update() {
-    let { viewportHeight, windowWidth }  = this.props,
+    // the magic function
+    let { viewportHeight, windowWidth } = this.props,
         { transformThreeD, position } = helpers,
         deckTop    = this.dimensions.top,
         deckBottom = this.dimensions.bottom,
         deckHeight = this.height,
-        context    = (deckTop - viewportHeight) * -1,
-        relativeY  = (context / (deckHeight * 2)),
+        context    = (deckTop - viewportHeight) * -1, // handling for when top scrolls up from the bottom (at hits bottom of screen)
+        relativeY  = (context / (deckHeight * 2)), // accounts for the element scrolling above top fold 
         values     = [];
 
     (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -320] ];

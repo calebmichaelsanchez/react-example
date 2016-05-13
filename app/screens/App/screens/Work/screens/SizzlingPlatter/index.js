@@ -15,6 +15,9 @@ class Splat extends Component {
     super(props);
   }
   componentDidMount() {
+    // may do a few interesting things here:
+    // - WebFontLoader to pull in Google/TypeKit fonts
+    // WebFont.load({googl:{families:['Droid Sans', 'Lato']}})
     ga('send', 'pageview', '/making-it-awesome-with/sizzling-platter');
     this.props.setNavTheme(this.props.theme);
   }
@@ -64,7 +67,9 @@ class Splat extends Component {
         <div className="case-study sizzling-platter">
 
           <Hero hero={img.hero} />
+          
           <Prep />
+          
           <Patterns patterns={img.patterns} />
 
           <Ingredients ingredients={img.ingredients} />
@@ -93,16 +98,15 @@ class Splat extends Component {
                   <img className="squarespace__item" src={img.designDev.greyFar} />
             </div>
 
-              <div className="design--dev__item laptop">
-                <img src={img.designDev.laptop} />
-              </div>
+            <div className="design--dev__item laptop">
+              <img src={img.designDev.laptop} />
+            </div>
 
-              <div className="design--dev__item copy-03">
-                <h1>SERVING THE PEOPLE</h1>
-                <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
-              </div>
+            <div className="design--dev__item copy-03">
+              <h1>SERVING THE PEOPLE</h1>
+              <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
+            </div>
           </div>
-
 
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },

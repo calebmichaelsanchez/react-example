@@ -5,13 +5,15 @@ class Prep extends Component {
     super(props);
   }
   componentDidMount() {
-
+    this.ticking = false;
+    this.element = findDOMNode(this.refs.prep);
   }
   componentWillUnmount() {
 
   }
   render() {
     return (
+      // background image is 
       <div className="prep" ref="prep">
         <div className="prep-container">
           <div className="prep-container__item prep-copy">
