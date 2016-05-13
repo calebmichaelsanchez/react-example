@@ -7,7 +7,10 @@
     padding-top: rem-calc(40);
     padding-left: rem-calc(16);
     padding-right: rem-calc(16);
-    font-size: rem-calc(16);
+    font-size: rem-calc(14);
+    @include respond-to(xs) {
+      font-size: rem-calc(16);
+    }
     .tag {
       border-color: #4969C5;
       color: #4969C5;

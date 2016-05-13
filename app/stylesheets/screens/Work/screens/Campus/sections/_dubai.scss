@@ -2,10 +2,10 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: rem-calc(620);
-  // @media screen and (min-width: 425px) {
-  //   margin-top: rem-calc(450);
-  // }
+  margin-top: rem-calc(680);
+  @media screen and (min-width: 425px) {
+    margin-top: rem-calc(620);
+  }
   @include respond-to(xs) {
     margin-top: rem-calc(520);
   }
