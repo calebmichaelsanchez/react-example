@@ -39,7 +39,7 @@ class Illustrations extends Component {
   }
   update() {
     let { viewportHeight } = this.props,
-        { transformOpacity, position } = helpers,
+        { position } = helpers,
         items   = this.imagesArray,
         height  = this.dimensions.height,
         top     = this.dimensions.top,

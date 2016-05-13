@@ -1,5 +1,5 @@
 .features {
-  padding-top: rem-calc(40);
+  padding-top: rem-calc(80);
   position: relative;
   min-height: rem-calc(770);
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3023ae+1,5275da+100 */
@@ -8,11 +8,14 @@
   background: -webkit-linear-gradient(-45deg,  #3023ae 1%,#5275da 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg,  #3023ae 1%,#5275da 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3023ae', endColorstr='#5275da',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  margin-top: rem-calc(80);
   @include respond-to(sm) {
+    margin-top: rem-calc(160);
     padding-top: rem-calc(80);
     min-height: rem-calc(880);
   }
   @include respond-to(md) {
+    margin-top: rem-calc(250);
     padding-top: rem-calc(80);
     padding-bottom: rem-calc(80);
     min-height: initial;

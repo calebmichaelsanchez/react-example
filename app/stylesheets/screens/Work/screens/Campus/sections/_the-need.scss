@@ -23,6 +23,7 @@ $top: percentage(570 / 960);
       margin-right: auto;
       margin-bottom: rem-calc(40);
       @include respond-to(md) {
+        max-width: rem-calc(200);
         margin-bottom: rem-calc(80);
       }
       @include respond-to(lg) {
