@@ -95,7 +95,7 @@ class Features extends Component {
           />
           <div className="features-img">
             <img src={img} alt="iPhone 6"/>
-            <div ref="video" className={`video ${isPlaying}`}>
+            <div ref="video" className={`video ${isPlaying}`} onClick={this.handleClick}>
               <div className="video__inner">
                 <video poster={screen}>
                   <source src={video.one} />
