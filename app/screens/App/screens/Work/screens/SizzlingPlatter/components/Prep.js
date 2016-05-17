@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom, { findDOMNode } from 'react-dom';
 
 class Prep extends Component {
   constructor(props) {

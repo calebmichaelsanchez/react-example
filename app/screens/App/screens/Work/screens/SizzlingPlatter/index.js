@@ -70,7 +70,7 @@ class Splat extends Component {
           
           <Prep />
           
-          <Patterns patterns={img.patterns} />
+          <Patterns patterns={img.patterns} {...this.props} />
 
           <Ingredients ingredients={img.ingredients} />
 
