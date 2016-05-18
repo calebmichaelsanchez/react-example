@@ -5,6 +5,7 @@ import Home        from '../screens/App/components/Home';
 import Work        from '../screens/App/screens/Work/components/Work';
 import Contact     from '../screens/App/screens/Contact/components/Contact';
 import Store       from '../screens/App/screens/Store/components/Store';
+import Playground  from '../screens/App/screens/Work/screens/Playground/';
 import Aiga        from '../screens/App/screens/Work/screens/Aiga/components/Aiga';
 //import Campus      from '../screens/App/screens/Work/screens/Campus';
 import JustFamily  from '../screens/App/screens/Work/screens/JustFamily/components/JustFamily';
@@ -26,6 +27,7 @@ const routes = (
     <Route path="/peddling" component={Store} />
     <Route path="/making-it-awesome" component={Work}>
       <Route path="/making-it-awesome-with/aiga" component={Aiga} />
+      <Route path="/making-it-awesome-with/playground" component={Playground} />
       {/*<Route path="/making-it-awesome-with/campus" component={Campus} />*/}
       <Route path="/making-it-awesome-with/just-family" component={JustFamily} />
       <Route path="/making-it-awesome-with/traxion" component={Traxion} />

@@ -29,6 +29,10 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    extensions: ['', '.js', '.json']
+  },
+
   postcss: function () {
     return [autoprefixer, precss];
   },

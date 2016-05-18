@@ -38,5 +38,9 @@ module.exports = {
         loader: 'file-loader?name=/[path][name].[ext]'
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.json']
   }
 }
