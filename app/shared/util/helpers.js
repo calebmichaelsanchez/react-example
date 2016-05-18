@@ -31,6 +31,12 @@ let helpers = {
   limit: function(min, max, value) {
     return Math.max(min, Math.min(max, value));
   },
+  prefix: function(obj, prop, value) {
+    let prefs = ['webkit', 'Moz', 'O', 'ms'];
+    for (let pref in prefs) {
+      obj[prefs[pref] + prop] = value;
+    }
+  },
   // Underscores Throttle
   throttle: function(func, wait, options) {
     var context, args, result;
