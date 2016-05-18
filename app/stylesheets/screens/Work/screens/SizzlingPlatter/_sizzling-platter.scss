@@ -196,11 +196,13 @@ $splat-lg: 1440px;
 			margin-top: 3px;
 
 			& > img {
+				// float: left;
 				max-width: (100% / 3);
 				height: auto;
 
 				&:last-child {
 					display: none;
+					// float: right;
 				}
 
 				@include respond-to(sm) {
@@ -214,7 +216,13 @@ $splat-lg: 1440px;
 				@include respond-to(lg) {
 					min-width: 25%;
 				}
-			} 
+			}
+
+			// &:after {
+			// 	clear: both;
+			// 	content: '';
+			// 	display: inline;
+			// } 
 		}
 
 	}
