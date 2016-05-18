@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import helpers from "../../../../../../../shared/util/helpers";
+import PhoneSlider from '../../../shared/PhoneSlider';
+import { backgroundImagesArray, screenImagesArray, phoneImg } from '../Data'
 
 class DesignDev extends Component {
   constructor(props) {
@@ -74,9 +76,7 @@ class DesignDev extends Component {
         </div>
 
         <div className="design--dev__item iphone">
-          <img className="iphone__item" src={designDev.iphone} />
-          <img className="iphone__item" src={designDev.iphoneBgLeft} />
-          <img className="iphone__item" src={designDev.iphoneBgRight} />
+          <PhoneSlider backgroundImages={backgroundImagesArray} screenImages={screenImagesArray} phone={phoneImg} />
         </div>
 
         <img className="ss" src={designDev.squarespace} />
@@ -96,7 +96,7 @@ class DesignDev extends Component {
         <div className="design--dev__item copy-03">
           <h1>SERVING THE PEOPLE</h1>
           <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
-          <p><a href="" className="button button--red button--lg">See it live</a></p>
+          <p><a href="http://sizzlingplatter.com/" className="button button--red button--lg">See it live</a></p>
         </div>
       </div>
     )

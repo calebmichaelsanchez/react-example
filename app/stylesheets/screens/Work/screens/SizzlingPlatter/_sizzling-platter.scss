@@ -74,6 +74,7 @@ $splat-lg: 1440px;
 		background-size: 100% auto;
 		padding: 50px 0 255px;
 		@include respond-to(sm) { padding: 150px 0 285px; background-position: 50% 130%; }
+		@include respond-to(md) { background-position: 50% 100%; }
 		@include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
 
 		&-container {
@@ -133,6 +134,7 @@ $splat-lg: 1440px;
 			max-width: 300px;
 			@include respond-to(sm) { top: -125px; left: -25px; }
 			@include respond-to(md) { left: 0; }
+			@include respond-to(lg) { max-width: 350px; }
 		}
 		&__item:nth-child(3) {
 			bottom: 0px;
@@ -228,7 +230,7 @@ $splat-lg: 1440px;
 			url('../images/work/sizzling-platter/design-dev/bg-right-tablet.png');
 			background-repeat: no-repeat, no-repeat;
 			background-position: 0 50px, 100% 50px;
-			padding: 250px 0 150px;
+			padding: 250px 0 50px;
 		}
 
 		@include respond-to(md) {
@@ -236,6 +238,7 @@ $splat-lg: 1440px;
 			url('../images/work/sizzling-platter/design-dev/bg-right-desktop.png');
 			background-repeat: no-repeat, no-repeat;
 			background-position: 0 25px, 100% 25px;
+			padding: 150px 0 50px;
 		}
 
 		@include respond-to(lg) {
@@ -243,6 +246,7 @@ $splat-lg: 1440px;
 			url('../images/work/sizzling-platter/design-dev/design-dev-bg-right.png');
 			background-repeat: no-repeat, no-repeat;
 			background-position: 0 0, 100% 0;
+			padding: 215px 0 50px;
 		}
 
 		h1 { margin-bottom: 25px; }
