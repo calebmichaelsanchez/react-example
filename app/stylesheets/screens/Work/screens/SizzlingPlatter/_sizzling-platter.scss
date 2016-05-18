@@ -22,6 +22,11 @@ $splat-lg: 1440px;
 		@include respond-to(lg) {max-width: $splat-lg;}
 	}
 
+	h1 { 
+		font-size: 32px;
+		@include respond-to(sm) {font-size: 36px;}
+	}
+
 	.hero--splat {
 		@include hero('../images/work/sizzling-platter/hero/hero-bg-mobile.png');
 		background-color: #0A0808;
@@ -68,7 +73,7 @@ $splat-lg: 1440px;
 		background-position: 50% 100%;
 		background-size: 100% auto;
 		padding: 50px 0 255px;
-		@include respond-to(sm) { padding: 150px 0 285px; }
+		@include respond-to(sm) { padding: 150px 0 285px; background-position: 50% 130%; }
 		@include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
 
 		&-container {
@@ -111,25 +116,37 @@ $splat-lg: 1440px;
 			z-index: 2;
 		}
 
-		&-container__item { position: relative; z-index: 2; margin-bottom: 125px; }
+		&-container__item {
+			position: relative;
+			z-index: 2;
+			margin-bottom: 125px;
+			width: 210px;
+
+			@include respond-to(lg) { width: auto; }
+		}
 
 		&__item { position: absolute; z-index: 1; }
 		&__item:nth-child(2) {
-			top: -75px; left: -100px;
+			top: -75px;
+			left: -100px;
 			width: percentage(690 / 1440);
 			max-width: 300px;
-			@include respond-to(sm) { left: -25px; }
+			@include respond-to(sm) { top: -125px; left: -25px; }
 			@include respond-to(md) { left: 0; }
 		}
 		&__item:nth-child(3) {
-			bottom: 0; left: -75px;
+			bottom: 0px;
+			left: -100px;
 			width: percentage(850 / 1440);
 			max-width: 600px;
+			@include respond-to(sm) { bottom: 25px; left: -125px; }
 		}
 		&__item:nth-child(4) {
-			top: 25%; right: -75px;
+			top: 15%;
+			right: -75px;
 			width: percentage(635 / 1440);
 			max-width: 325px;
+			@include respond-to(sm) { top: 10%; }
 			@include respond-to(md) { right: 0; }
 		}
 	}
@@ -164,15 +181,38 @@ $splat-lg: 1440px;
 
 			@include respond-to(sm) {
 				@include hero('../images/work/sizzling-platter/ingredients/bg.png');
-				min-height: 550px;
+				background-size: auto;
+				padding-top: 0px;
+				min-height: 750px;
 			}
 
-			@include respond-to(md) {min-height: 750px;}
+			// @include respond-to(md) {min-height: 750px;}
 			@include respond-to(lg) {min-height: 950px;}
 		}
 
-		&-gallery > img {
-			width: 100%;
+		&-gallery {
+			margin-top: 3px;
+
+			& > img {
+				max-width: (100% / 3);
+				height: auto;
+
+				&:last-child {
+					display: none;
+				}
+
+				@include respond-to(sm) {
+					max-width: 25%;
+
+					&:last-child {
+						display: inline-block;
+					}
+				}
+
+				@include respond-to(lg) {
+					min-width: 25%;
+				}
+			} 
 		}
 
 	}
@@ -215,10 +255,18 @@ $splat-lg: 1440px;
 			margin-left: auto;
 			margin-right: auto;
 			max-width: 800px;
+			text-align: left;
+
+			@include respond-to(sm) { 
+				text-align: center;
+				margin-bottom: 80px;
+			}
 		}
 
 		.iphone {
 			position: relative;
+
+			@include respond-to(sm) { margin-bottom: 40px; }
 
 			&__item:nth-child(2),
 			&__item:nth-child(3) {
@@ -274,14 +322,27 @@ $splat-lg: 1440px;
 		padding: 5px 13px;
 		margin-right: 4px;
 		font-size: 12px;
+
 		@include respond-to(sm) { font-size: 16px; }
 
 		&:hover {
+			background-color: #B54A49;
 			color: #fff;
 		}
 
 		&:last-child {
 			margin-right: 0px;
+		}
+
+		&.button--red {
+			color: #fff;
+			background-color: #C62A20;
+			border-color: #C62A20;
+		}
+
+		&.button--lg {
+			font-size: 24px;
+			padding: 12px 36px;
 		}
 
 	}

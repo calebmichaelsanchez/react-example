@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import DocumentTitle from 'react-document-title';
-import SeeMore from "../../shared/SeeMore";
 import helpers from "../../../../../../shared/util/helpers";
 import Hero from "./components/Hero";
 import Prep from "./components/Prep";
 import Patterns from "./components/Patterns";
 import Ingredients from "./components/Ingredients";
 import Gallery from "./components/Gallery";
+import DesignDev from "./components/DesignDev";
+import SeeMore from "../../shared/SeeMore";
 
 class Splat extends Component {
   constructor(props) {
@@ -37,10 +38,10 @@ class Splat extends Component {
       ingredients: {
         bg    : require("../../../../../../images/work/sizzling-platter/ingredients/bg.png"),
         crsl  : require("../../../../../../images/work/sizzling-platter/ingredients/carousel.png"),
-        one   : require("../../../../../../images/work/sizzling-platter/ingredients/01.png"),
-        two   : require("../../../../../../images/work/sizzling-platter/ingredients/02.png"),
-        three : require("../../../../../../images/work/sizzling-platter/ingredients/03.png"),
-        four  : require("../../../../../../images/work/sizzling-platter/ingredients/04.png")
+        one   : require("../../../../../../images/work/sizzling-platter/ingredients/01_sm.png"),
+        two   : require("../../../../../../images/work/sizzling-platter/ingredients/02_sm.png"),
+        three : require("../../../../../../images/work/sizzling-platter/ingredients/03_sm.png"),
+        four  : require("../../../../../../images/work/sizzling-platter/ingredients/04_sm.png")
       },
       designDev : {
         bgLeft  : require("../../../../../../images/work/sizzling-platter/design-dev/design-dev-bg-left.png"),
@@ -74,39 +75,9 @@ class Splat extends Component {
 
           <Ingredients ingredients={img.ingredients} />
 
-          <Gallery crsl={img.ingredients.crsl} />
+          <Gallery gallery={img.ingredients} />
 
-          <div className="design--dev">
-              <div className="design--dev__item copy-01">
-                <h1>MADE TO ORDER</h1>
-                <p>It was important to make this revamped site inviting for both investors and potential employees. SPLAT is poud of the cultural diversity within their family. To celebrate this, we wanted to make the site inviting for all audiences. Throughout the site we showcase Sizzling Platter’s investment in their ever expanding SPLAT family, diversity, and strong company values.</p>
-              </div>
-
-              <div className="design--dev__item iphone">
-                <img className="iphone__item" src={img.designDev.iphone} />
-                <img className="iphone__item" src={img.designDev.iphoneBgLeft} />
-                <img className="iphone__item" src={img.designDev.iphoneBgRight} />
-              </div>
-
-              <img className="ss" src={img.designDev.squarespace} />
-
-              <div className="design--dev__item squarespace">
-                <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
-                <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
-                  <img className="squarespace__item" src={img.designDev.redClose} />
-                  <img className="squarespace__item" src={img.designDev.greyClose} />
-                  <img className="squarespace__item" src={img.designDev.greyFar} />
-            </div>
-
-            <div className="design--dev__item laptop">
-              <img src={img.designDev.laptop} />
-            </div>
-
-            <div className="design--dev__item copy-03">
-              <h1>SERVING THE PEOPLE</h1>
-              <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
-            </div>
-          </div>
+          <DesignDev designDev={img.designDev} {...this.props} />
 
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },

@@ -13,9 +13,14 @@ class Gallery extends Component {
 
   }
   render() {
+
+      let { gallery } = this.props;
     return (
       <div className="ingredients-gallery">
-        <img src={this.props.crsl} />
+        <img src={gallery.one} />
+        <img src={gallery.two} />
+        <img src={gallery.three} />
+        <img src={gallery.four} />
       </div>
     )
   }

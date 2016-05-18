@@ -11,7 +11,6 @@ class Patterns extends Component {
     this.update   = this.update.bind(this);
   }
   componentDidMount() {
-    console.log( 'reactDom=' + ReactDom );
     this.ticking = false;
     this.element = findDOMNode(this.refs.patterns);
     this.height = this.element.clientHeight;
@@ -27,8 +26,6 @@ class Patterns extends Component {
     window.removeEventListener("resize", this.onResize, false);
   }
   onScroll() {
-    console.log('updating patterns component');
-
     this.dimensions = this.element.getBoundingClientRect(); // getting the tbrl values. 
     // when top is 0, element is at top of viewport
     if (!this.ticking) {
@@ -45,7 +42,6 @@ class Patterns extends Component {
     }
   }
   update() {
-    console.log('updating patterns component');
     // the magic method
     let { viewportHeight, windowWidth } = this.props,
         { transformThreeD, position } = helpers,
@@ -54,17 +50,17 @@ class Patterns extends Component {
         patternsHeight = this.height,
         context    = (patternsTop - viewportHeight) * -1, // handling for when top scrolls up from the bottom (at hits bottom of screen)
         relativeY  = (context / (patternsHeight * 2)), // accounts for the element scrolling above top fold 
-        values     = [[100], [0, -75]];
+        values     = [];
 
-    // (windowWidth <= 768) ? values = [ [100], [0, -145] ] : values = [ [100], [0, -50] ];
+    (windowWidth <= 768) ? values = [ [100], [0, -100] ] : values = [ [100], [0, -75] ];
 
     (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
 
     if (context >= 0 && patternsBottom >= 0) {
       // transformThreeD(element, x, xUnit, y, yUnit, z, zUnit)
-      transformThreeD(this.patternsArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,       0), "px", 0, "px");
-      transformThreeD(this.patternsArray[1], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .8,  0), "px", 0, "px");
-      transformThreeD(this.patternsArray[2], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .6,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[1], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[2], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
     }
     this.ticking = false;
   }
