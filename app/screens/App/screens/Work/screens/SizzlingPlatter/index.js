@@ -9,6 +9,7 @@ import Patterns from "./components/Patterns";
 import Ingredients from "./components/Ingredients";
 import Gallery from "./components/Gallery";
 import DesignDev from "./components/DesignDev";
+import Squarespace from "./components/Squarespace";
 import SeeMore from "../../shared/SeeMore";
 
 class Splat extends Component {
@@ -67,24 +68,26 @@ class Splat extends Component {
       <DocumentTitle title="Sizzling Platter | Underbelly Creative">
         <div className="case-study sizzling-platter">
 
-          <Hero hero={img.hero} />
+          <Hero hero={img.hero} {...this.props} />
           
-          <Prep />
+          <Prep {...this.props} />
           
           <Patterns patterns={img.patterns} {...this.props} />
 
-          <Ingredients ingredients={img.ingredients} />
+          <Ingredients ingredients={img.ingredients} {...this.props} />
 
-          <Gallery gallery={img.ingredients} />
+          <Gallery gallery={img.ingredients} {...this.props} />
 
           <DesignDev designDev={img.designDev} {...this.props} />
+
+          <Squarespace squarespace={img.designDev} {...this.props} />
 
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },
             { url: "just-family", title: "Just Family", img: img.seeMore.two },
             { url: "nsac", title: "North Seathlle Alliance Church", img: img.seeMore.three },
             { url: "rent-tree", title: "RentTree", img: img.seeMore.four }
-          ]}/>
+          ]} {...this.props} />
 
         </div>
       </DocumentTitle>

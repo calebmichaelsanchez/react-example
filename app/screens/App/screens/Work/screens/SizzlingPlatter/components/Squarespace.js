@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import helpers from "../../../../../../../shared/util/helpers";
-import PhoneSlider from '../../../shared/PhoneSlider';
-import { backgroundImagesArray, screenImagesArray, phoneImg } from '../Data'
+// get image/svg data for the background
+// import Img from '../Data'
 
-class DesignDev extends Component {
+class Squarespace extends Component {
   constructor(props) {
     super(props);
 
-    this.onScroll = this.onScroll.bind(this);
-    this.onResize = this.onResize.bind(this);
-    this.update   = this.update.bind(this);
+    // this.onScroll = this.onScroll.bind(this);
+    // this.onResize = this.onResize.bind(this);
+    // this.update   = this.update.bind(this);
   }
+  render() {
+    let { squarespace } = this.props;
+    return (
+      <div className="design--dev" ref="squarespace">
+        <img className="ss" src={squarespace.logo} />
+        <div className="design--dev__item squarespace">
+          <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
+          <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
+            <img className="squarespace__item" src={squarespace.redClose} />
+            <img className="squarespace__item" src={squarespace.greyClose} />
+            <img className="squarespace__item" src={squarespace.greyFar} />
+        </div>
+
+        <div className="design--dev__item laptop">
+          <img src={squarespace.laptop} />
+        </div>
+
+        <div className="design--dev__item copy-03">
+          <h1>SERVING THE PEOPLE</h1>
+          <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
+          <p><a href="http://sizzlingplatter.com/" className="button button--red button--lg">See it live</a></p>
+        </div>
+      </div>
+    )
+  }
+  /*
   componentDidMount() {
     this.ticking = false;
     this.element = findDOMNode(this.refs.designDev);
@@ -66,22 +92,7 @@ class DesignDev extends Component {
     }
     this.ticking = false;
   }
-  render() {
-    let { designDev } = this.props;
-    return (
-      <div className="design--dev" ref="designDev">
-        <div className="design--dev__item copy-01">
-          <h1>MADE TO ORDER</h1>
-          <p>It was important to make this revamped site inviting for both investors and potential employees. SPLAT is poud of the cultural diversity within their family. To celebrate this, we wanted to make the site inviting for all audiences. Throughout the site we showcase Sizzling Platter’s investment in their ever expanding SPLAT family, diversity, and strong company values.</p>
-        </div>
-
-        <div className="design--dev__item iphone">
-          <PhoneSlider backgroundImages={backgroundImagesArray} screenImages={screenImagesArray} phone={phoneImg} />
-        </div>
-        
-      </div>
-    )
-  }
+  */
 }
 
-export default DesignDev;
+export default Squarespace;

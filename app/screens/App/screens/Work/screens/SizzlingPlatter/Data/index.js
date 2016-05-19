@@ -1,4 +1,6 @@
-
+// data
+// * separate image concerns out of the component *
+//   lets store an img object that the whole component can access
 let backgroundImagesArray = [
       "https://s3.amazonaws.com/underbelly/playground/01-executive-profile-small.jpg",
       "https://s3.amazonaws.com/underbelly/playground/02-brands-page-small.jpg",
