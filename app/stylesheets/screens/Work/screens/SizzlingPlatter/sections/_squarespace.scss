@@ -1,0 +1,153 @@
+.ss { margin-top: 50px; margin-bottom: 50px; }
+
+.squarespace {
+  position: relative;
+
+  &__item {
+    position: absolute;
+    left:50%;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &--parallax {
+    width: rem-calc($splat-ss-width * .5);
+    height: rem-calc($splat-ss-height * .5);
+    position: absolute;
+    top: rem-calc( -450 );
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-50%) translateY(250px);
+
+    @include respond-to(sm) {
+      width: rem-calc($splat-ss-width * .7);
+      height: rem-calc($splat-ss-height * .7);
+    }
+
+    @include respond-to(md) {
+      width: rem-calc($splat-ss-width);
+      height: rem-calc($splat-ss-height);
+    }
+
+    &__container {
+      position: absolute;
+      display: block;
+
+      &--js0 {
+        left: percentage( 0 / $splat-ss-width);
+        top: percentage( 128 / $splat-ss-height);
+      }
+      &--close0-red {
+        left: percentage( 184 / $splat-ss-width);
+        top: percentage( 0 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--close1-red {
+        left: percentage( 935 / $splat-ss-width);
+        top: percentage( 931 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--react0 {
+        left: percentage( 1263 / $splat-ss-width);
+        top: percentage( 618 / $splat-ss-height);
+      }
+      &--paren0 {
+        left: percentage( 1235 / $splat-ss-width);
+        top: percentage( 218 / $splat-ss-height);
+      }
+      &--semi0-red {
+        left: percentage( 129 / $splat-ss-width);
+        top: percentage( 622 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--leftcurl-red {
+        left: percentage( 278/ $splat-ss-width);
+        top: percentage(481 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--head {
+        left: percentage( 406 / $splat-ss-width);
+        top: percentage( 212 / $splat-ss-height);
+      }
+      &--js1 {
+        left: percentage( 1239 / $splat-ss-width);
+        top: percentage( 845 / $splat-ss-height);
+      }
+      &--divclose-red {
+        left: percentage( 242 / $splat-ss-width);
+        top: percentage( 860 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--semi1-red {
+        left: percentage( 11 / $splat-ss-width);
+        top: percentage( 860 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--function {
+        left: percentage( 589 / $splat-ss-width);
+        top: percentage( 727 / $splat-ss-height);
+      }
+      &--semi2 {
+        left: percentage( 705 / $splat-ss-width);
+        top: percentage( 102 / $splat-ss-height);
+      }
+      &--div {
+        left: percentage( 967 / $splat-ss-width);
+        top: percentage( 167 / $splat-ss-height);
+      }
+      &--rightcurl-red {
+        left: percentage( 974 / $splat-ss-width);
+        top: percentage( 341 / $splat-ss-height);
+
+        svg .cls-2 {
+          fill: $splat-ss-red;
+        }
+      }
+      &--paren1 {
+        left: percentage( 40 / $splat-ss-width);
+        top: percentage( 441 / $splat-ss-height);
+      }
+      &--semi3 {
+        left: percentage( 1143 / $splat-ss-width);
+        top: percentage( 441 / $splat-ss-height);
+      }
+      &--react1 {
+        left: percentage( 130 / $splat-ss-width);
+        top: percentage( 347 / $splat-ss-height);
+      }
+      &--js2 {
+        left: percentage( 898 / $splat-ss-width);
+        top: percentage( 634 / $splat-ss-height);
+      }
+    }
+  }
+}
+
+.laptop {
+  padding: 50px 2rem;
+  position: relative;
+  respond-to(sm) { padding: 100px 2rem 100px; }
+  respond-to(lg) { padding: 150px 2rem 150px; }
+}
+.see-more-container {
+  max-width: 100%;
+}

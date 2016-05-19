@@ -1,4 +1,3 @@
-
 $splat-primary: #fff;
 $splat-secondary: #101012;
 $splat-borders: #898c8c;
@@ -7,488 +6,94 @@ $splat-xs: 760px;
 $splat-sm: 940px;
 $splat-md: 1200px;
 $splat-lg: 1440px;
+$splat-ss-width: 1300;
+$splat-ss-height: 960;
+$splat-ss-red: #C62A20;
+$splat-font-family: 'Lato';
+$splat-lato-light: 300;
 
 .sizzling-platter {
-	background-color: $splat-primary;
-
-	[class$=container] {
-		position: relative;
-		width: 100%;
-		margin: 0 auto;
-		height: 100%;
-		@include respond-to(xs) {max-width: $splat-xs;}
-		@include respond-to(sm) {max-width: $splat-sm;}
-		@include respond-to(md) {max-width: $splat-md;}
-		@include respond-to(lg) {max-width: $splat-lg;}
-	}
-
-	h1 { 
-		font-size: 32px;
-		@include respond-to(sm) {font-size: 36px;}
-	}
-
-	.hero--splat {
-		@include hero('../images/work/sizzling-platter/hero/hero-bg-mobile.png');
-		background-color: #0A0808;
-		padding-top: 120px;
-
-		@include respond-to(sm) {
-			@include hero('../images/work/sizzling-platter/hero/hero-bg.png');
-			height: 615px;
-			overflow: hidden;
-		}
-
-		@include respond-to(md) { height: 720px; }
-
-		&-container__item {
-			width: percentage(334 / 375);
-			margin: 0 auto;
-			display: block;
-			z-index: 2;
-
-			&:nth-child(2) { left: 35%; display: none; z-index: 1; }
-			&:nth-child(3) { left: 65%; display: none; z-index: 1; }
-
-			@include respond-to(sm) {
-				width: 635px;
-				max-width: 750px;
-				position: absolute;
-				left: 50%;
-				bottom: -350px;
-				transform: translate3d(-50%, 0, 0);
-
-				&:nth-child(2), &:nth-child(3) { display: block; bottom: 0; }
-			}
-
-			@include respond-to(md) {
-				width: 750px;
-				bottom: -465px;
-			}
-		}
-	}
-
-	.prep {
-		background-color: $splat-primary;
-		@include hero('../images/work/sizzling-platter/prep/Shrooms-mobile.png');
-		background-position: 50% 100%;
-		background-size: 100% auto;
-		padding: 50px 0 255px;
-		@include respond-to(sm) { padding: 150px 0 285px; background-position: 50% 130%; }
-		@include respond-to(md) { background-position: 50% 100%; }
-		@include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
-
-		&-container {
-			width: 90%;
-			text-align: center;
-			@include respond-to(sm) { text-align: center; }
-		}
-
-		h1 {
-			font-size: 32px;
-			color: #6E6B6B;
-			margin-bottom: 25px;
-			@include respond-to(sm) { font-size: 36px; letter-spacing: 3.54px; }
-		}
-
-		p {
-			font-size: 16px;
-			line-height: 1.35;
-			color: #343030;
-			text-align: left;
-			max-width: 670px;
-			margin-left: auto;
-			margin-right: auto;
-			@include respond-to(sm) { font-size: 18px; text-align: center; }
-		}
-	}
-
-	.patterns {
-		background: #F7F7F7;
-		text-align: center;
-		padding: 50px 0;
-		position: relative;
-		overflow: hidden;
-		@include respond-to(sm) { padding: 150px 0; }
-
-		h1, p {
-			color: #6E6B6B;
-			margin-bottom: 50px;
-			position: relative;
-			z-index: 2;
-		}
-
-		&-container__item {
-			position: relative;
-			z-index: 2;
-			margin-bottom: 125px;
-			width: 210px;
-
-			@include respond-to(lg) { width: auto; }
-		}
-
-		&__item { position: absolute; z-index: 1; }
-		&__item:nth-child(2) {
-			top: -75px;
-			left: -100px;
-			width: percentage(690 / 1440);
-			max-width: 300px;
-			@include respond-to(sm) { top: -125px; left: -25px; }
-			@include respond-to(md) { left: 0; }
-			@include respond-to(lg) { max-width: 350px; }
-		}
-		&__item:nth-child(3) {
-			bottom: 0px;
-			left: -100px;
-			width: percentage(850 / 1440);
-			max-width: 600px;
-			@include respond-to(sm) { bottom: 25px; left: -125px; }
-		}
-		&__item:nth-child(4) {
-			top: 15%;
-			right: -75px;
-			width: percentage(635 / 1440);
-			max-width: 325px;
-			@include respond-to(sm) { top: 10%; }
-			@include respond-to(md) { right: 0; }
-		}
-	}
-
-	.ingredients {
-		background: #040203;
-		text-align: center;
-		padding: 50px 0 0;
-		@include respond-to(sm) { padding: 150px 0 0; }
-
-		h1 {
-			color: #fff; margin-bottom: 25px;
-			@include respond-to(sm) { margin-bottom: 50px; }
-		}
-
-		p {
-			max-width: 850px;
-			line-height: 1.75;
-			font-size: 18px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		&-container { padding: 0 2rem 0; }
-
-		&-hero {
-			background: #040203;
-
-			@include hero('../images/work/sizzling-platter/ingredients/bg-mobile.png');
-			padding: 25% 0 400px;
-			min-height: 450px;
-
-			@include respond-to(sm) {
-				@include hero('../images/work/sizzling-platter/ingredients/bg.png');
-				background-size: auto;
-				padding-top: 0px;
-				min-height: 750px;
-			}
-
-			// @include respond-to(md) {min-height: 750px;}
-			@include respond-to(lg) {min-height: 950px;}
-		}
-
-		&-gallery {
-			margin-top: 3px;
-
-			& > img {
-				// float: left;
-				max-width: (100% / 3);
-				height: auto;
-
-				&:last-child {
-					display: none;
-					// float: right;
-				}
-
-				@include respond-to(sm) {
-					max-width: 25%;
-
-					&:last-child {
-						display: inline-block;
-					}
-				}
-
-				@include respond-to(lg) {
-					min-width: 25%;
-				}
-			}
-
-			// &:after {
-			// 	clear: both;
-			// 	content: '';
-			// 	display: inline;
-			// } 
-		}
-
-	}
-
-	.design--dev {
-		text-align: center;
-		color: #6E6B6B;
-		padding: 50px 0;
-		overflow: hidden;
-
-		@include respond-to(sm) {
-			background-image: url('../images/work/sizzling-platter/design-dev/bg-left-tablet.png'),
-			url('../images/work/sizzling-platter/design-dev/bg-right-tablet.png');
-			background-repeat: no-repeat, no-repeat;
-			background-position: 0 50px, 100% 50px;
-			padding: 250px 0 50px;
-		}
-
-		@include respond-to(md) {
-			background-image: url('../images/work/sizzling-platter/design-dev/bg-left-desktop.png'),
-			url('../images/work/sizzling-platter/design-dev/bg-right-desktop.png');
-			background-repeat: no-repeat, no-repeat;
-			background-position: 0 25px, 100% 25px;
-			padding: 150px 0 50px;
-		}
-
-		@include respond-to(lg) {
-			background-image: url('../images/work/sizzling-platter/design-dev/design-dev-bg-left.png'),
-			url('../images/work/sizzling-platter/design-dev/design-dev-bg-right.png');
-			background-repeat: no-repeat, no-repeat;
-			background-position: 0 0, 100% 0;
-			padding: 215px 0 50px;
-		}
-
-		h1 { margin-bottom: 25px; }
-
-		p {
-			color: #646469;
-			padding-left: 2rem;
-			padding-right: 2rem;
-			line-height: 1.75;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 800px;
-			text-align: left;
-
-			@include respond-to(sm) { 
-				text-align: center;
-				margin-bottom: 80px;
-			}
-		}
-
-		.iphone {
-			position: relative;
-
-			@include respond-to(sm) { margin-bottom: 40px; }
-
-			&__item:nth-child(2),
-			&__item:nth-child(3) {
-				position: absolute;
-				top: 150px;
-			}
-
-			&__item:nth-child(2) {
-				left: calc(50% - 450px);
-			}
-		}
-
-		.ss { margin-top: 50px; margin-bottom: 50px; }
-
-		.squarespace {
-			position: relative;
-			&__item {
-				position: absolute;
-				left:50%;
-				top: 0;
-				transform: translate3d(-50%, 0, 0);
-			}
-		}
-
-
-		.laptop {
-			padding: 50px 2rem;
-			position: relative;
-			respond-to(sm) { padding: 100px 2rem 100px; }
-			respond-to(lg) { padding: 150px 2rem 150px; }
-		}
-
-	}
-
-	.squarespace--parallax {
-		$ssWidth: 1300;
-		$ssHeight: 960;
-		$ssRed: #C62A20;
-
-		width: rem-calc($ssWidth * .5);
-		height: rem-calc($ssHeight * .5);
-		// overflow: hidden;
-		position: absolute;
-		top: rem-calc( -450 );
-		left: 50%;
-		margin-left: auto;
-		margin-right: auto;
-		transform: translateX(-50%) translateY(250px);
-
-		@include respond-to(sm) {
-			width: rem-calc($ssWidth);
-			height: rem-calc($ssHeight);
-		}
-
-		&__item {
-			position: absolute;
-			min-width: 35px;
-			// display: block;
-
-			&--js0 {
-				left: percentage( 0 / $ssWidth);
-				top: percentage( 128 / $ssHeight);
-			}
-			&--close0-red {
-				left: percentage( 184 / $ssWidth);
-				top: percentage( 0 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--close1-red {
-				left: percentage( 935 / $ssWidth);
-				top: percentage( 331 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--react0 {
-				left: percentage( 1263 / $ssWidth);
-				top: percentage( 618 / $ssHeight);
-			}
-			&--paren0 {
-				left: percentage( 1235 / $ssWidth);
-				top: percentage( 218 / $ssHeight);
-			}
-			&--semi0-red {
-				left: percentage( 129 / $ssWidth);
-				top: percentage( 622 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--leftcurl-red {
-				left: percentage( 278/ $ssWidth);
-				top: percentage(481 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--head {
-				left: percentage( 406 / $ssWidth);
-				top: percentage( 212 / $ssHeight);
-			}
-			&--js1 {
-				left: percentage( 1239 / $ssWidth);
-				top: percentage( 845 / $ssHeight);
-			}
-			&--divclose-red {
-				left: percentage( 242 / $ssWidth);
-				top: percentage( 860 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--semi1-red {
-				left: percentage( 242 / $ssWidth);
-				top: percentage( 860 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--function {
-				left: percentage( 589 / $ssWidth);
-				top: percentage( 727 / $ssHeight);
-			}
-			&--semi2 {
-				left: percentage( 705 / $ssWidth);
-				top: percentage( 102 / $ssHeight);
-			}
-			&--div {
-				left: percentage( 967 / $ssWidth);
-				top: percentage( 167 / $ssHeight);
-			}
-			&--rightcurl-red {
-				left: percentage( 974 / $ssWidth);
-				top: percentage( 341 / $ssHeight);
-
-				svg path {
-					fill: $ssRed;
-				}
-			}
-			&--paren1 {
-				left: percentage( 40 / $ssWidth);
-				top: percentage( 441 / $ssHeight);
-			}
-			&--semi3 {
-				left: percentage( 705 / $ssWidth);
-				top: percentage( 102 / $ssHeight);
-			}
-			&--react1 {
-				left: percentage( 130 / $ssWidth);
-				top: percentage( 347 / $ssHeight);
-			}
-			&--js2 {
-				left: percentage( 898 / $ssWidth);
-				top: percentage( 634 / $ssHeight);
-			}
-		}
-	}
-
-	.see-more-container {
-		max-width: 100%;
-	}
-
-
-	p {
-		color: #fff;
-		line-height: 2.25;
-		margin-bottom: 2rem;
-	}
-
-	.button {
-		display: inline-block;
-		text-align: center;
-		background: transparent;
-		color: #B54A49;
-		border: 1px solid #B54A49;
-		border-radius: 25px;
-		padding: 5px 13px;
-		margin-right: 4px;
-		font-size: 12px;
-
-		@include respond-to(sm) { font-size: 16px; }
-
-		&:hover {
-			background-color: #B54A49;
-			color: #fff;
-		}
-
-		&:last-child {
-			margin-right: 0px;
-		}
-
-		&.button--red {
-			color: #fff;
-			background-color: #C62A20;
-			border-color: #C62A20;
-		}
-
-		&.button--lg {
-			font-size: 24px;
-			padding: 12px 36px;
-		}
-
-	}
+  background-color: $splat-primary;
+  font-family: $splat-font-family;
+  font-weight: $splat-lato-light;
+  
+  @import "./sections/hero";
+  @import "./sections/prep";
+  @import "./sections/patterns";
+  @import "./sections/ingredients";
+  @import "./sections/designDev";
+  @import "./sections/squarespace";
+
+  [class$=container] {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    @include respond-to(xs) {max-width: $splat-xs;}
+    @include respond-to(sm) {max-width: $splat-sm;}
+    @include respond-to(md) {max-width: $splat-md;}
+    @include respond-to(lg) {max-width: $splat-lg;}
+  }
+
+  h1 { 
+    font-size: 32px;
+    font-family: $splat-font-family;
+    font-weight: $splat-lato-light;
+    @include respond-to(sm) {font-size: 36px;}
+  }
+
+  p {
+    font-weight: $splat-lato-light;
+    font-family: $splat-font-family;
+    max-width: 800px;
+    color: #fff;
+    line-height: 2.25;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .button,
+  .tag {
+    display: inline-block;
+    text-align: center;
+    background: transparent;
+    color: #B54A49;
+    border: 1px solid #B54A49;
+    border-radius: 25px;
+    padding: 5px 13px;
+    margin-right: 4px;
+    font-size: 12px;
+    font-family: $splat-font-family;
+    font-weight: $splat-lato-light;
+
+    @include respond-to(sm) { font-size: 16px; }
+
+    &:hover {
+        background-color: #B54A49;
+        color: #fff;
+      }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &.button--red {
+      color: #fff;
+      background-color: #C62A20;
+      border-color: #C62A20;
+
+      &:hover {
+        background-color: darken(#B54A49, 5%);
+        color: #fff;
+      }
+    }
+
+    &.button--lg {
+      font-size: 24px;
+      padding: 12px 36px;
+    }
+
+  }
 
 }

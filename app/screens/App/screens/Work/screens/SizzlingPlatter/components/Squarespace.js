@@ -1,16 +1,112 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import helpers from "../../../../../../../shared/util/helpers";
-// get image/svg data for the background
 import { img, icons } from '../Data'
 
 class Squarespace extends Component {
   constructor(props) {
     super(props);
 
-    // this.onScroll = this.onScroll.bind(this);
-    // this.onResize = this.onResize.bind(this);
-    // this.update   = this.update.bind(this);
+    this.onScroll       = this.onScroll.bind(this);
+    this.updateElements = this.updateElements.bind(this);
+    this.position       = this.position.bind(this);
+    this.limit          = this.limit.bind(this);
+    this.isInViewport   = this.isInViewport.bind(this);
+    this.onResize       = this.onResize.bind(this);
+    this.setIconSize    = this.setIconSize.bind(this);
+  }
+  componentDidMount() {
+    this.ticking           = false;
+    this.element           = findDOMNode(this.refs.squarespace);
+    this.elementHeight     = this.element.clientHeight;
+    this.elementDimensions = 0;
+    this.icons      = document.querySelectorAll(".squarespace--parallax__container");
+    this.iconsArray = [...this.icons];
+
+    this.setIconSize();
+
+    window.addEventListener("scroll", this.onScroll, false);
+    window.addEventListener("resize", this.onResize, false);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll, false);
+    window.removeEventListener("resize", this.onResize, false);
+  }
+  onResize() {
+    this.elementDimensions = this.element.getBoundingClientRect();
+    this.elementHeight = this.element.clientHeight;
+    if(!this.ticking) {
+      window.requestAnimationFrame(this.updateElements);
+      this.ticking = true;
+    }
+  }
+  onScroll() {
+    this.elementDimensions = this.element.getBoundingClientRect();
+
+    if(!this.ticking) {
+      window.requestAnimationFrame(this.updateElements);
+      this.ticking = true;
+    }
+  }
+  updateElements() {
+    let { viewportHeight } = this.props,
+        iconsHeight        = this.elementHeight,
+        iconsTop           = this.elementDimensions.top,
+        iconsBottom        = this.elementDimensions.bottom,
+        context            = ( (iconsTop + 200) - viewportHeight) * -1,
+        relativeY          = context / (iconsHeight + viewportHeight),
+        fastest            = relativeY * 1,
+        middle             = relativeY * .8,
+        slowest            = relativeY * .65;
+
+    if (context >= 0 && iconsBottom >= 0) {
+      this.iconsArray[0].style.transform   = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[1].style.transform   = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[2].style.transform   = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[3].style.transform   = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[4].style.transform   = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[5].style.transform   = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[6].style.transform   = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[7].style.transform   = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[8].style.transform   = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[9].style.transform   = `translate3d( 0px, ${this.position(0, 150, fastest,   0)}px, 0)`;
+      this.iconsArray[10].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[11].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[12].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[13].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[14].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[15].style.transform  = `translate3d( 0px, ${this.position(0, 150, middle,   0)}px, 0)`;
+      this.iconsArray[16].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[17].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+      this.iconsArray[18].style.transform  = `translate3d( 0px, ${this.position(0, 150, slowest,   0)}px, 0)`;
+    }
+    this.ticking = false;
+  }
+  setIconSize() {
+    let icons = document.querySelectorAll(".squarespace--parallax svg"),
+        iconsContainer = document.querySelectorAll(".squarespace--parallax__container"),
+        iconsWrapper = document.querySelectorAll(".squarespace--parallax__item"),
+        iconsArray = [...icons],
+        iconsContainerArray = [...iconsContainer],
+        iconsWrapperArray = [...iconsWrapper],
+        i, w, h;
+    for (i = 0; i < iconsArray.length; i++) {
+      w = iconsArray[i].viewBox.baseVal.width;
+      h = iconsArray[i].viewBox.baseVal.height;
+      iconsContainer[i].style.width = ((w / 1300) * 100) + "%";
+      iconsContainer[i].style.height = ((h / 960) * 100) + "%";
+      iconsWrapperArray[i].style.paddingBottom = (h / w) * 100 + "%";
+    }
+  }
+  position(base, range, relativeY, offset) {
+    return base + this.limit(0, 1, relativeY - offset) * range;
+  }
+  limit(min, max, value) {
+    return Math.max(min, Math.min(max, value));
+  }
+  isInViewport(elem) {
+    let distance = elem.getBoundingClientRect(), { viewportHeight } = this.props;
+    return (distance.bottom > 0 && distance.top < viewportHeight);
   }
   render() {
     let { squarespace } = img;
@@ -20,18 +116,13 @@ class Squarespace extends Component {
         <div className="design--dev__item squarespace">
           <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
           <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
-          {/*
-          <img className="squarespace__item" src={squarespace.redClose} />
-          <img className="squarespace__item" src={squarespace.greyClose} />
-          <img className="squarespace__item" src={squarespace.greyFar} />
-          */}
           <div className="squarespace--parallax">
             {icons.map((icon) => {
               return (
-                <div key={icon.name} className={`squarespace--parallax__item squarespace--parallax__item--${icon.name}`}>
+                <div key={icon.name} className={`squarespace--parallax__container squarespace--parallax__container--${icon.name}`}>
                   <div
                     ref={icon.name}
-                    className=""
+                    className="squarespace--parallax__item"
                     dangerouslySetInnerHTML={{ __html: icon.svg }}
                   />
                 </div>
@@ -52,62 +143,6 @@ class Squarespace extends Component {
       </div>
     )
   }
-  /*
-  componentDidMount() {
-    this.ticking = false;
-    this.element = findDOMNode(this.refs.designDev);
-    this.height = this.element.clientHeight;
-    this.dimensions = {};
-    this.designDevNodes = document.querySelectorAll(".squarespace__item"); // html collection
-    this.designDevArray = [...this.designDevNodes]; // assures we are working with an array
-
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
-  }
-  onScroll() {
-    this.dimensions = this.element.getBoundingClientRect(); // getting the tbrl values. 
-    // when top is 0, element is at top of viewport
-    if (!this.ticking) {
-      window.requestAnimFrame(this.update); // helper to throttle and ensure 60fps
-      this.ticking = true;
-    }
-  }
-  onResize() {
-    this.dimensions      = this.element.getBoundingClientRect();
-    this.height          = this.element.clientHeight;
-    if (!this.ticking) {
-      window.requestAnimFrame(this.update);
-      this.ticking = true;
-    }
-  }
-  update() {
-    // the magic method
-    let { viewportHeight, windowWidth } = this.props,
-        { transformThreeD, position } = helpers,
-        designDevTop    = this.dimensions.top,
-        designDevBottom = this.dimensions.bottom,
-        designDevHeight = this.height,
-        context    = (designDevTop - viewportHeight) * -1, // handling for when top scrolls up from the bottom (at hits bottom of screen)
-        relativeY  = (context / (designDevHeight * 2)), // accounts for the element scrolling above top fold 
-        values     = []; // [[y],[x]]
-
-    (windowWidth <= 768) ? values = [ [0], [-50, -75] ] : values = [ [-100], [-50, -125] ];
-
-    (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
-
-    if (context >= 0 && designDevBottom >= 0) {
-      // transformThreeD(element, x, xUnit, y, yUnit, z, zUnit)
-      transformThreeD(this.designDevArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
-      transformThreeD(this.designDevArray[1], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0) * -0.5, "px", 0, "px"); // * -1 makes the y positioning inverse
-      transformThreeD(this.designDevArray[2], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
-    }
-    this.ticking = false;
-  }
-  */
 }
 
 export default Squarespace;

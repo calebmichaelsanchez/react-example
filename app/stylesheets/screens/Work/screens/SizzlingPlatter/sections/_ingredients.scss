@@ -1,0 +1,58 @@
+.ingredients {
+  background: #040203;
+  text-align: center;
+  padding: 50px 0 0;
+  @include respond-to(sm) { padding: 150px 0 0; }
+
+  h1 {
+    color: #fff; 
+    margin-bottom: 25px;
+    @include respond-to(sm) { margin-bottom: 50px; }
+  }
+
+  p {
+    line-height: 1.75;
+    font-size: 18px;
+  }
+
+  &-container { padding: 0 2rem 0; }
+
+  &-hero {
+    background: #040203;
+
+    @include hero('../images/work/sizzling-platter/ingredients/bg-mobile.png');
+    padding: 25% 0 400px;
+    min-height: 450px;
+
+    @include respond-to(sm) {
+      @include hero('../images/work/sizzling-platter/ingredients/bg.png');
+      background-size: auto;
+      padding-top: 0px;
+      min-height: 750px;
+    }
+
+    @include respond-to(lg) {min-height: 950px;}
+  }
+
+  &-gallery {
+    margin-top: 3px;
+
+    & > img {
+      width: (100% / 3);
+      height: auto;
+
+      &:last-child { display: none; }
+      // &:nth-child(3) { margin-right: 0px; }
+
+      @include respond-to(sm) {
+        width: 25%;
+
+        &:last-child { display: inline-block; }
+        // &:nth-child(3) { margin-right: (2% / 3); }
+      }
+      @include respond-to(lg) { min-width: 24%; max-height: inherit; }
+
+    }
+  }
+
+}

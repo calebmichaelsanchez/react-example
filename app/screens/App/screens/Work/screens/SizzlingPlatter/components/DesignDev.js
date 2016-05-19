@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PhoneSlider from '../../../shared/PhoneSlider';
 import Squarespace from './Squarespace';
-import { backgroundImagesArray, screenImagesArray, phoneImg } from '../Data'
 
 class DesignDev extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class DesignDev extends Component {
         </div>
 
         <div className="design--dev__item iphone">
-          <PhoneSlider backgroundImages={backgroundImagesArray} screenImages={screenImagesArray} phone={phoneImg} />
+          <PhoneSlider backgroundImages={designDev.backgroundImagesArray} screenImages={designDev.screenImagesArray} phone={designDev.phoneImg} />
         </div>
 
         <Squarespace {...this.props} />

@@ -1,0 +1,30 @@
+.prep {
+  background-color: $splat-primary;
+  @include hero('../images/work/sizzling-platter/prep/Shrooms-mobile.png');
+  background-position: 50% 100%;
+  background-size: 100% auto;
+  padding: 50px 0 255px;
+  @include respond-to(sm) { padding: 150px 0 285px; background-position: 50% 130%; }
+  @include respond-to(md) { background-position: 50% 100%; }
+  @include respond-to(lg) { @include hero('../images/work/sizzling-platter/prep/Shrooms.png'); }
+  
+  h1 {
+    color: #6E6B6B;
+    margin-bottom: 25px;
+    @include respond-to(sm) { letter-spacing: 3.54px; }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.35;
+    color: #343030;
+    text-align: left;
+    @include respond-to(sm) { font-size: 18px; text-align: center; }
+  }
+
+  &-container {
+    width: 90%;
+    text-align: center;
+    @include respond-to(sm) { text-align: center; }
+  }
+}
