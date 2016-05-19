@@ -9,7 +9,6 @@ import Patterns from "./components/Patterns";
 import Ingredients from "./components/Ingredients";
 import Gallery from "./components/Gallery";
 import DesignDev from "./components/DesignDev";
-import Squarespace from "./components/Squarespace";
 import SeeMore from "../../shared/SeeMore";
 
 class Splat extends Component {
@@ -79,8 +78,6 @@ class Splat extends Component {
           <Gallery gallery={img.ingredients} {...this.props} />
 
           <DesignDev designDev={img.designDev} {...this.props} />
-
-          <Squarespace squarespace={img.designDev} {...this.props} />
 
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },

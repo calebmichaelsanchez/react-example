@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import helpers from "../../../../../../../shared/util/helpers";
 // get image/svg data for the background
-// import Img from '../Data'
+import { img, icons } from '../Data'
 
 class Squarespace extends Component {
   constructor(props) {
@@ -13,16 +13,31 @@ class Squarespace extends Component {
     // this.update   = this.update.bind(this);
   }
   render() {
-    let { squarespace } = this.props;
+    let { squarespace } = img;
     return (
-      <div className="design--dev" ref="squarespace">
+      <div className="" ref="squarespace">
         <img className="ss" src={squarespace.logo} />
         <div className="design--dev__item squarespace">
           <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
           <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
-            <img className="squarespace__item" src={squarespace.redClose} />
-            <img className="squarespace__item" src={squarespace.greyClose} />
-            <img className="squarespace__item" src={squarespace.greyFar} />
+          {/*
+          <img className="squarespace__item" src={squarespace.redClose} />
+          <img className="squarespace__item" src={squarespace.greyClose} />
+          <img className="squarespace__item" src={squarespace.greyFar} />
+          */}
+          <div className="squarespace--parallax">
+            {icons.map((icon) => {
+              return (
+                <div key={icon.name} className={`squarespace--parallax__item squarespace--parallax__item--${icon.name}`}>
+                  <div
+                    ref={icon.name}
+                    className=""
+                    dangerouslySetInnerHTML={{ __html: icon.svg }}
+                  />
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         <div className="design--dev__item laptop">

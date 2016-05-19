@@ -313,6 +313,138 @@ $splat-lg: 1440px;
 
 	}
 
+	.squarespace--parallax {
+		$ssWidth: 1300;
+		$ssHeight: 960;
+		$ssRed: #C62A20;
+
+		width: rem-calc($ssWidth * .5);
+		height: rem-calc($ssHeight * .5);
+		// overflow: hidden;
+		position: absolute;
+		top: rem-calc( -450 );
+		left: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		transform: translateX(-50%) translateY(250px);
+
+		@include respond-to(sm) {
+			width: rem-calc($ssWidth);
+			height: rem-calc($ssHeight);
+		}
+
+		&__item {
+			position: absolute;
+			min-width: 35px;
+			// display: block;
+
+			&--js0 {
+				left: percentage( 0 / $ssWidth);
+				top: percentage( 128 / $ssHeight);
+			}
+			&--close0-red {
+				left: percentage( 184 / $ssWidth);
+				top: percentage( 0 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--close1-red {
+				left: percentage( 935 / $ssWidth);
+				top: percentage( 331 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--react0 {
+				left: percentage( 1263 / $ssWidth);
+				top: percentage( 618 / $ssHeight);
+			}
+			&--paren0 {
+				left: percentage( 1235 / $ssWidth);
+				top: percentage( 218 / $ssHeight);
+			}
+			&--semi0-red {
+				left: percentage( 129 / $ssWidth);
+				top: percentage( 622 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--leftcurl-red {
+				left: percentage( 278/ $ssWidth);
+				top: percentage(481 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--head {
+				left: percentage( 406 / $ssWidth);
+				top: percentage( 212 / $ssHeight);
+			}
+			&--js1 {
+				left: percentage( 1239 / $ssWidth);
+				top: percentage( 845 / $ssHeight);
+			}
+			&--divclose-red {
+				left: percentage( 242 / $ssWidth);
+				top: percentage( 860 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--semi1-red {
+				left: percentage( 242 / $ssWidth);
+				top: percentage( 860 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--function {
+				left: percentage( 589 / $ssWidth);
+				top: percentage( 727 / $ssHeight);
+			}
+			&--semi2 {
+				left: percentage( 705 / $ssWidth);
+				top: percentage( 102 / $ssHeight);
+			}
+			&--div {
+				left: percentage( 967 / $ssWidth);
+				top: percentage( 167 / $ssHeight);
+			}
+			&--rightcurl-red {
+				left: percentage( 974 / $ssWidth);
+				top: percentage( 341 / $ssHeight);
+
+				svg path {
+					fill: $ssRed;
+				}
+			}
+			&--paren1 {
+				left: percentage( 40 / $ssWidth);
+				top: percentage( 441 / $ssHeight);
+			}
+			&--semi3 {
+				left: percentage( 705 / $ssWidth);
+				top: percentage( 102 / $ssHeight);
+			}
+			&--react1 {
+				left: percentage( 130 / $ssWidth);
+				top: percentage( 347 / $ssHeight);
+			}
+			&--js2 {
+				left: percentage( 898 / $ssWidth);
+				top: percentage( 634 / $ssHeight);
+			}
+		}
+	}
+
 	.see-more-container {
 		max-width: 100%;
 	}
