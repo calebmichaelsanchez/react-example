@@ -1,10 +1,29 @@
 .hero--splat {
-  @include hero('../images/work/sizzling-platter/hero/hero-bg-mobile.png');
+  position: relative;
   background-color: #0A0808;
   padding-top: 120px;
+  &-background {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: .84;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1000ms ease;
+    //@include hero('../images/work/sizzling-platter/hero/hero.jpg');
+  }
+  &-loaded {
+    .hero--splat-background { opacity: 1; }
+  }
 
   @include respond-to(sm) {
-    @include hero('../images/work/sizzling-platter/hero/hero-bg.png');
     height: 615px;
     overflow: hidden;
   }
@@ -12,28 +31,39 @@
   @include respond-to(md) { height: 720px; }
 
   &-container__item {
+    position: relative;
     width: percentage(334 / 375);
     margin: 0 auto;
     display: block;
-    z-index: 2;
-
-    &:nth-child(2) { left: 35%; display: none; z-index: 1; }
-    &:nth-child(3) { left: 65%; display: none; z-index: 1; }
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1000ms ease;
+    &:nth-child(1) { transition-delay: 600ms; }
+    &:nth-child(2) { left: 35%; display: none; z-index: 2;}
+    &:nth-child(3) { left: 65%; display: none; z-index: 2;}
 
     @include respond-to(sm) {
-      width: 635px;
-      max-width: 750px;
+      width: 100%;
+      max-width: rem-calc(750);
       position: absolute;
       left: 50%;
       bottom: -350px;
       transform: translate3d(-50%, 0, 0);
+      &:nth-child(1) { transition-delay: 1800ms; }
+      &:nth-child(2) { transition-delay: 600ms;  }
+      &:nth-child(3) { transition-delay: 1200ms; }
 
       &:nth-child(2), &:nth-child(3) { display: block; bottom: 0; }
     }
 
     @include respond-to(md) {
-      width: 750px;
-      bottom: -465px;
+      max-width: rem-calc(750);
+      bottom: rem-calc(-465);
+    }
+  }
+  &.hero--splat-loaded.hero--splat-active {
+    .hero--splat-container__item {
+      opacity: 1;
     }
   }
 }

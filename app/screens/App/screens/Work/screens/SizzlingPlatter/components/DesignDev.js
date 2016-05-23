@@ -10,17 +10,14 @@ class DesignDev extends Component {
     let { designDev } = this.props;
     return (
       <div className="design--dev" ref="designDev">
-        <div className="design--dev__item copy-01">
-          <h1>MADE TO ORDER</h1>
+        <div className="design--dev__item">
+          <h1>Made To Order</h1>
           <p>It was important to make this revamped site inviting for both investors and potential employees. SPLAT is poud of the cultural diversity within their family. To celebrate this, we wanted to make the site inviting for all audiences. Throughout the site we showcase Sizzling Platter’s investment in their ever expanding SPLAT family, diversity, and strong company values.</p>
         </div>
-
         <div className="design--dev__item iphone">
           <PhoneSlider backgroundImages={designDev.backgroundImagesArray} screenImages={designDev.screenImagesArray} phone={designDev.phoneImg} />
         </div>
-
-        <Squarespace {...this.props} />
-        
+        <Squarespace viewportHeight={this.props.viewportHeight} />
       </div>
     )
   }

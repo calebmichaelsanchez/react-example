@@ -11,10 +11,10 @@ class Patterns extends Component {
     this.update   = this.update.bind(this);
   }
   componentDidMount() {
-    this.ticking = false;
-    this.element = findDOMNode(this.refs.patterns);
-    this.height = this.element.clientHeight;
-    this.dimensions = {};
+    this.ticking       = false;
+    this.element       = findDOMNode(this.refs.patterns);
+    this.height        = this.element.clientHeight;
+    this.dimensions    = {};
     this.patternsNodes = document.querySelectorAll(".patterns__item");
     this.patternsArray = [...this.patternsNodes];
 
@@ -33,8 +33,8 @@ class Patterns extends Component {
     }
   }
   onResize() {
-    this.dimensions      = this.element.getBoundingClientRect();
-    this.height          = this.element.clientHeight;
+    this.dimensions = this.element.getBoundingClientRect();
+    this.height     = this.element.clientHeight;
     if (!this.ticking) {
       window.requestAnimFrame(this.update);
       this.ticking = true;
@@ -42,21 +42,21 @@ class Patterns extends Component {
   }
   update() {
     let { viewportHeight, windowWidth } = this.props,
-      { transformThreeD, position } = helpers,
-      patternsTop    = this.dimensions.top,
-      patternsBottom = this.dimensions.bottom,
-      patternsHeight = this.height,
-      context    = (patternsTop - viewportHeight) * -1,
-      relativeY  = (context / (patternsHeight * 2)),
-      values     = [];
+        { transformThreeD, position } = helpers,
+        patternsTop    = this.dimensions.top,
+        patternsBottom = this.dimensions.bottom,
+        patternsHeight = this.height,
+        context        = (patternsTop - viewportHeight) * -1,
+        relativeY      = (context / (patternsHeight * 2)),
+        values         = [];
 
-    (windowWidth <= 768) ? values = [ [100], [0, -100] ] : values = [ [100], [0, -75] ];
+    (windowWidth <= 768) ? values = [50, 100, 75] : values = [100, 200, 150];
     (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
 
     if (context >= 0 && patternsBottom >= 0) {
-      transformThreeD(this.patternsArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
-      transformThreeD(this.patternsArray[1], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
-      transformThreeD(this.patternsArray[2], values[1][0], "%", position(values[0][0], values[1][1], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[0], 0, "%", position(0, values[0], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[1], 0, "%", position(0, values[1], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[2], 0, "%", position(0, values[2], relativeY,  0), "px", 0, "px");
     }
     this.ticking = false;
   }
@@ -65,12 +65,28 @@ class Patterns extends Component {
     return (
       <div className="patterns" ref="patterns">
         <div className="patterns-container">
-          <h1>COLORS</h1>
-          <img className="patterns-container__item" src={patterns.swatches} />
-          <h1>LATO LIGHT</h1>
-          <p>A B C D E F G H I J K L M N O <br/>
-          P Q R S T U V W X Y Z <br/>
-          0 1 2 3 4 5 6 7 8 9</p>
+          <div className="patterns-container__item">
+            <h1>Colors</h1>
+            <div className="patterns-colors">
+              <div className="patterns-colors__item patterns-colors__item--red-light"    />
+              <div className="patterns-colors__item patterns-colors__item--red-medium"   />
+              <div className="patterns-colors__item patterns-colors__item--red-dark"     />
+              <div className="patterns-colors__item patterns-colors__item--white-light"  />
+              <div className="patterns-colors__item patterns-colors__item--white-medium" />
+              <div className="patterns-colors__item patterns-colors__item--white-dark"   />
+              <div className="patterns-colors__item patterns-colors__item--gray-light"   />
+              <div className="patterns-colors__item patterns-colors__item--gray-medium"  />
+              <div className="patterns-colors__item patterns-colors__item--gray-dark"    />
+              <div className="patterns-colors__item patterns-colors__item--black-light"  />
+              <div className="patterns-colors__item patterns-colors__item--black-medium" />
+              <div className="patterns-colors__item patterns-colors__item--black-dark"   />
+            </div>
+          </div>
+          <div className="patterns-container__item">
+            <h1>Lato Light</h1>
+            <div className="patterns-type">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+            <br/>0 1 2 3 4 5 6 7 8 9</div>
+          </div>
         </div>
         <img className="patterns__item" src={patterns.peppers} />
         <img className="patterns__item" src={patterns.pepperonis} />

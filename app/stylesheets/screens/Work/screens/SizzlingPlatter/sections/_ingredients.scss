@@ -1,56 +1,46 @@
 .ingredients {
   background: #040203;
   text-align: center;
-  padding: 50px 0 0;
-  @include respond-to(sm) { padding: 150px 0 0; }
+  padding-top: rem-calc(50);
+  @include respond-to(sm) { padding-top: rem-calc(150); }
 
-  h1 {
-    color: #fff; 
-    margin-bottom: 25px;
-    @include respond-to(sm) { margin-bottom: 50px; }
-  }
+  h1, p { color: #fff; }
 
-  p {
-    line-height: 1.75;
-    font-size: 18px;
-  }
-
-  &-container { padding: 0 2rem 0; }
 
   &-hero {
     background: #040203;
 
     @include hero('../images/work/sizzling-platter/ingredients/bg-mobile.png');
-    padding: 25% 0 400px;
-    min-height: 450px;
+    padding: 25% 0 rem-calc(400);
+    min-height: rem-calc(450);
 
     @include respond-to(sm) {
       @include hero('../images/work/sizzling-platter/ingredients/bg.png');
       background-size: auto;
       padding-top: 0px;
-      min-height: 750px;
+      min-height: rem-calc(750);
     }
 
-    @include respond-to(lg) {min-height: 950px;}
+    @include respond-to(lg) { min-height: rem-calc(950); }
   }
 
   &-gallery {
-    margin-top: 3px;
+    margin-top: rem-calc(3);
 
     & > img {
-      width: (100% / 3);
-      height: auto;
-
+      width: 33%;
+      margin-right: .5%;
+      &:nth-of-type(3) { margin-right: 0; }
       &:last-child { display: none; }
-      // &:nth-child(3) { margin-right: 0px; }
 
       @include respond-to(sm) {
-        width: 25%;
+        width: 24.75%;
+        margin-right: .3333%;
+        &:nth-of-type(3) { margin-right: .3333%; }
 
-        &:last-child { display: inline-block; }
-        // &:nth-child(3) { margin-right: (2% / 3); }
+        &:last-child { display: inline-block; margin-right: 0;}
       }
-      @include respond-to(lg) { min-width: 24%; max-height: inherit; }
+      //@include respond-to(lg) { min-width: 24%; max-height: inherit; }
 
     }
   }

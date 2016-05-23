@@ -16,7 +16,7 @@ $splat-lato-light: 300;
   background-color: $splat-primary;
   font-family: $splat-font-family;
   font-weight: $splat-lato-light;
-  
+
   @import "./sections/hero";
   @import "./sections/prep";
   @import "./sections/patterns";
@@ -30,70 +30,44 @@ $splat-lato-light: 300;
     margin: 0 auto;
     height: 100%;
     @include respond-to(xs) {max-width: $splat-xs;}
-    @include respond-to(sm) {max-width: $splat-sm;}
+    @include respond-to(sm) {max-width: $splat-sm; padding-left: 0; padding-right: 0;}
     @include respond-to(md) {max-width: $splat-md;}
     @include respond-to(lg) {max-width: $splat-lg;}
   }
 
-  h1 { 
-    font-size: 32px;
+  h1 {
     font-family: $splat-font-family;
     font-weight: $splat-lato-light;
-    @include respond-to(sm) {font-size: 36px;}
+    text-transform: uppercase;
+    margin-bottom: rem-calc(30);
+    //@include respond-to(sm) { margin-bottom: rem-calc(50); }
   }
 
   p {
     font-weight: $splat-lato-light;
     font-family: $splat-font-family;
-    max-width: 800px;
-    color: #fff;
-    line-height: 2.25;
+    max-width: rem-calc(650);
+    color: #343030;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2rem;
+    margin-bottom: rem-calc(25);
+    padding-left: rem-calc(16);
+    padding-right: rem-calc(16);
+    &:last-of-type { margin-bottom: 0; }
+    @include respond-to(sm) { padding-left: 0; padding-right: 0; }
   }
 
-  .button,
-  .tag {
+  .button {
     display: inline-block;
     text-align: center;
-    background: transparent;
     color: #B54A49;
-    border: 1px solid #B54A49;
-    border-radius: 25px;
-    padding: 5px 13px;
-    margin-right: 4px;
-    font-size: 12px;
-    font-family: $splat-font-family;
-    font-weight: $splat-lato-light;
-
-    @include respond-to(sm) { font-size: 16px; }
-
-    &:hover {
-        background-color: #B54A49;
-        color: #fff;
-      }
-
-    &:last-child {
-      margin-right: 0px;
-    }
-
-    &.button--red {
-      color: #fff;
-      background-color: #C62A20;
-      border-color: #C62A20;
-
-      &:hover {
-        background-color: darken(#B54A49, 5%);
-        color: #fff;
-      }
-    }
-
-    &.button--lg {
-      font-size: 24px;
-      padding: 12px 36px;
-    }
-
+    border-radius: rem-calc(25);
+    color: #fff;
+    background-color: #C62A20;
+    border-color: #C62A20;
+    font-size: 24px;
+    padding: 12px 36px;
+    transition: 400ms ease;
+    margin-top: rem-calc(40);
   }
-
 }

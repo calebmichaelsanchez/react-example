@@ -1,7 +1,7 @@
 .design--dev {
   text-align: center;
   color: #6E6B6B;
-  padding: 50px 0;
+  padding: rem-calc(50) 0;
   overflow: hidden;
 
   @include respond-to(sm) {
@@ -9,7 +9,7 @@
     url('../images/work/sizzling-platter/design-dev/bg-right-tablet.png');
     background-repeat: no-repeat, no-repeat;
     background-position: 0 50px, 100% 50px;
-    padding: 250px 0 50px;
+    padding-top: rem-calc(250);
   }
 
   @include respond-to(md) {
@@ -17,7 +17,9 @@
     url('../images/work/sizzling-platter/design-dev/bg-right-desktop.png');
     background-repeat: no-repeat, no-repeat;
     background-position: 0 25px, 100% 25px;
-    padding: 150px 0 50px;
+    padding-top: rem-calc(150);
+    padding-bottom: rem-calc(120);
+
   }
 
   @include respond-to(lg) {
@@ -25,21 +27,6 @@
     url('../images/work/sizzling-platter/design-dev/design-dev-bg-right.png');
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 0;
-    padding: 215px 0 50px;
-  }
-
-  h1 { margin-bottom: 25px; }
-
-  p {
-    color: #646469;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    line-height: 1.75;
-    text-align: left;
-
-    @include respond-to(sm) { 
-      text-align: center;
-      margin-bottom: 80px;
-    }
+    padding-top: rem-calc(215);
   }
 }

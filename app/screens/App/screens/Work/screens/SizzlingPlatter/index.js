@@ -26,26 +26,18 @@ class Splat extends Component {
     return (
       <DocumentTitle title="Sizzling Platter | Underbelly Creative">
         <div className="case-study sizzling-platter">
-
-          <Hero hero={img.hero} {...this.props} />
-          
-          <Prep {...this.props} />
-          
-          <Patterns patterns={img.patterns} {...this.props} />
-
-          <Ingredients ingredients={img.ingredients} {...this.props} />
-
-          <Gallery gallery={img.ingredients} {...this.props} />
-
-          <DesignDev designDev={img.designDev} {...this.props} />
-
+          <Hero hero={img.hero} />
+          <Prep />
+          <Patterns patterns={img.patterns} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
+          <Ingredients ingredients={img.ingredients} />
+          <Gallery gallery={img.ingredients} />
+          <DesignDev designDev={img.designDev} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth}/>
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },
             { url: "just-family", title: "Just Family", img: img.seeMore.two },
             { url: "nsac", title: "North Seathlle Alliance Church", img: img.seeMore.three },
             { url: "rent-tree", title: "RentTree", img: img.seeMore.four }
-          ]} {...this.props} />
-
+          ]} />
         </div>
       </DocumentTitle>
     );
