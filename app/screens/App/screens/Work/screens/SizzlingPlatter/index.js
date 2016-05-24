@@ -27,10 +27,10 @@ class Splat extends Component {
       <DocumentTitle title="Sizzling Platter | Underbelly Creative">
         <div className="case-study sizzling-platter">
           <Hero hero={img.hero} />
-          <Prep />
+          <Prep viewportHeight={this.props.viewportHeight} />
           <Patterns patterns={img.patterns} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
-          <Ingredients ingredients={img.ingredients} />
-          <Gallery gallery={img.ingredients} />
+          <Ingredients ingredients={img.ingredients} viewportHeight={this.props.viewportHeight} />
+          <Gallery gallery={img.ingredients} viewportHeight={this.props.viewportHeight} />
           <DesignDev designDev={img.designDev} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth}/>
           <SeeMore items={[
             { url: "hive", title: "Hive", img: img.seeMore.one },

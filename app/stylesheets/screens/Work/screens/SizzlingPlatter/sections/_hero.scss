@@ -1,7 +1,11 @@
 .hero--splat {
   position: relative;
   background-color: #0A0808;
-  padding-top: 120px;
+  height: rem-calc(550);
+  overflow: hidden;
+  @include respond-to(sm) { height: rem-calc(615); }
+  @include respond-to(md) { height: rem-calc(720); }
+  @include respond-to(lg) { height: 90vh; }
   &-background {
     content: '';
     display: block;
@@ -17,53 +21,75 @@
     background-size: cover;
     opacity: 0;
     transition: opacity 1000ms ease;
-    //@include hero('../images/work/sizzling-platter/hero/hero.jpg');
   }
   &-loaded {
     .hero--splat-background { opacity: 1; }
   }
-
-  @include respond-to(sm) {
-    height: 615px;
-    overflow: hidden;
+  &-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    max-width: 100% !important;
   }
-
-  @include respond-to(md) { height: 720px; }
-
   &-container__item {
-    position: relative;
-    width: percentage(334 / 375);
-    margin: 0 auto;
-    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: rem-calc(334);
+    display: inline-block;
     z-index: 3;
-    opacity: 0;
-    transition: opacity 1000ms ease;
-    &:nth-child(1) { transition-delay: 600ms; }
-    &:nth-child(2) { left: 35%; display: none; z-index: 2;}
-    &:nth-child(3) { left: 65%; display: none; z-index: 2;}
-
+    padding-left: rem-calc(16);
+    padding-right: rem-calc(16);
     @include respond-to(sm) {
       width: 100%;
-      max-width: rem-calc(750);
-      position: absolute;
-      left: 50%;
-      bottom: -350px;
-      transform: translate3d(-50%, 0, 0);
-      &:nth-child(1) { transition-delay: 1800ms; }
-      &:nth-child(2) { transition-delay: 600ms;  }
-      &:nth-child(3) { transition-delay: 1200ms; }
-
-      &:nth-child(2), &:nth-child(3) { display: block; bottom: 0; }
+      max-width: rem-calc(635);
+      bottom: rem-calc(-350);
+      padding-left: 0;
+      padding-right: 0;
     }
-
     @include respond-to(md) {
       max-width: rem-calc(750);
       bottom: rem-calc(-465);
     }
-  }
-  &.hero--splat-loaded.hero--splat-active {
-    .hero--splat-container__item {
-      opacity: 1;
+    &:nth-child(1) {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include respond-to(sm) { top: percentage(158 / 615); bottom: initial; }
+      @include respond-to(md) { top: percentage(186 / 720); }
+      img { transition-delay: 1200ms; }
     }
+    &:nth-child(2) {
+      right: percentage(725 / 1440);
+      img { transition-delay: 400ms; }
+    }
+    &:nth-child(3) {
+      left: percentage(725/ 1440);
+      img { transition-delay: 800ms; }
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none;
+      z-index: 2;
+      max-width: rem-calc(470);
+      top: percentage(350 / 720);
+      bottom: 0;
+      @include respond-to(sm) {
+        display: inline-block;
+      }
+      @include respond-to(md) {
+        max-width: rem-calc(560);
+      }
+    }
+    img {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 400ms ease, transform 400ms ease;
+    }
+  }
+  &.hero--splat-loaded.hero--splat-active img {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

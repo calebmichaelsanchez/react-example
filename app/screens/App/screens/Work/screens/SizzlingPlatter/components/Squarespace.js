@@ -8,7 +8,7 @@ class Squarespace extends Component {
     super(props);
 
     this.onScroll       = this.onScroll.bind(this);
-    this.updateElements = this.updateElements.bind(this);
+    this.update         = this.update.bind(this);
     this.onResize       = this.onResize.bind(this);
     this.setIconSize    = this.setIconSize.bind(this);
   }
@@ -17,8 +17,11 @@ class Squarespace extends Component {
     this.element           = findDOMNode(this.refs.squarespace);
     this.elementHeight     = this.element.clientHeight;
     this.elementDimensions = {};
-    this.icons             = document.querySelectorAll(".squarespace--parallax__container");
+    this.icons             = document.querySelectorAll(".squarespace__parallax__container");
     this.iconsArray        = [...this.icons];
+
+    this.context1 = findDOMNode(this.refs.context1);
+    this.context2 = findDOMNode(this.refs.context2);
 
     this.setIconSize();
 
@@ -31,20 +34,31 @@ class Squarespace extends Component {
   }
   onResize() {
     this.elementDimensions = this.element.getBoundingClientRect();
+    this.context1Dimensions = this.context1.getBoundingClientRect();
+    this.context2Dimensions = this.context2.getBoundingClientRect();
     this.elementHeight     = this.element.clientHeight;
     if(!this.ticking) {
-      window.requestAnimationFrame(this.updateElements);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onScroll() {
     this.elementDimensions = this.element.getBoundingClientRect();
+    this.context1Dimensions = this.context1.getBoundingClientRect();
+    this.context2Dimensions = this.context2.getBoundingClientRect();
     if(!this.ticking) {
-      window.requestAnimationFrame(this.updateElements);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
-  updateElements() {
+  setActiveClass(context, element, viewportHeight) {
+    if (context >= viewportHeight * .1) {
+      element.classList.add("fadeInUp--active");
+    } else {
+      element.classList.remove("fadeInUp--active");
+    }
+  }
+  update() {
     let { viewportHeight } = this.props,
         { transformThreeD, position } = helpers,
         iconsHeight        = this.elementHeight,
@@ -77,12 +91,19 @@ class Squarespace extends Component {
       transformThreeD(this.iconsArray[17], 0, "px", position(0, 80,  slowest, 0), "px", 0, "px");
       transformThreeD(this.iconsArray[18], 0, "px", position(0, 80,  slowest, 0), "px", 0, "px");
     }
+
+    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1,
+        context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
+
+    this.setActiveClass(context1Top, this.context1, viewportHeight);
+    this.setActiveClass(context2Top, this.context2, viewportHeight);
+
     this.ticking = false;
   }
   setIconSize() {
-    let icons               = document.querySelectorAll(".squarespace--parallax svg"),
-        iconsContainer      = document.querySelectorAll(".squarespace--parallax__container"),
-        iconsWrapper        = document.querySelectorAll(".squarespace--parallax__item"),
+    let icons               = document.querySelectorAll(".squarespace__parallax svg"),
+        iconsContainer      = document.querySelectorAll(".squarespace__parallax__container"),
+        iconsWrapper        = document.querySelectorAll(".squarespace__parallax__item"),
         iconsArray          = [...icons],
         iconsContainerArray = [...iconsContainer],
         iconsWrapperArray   = [...iconsWrapper],
@@ -98,28 +119,30 @@ class Squarespace extends Component {
   render() {
     let { squarespace } = img;
     return (
-      <div className="" ref="squarespace">
-        <img className="ss" src={squarespace.logo} />
-        <div className="design--dev__item squarespace">
+      <div className="squarespace">
+        <div ref="context1" className="fadeInUp squarespace__item">
+          <img className="squarespace__item-img" src={squarespace.logo} />
           <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
           <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
-          <div className="squarespace--parallax">
-            {icons.map((icon) => (
-              <div key={icon.name} className={`squarespace--parallax__container squarespace--parallax__container--${icon.name}`}>
-                <div
-                  ref={icon.name}
-                  className="squarespace--parallax__item"
-                  dangerouslySetInnerHTML={{ __html: icon.svg }}
-                />
-              </div>
-            ))}
-          </div>
         </div>
-        <div className="design--dev__item laptop"><img src={squarespace.laptop} /></div>
-        <div className="design--dev__item copy-03">
+        <div ref="squarespace" className="squarespace__parallax">
+          {icons.map((icon) => (
+            <div key={icon.name} className={`squarespace__parallax__container squarespace__parallax__container--${icon.name}`}>
+              <div
+                ref={icon.name}
+                className="squarespace__parallax__item"
+                dangerouslySetInnerHTML={{ __html: icon.svg }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="squarespace__item squarespace__item-laptop">
+          <img src={squarespace.laptop} />
+        </div>
+        <div ref="context2" className="fadeInUp squarespace__item">
           <h1>SERVING THE PEOPLE</h1>
           <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
-          <a href="http://sizzlingplatter.com/" className="button button--red button--lg">See it live</a>
+          <a href="http://sizzlingplatter.com/" className="button">See it live</a>
         </div>
       </div>
     )

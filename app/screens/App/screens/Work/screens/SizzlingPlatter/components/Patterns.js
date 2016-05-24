@@ -17,6 +17,8 @@ class Patterns extends Component {
     this.dimensions    = {};
     this.patternsNodes = document.querySelectorAll(".patterns__item");
     this.patternsArray = [...this.patternsNodes];
+    this.context1 = findDOMNode(this.refs.context1);
+    this.context2 = findDOMNode(this.refs.context2);
 
     window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
@@ -27,6 +29,8 @@ class Patterns extends Component {
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.context1Dimensions = this.context1.getBoundingClientRect();
+    this.context2Dimensions = this.context2.getBoundingClientRect();
     if (!this.ticking) {
       window.requestAnimFrame(this.update);
       this.ticking = true;
@@ -34,11 +38,18 @@ class Patterns extends Component {
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.context1Dimensions = this.context1.getBoundingClientRect();
+    this.context2Dimensions = this.context2.getBoundingClientRect();
     this.height     = this.element.clientHeight;
     if (!this.ticking) {
       window.requestAnimFrame(this.update);
       this.ticking = true;
     }
+  }
+  setActiveClass(context, element, viewportHeight) {
+    (context >= viewportHeight * .1) ?
+      element.classList.add("fadeInUp--active") :
+      element.classList.remove("fadeInUp--active");
   }
   update() {
     let { viewportHeight, windowWidth } = this.props,
@@ -47,7 +58,7 @@ class Patterns extends Component {
         patternsBottom = this.dimensions.bottom,
         patternsHeight = this.height,
         context        = (patternsTop - viewportHeight) * -1,
-        relativeY      = (context / (patternsHeight * 2)),
+        relativeY      = (context / (viewportHeight * 2)),
         values         = [];
 
     (windowWidth <= 768) ? values = [50, 100, 75] : values = [100, 200, 150];
@@ -58,6 +69,13 @@ class Patterns extends Component {
       transformThreeD(this.patternsArray[1], 0, "%", position(0, values[1], relativeY,  0), "px", 0, "px");
       transformThreeD(this.patternsArray[2], 0, "%", position(0, values[2], relativeY,  0), "px", 0, "px");
     }
+
+    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1,
+        context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
+
+    this.setActiveClass(context1Top, this.context1, viewportHeight);
+    this.setActiveClass(context2Top, this.context2, viewportHeight);
+
     this.ticking = false;
   }
   render() {
@@ -65,7 +83,7 @@ class Patterns extends Component {
     return (
       <div className="patterns" ref="patterns">
         <div className="patterns-container">
-          <div className="patterns-container__item">
+          <div ref="context1" className="fadeInUp patterns-container__item">
             <h1>Colors</h1>
             <div className="patterns-colors">
               <div className="patterns-colors__item patterns-colors__item--red-light"    />
@@ -82,7 +100,7 @@ class Patterns extends Component {
               <div className="patterns-colors__item patterns-colors__item--black-dark"   />
             </div>
           </div>
-          <div className="patterns-container__item">
+          <div ref="context2" className="fadeInUp patterns-container__item">
             <h1>Lato Light</h1>
             <div className="patterns-type">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
             <br/>0 1 2 3 4 5 6 7 8 9</div>

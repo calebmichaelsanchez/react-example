@@ -3,46 +3,35 @@
   text-align: center;
   padding-top: rem-calc(50);
   @include respond-to(sm) { padding-top: rem-calc(150); }
-
   h1, p { color: #fff; }
-
-
   &-hero {
     background: #040203;
-
-    @include hero('../images/work/sizzling-platter/ingredients/bg-mobile.png');
+    @include hero('../images/work/sizzling-platter/ingredients/bg.jpg');
+    background-position: center 25%;
     padding: 25% 0 rem-calc(400);
     min-height: rem-calc(450);
-
     @include respond-to(sm) {
-      @include hero('../images/work/sizzling-platter/ingredients/bg.png');
-      background-size: auto;
-      padding-top: 0px;
+      padding-top: 0;
       min-height: rem-calc(750);
     }
-
     @include respond-to(lg) { min-height: rem-calc(950); }
   }
-
   &-gallery {
     margin-top: rem-calc(3);
-
     & > img {
       width: 33%;
+      padding-top: .1%;
       margin-right: .5%;
       &:nth-of-type(3) { margin-right: 0; }
       &:last-child { display: none; }
 
       @include respond-to(sm) {
         width: 24.75%;
+        padding-top: .15%;
         margin-right: .3333%;
         &:nth-of-type(3) { margin-right: .3333%; }
-
         &:last-child { display: inline-block; margin-right: 0;}
       }
-      //@include respond-to(lg) { min-width: 24%; max-height: inherit; }
-
     }
   }
-
 }

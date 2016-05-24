@@ -102,6 +102,7 @@
 				}
       }
       &--sm {
+        background-color: color(white);
         @include span(50% no-gutters);
         padding-bottom: 50%;
       }
@@ -176,3 +177,4 @@
 .projects__item-image--nsac             { background-image: url('../images/work/project-grid/alliance.jpg');         }
 .projects__item-image--bountiful-dental { background-image: url('../images/work/project-grid/bountiful-dental.jpg'); }
 .projects__item-image--hive             { background-image: url('../images/work/project-grid/hive.jpg');             }
+.projects__item-image--splat            { background-image: url('../images/work/project-grid/splat.jpg');            }

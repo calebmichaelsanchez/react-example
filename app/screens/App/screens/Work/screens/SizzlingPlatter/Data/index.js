@@ -20,12 +20,10 @@ let img = {
     sprinkles  : requireSplatFile("patterns/sprinkles.png")
   },
   ingredients: {
-    bg    : requireSplatFile("ingredients/bg.png"),
-    crsl  : requireSplatFile("ingredients/carousel.png"),
-    one   : requireSplatFile("ingredients/01_sm.png"),
-    two   : requireSplatFile("ingredients/02_sm.png"),
-    three : requireSplatFile("ingredients/03_sm.png"),
-    four  : requireSplatFile("ingredients/04_sm.png")
+    one   : requireSplatFile("ingredients/01.jpg"),
+    two   : requireSplatFile("ingredients/02.jpg"),
+    three : requireSplatFile("ingredients/03.jpg"),
+    four  : requireSplatFile("ingredients/04.jpg")
   },
   designDev : {
     bgLeft  : requireSplatFile("design-dev/design-dev-bg-left.png"),

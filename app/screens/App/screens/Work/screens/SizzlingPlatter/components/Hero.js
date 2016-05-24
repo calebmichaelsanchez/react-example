@@ -31,11 +31,11 @@ class Hero extends Component {
     let { hero } = this.props;
     return (
       <div className={`hero--splat ${loaded} ${active}`} ref="heroSplat">
-        <div className="hero--splat-background" style={style}/>
+        <div className="hero--splat-background" style={style} />
         <div className="hero--splat-container">
-          <img className="hero--splat-container__item" src={hero.one} />
-          <img className="hero--splat-container__item" src={hero.two} />
-          <img onLoad={this.onImgLoad} className="hero--splat-container__item" src={hero.three} />
+          <div className="hero--splat-container__item"><img src={hero.one} /></div>
+          <div className="hero--splat-container__item"><img src={hero.two} /></div>
+          <div className="hero--splat-container__item"><img onLoad={this.onImgLoad} src={hero.three} /></div>
         </div>
       </div>
     )
