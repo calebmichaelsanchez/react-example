@@ -3,7 +3,6 @@ import ReactDom, { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import DocumentTitle from 'react-document-title';
 import helpers from "../../../../../../shared/util/helpers";
-import WebFont from 'webfontloader';
 import Hero from "./components/Hero";
 import Prep from "./components/Prep";
 import Patterns from "./components/Patterns";
@@ -11,7 +10,8 @@ import Ingredients from "./components/Ingredients";
 import Gallery from "./components/Gallery";
 import DesignDev from "./components/DesignDev";
 import SeeMore from "../../shared/SeeMore";
-import { img } from "./Data"
+import { img } from "./Data";
+import WebFont from 'webfontloader';
 
 class Splat extends Component {
   constructor(props) {

@@ -26,7 +26,7 @@ class Projects extends Component {
 				</div>
 				<div className="projects__container projects__container--right">
 					<ProjectSm direction="left" name="just-family" title="JustFamily" theme="dark" />
-					<ProjectSm direction="right" name="splat" title="Sizzling Platter" theme="dark" />
+					<ProjectSm direction="right" name="sizzling-platter" title="Sizzling Platter" theme="dark" />
 				</div>
 				<div className="projects__container projects__container--full">
 					<a href="http://saltcitybuilds.com/" className="projects__item projects__item--scb projects__item--full">
