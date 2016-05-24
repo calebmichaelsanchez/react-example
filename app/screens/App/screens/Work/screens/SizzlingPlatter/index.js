@@ -11,7 +11,7 @@ import Gallery from "./components/Gallery";
 import DesignDev from "./components/DesignDev";
 import SeeMore from "../../shared/SeeMore";
 import { img } from "./Data";
-import WebFont from 'webfontloader';
+var WebFont = require('webfontloader')(window);
 
 class Splat extends Component {
   constructor(props) {
