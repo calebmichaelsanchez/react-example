@@ -10,15 +10,14 @@ import Ingredients from "./components/Ingredients";
 import Gallery from "./components/Gallery";
 import DesignDev from "./components/DesignDev";
 import SeeMore from "../../shared/SeeMore";
-import { img } from "./Data";
-var WebFont = require('webfontloader')(window);
+import { img } from "./Data"
 
 class Splat extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    WebFont.load({google:{families:['Lato:300,400']}})
+    WebFont.load({google:{families:['Lato:300,400']}});
     ga('send', 'pageview', '/making-it-awesome-with/sizzling-platter');
     this.props.setNavTheme(this.props.theme);
   }
