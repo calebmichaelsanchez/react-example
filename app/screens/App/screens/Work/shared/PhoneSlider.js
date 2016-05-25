@@ -27,15 +27,17 @@ class PhoneSlider extends Component {
         screenLength          = screenSlidesArray.length,
         screenTransform       = ((100 / screenLength) * this.state.slideIndex),
         i;
+
     for(i = 0; i < screenLength; i++) {
-      screenSlidesArray[i].style.width = ( 100 / screenLength) + "%";
+      screenSlidesArray[i].style.width = ( 90 / screenLength) + "%";
+      screenSlidesArray[i].style.marginRight = ( 10 / screenLength) + "%";
     }
     for(i = 0; i < backgroundLength; i++) {
       backgroundSlidesArray[i].style.width = ( 100 / backgroundLength) + "%";
     }
 
     backgroundSlider.style.width = (backgroundLength * 100) + "%";
-    screenSlider.style.width     = (screenLength * 100) + "%";
+    screenSlider.style.width     = (screenLength * 110.8) + "%";
     helpers.prefix(backgroundSlider.style, "Transform", `translateX(-20%)`);
     helpers.prefix(screenSlider.style,     "Transform", `translateX(-20%)`);
   }

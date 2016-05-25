@@ -18,12 +18,25 @@
   }
   &-gallery {
     margin-top: rem-calc(3);
-    & > img {
+    &__item {
+      display: inline-block;
       width: 33%;
       padding-top: .1%;
       margin-right: .5%;
+      overflow: hidden;
+
       &:nth-of-type(3) { margin-right: 0; }
       &:last-child { display: none; }
+      &-inner {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        transition: transform 600ms ease;
+        &:hover { transform: scale(1.1); transition: transform 10s ease; }
+      }
 
       @include respond-to(sm) {
         width: 24.75%;

@@ -1,6 +1,6 @@
 .squarespace {
   position: relative;
-  margin-top: rem-calc(50);
+  margin-top: rem-calc(130);
 
   // &__item {
   //   position: absolute;
@@ -12,7 +12,7 @@
     margin-bottom: rem-calc(50);
   }
   &__item-laptop {
-    padding: rem-calc(50) rem-calc(32);
+    padding: rem-calc(140) rem-calc(32);
     position: relative;
     respond-to(sm) { padding: rem-calc(100) rem-calc(32) rem-calc(100); }
     respond-to(lg) { padding: rem-calc(150) rem-calc(32) rem-calc(150); }

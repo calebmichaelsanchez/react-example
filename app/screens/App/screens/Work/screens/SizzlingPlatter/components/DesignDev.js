@@ -53,7 +53,7 @@ class DesignDev extends Component {
     return (
       <div className="design-dev" ref="designDev">
         <div ref="element" className="fadeInUp design-dev__item">
-          <h1>Made To Order</h1>
+          <h1>Reaching a Broad Audience</h1>
           <p>It was important to make this revamped site inviting for both investors and potential employees. SPLAT is poud of the cultural diversity within their family. To celebrate this, we wanted to make the site inviting for all audiences. Throughout the site we showcase Sizzling Platter’s investment in their ever expanding SPLAT family, diversity, and strong company values.</p>
         </div>
         <div className="design-dev__item iphone">

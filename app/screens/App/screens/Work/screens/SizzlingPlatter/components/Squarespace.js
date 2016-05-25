@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDom, { findDOMNode } from 'react-dom';
 import helpers from "../../../../../../../shared/util/helpers";
-import { img, icons } from '../Data'
+import { images, icons } from '../Data'
 
 class Squarespace extends Component {
   constructor(props) {
@@ -117,12 +117,12 @@ class Squarespace extends Component {
     }
   }
   render() {
-    let { squarespace } = img;
+    let { squarespace } = images;
     return (
       <div className="squarespace">
         <div ref="context1" className="fadeInUp squarespace__item">
           <img className="squarespace__item-img" src={squarespace.logo} />
-          <h1>CUSTOM EXPERIENCE <br />VIA SQUARESPACE</h1>
+          <h1>Custom Experience <br />Via Squarespace</h1>
           <p>We chose Squarespace for our content management system to allow easy modification with a great custom design. Although the Squarespace Development Platform is still in its infancy, the development team was able to pour though documentation to create a beautiful website that combines Squarespace’s wonderful backend with React based front-end. Using React in conjunction with Axios we were able to leverage the way Squarespace exposes site data to create clean, reusable components.</p>
         </div>
         <div ref="squarespace" className="squarespace__parallax">
@@ -140,7 +140,7 @@ class Squarespace extends Component {
           <img src={squarespace.laptop} />
         </div>
         <div ref="context2" className="fadeInUp squarespace__item">
-          <h1>SERVING THE PEOPLE</h1>
+          <h1>Delivering On Our Promises</h1>
           <p>One of our primary goals for the Sizzling Platter redesign was to highlight their focus on company culture. Sizzling Platter strives to uphold a diverse culture and strong core values from the highest level of stakeholder to potential employees. By tying in human elements throughout the site, we hope the SPLAT culture resonates with visitors as much as it did with our team!</p>
           <a href="http://sizzlingplatter.com/" className="button">See it live</a>
         </div>

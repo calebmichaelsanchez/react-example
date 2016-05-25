@@ -13,7 +13,7 @@ $splat-font-family: 'Lato';
 $splat-lato-light: 300;
 
 .sizzling-platter {
-  background-color: $splat-primary;
+  background-color: #f7f7f7;
   font-family: $splat-font-family;
   font-weight: $splat-lato-light;
 
@@ -25,9 +25,8 @@ $splat-lato-light: 300;
 
   [class$="container"] {
     position: relative;
-    width: 100%;
+    width: 99%;
     margin: 0 auto;
-    height: 100%;
     @include respond-to(xs) {max-width: $splat-xs;}
     @include respond-to(sm) {max-width: $splat-sm; padding-left: 0; padding-right: 0;}
     @include respond-to(md) {max-width: $splat-md;}
@@ -37,6 +36,7 @@ $splat-lato-light: 300;
     font-weight: $splat-lato-light;
     text-transform: uppercase;
     margin-bottom: rem-calc(30);
+    line-height: 1.5;
   }
 
   p {
@@ -54,23 +54,23 @@ $splat-lato-light: 300;
 
   .button {
     display: inline-block;
+    font-weight: $splat-lato-light;
     text-align: center;
-    color: #B54A49;
     border-radius: rem-calc(25);
-    color: #fff;
+    color: #f7f7f7;
     background-color: #C62A20;
-    border-color: #C62A20;
-    font-size: 24px;
-    padding: 12px 36px;
+    font-size: rem-calc(24);
+    padding: rem-calc(12) rem-calc(36);
     transition: 400ms ease;
     margin-top: rem-calc(40);
+    box-shadow: 0 3px 25px 0 rgba(0, 0, 0, .15);
   }
 }
 
 [class^="fadeInUp"] {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 600ms ease, transform 600ms ease;
+  transition: opacity 1100ms ease, transform 1100ms ease;
   &.fadeInUp--active {
     opacity: 1;
     transform: translateY(0);

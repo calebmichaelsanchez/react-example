@@ -6,28 +6,28 @@ let requireSplatFile = function(file) {
   return require(`../../../../../../../images/work/sizzling-platter/${file}`);
 }
 
-let img = {
+let images = {
   hero: {
-    bg    : requireSplatFile("hero/hero.jpg"),
-    one   : requireSplatFile("hero/hero-screen-front.png"),
-    two   : requireSplatFile("hero/hero-screen-left.png"),
-    three : requireSplatFile("hero/hero-screen-right.png")
+    bg   : requireSplatFile("hero/hero.jpg"),
+    one  : requireSplatFile("hero/hero-screen-front.png"),
+    two  : requireSplatFile("hero/hero-screen-left.png"),
+    three: requireSplatFile("hero/hero-screen-right.png")
   },
   patterns: {
-    swatches   : requireSplatFile("patterns/swatches.png"),
-    peppers    : requireSplatFile("patterns/peppers.png"),
-    pepperonis : requireSplatFile("patterns/pepperonis.png"),
-    sprinkles  : requireSplatFile("patterns/sprinkles.png")
+    swatches  : requireSplatFile("patterns/swatches.png"),
+    peppers   : requireSplatFile("patterns/peppers.png"),
+    pepperonis: requireSplatFile("patterns/pepperonis.png"),
+    sprinkles : requireSplatFile("patterns/sprinkles.png")
   },
-  ingredients: {
-    one   : requireSplatFile("ingredients/01.jpg"),
-    two   : requireSplatFile("ingredients/02.jpg"),
-    three : requireSplatFile("ingredients/03.jpg"),
-    four  : requireSplatFile("ingredients/04.jpg")
-  },
+  ingredients: [
+    requireSplatFile("ingredients/01.jpg"),
+    requireSplatFile("ingredients/02.jpg"),
+    requireSplatFile("ingredients/03.jpg"),
+    requireSplatFile("ingredients/04.jpg")
+  ],
   designDev : {
-    bgLeft  : requireSplatFile("design-dev/design-dev-bg-left.png"),
-    bgRight : requireSplatFile("design-dev/design-dev-bg-right.png"),
+    bgLeft : requireSplatFile("design-dev/design-dev-bg-left.png"),
+    bgRight: requireSplatFile("design-dev/design-dev-bg-right.png"),
     backgroundImagesArray: [
       "https://s3.amazonaws.com/underbelly/playground/01-executive-profile-small.jpg",
       "https://s3.amazonaws.com/underbelly/playground/02-brands-page-small.jpg",
@@ -45,7 +45,7 @@ let img = {
     phoneImg: "https://s3.amazonaws.com/underbelly/playground/phone.png"
   },
   squarespace: {
-    logo: requireSplatFile("design-dev/squarespace.png"),
+    logo  : requireSplatFile("design-dev/squarespace.png"),
     laptop: requireSplatFile("design-dev/laptop.png")
   },
   seeMore: {
@@ -78,4 +78,4 @@ let icons = [
   { name: "js2"          , svg: requireSplatFile("squarespace/18.svg") }
 ]
 
-export { img, icons };
+export { images, icons };
