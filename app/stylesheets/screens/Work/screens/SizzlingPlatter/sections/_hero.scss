@@ -1,7 +1,7 @@
 .hero--splat {
   position: relative;
   background-color: #0A0808;
-  height: rem-calc(550);
+  height: 70vh;
   overflow: hidden;
   @include respond-to(sm) { height: rem-calc(615); }
   @include respond-to(md) { height: rem-calc(720); }
@@ -36,7 +36,7 @@
   &-container__item {
     position: absolute;
     width: 100%;
-    max-width: rem-calc(334);
+    max-width: percentage(334 / 375);
     display: inline-block;
     z-index: 3;
     padding-left: rem-calc(16);
@@ -53,21 +53,14 @@
       bottom: rem-calc(-465);
     }
     &:nth-child(1) {
-      bottom: 0;
+      top: percentage(120 / 550);
       left: 50%;
       transform: translateX(-50%);
       @include respond-to(sm) { top: percentage(158 / 615); bottom: initial; }
       @include respond-to(md) { top: percentage(186 / 720); }
-      img { transition-delay: 1200ms; }
     }
-    &:nth-child(2) {
-      right: percentage(725 / 1440);
-      img { transition-delay: 400ms; }
-    }
-    &:nth-child(3) {
-      left: percentage(725/ 1440);
-      img { transition-delay: 800ms; }
-    }
+    &:nth-child(2) { right: percentage(725 / 1440); }
+    &:nth-child(3) { left: percentage(725/ 1440); }
     &:nth-child(2),
     &:nth-child(3) {
       display: none;
@@ -84,8 +77,16 @@
     }
     img {
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 400ms ease, transform 400ms ease;
+    }
+    &--first img {
+      transform: translateY(350px);
+      transition: opacity 400ms ease, transform 1000ms ease;
+      transition-delay: 200ms;
+    }
+    &--last img {
+      transform: translateY(120px);
+      transition: opacity 800ms ease, transform 1000ms ease;
+      transition-delay: 200ms
     }
   }
   &.hero--splat-loaded.hero--splat-active img {

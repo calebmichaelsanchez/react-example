@@ -33,9 +33,9 @@ class Hero extends Component {
       <div className={`hero--splat ${loaded} ${active}`} ref="heroSplat">
         <div className="hero--splat-background" style={style} />
         <div className="hero--splat-container">
-          <div className="hero--splat-container__item"><img src={hero.one} /></div>
-          <div className="hero--splat-container__item"><img src={hero.two} /></div>
-          <div className="hero--splat-container__item"><img onLoad={this.onImgLoad} src={hero.three} /></div>
+          <div className="hero--splat-container__item hero--splat-container__item--first"><img src={hero.one} /></div>
+          <div className="hero--splat-container__item hero--splat-container__item--last" ><img src={hero.two} /></div>
+          <div className="hero--splat-container__item hero--splat-container__item--last" ><img onLoad={this.onImgLoad} src={hero.three} /></div>
         </div>
       </div>
     )
