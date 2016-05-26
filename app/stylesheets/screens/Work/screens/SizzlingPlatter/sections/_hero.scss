@@ -77,16 +77,19 @@
     }
     img {
       opacity: 0;
+      border-radius: rem-calc(7);
     }
     &--first img {
       transform: translateY(350px);
       transition: opacity 400ms ease, transform 1000ms ease;
-      transition-delay: 200ms;
+      transition-delay: 500ms;
+      box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.35);
     }
     &--last img {
       transform: translateY(120px);
-      transition: opacity 800ms ease, transform 1000ms ease;
-      transition-delay: 200ms
+      transition: opacity 400ms ease, transform 1000ms ease;
+      transition-delay: 500ms;
+      box-shadow: 0 2px 7px 0 rgba(0,0,0,0.5);
     }
   }
   &.hero--splat-loaded.hero--splat-active img {

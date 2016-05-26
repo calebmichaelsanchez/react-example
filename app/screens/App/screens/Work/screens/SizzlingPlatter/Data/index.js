@@ -9,12 +9,11 @@ let requireSplatFile = function(file) {
 let images = {
   hero: {
     bg   : requireSplatFile("hero/hero.jpg"),
-    one  : requireSplatFile("hero/hero-screen-front.png"),
-    two  : requireSplatFile("hero/hero-screen-left.png"),
-    three: requireSplatFile("hero/hero-screen-right.png")
+    one  : requireSplatFile("hero/01.jpg"),
+    two  : requireSplatFile("hero/02.jpg"),
+    three: requireSplatFile("hero/03.jpg")
   },
   patterns: {
-    swatches  : requireSplatFile("patterns/swatches.png"),
     peppers   : requireSplatFile("patterns/peppers.png"),
     pepperonis: requireSplatFile("patterns/pepperonis.png"),
     sprinkles : requireSplatFile("patterns/sprinkles.png")
