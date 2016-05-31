@@ -96,6 +96,7 @@
       @include respond-to(xs) { display: inline-block; }
       @include respond-to(sm) { top: percentage(158 / 615); }
       @include respond-to(md) { top: percentage(186 / 720); }
+      @include respond-to(lg) { top: percentage(186 / 720); }
     }
     &:nth-child(2) { right: percentage(725 / 1440); }
     &:nth-child(3) { left: percentage(725/ 1440); }
