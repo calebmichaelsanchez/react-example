@@ -2,7 +2,9 @@
   background: #040203;
   text-align: center;
   padding-top: rem-calc(50);
-  @include respond-to(sm) { padding-top: rem-calc(150); }
+  @include respond-to(sm) { padding-top: rem-calc(80); }
+  @include respond-to(md) { padding-top: rem-calc(100); }
+  @include respond-to(lg) { padding-top: rem-calc(180); }
   h1, p { color: #fff; }
   &-hero {
     background: #040203;

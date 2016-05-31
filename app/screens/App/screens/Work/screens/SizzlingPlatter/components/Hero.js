@@ -32,6 +32,9 @@ class Hero extends Component {
     return (
       <div className={`hero--splat ${loaded} ${active}`} ref="heroSplat">
         <div className="hero--splat-background" style={style} />
+        <div className="hero--splat-logo">
+          <div className="hero--splat-logo__inner" dangerouslySetInnerHTML={{ __html: hero.logo }}></div>
+        </div>
         <div className="hero--splat-container">
           <div className="hero--splat-container__item hero--splat-container__item--first"><img src={hero.one} /></div>
           <div className="hero--splat-container__item hero--splat-container__item--last" ><img src={hero.two} /></div>

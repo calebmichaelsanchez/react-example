@@ -4,12 +4,15 @@
   background-color: $splat-primary;
   @include hero('../images/work/sizzling-platter/prep/shrooms.jpg');
   background-position: 50% 100%;
-  background-size: 100% auto;
+  background-size: 132% auto;
   padding: rem-calc(50) 0 rem-calc(255);
-  @include respond-to(sm) { padding: rem-calc(150) 0 rem-calc(285); }
-  &-container {
-    width: 90%;
-    text-align: center;
-    @include respond-to(sm) { text-align: center; }
+  @include respond-to(xs) { background-size: 110% auto; }
+  @include respond-to(sm) {
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(285);
+    background-size: 100% auto;
   }
+  @include respond-to(md) { padding-top: rem-calc(100); }
+  @include respond-to(lg) { background-size: 1440px auto; padding-top: rem-calc(180); }
+  &-container { text-align: center; }
 }

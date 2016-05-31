@@ -24,8 +24,6 @@ $splat-lato-light: 300;
   @import "./sections/squarespace";
 
   [class$="container"] {
-    position: relative;
-    width: 99%;
     margin: 0 auto;
     @include respond-to(xs) {max-width: $splat-xs;}
     @include respond-to(sm) {max-width: $splat-sm; padding-left: 0; padding-right: 0;}
@@ -35,7 +33,7 @@ $splat-lato-light: 300;
   h1 {
     font-weight: $splat-lato-light;
     text-transform: uppercase;
-    margin-bottom: rem-calc(30);
+    margin-bottom: rem-calc(25);
     line-height: 1.5;
   }
 

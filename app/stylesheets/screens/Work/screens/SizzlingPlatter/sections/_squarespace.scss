@@ -1,21 +1,18 @@
 .squarespace {
   position: relative;
-  margin-top: rem-calc(130);
-
-  // &__item {
-  //   position: absolute;
-  //   left:50%;
-  //   top: 0;
-  //   transform: translate3d(-50%, 0, 0);
-  // }
-  &__item-img {
-    margin-bottom: rem-calc(50);
-  }
+  margin-top: rem-calc(50);
+  @include respond-to(sm) { margin-top: rem-calc(80);  }
+  @include respond-to(md) { margin-top: rem-calc(100); }
+  &__item-img { margin-bottom: rem-calc(25); }
   &__item-laptop {
-    padding: rem-calc(140) rem-calc(32);
+    padding: rem-calc(50) rem-calc(16) rem-calc(50);
     position: relative;
-    respond-to(sm) { padding: rem-calc(100) rem-calc(32) rem-calc(100); }
-    respond-to(lg) { padding: rem-calc(150) rem-calc(32) rem-calc(150); }
+    @include respond-to(sm) {
+      padding-bottom: rem-calc(80);
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include respond-to(sm) { padding-bottom: rem-calc(100); }
   }
   &__parallax {
     width: rem-calc($splat-ss-width * .5);
@@ -26,12 +23,10 @@
     margin-left: auto;
     margin-right: auto;
     transform: translateX(-50%);
-
     @include respond-to(sm) {
       width: rem-calc($splat-ss-width * .7);
       height: rem-calc($splat-ss-height * .7);
     }
-
     @include respond-to(md) {
       width: rem-calc($splat-ss-width);
       height: rem-calc($splat-ss-height);
@@ -47,11 +42,9 @@
         height: 100%;
       }
     }
-
     &__container {
       position: absolute;
       display: block;
-
       &--js0 {
         left: percentage( 0 / $splat-ss-width);
         top: percentage( 128 / $splat-ss-height);
@@ -59,18 +52,12 @@
       &--close0-red {
         left: percentage( 184 / $splat-ss-width);
         top: percentage( 0 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--close1-red {
         left: percentage( 935 / $splat-ss-width);
         top: percentage( 931 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--react0 {
         left: percentage( 1263 / $splat-ss-width);
@@ -83,18 +70,12 @@
       &--semi0-red {
         left: percentage( 129 / $splat-ss-width);
         top: percentage( 622 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--leftcurl-red {
         left: percentage( 278/ $splat-ss-width);
         top: percentage(481 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--head {
         left: percentage( 406 / $splat-ss-width);
@@ -107,18 +88,12 @@
       &--divclose-red {
         left: percentage( 242 / $splat-ss-width);
         top: percentage( 860 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--semi1-red {
         left: percentage( 11 / $splat-ss-width);
         top: percentage( 860 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--function {
         left: percentage( 589 / $splat-ss-width);
@@ -135,10 +110,7 @@
       &--rightcurl-red {
         left: percentage( 974 / $splat-ss-width);
         top: percentage( 341 / $splat-ss-height);
-
-        svg .cls-2 {
-          fill: $splat-ss-red;
-        }
+        svg .cls-2 { fill: $splat-ss-red; }
       }
       &--paren1 {
         left: percentage( 40 / $splat-ss-width);

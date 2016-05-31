@@ -29,7 +29,6 @@
       @include respond-to(lg) { margin-bottom: rem-calc(180); }
     }
   }
-
   &-type {
     font-size: rem-calc(17);
     line-height: rem-calc(36);
@@ -40,7 +39,6 @@
     margin-right: auto;
     @include respond-to(sm) { max-width: rem-calc(323); font-size: rem-calc(24); }
   }
-
   &-colors {
     text-align: center;
     font-size: 0;
@@ -78,11 +76,9 @@
       &--black-dark   { background-color: #090808; }
     }
   }
-
   &__item {
     position: absolute;
     z-index: 1;
-
     &:nth-child(2) {
       top: rem-calc(-75);
       left: rem-calc(-100);

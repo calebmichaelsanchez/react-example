@@ -11,7 +11,8 @@ let images = {
     bg   : requireSplatFile("hero/hero.jpg"),
     one  : requireSplatFile("hero/01.jpg"),
     two  : requireSplatFile("hero/02.jpg"),
-    three: requireSplatFile("hero/03.jpg")
+    three: requireSplatFile("hero/03.jpg"),
+    logo : requireSplatFile("hero/splat-logo-02.svg")
   },
   patterns: {
     peppers   : requireSplatFile("patterns/peppers.png"),
