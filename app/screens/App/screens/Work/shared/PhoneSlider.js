@@ -9,11 +9,40 @@ class PhoneSlider extends Component {
 
     this.initializeSlider = this.initializeSlider.bind(this);
     this.goTo             = this.goTo.bind(this);
+    this.handleGesture    = this.handleGesture.bind(this);
+    this.handleTouchstart = this.handleTouchstart.bind(this);
+    this.handleTouchend   = this.handleTouchend.bind(this);
 
     this.state = { slideIndex: 1 }
   }
   componentDidMount() {
     this.initializeSlider();
+
+    this.screen = findDOMNode(this.refs.screen);
+    this.touchstartX = 0;
+    this.touchstartY = 0;
+    this.touchendX   = 0;
+    this.touchendY   = 0;
+
+    this.screen.addEventListener('touchstart', this.handleTouchstart, false);
+    this.screen.addEventListener('touchend', this.handleTouchend, false);
+  }
+  componentWillUnmount() {
+    this.screen.removeEventListener('touchstart', this.handleTouchstart, false);
+    this.screen.removeEventListener('touchend', this.handleTouchend, false);
+  }
+  handleTouchstart(event) {
+    this.touchstartX = event.touches[0].screenX;
+    this.touchstartY = event.touches[0].screenY;
+  }
+  handleTouchend(event) {
+    this.touchendX = event.changedTouches[0].screenX;
+    this.touchendY = event.changedTouches[0].screenY;
+    this.handleGesture();
+  }
+  handleGesture() {
+    if (this.touchendX < this.touchstartX) { this.goTo(this.state.slideIndex + 1); }
+    if (this.touchendX > this.touchstartX) { this.goTo(this.state.slideIndex - 1); }
   }
   initializeSlider() {
     let backgroundSlider      = findDOMNode(this.refs.backgroundSlider),
@@ -51,15 +80,27 @@ class PhoneSlider extends Component {
         screenSlidesArray     = [...screenSlides],
         screenLength          = screenSlidesArray.length;
 
-    helpers.prefix(backgroundSlider.style, "Transform", "translateX(-" + ((100 / backgroundLength) * index) + "%)");
-    helpers.prefix(screenSlider.style,     "Transform", "translateX(-" + ((100 / screenLength) * index) + "%)");
-
-    this.setState({ slideIndex: index });
+    if (index < 0) {
+      let lastItem = screenLength - 1;
+      helpers.prefix(backgroundSlider.style, "Transform", "translateX(-" + ((100 / backgroundLength) * lastItem) + "%)");
+      helpers.prefix(screenSlider.style,     "Transform", "translateX(-" + ((100 / screenLength)     * lastItem) + "%)");
+      this.setState({ slideIndex: lastItem });
+      return;
+    } else if (index > screenLength - 1) {
+      helpers.prefix(backgroundSlider.style, "Transform", "translateX(0)");
+      helpers.prefix(screenSlider.style,     "Transform", "translateX(0)");
+      this.setState({ slideIndex: 0 });
+      return;
+    } else {
+      helpers.prefix(backgroundSlider.style, "Transform", "translateX(-" + ((100 / backgroundLength) * index) + "%)");
+      helpers.prefix(screenSlider.style,     "Transform", "translateX(-" + ((100 / screenLength) * index) + "%)");
+      this.setState({ slideIndex: index });
+    }
   }
   render() {
     let { backgroundImages, screenImages, phone } = this.props;
     return (
-      <div className="slider">
+      <div ref="screen" className="slider">
         <div className="phone-slider">
           <div className="phone-slider__background background">
             <ul ref="backgroundSlider" className="background__list">

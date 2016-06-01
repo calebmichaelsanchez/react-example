@@ -12,7 +12,7 @@ let images = {
     one  : requireSplatFile("hero/01.jpg"),
     two  : requireSplatFile("hero/02.jpg"),
     three: requireSplatFile("hero/03.jpg"),
-    logo : requireSplatFile("hero/splat-logo-02.svg")
+    logo : requireSplatFile("hero/logo.svg")
   },
   patterns: {
     peppers   : requireSplatFile("patterns/peppers.png"),
@@ -29,20 +29,20 @@ let images = {
     bgLeft : requireSplatFile("design-dev/design-dev-bg-left.png"),
     bgRight: requireSplatFile("design-dev/design-dev-bg-right.png"),
     backgroundImagesArray: [
-      "https://s3.amazonaws.com/underbelly/playground/01-executive-profile-small.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/02-brands-page-small.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/03-brand-page-small.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/04-home-scrolled-small.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/05-home-small.jpg"
+      requireSplatFile("slider/background/01.jpg"),
+      requireSplatFile("slider/background/02.jpg"),
+      requireSplatFile("slider/background/03.jpg"),
+      requireSplatFile("slider/background/04.jpg"),
+      requireSplatFile("slider/background/05.jpg")
     ],
     screenImagesArray: [
-      "https://s3.amazonaws.com/underbelly/playground/01-executive-profile.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/02-brands-page.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/03-brand-page.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/04-home-scrolled.jpg",
-      "https://s3.amazonaws.com/underbelly/playground/05-home.jpg"
+      requireSplatFile("slider/screen/01.jpg"),
+      requireSplatFile("slider/screen/02.jpg"),
+      requireSplatFile("slider/screen/03.jpg"),
+      requireSplatFile("slider/screen/04.jpg"),
+      requireSplatFile("slider/screen/05.jpg")
     ],
-    phoneImg: "https://s3.amazonaws.com/underbelly/playground/phone.png"
+    phoneImg: requireSplatFile("slider/phone.png")
   },
   squarespace: {
     logo  : requireSplatFile("design-dev/squarespace.png"),
