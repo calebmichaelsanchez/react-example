@@ -10,7 +10,6 @@ class Squarespace extends Component {
     this.onScroll       = this.onScroll.bind(this);
     this.update         = this.update.bind(this);
     this.onResize       = this.onResize.bind(this);
-    this.setIconSize    = this.setIconSize.bind(this);
   }
   componentDidMount() {
     this.ticking           = false;
@@ -22,8 +21,6 @@ class Squarespace extends Component {
 
     this.context1 = findDOMNode(this.refs.context1);
     this.context2 = findDOMNode(this.refs.context2);
-
-    this.setIconSize();
 
     window.addEventListener("scroll", this.onScroll, false);
     window.addEventListener("resize", this.onResize, false);
@@ -100,22 +97,6 @@ class Squarespace extends Component {
 
     this.ticking = false;
   }
-  setIconSize() {
-    let icons               = document.querySelectorAll(".squarespace__parallax svg"),
-        iconsContainer      = document.querySelectorAll(".squarespace__parallax__container"),
-        iconsWrapper        = document.querySelectorAll(".squarespace__parallax__item"),
-        iconsArray          = [...icons],
-        iconsContainerArray = [...iconsContainer],
-        iconsWrapperArray   = [...iconsWrapper],
-        i, w, h;
-    for (i = 0; i < iconsArray.length; i++) {
-      w = iconsArray[i].viewBox.baseVal.width;
-      h = iconsArray[i].viewBox.baseVal.height;
-      iconsContainer[i].style.width = ((w / 1300) * 100) + "%";
-      iconsContainer[i].style.height = ((h / 960) * 100) + "%";
-      iconsWrapperArray[i].style.paddingBottom = (h / w) * 100 + "%";
-    }
-  }
   render() {
     let { squarespace } = images;
     return (
@@ -128,11 +109,9 @@ class Squarespace extends Component {
         <div ref="squarespace" className="squarespace__parallax">
           {icons.map((icon) => (
             <div key={icon.name} className={`squarespace__parallax__container squarespace__parallax__container--${icon.name}`}>
-              <div
-                ref={icon.name}
-                className="squarespace__parallax__item"
-                dangerouslySetInnerHTML={{ __html: icon.svg }}
-              />
+              <div ref={icon.name} className="squarespace__parallax__item">
+                <img src={icon.svg} />
+              </div>
             </div>
           ))}
         </div>
