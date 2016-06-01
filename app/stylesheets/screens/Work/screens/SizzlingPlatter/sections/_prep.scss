@@ -1,16 +1,20 @@
 .prep {
   position: relative;
   z-index: 5;
-  background-color: $splat-primary;
-  @include hero('../images/work/sizzling-platter/prep/shrooms.jpg');
-  background-position: 50% 100%;
-  background-size: 132% auto;
+  background:
+    url("https://s3.amazonaws.com/underbelly/website/work/sizzling-platter/prep/shrooms-left.png") left bottom no-repeat,
+    url("https://s3.amazonaws.com/underbelly/website/work/sizzling-platter/prep/shrooms-right.png") right bottom no-repeat;
+  background-color: #fff;
+  background-size: 100% auto;
+  // @include hero('../images/work/sizzling-platter/prep/shrooms.jpg');
+  // background-position: 50% 100%;
+  // background-size: 132% auto;
   padding: rem-calc(50) 0 rem-calc(255);
-  @include respond-to(xs) { background-size: 110% auto; }
+  // @include respond-to(xs) { background-size: 110% auto; }
   @include respond-to(sm) {
     padding-top: rem-calc(80);
     padding-bottom: rem-calc(285);
-    background-size: 100% auto;
+    // background-size: 100% auto;
   }
   @include respond-to(md) { padding-top: rem-calc(100); }
   @include respond-to(lg) { background-size: 1440px auto; padding-top: rem-calc(180); }

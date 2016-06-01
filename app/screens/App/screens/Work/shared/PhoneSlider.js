@@ -41,8 +41,12 @@ class PhoneSlider extends Component {
     this.handleGesture();
   }
   handleGesture() {
-    if (this.touchendX < this.touchstartX) { this.goTo(this.state.slideIndex + 1); }
-    if (this.touchendX > this.touchstartX) { this.goTo(this.state.slideIndex - 1); }
+    if (this.touchendX < this.touchstartX && Math.abs(this.touchstartX - this.touchendX) >= 100) {
+      this.goTo(this.state.slideIndex + 1);
+    }
+    if (this.touchendX > this.touchstartX && Math.abs(this.touchendX - this.touchstartX) >= 100) {
+      this.goTo(this.state.slideIndex - 1);
+    }
   }
   initializeSlider() {
     let backgroundSlider      = findDOMNode(this.refs.backgroundSlider),
@@ -100,7 +104,7 @@ class PhoneSlider extends Component {
   render() {
     let { backgroundImages, screenImages, phone } = this.props;
     return (
-      <div ref="screen" className="slider">
+      <div className="slider">
         <div className="phone-slider">
           <div className="phone-slider__background background">
             <ul ref="backgroundSlider" className="background__list">
@@ -117,7 +121,7 @@ class PhoneSlider extends Component {
             </ul>
           </div>
           <div className="phone-slider__phone">
-            <img src={phone} alt="iPhone"/>
+            <img ref="screen" src={phone} alt="iPhone"/>
             <div className="phone-slider__screen screen">
               <ul ref="screenSlider" className="screen__list">
                 {screenImages.map((item, index) => (
