@@ -24,7 +24,7 @@ const routes = (
     <Route path="/peddling" component={Store} />
     <Route path="/making-it-awesome" component={Work}>
       <Route path="/making-it-awesome-with/aiga" component={Aiga} />
-      <Route path="/making-it-awesome-with/campus" component={Campus} />
+      { /*<Route path="/making-it-awesome-with/campus" component={Campus} />*/ }
       <Route path="/making-it-awesome-with/just-family" component={JustFamily} />
       <Route path="/making-it-awesome-with/traxion" component={Traxion} />
       <Route path="/making-it-awesome-with/fluid" component={Fluid} />
