@@ -1,9 +1,9 @@
 $jf-primary: #44ade2;
 
 .just-family {
-	.hero { @include hero('../images/work/just-family/hero/hero-mobile.jpg'); }
+	.hero { @include hero("https://s3.amazonaws.com/underbelly/website/work/just-family/hero/hero-mobile.jpg"); }
 	@media screen and (min-width: $medium) {
-		.hero { background-image: url('../images/work/just-family/hero/hero-01.jpg'); }
+		.hero { background-image: url("https://s3.amazonaws.com/underbelly/website/work/just-family/hero/hero-01.jpg"); }
 	}
 	.case-study-info { background-color: color(light-gray-primary); }
 	.branding-exploration, .mark-exploration {
@@ -27,7 +27,7 @@ $jf-primary: #44ade2;
 			height: 100%;
 			top: 0;
 			left: 0;
-			background-image: url('../images/work/just-family/hero/hero-02.jpg');
+			background-image: url("https://s3.amazonaws.com/underbelly/website/work/just-family/hero/hero-02.jpg");
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: cover;

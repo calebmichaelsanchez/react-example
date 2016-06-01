@@ -52,10 +52,7 @@ class Illustrations extends Component {
     this.ticking = false;
   }
   render() {
-    let img = {
-      sketch: require("../../../../../../../images/work/campus/illustration/sketch.png"),
-      illustration: require("../../../../../../../images/work/campus/illustration/illustration.png")
-    }
+    let { sketch, illustration } = this.props.illustrations;
     return (
       <section className="illustrations">
         <Excerpt
@@ -65,12 +62,8 @@ class Illustrations extends Component {
           ]}
         />
         <div ref="illustration" className="illustration-image">
-          <div className="illustration-image__item illustration-image__item--one" >
-            <img src={img.sketch} />
-          </div>
-          <div className="illustration-image__item illustration-image__item--two" >
-            <img src={img.illustration} />
-          </div>
+          <div className="illustration-image__item illustration-image__item--one" ><img src={sketch} /></div>
+          <div className="illustration-image__item illustration-image__item--two" ><img src={illustration} /></div>
         </div>
       </section>
     )
@@ -78,16 +71,3 @@ class Illustrations extends Component {
 }
 
 export default Illustrations;
-
-/*
-  <div className="illustration-intrinsic">
-    <div className="illustration-intrinsic__inner">
-      <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.sketch})`}}></div>
-    </div>
-  </div>
-  <div className="illustration-intrinsic">
-    <div className="illustration-intrinsic__inner">
-      <div className="illustration-intrinsic__magic" style={{backgroundImage: `url(${img.illustration})`}}></div>
-    </div>
-  </div>
-*/

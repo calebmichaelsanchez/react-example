@@ -3,7 +3,7 @@
 	width: 100%;
 	min-height: 100vh;
 	padding: 8.265rem 1rem;
-	background: url('../images/contact/background.jpg') no-repeat;
+	background: url("https://s3.amazonaws.com/underbelly/website/contact/background.jpg") no-repeat;
 	background-size: cover;
 	@include ghost;
 }

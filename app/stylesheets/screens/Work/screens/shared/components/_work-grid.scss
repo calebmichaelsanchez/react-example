@@ -62,7 +62,7 @@
       // Project Meta Indicator
       // =================================
       &:after {
-				content: '';
+				content: "";
 				display: block;
 				position: absolute;
 				top: 50%;
@@ -165,15 +165,15 @@
   	}
   }
 }
-.projects__item--run-it-once            { background-image: url('../images/work/project-grid/run-it-once.jpg');      }
-.projects__item--aiga                   { background-image: url('../images/work/project-grid/aiga.jpg');             }
 .projects__item--campus                 { background-image: url('../images/work/project-grid/campus.jpg');             }
-.projects__item--bright-bytes           { background-image: url('../images/work/project-grid/bright-bytes.jpg');     }
-.projects__item-image--fluid            { background-image: url('../images/work/project-grid/fluid.jpg');            }
-.projects__item-image--just-family      { background-image: url('../images/work/project-grid/just-family.jpg');      }
-.projects__item-image--scb              { background-image: url('../images/work/project-grid/salt-city-builds.jpg'); }
-.projects__item-image--traxion          { background-image: url('../images/work/project-grid/traxion.jpg');          }
-.projects__item-image--rent-tree        { background-image: url('../images/work/project-grid/rent-tree.jpg');        }
-.projects__item-image--nsac             { background-image: url('../images/work/project-grid/alliance.jpg');         }
-.projects__item-image--bountiful-dental { background-image: url('../images/work/project-grid/bountiful-dental.jpg'); }
-.projects__item-image--hive             { background-image: url('../images/work/project-grid/hive.jpg');             }
+.projects__item--run-it-once            { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/run-it-once.jpg");      }
+.projects__item--aiga                   { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/aiga.jpg");             }
+.projects__item--bright-bytes           { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/bright-bytes.jpg");     }
+.projects__item-image--fluid            { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/fluid.jpg");            }
+.projects__item-image--just-family      { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/just-family.jpg");      }
+.projects__item-image--scb              { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/salt-city-builds.jpg"); }
+.projects__item-image--traxion          { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/traxion.jpg");          }
+.projects__item-image--rent-tree        { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/rent-tree.jpg");        }
+.projects__item-image--nsac             { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/alliance.jpg");         }
+.projects__item-image--bountiful-dental { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/bountiful-dental.jpg"); }
+.projects__item-image--hive             { background-image: url("https://s3.amazonaws.com/underbelly/website/work/project-grid/hive.jpg");             }

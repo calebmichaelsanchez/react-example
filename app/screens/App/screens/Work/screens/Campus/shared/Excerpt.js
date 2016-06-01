@@ -9,7 +9,7 @@ class Excerpt extends Component {
           if (img) {
             return (
               <div className="excerpt-intrinsic">
-                <div className="excerpt-intrinsic__inner" dangerouslySetInnerHTML={{ __html: img }} />
+                <div className="excerpt-intrinsic__inner"><img src={img} /></div>
               </div>
             )
           } else {

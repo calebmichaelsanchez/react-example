@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class Dubai extends Component {
   render() {
-    let svg = require("../../../../../../../images/work/campus/dubai/uae-map-01.svg");
+    let { svg } = this.props.dubai;
     return (
       <div className="dubai">
-        <div className="dubai__inner" dangerouslySetInnerHTML={{ __html: svg }}></div>
+        <div className="dubai__inner"><img src={svg} /></div>
       </div>
     )
   }

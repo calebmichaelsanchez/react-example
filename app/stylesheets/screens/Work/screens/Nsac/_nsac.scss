@@ -2,7 +2,7 @@ $nsac-primary: #2a91a1;
 $nsac-secondary: #dc6544;
 .nsac {
 	.hero {
-		@include hero('../images/work/nsac/hero/hero.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/nsac/hero/hero.jpg");
 		background-position: center 80%;
 	}
 	.case-study-info {

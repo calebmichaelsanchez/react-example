@@ -99,7 +99,7 @@ class WebMobile extends Component {
     }
   }
   render() {
-    let img = require("../../../../../../../images/work/campus/web-mobile/phone.png");
+    let { phone } = this.props.webMobile;
     let icons = [
       { name: "pen"        , svg: require("../../../../../../../images/work/campus/icons/illo-pen.svg") },
       { name: "calendar"   , svg: require("../../../../../../../images/work/campus/icons/illo-calendar.svg") },
@@ -135,9 +135,7 @@ class WebMobile extends Component {
             )
           })}
         </div>
-        <div className="web-mobile-iphone">
-          <img src={img} />
-        </div>
+        <div className="web-mobile-iphone"><img src={phone} /></div>
       </section>
     )
   }

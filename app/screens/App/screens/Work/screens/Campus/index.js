@@ -8,6 +8,7 @@ import Features from "./components/Features";
 import WebMobile from "./components/WebMobile";
 import Illustrations from "./components/Illustrations";
 import Development from "./components/Development";
+import { images } from "./Data";
 
 class Campus extends Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class Campus extends Component {
     return (
       <DocumentTitle title="Campus | Underbelly Creative">
         <section className="campus-container">
-          <CampusHero />
-          <Dubai />
-          <UserExperience />
-          <Features viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
-          <WebMobile viewportHeight={this.props.viewportHeight} pageYOffset={this.props.pageYOffset} />
-          <Illustrations viewportHeight={this.props.viewportHeight} />
-          <Development />
+          <CampusHero theNeed={images.theNeed} />
+          <Dubai dubai={images.dubai} />
+          <UserExperience userExperience={images.userExperience} />
+          <Features features={images.features} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
+          <WebMobile webMobile={images.webMobile} viewportHeight={this.props.viewportHeight} pageYOffset={this.props.pageYOffset} />
+          <Illustrations illustrations={images.illustrations} viewportHeight={this.props.viewportHeight} />
+          <Development development={images.development} />
         </section>
       </DocumentTitle>
     )

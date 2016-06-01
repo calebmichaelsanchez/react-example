@@ -83,13 +83,7 @@ class Features extends Component {
     let isPlaying = classNames({
       'playing': this.state.isPlaying,
     });
-    let img = require("../../../../../../../images/work/campus/features/device.png"),
-        screen = require("../../../../../../../images/work/campus/features/screen.jpg"),
-        video = {
-          one: require("../../../../../../../images/work/campus/features/video.mp4"),
-          two: require("../../../../../../../images/work/campus/features/video.ogv"),
-          three: require("../../../../../../../images/work/campus/features/video.webm")
-        };
+    let { device, screen, video } = this.props.features;
     return (
        <section className="features">
         <div className="features__item">
@@ -101,7 +95,7 @@ class Features extends Component {
             ]}
           />
           <div className="features-img">
-            <img src={img} alt="iPhone 6"/>
+            <img src={device} alt="iPhone 6"/>
             <div ref="video" className={`video ${isPlaying}`} onClick={this.handleClick}>
               <div className="video__inner">
                 <video poster={screen}>

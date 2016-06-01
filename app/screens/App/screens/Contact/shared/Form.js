@@ -169,9 +169,7 @@ class Form extends Component {
 			'dropdown-open': this.state.serviceOpen,
 			'chosen': this.state.service === "" ? false : true
 		});
-		let img = {
-			sending: require('../../../../../images/contact/sending.png')
-		}
+		let img = { sending: "https://s3.amazonaws.com/underbelly/website/contact/sending.png" }
 		return (
 			<div className="form-wrapper">
 				<form ref="form" className={`form ${formClass}`} onSubmit={this.handleSubmit}>

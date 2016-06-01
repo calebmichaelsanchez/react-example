@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 import Icon from '../shared/icons/Icon';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import { images, logos } from '../screens/Home/Data';
 
 class Home extends Component {
 	constructor(props) {
@@ -16,19 +17,6 @@ class Home extends Component {
 		this.props.setNavTheme(this.props.theme);
 	}
 	render(){
-		let img = {
-			hero: require('../../../images/home/hero-1.jpg'),
-			team: require('../../../images/home/team.jpg'),
-		};
-		let logos = [
-			require('../../../images/home/logos/xbox.svg'),
-			require('../../../images/home/logos/little-caesars.svg'),
-			require('../../../images/home/logos/brightbytes.svg'),
-			require('../../../images/home/logos/facebook.svg'),
-			require('../../../images/home/logos/asurion.svg'),
-			require('../../../images/home/logos/experticity.svg'),
-			require('../../../images/home/logos/microsoft.svg')
-		];
 		let classes = classNames({ 'loaded': this.state.loaded });
 		return (
 			<DocumentTitle title='Home | Underbelly Creative'>
@@ -53,7 +41,7 @@ class Home extends Component {
 					<section className="clients">
 						<div className="container-sm">
 							{logos.map((logo, index) => (
-								<div className="clients__item" key={`icon-${index}`} dangerouslySetInnerHTML={ { __html: logo } }/>
+								<div className="clients__item" key={`icon-${index}`}><img src={logo} /></div>
 							))}
 						</div>
 					</section>
@@ -63,7 +51,7 @@ class Home extends Component {
 						</div>
 					</section>
 					<section className="team-photo">
-						<img src={img.team} alt="Team photo left to right (Anthony, Brad, Ben, Matt, Brittany, Scribner, Riley"/>
+						<img src={images.team} alt="Team photo left to right (Anthony, Brad, Ben, Matt, Brittany, Scribner, Riley"/>
 					</section>
 					<section className="work-with-us">
 						<Link to="/all-ears" className="h3 work-with-us-cta">

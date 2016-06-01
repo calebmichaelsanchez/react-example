@@ -3,11 +3,11 @@ import Excerpt from "../shared/Excerpt";
 
 class Development extends Component {
   render() {
-    let img = require("../../../../../../../images/work/campus/development/laptop.png");
+    let { laptop } = this.props.development;
     return (
       <section className="development">
         <div>
-          <img src={img} alt=""/>
+          <img src={laptop} />
           <Excerpt
             title="DEVELOPMENT"
             excerpt={[

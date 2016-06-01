@@ -4,7 +4,7 @@ import TagsContainer from "../../../shared/TagsContainer";
 
 class TheNeed extends Component {
   render() {
-    let logo = require("../../../../../../../images/work/campus/the-need/logo.svg");
+    let { logo } = this.props.theNeed;
     return (
       <section className="the-need">
         <Excerpt

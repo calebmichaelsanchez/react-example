@@ -1,6 +1,6 @@
 .traxion {
 	.hero {
-		@include hero('../images/work/traxion/hero/01.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/traxion/hero/01.jpg");
 	}
 	.case-study-info {
 		background-color: color(light-gray-secondary);
@@ -21,7 +21,7 @@
 }
 .traxion-screen {
 	display: inline-block;
-	background-image: url("../images/work/traxion/animation/blue-iphone.png");
+	background-image: url("https://s3.amazonaws.com/underbelly/website/work/traxion/animation/blue-iphone.png");
 	background-size: cover;
 	width: 40%;
 	height: 0;
