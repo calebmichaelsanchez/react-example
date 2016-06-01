@@ -2,7 +2,7 @@ $hive-primary: #4b5664;
 
 .hive {
 	.hero {
-		@include hero('../images/work/hive/hero/hero.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/hive/hero/hero.jpg");
 		.hero-lg, p { color: color(white); }
 	}
 	section {
@@ -13,7 +13,7 @@ $hive-primary: #4b5664;
 		h1, p { color: color(white); }
 	}
 	.branding-exploration {
-		background: url('../images/work/hive/branding/bg.jpg') no-repeat center center;
+		background: url("https://s3.amazonaws.com/underbelly/website/work/hive/branding/bg.jpg") no-repeat center center;
 		background-size: cover;
 		h1 { color: color(black); }
 		img { display: block; margin: 0 auto; }
@@ -47,14 +47,14 @@ $hive-primary: #4b5664;
 			height: 100%;
 			background-repeat: no-repeat;
 			background-size: cover;
-			background-image: url('../images/work/hive/ui-elements/hero.jpg');
+			background-image: url("https://s3.amazonaws.com/underbelly/website/work/hive/ui-elements/hero.jpg");
 			background-position: top center;
 			z-index: -1;
 			will-change: transform;
 		}
 	}
 	.checklists {
-		background-image: url('../images/work/hive/checklists/hero.jpg');
+		background-image: url("https://s3.amazonaws.com/underbelly/website/work/hive/checklists/hero.jpg");
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
