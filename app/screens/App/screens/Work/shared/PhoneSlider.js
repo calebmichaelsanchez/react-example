@@ -41,10 +41,10 @@ class PhoneSlider extends Component {
     this.handleGesture();
   }
   handleGesture() {
-    if (this.touchendX < this.touchstartX && Math.abs(this.touchstartX - this.touchendX) >= 100) {
+    if (this.touchendX < this.touchstartX && Math.abs(this.touchstartX - this.touchendX) >= 75) {
       this.goTo(this.state.slideIndex + 1);
     }
-    if (this.touchendX > this.touchstartX && Math.abs(this.touchendX - this.touchstartX) >= 100) {
+    if (this.touchendX > this.touchstartX && Math.abs(this.touchendX - this.touchstartX) >= 75) {
       this.goTo(this.state.slideIndex - 1);
     }
   }
