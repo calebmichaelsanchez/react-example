@@ -3,7 +3,7 @@
 	overflow: hidden;
 	position: relative;
 	@include ghost(center);
-	background-image: url('../images/home/hero-1.jpg');
+	background-image: url("https://s3.amazonaws.com/underbelly/website/home/hero-1.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;

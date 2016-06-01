@@ -84,7 +84,9 @@ class RioHero extends Component {
       <div ref="rioHero" className="hero--rio">
         <div id="cardBox" className={`cardbox-container cardbox-container--intro ${loaded}`}>
           <div className="rio-logo">
-            <div className="rio-logo__inner" dangerouslySetInnerHTML={{ __html: logo }}></div>
+            <div className="rio-logo__inner">
+              <img src={logo} />
+            </div>
           </div>
           <div className="cardbox">
             <img src={cardbox.lid}     className="cardbox__item cardbox__item--lid" />

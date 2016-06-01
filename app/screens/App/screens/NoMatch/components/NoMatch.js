@@ -12,13 +12,13 @@ class NoMatch extends Component {
 	}
 	render() {
 		let img = {
-			compass: require('../../../../../images/404/compass.png')
+			compass: "https://s3.amazonaws.com/underbelly/website/404/compass.png"
 		}
 		let video = {
-			poster : require('../../../../../images/404/404.jpg'),
-			webm   : require('../../../../../images/404/404.webm'),
-			mp4    : require('../../../../../images/404/404.mp4'),
-			ogv    : require('../../../../../images/404/404.ogv')
+			poster : "https://s3.amazonaws.com/underbelly/website/404/404.jpg",
+			webm   : "https://s3.amazonaws.com/underbelly/website/404/404.webm",
+			mp4    : "https://s3.amazonaws.com/underbelly/website/404/404.mp4",
+			ogv    : "https://s3.amazonaws.com/underbelly/website/404/404.ogv"
 		}
 		return (
 			<DocumentTitle title="404 | Underbelly Creative">

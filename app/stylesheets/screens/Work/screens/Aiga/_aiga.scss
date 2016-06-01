@@ -4,7 +4,7 @@ $aiga-tertiary: #49575a;
 
 .aiga {
 	.hero {
-		@include hero('../images/work/aiga/hero.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/aiga/hero.jpg");
 	}
 	.case-study-info {
 		background: $aiga-primary;
@@ -29,7 +29,7 @@ $aiga-tertiary: #49575a;
 			height: 100%;
 			top: 0;
 			left: 0;
-			background-image: url('../images/work/aiga/finalized/map.jpg');
+			background-image: url("https://s3.amazonaws.com/underbelly/website/work/aiga/finalized/map.jpg");
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: cover;
