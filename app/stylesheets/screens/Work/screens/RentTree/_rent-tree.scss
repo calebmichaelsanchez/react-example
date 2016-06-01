@@ -2,7 +2,7 @@ $rent-tree-primary: #e56e4e;
 
 .rent-tree {
 	.hero {
-		@include hero('../images/work/rent-tree/hero.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/rent-tree/hero.jpg");
 		.hero-lg, p { color: color(black); }
 	}
 	section {
@@ -19,7 +19,7 @@ $rent-tree-primary: #e56e4e;
 		}
 	}
 	.branding-exploration {
-		background: url('../images/work/rent-tree/branding/bg.jpg') no-repeat center center;
+		background: url("https://s3.amazonaws.com/underbelly/website/work/rent-tree/branding/bg.jpg") no-repeat center center;
 		background-size: cover;
 		h1 { color: color(white); }
 		img {

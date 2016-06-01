@@ -1,7 +1,7 @@
 $bountiful-primary: #2fc3ed;
 
 .bountiful {
-	.hero { @include hero('../images/work/bountiful/hero/hero.jpg'); }
+	.hero { @include hero("https://s3.amazonaws.com/underbelly/website/work/bountiful/hero/hero.jpg"); }
 	.case-study-info {
 		background-color: color(light-gray-primary);
 	}

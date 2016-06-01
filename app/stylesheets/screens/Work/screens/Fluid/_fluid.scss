@@ -58,7 +58,7 @@ $fluid-secondary: #92371a;
 		margin-bottom: 4rem;
 	}
 	.detailed-icon {
-		@include hero('../images/work/fluid/hero/03.jpg');
+		@include hero("https://s3.amazonaws.com/underbelly/website/work/fluid/hero/03.jpg");
 		background-size: 300%;
 		h1 { color: color(white); }
 		img {
