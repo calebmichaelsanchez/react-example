@@ -1,8 +1,6 @@
 .user-experience {
-  //padding-top: rem-calc(16);
-  // padding-bottom: rem-calc(80);
-  margin-top: rem-calc(80);
-  @include respond-to(sm) { margin-top: rem-calc(160); }
+  margin-top: rem-calc(80 - 55);
+  @include respond-to(sm) { margin-top: rem-calc(160 - 55); }
   //@include respond-to(md) { margin-top: rem-calc(250); }
 }
 .site-map {

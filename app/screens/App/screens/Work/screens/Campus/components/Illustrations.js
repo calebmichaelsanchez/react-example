@@ -60,6 +60,7 @@ class Illustrations extends Component {
           excerpt={[
             "The Campus has fun and inviting brand. With the launch of the app, we hoped to expand upon these characteristics to breathe even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages."
           ]}
+          viewportHeight={this.props.viewportHeight}
         />
         <div ref="illustration" className="illustration-image">
           <div className="illustration-image__item illustration-image__item--one" ><img src={sketch} /></div>

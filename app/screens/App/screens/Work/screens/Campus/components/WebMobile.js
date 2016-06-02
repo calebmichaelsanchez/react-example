@@ -121,6 +121,7 @@ class WebMobile extends Component {
           excerpt={[
             "Our research focused on the primary audience targeted for The Campus — prospective and current college students. We ultimately determined most users would be using the service via mobile devices, so we chose a “mobile first” approach. The benefit of this approach is two fold. First, it gets the app in the hands of users faster. Secondly, it allowed us to work more efficiently and focused."
           ]}
+          viewportHeight={this.props.viewportHeight}
         />
         <div className="campus-icons">
           {icons.map((icon) => {

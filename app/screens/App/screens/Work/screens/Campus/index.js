@@ -22,13 +22,13 @@ class Campus extends Component {
     return (
       <DocumentTitle title="Campus | Underbelly Creative">
         <section className="campus-container">
-          <CampusHero theNeed={images.theNeed} />
-          <Dubai dubai={images.dubai} />
-          <UserExperience userExperience={images.userExperience} />
+          <CampusHero theNeed={images.theNeed} hero={images.hero} viewportHeight={this.props.viewportHeight} />
+          <Dubai dubai={images.dubai} viewportHeight={this.props.viewportHeight} />
+          <UserExperience userExperience={images.userExperience} viewportHeight={this.props.viewportHeight} />
           <Features features={images.features} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
           <WebMobile webMobile={images.webMobile} viewportHeight={this.props.viewportHeight} pageYOffset={this.props.pageYOffset} />
           <Illustrations illustrations={images.illustrations} viewportHeight={this.props.viewportHeight} />
-          <Development development={images.development} />
+          <Development development={images.development} viewportHeight={this.props.viewportHeight} />
         </section>
       </DocumentTitle>
     )

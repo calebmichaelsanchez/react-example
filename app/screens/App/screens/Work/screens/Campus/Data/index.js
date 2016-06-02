@@ -1,9 +1,10 @@
 const images = {
+  hero: "https://s3.amazonaws.com/underbelly/website/work/campus/hero/hero.jpg",
   theNeed: {
     logo: "https://s3.amazonaws.com/underbelly/website/work/campus/the-need/logo.svg"
   },
   dubai: {
-    svg: "https://s3.amazonaws.com/underbelly/website/work/campus/dubai/uae-map-01.svg"
+    svg: "https://s3.amazonaws.com/underbelly/website/work/campus/dubai/uae-map-final.svg"
   },
   userExperience: {
     siteMap: "https://s3.amazonaws.com/underbelly/website/work/campus/user-experience/site-map-01.svg"

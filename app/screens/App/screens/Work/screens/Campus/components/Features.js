@@ -93,6 +93,7 @@ class Features extends Component {
             excerpt={[
               "The primary goal of The Campus was to allow users to quickly and effectively find, filter, and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding an overwhelming user experience."
             ]}
+            viewportHeight={this.props.viewportHeight}
           />
           <div className="features-img">
             <img src={device} alt="iPhone 6"/>

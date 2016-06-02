@@ -5,10 +5,10 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: rem-calc(600);
+  margin-top: rem-calc(650);
   transform: translateX(-50%);
   min-width: rem-calc(750);
-  @media screen and (min-width: 425px) { margin-top: rem-calc(620); }
+  @media screen and (min-width: 425px) { margin-top: rem-calc(600); }
   @media screen and (min-width: 530px) { margin-top: rem-calc(520); }
   @include respond-to(xs) {
     margin-top: rem-calc(520);
@@ -24,7 +24,7 @@
   &__inner {
     position: relative;
     height: 0;
-    padding-bottom: percentage(812.6 / 1440);
+    padding-bottom: percentage(671 / 1440);
   }
   img {
     position: absolute;

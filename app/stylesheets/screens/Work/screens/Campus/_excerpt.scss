@@ -1,4 +1,21 @@
 .excerpt {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1100ms ease, transform 1100ms ease;
+  .campus-hero & {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1100ms ease, transform 1100ms ease;
+  }
+  .campus-hero--loaded &--fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 400ms;
+  }
+  &--fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+  }
   &-container {
     overflow: hidden;
   }
