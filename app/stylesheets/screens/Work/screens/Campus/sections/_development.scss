@@ -3,7 +3,7 @@
   margin-top: rem-calc(225);
   padding-bottom: rem-calc(80);
   text-align: center;
-  @include hero("../images/work/campus/development/development.jpg");
+  @include hero("https://s3.amazonaws.com/underbelly/website/work/campus/development/development.jpg");
   @include respond-to(sm) {
     margin-top: rem-calc(390);
   }
