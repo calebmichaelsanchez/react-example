@@ -1,0 +1,197 @@
+.squarespace {
+  position: relative;
+  margin-top: rem-calc(50);
+  @include respond-to(sm) { margin-top: rem-calc(80);  }
+  @include respond-to(md) { margin-top: rem-calc(100); }
+  &__item-img { margin-bottom: rem-calc(25); }
+  &__item-laptop {
+    padding: rem-calc(50) rem-calc(16) rem-calc(50);
+    position: relative;
+    text-align: center;
+    max-width: rem-calc(1440);
+    margin-left: auto;
+    margin-right: auto;
+    img { max-width: 90%; }
+    @include respond-to(sm) {
+      padding-bottom: rem-calc(80);
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include respond-to(sm) { padding-bottom: rem-calc(100); }
+  }
+  &__parallax {
+    width: rem-calc($splat-ss-width * .5);
+    height: rem-calc($splat-ss-height * .5);
+    position: absolute;
+    top: rem-calc(-144);
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-50%);
+    @include respond-to(sm) {
+      width: rem-calc($splat-ss-width * .7);
+      height: rem-calc($splat-ss-height * .7);
+    }
+    @include respond-to(md) {
+      width: rem-calc($splat-ss-width);
+      height: rem-calc($splat-ss-height);
+    }
+    &__item {
+      position: relative;
+      height: 0;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__container {
+      position: absolute;
+      display: block;
+      &--js0 {
+        width: percentage(15.52 / 1300);
+        height: percentage(16.61 / 960);
+        left: percentage( 0 / $splat-ss-width);
+        top: percentage( 128 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(16.61 / 15.52); }
+      }
+      &--close0-red {
+        width: percentage(43.65 / 1300);
+        height: percentage(37.98 / 960);
+        left: percentage( 184 / $splat-ss-width);
+        top: percentage( 0 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(37.98 / 43.65); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--close1-red {
+        width: percentage(43.65 / 1300);
+        height: percentage(37.98 / 960);
+        left: percentage( 935 / $splat-ss-width);
+        top: percentage( 931 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(37.98 / 43.65); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--react0 {
+        width: percentage(53.91 / 1300);
+        height: percentage(15.77 / 960);
+        left: percentage( 1263 / $splat-ss-width);
+        top: percentage( 618 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(15.77 / 53.91); }
+      }
+      &--paren0 {
+        width: percentage(17.85 / 1300);
+        height: percentage(33.97 / 960);
+        left: percentage( 1235 / $splat-ss-width);
+        top: percentage( 218 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(33.97 / 17.85); }
+      }
+      &--semi0-red {
+        width: percentage(5.46 / 1300);
+        height: percentage(20.55 / 960);
+        left: percentage( 129 / $splat-ss-width);
+        top: percentage( 622 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(20.55 / 5.46); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--leftcurl-red {
+        width: percentage(11.95 / 1300);
+        height: percentage(39.61 / 960);
+        left: percentage( 278/ $splat-ss-width);
+        top: percentage(481 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(39.61 / 11.95); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--head {
+        width: percentage(51.51 / 1300);
+        height: percentage(12.03 / 960);
+        left: percentage( 406 / $splat-ss-width);
+        top: percentage( 212 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(12.03 / 51.51); }
+      }
+      &--js1 {
+        width: percentage(15.52 / 1300);
+        height: percentage(16.59 / 960);
+        left: percentage( 1239 / $splat-ss-width);
+        top: percentage( 845 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(16.59 / 15.52); }
+      }
+      &--divclose-red {
+        width: percentage(65.65 / 1300);
+        height: percentage(16.93 / 960);
+        left: percentage( 242 / $splat-ss-width);
+        top: percentage( 860 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(16.93 / 65.65); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--semi1-red {
+        width: percentage(5.46 / 1300);
+        height: percentage(20.55 / 960);
+        left: percentage( 11 / $splat-ss-width);
+        top: percentage( 860 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(20.55 / 5.46); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--function {
+        width: percentage(38.62 / 1300);
+        height: percentage(8.48 / 960);
+        left: percentage( 589 / $splat-ss-width);
+        top: percentage( 727 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(8.48 / 38.62); }
+      }
+      &--semi2 {
+        width: percentage(5.46 / 1300);
+        height: percentage(23.15 / 960);
+        left: percentage( 705 / $splat-ss-width);
+        top: percentage( 102 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(23.15 / 5.46); }
+      }
+      &--div {
+        width: percentage(45.53 / 1300);
+        height: percentage(14.26 / 960);
+        left: percentage( 967 / $splat-ss-width);
+        top: percentage( 167 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(14.26 / 45.53); }
+      }
+      &--rightcurl-red {
+        width: percentage(9 / 1300);
+        height: percentage(29.72 / 960);
+        left: percentage( 974 / $splat-ss-width);
+        top: percentage( 341 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(29.72 / 9); }
+        svg .cls-2 { fill: $splat-ss-red; }
+      }
+      &--paren1 {
+        width: percentage(17.89 / 1300);
+        height: percentage(33.96 / 960);
+        left: percentage( 40 / $splat-ss-width);
+        top: percentage( 441 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(33.96 / 17.89); }
+      }
+      &--semi3 {
+        width: percentage(5.46 / 1300);
+        height: percentage(23.15 / 960);
+        left: percentage( 1143 / $splat-ss-width);
+        top: percentage( 441 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(23.15 / 5.46); }
+      }
+      &--react1 {
+        width: percentage(53.87 / 1300);
+        height: percentage(15.8 / 960);
+        left: percentage( 130 / $splat-ss-width);
+        top: percentage( 347 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(15.8 / 53.87); }
+      }
+      &--js2 {
+        width: percentage(15.52 / 1300);
+        height: percentage(16.62 / 960);
+        left: percentage( 898 / $splat-ss-width);
+        top: percentage( 634 / $splat-ss-height);
+        .squarespace__parallax__item { padding-bottom: percentage(16.62 / 15.52); }
+      }
+    }
+  }
+}
+
+

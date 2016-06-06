@@ -42,7 +42,7 @@ class Deck extends Component {
     }
   }
   update() {
-    let { viewportHeight, windowWidth }  = this.props,
+    let { viewportHeight, windowWidth } = this.props,
         { transformThreeD, position } = helpers,
         deckTop    = this.dimensions.top,
         deckBottom = this.dimensions.bottom,
