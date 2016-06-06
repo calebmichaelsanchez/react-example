@@ -90,7 +90,7 @@
     }
     &:nth-child(1) {
       display: none;
-      top: percentage(120 / 550);
+      top: percentage(180 / 550);
       left: 50%;
       transform: translateX(-50%);
       @include respond-to(xs) { display: inline-block; }

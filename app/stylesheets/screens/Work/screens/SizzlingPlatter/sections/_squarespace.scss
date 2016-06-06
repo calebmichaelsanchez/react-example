@@ -7,6 +7,11 @@
   &__item-laptop {
     padding: rem-calc(50) rem-calc(16) rem-calc(50);
     position: relative;
+    text-align: center;
+    max-width: rem-calc(1440);
+    margin-left: auto;
+    margin-right: auto;
+    img { max-width: 90%; }
     @include respond-to(sm) {
       padding-bottom: rem-calc(80);
       padding-left: 0;
