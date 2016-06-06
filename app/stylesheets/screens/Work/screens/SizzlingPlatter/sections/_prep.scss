@@ -19,7 +19,7 @@
     z-index: 2;
   }
   &:after {
-    background: url("../images/work/sizzling-platter/prep/shrooms-left.png") left bottom no-repeat;
+    background: url("https://s3.amazonaws.com/underbelly/website/work/sizzling-platter/prep/shrooms-left.png") left bottom no-repeat;
     background-position: -42% 105%;
     background-size: 55% auto;
     @media screen and (min-width: 425px) {
@@ -40,7 +40,7 @@
     }
   }
   &:before {
-    background: url("../images/work/sizzling-platter/prep/shrooms-right.png") right bottom no-repeat;
+    background: url("https://s3.amazonaws.com/underbelly/website/work/sizzling-platter/prep/shrooms-right.png") right bottom no-repeat;
     background-position: 121.5% 102.5%;
     background-size: 40% auto;
     @media screen and (min-width: 425px) {
