@@ -1,0 +1,78 @@
+$splat-primary: #fff;
+$splat-secondary: #101012;
+$splat-borders: #898c8c;
+$splat-red: #B54A49;
+$splat-xs: 760px;
+$splat-sm: 940px;
+$splat-md: 1200px;
+$splat-lg: 1440px;
+$splat-ss-width: 1300;
+$splat-ss-height: 960;
+$splat-ss-red: #C62A20;
+$splat-font-family: 'Lato';
+$splat-lato-light: 300;
+
+.sizzling-platter {
+  background-color: #f7f7f7;
+  font-family: $splat-font-family;
+  font-weight: $splat-lato-light;
+
+  @import "./sections/prep";
+  @import "./sections/patterns";
+  @import "./sections/ingredients";
+  @import "./sections/designDev";
+  @import "./sections/squarespace";
+
+  [class$="container"] {
+    margin: 0 auto;
+    @include respond-to(xs) {max-width: $splat-xs;}
+    @include respond-to(sm) {max-width: $splat-sm; padding-left: 0; padding-right: 0;}
+    @include respond-to(md) {max-width: $splat-md;}
+    @include respond-to(lg) {max-width: $splat-lg;}
+  }
+  h1 {
+    font-weight: $splat-lato-light;
+    text-transform: uppercase;
+    margin-bottom: rem-calc(25);
+    line-height: 1.5;
+  }
+
+  p {
+    font-weight: $splat-lato-light;
+    max-width: rem-calc(650);
+    color: #343030;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: rem-calc(25);
+    padding-left: rem-calc(16);
+    padding-right: rem-calc(16);
+    &:last-of-type { margin-bottom: 0; }
+    @include respond-to(sm) { padding-left: 0; padding-right: 0; }
+  }
+
+  .button {
+    display: inline-block;
+    font-weight: $splat-lato-light;
+    text-align: center;
+    border-radius: rem-calc(25);
+    color: #f7f7f7;
+    background-color: #C62A20;
+    font-size: rem-calc(24);
+    padding: rem-calc(10) rem-calc(36) rem-calc(12);
+    transition: 400ms ease;
+    margin-top: rem-calc(40);
+    box-shadow: 0 3px 25px 0 rgba(0, 0, 0, .15);
+  }
+}
+
+[class^="fadeInUp"] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1100ms ease, transform 1100ms ease;
+  &.fadeInUp--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@import "./sections/hero";

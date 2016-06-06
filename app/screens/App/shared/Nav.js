@@ -18,7 +18,6 @@ class Nav extends Component {
 		this.handleTheme      = this.handleTheme.bind(this);
 		this.toggleOpen       = this.toggleOpen.bind(this);
 		this.update           = this.update.bind(this);
-		this.requestTick			= this.requestTick.bind(this);
 	}
 	componentDidMount() {
 		this.lastKnownScroll = 0;
@@ -41,9 +40,6 @@ class Nav extends Component {
 	}
 	onScroll() {
 		this.lastKnownScroll = window.pageYOffset;
-		this.requestTick();
-	}
-	requestTick() {
 		if(!this.ticking) {
 			window.requestAnimFrame(this.update);
 			this.ticking = true;

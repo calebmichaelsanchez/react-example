@@ -1,0 +1,68 @@
+.ingredients {
+  background: #040203;
+  text-align: center;
+  padding-top: rem-calc(50);
+  @include respond-to(sm) { padding-top: rem-calc(80); }
+  @include respond-to(md) { padding-top: rem-calc(100); }
+  @include respond-to(lg) { padding-top: rem-calc(180); }
+  h1, p { color: #fff; }
+  &-hero {
+    background: #040203;
+    @include hero('../images/work/sizzling-platter/ingredients/bg.jpg');
+    background-position: center 25%;
+    padding: 25% 0 rem-calc(400);
+    min-height: rem-calc(450);
+    @include respond-to(sm) {
+      padding-top: 0;
+      min-height: rem-calc(750);
+    }
+    @include respond-to(lg) { min-height: rem-calc(950); }
+  }
+  &-gallery {
+    font-size: 0;
+    text-align: justify;
+    max-width: none;
+    &:after {
+      content: "";
+      width: 100%;
+      height: 0;
+      display: inline-block;
+    }
+    &__item, & img {
+      display: inline-block;
+      width: 100%;
+      margin-top: rem-calc(1);
+      overflow: hidden;
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        display: none;
+        @include respond-to(sm) {
+          display: inline-block;
+        }
+      }
+      &-inner {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        transition: transform 600ms ease;
+        .no-touchevents &:hover { transform: scale(1.1); transition: transform 10s ease; }
+      }
+
+      @include respond-to(sm) {
+        width: calc(50% - .5px);
+        margin-right: calc(0% + 1px);
+        margin-top: calc(0% + 1px);
+        &:nth-of-type(2n + 2) { margin-right: 0; }
+      }
+      @include respond-to(md) {
+        width: calc(25% - .75px);
+        margin-right: calc(0% + 1px);
+        &:nth-of-type(2n + 2) { margin-right: calc(0% + 1px); }
+        &:last-of-type { margin-right: 0; }
+      }
+    }
+  }
+}

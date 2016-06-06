@@ -79,41 +79,51 @@
 		padding-top: 5.625rem;
 	}
 }
-.see-more-container {
+.see-more{
 	position: relative;
 	padding: 0;
-}
-.see-more-item {
-	position: relative;
-	overflow: hidden;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 0;
-	padding-bottom: 40%;
-	transition: background-position 0.2s ease;
-	.no-touchevents &:hover {
-		background-position: center -40px;
-		transition: background-position 0.4s ease;
-		.see-more-title {
-			transform: translateY(-100%);
-			transition: transform 0.4s 0.08s ease;
+	&__title {
+		@extend .h1;
+		display: block;
+		width: 100%;
+		padding-top: rem-calc(25);
+		padding-bottom: rem-calc(25);
+		background-color: color(white);
+		color: color(black);
+		text-align: center;
+	}
+	&__item {
+		position: relative;
+		overflow: hidden;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 0;
+		padding-bottom: 40%;
+		transition: background-position 0.2s ease;
+		&-title {
+			position: absolute;
+			width: 100%;
+			background-color: color(white);
+			top: 100%;
+			left: 0;
+			padding: 1.25rem;
+			text-align: center;
+			color: color(blue-secondary);
+			@extend .p;
+			z-index: 3;
+			transition: transform 0.2s 0.04s ease;
+		}
+		.no-touchevents &:hover {
+			background-position: center -40px;
+			transition: background-position 0.4s ease;
+			.see-more__item-title {
+				transform: translateY(-100%);
+				transition: transform 0.4s 0.08s ease;
+			}
+		}
+		@media screen and (min-width: $medium) {
+			padding-bottom: 18%;
 		}
 	}
-	@media screen and (min-width: $medium) {
-		padding-bottom: 18%;
-	}
-}
-.see-more-title {
-	position: absolute;
-	width: 100%;
-	background-color: color(white);
-	top: 100%;
-	left: 0;
-	padding: 1.25rem;
-	text-align: center;
-	color: color(blue-secondary);
-	@extend .p;
-	z-index: 3;
-	transition: transform 0.2s 0.04s ease;
 }

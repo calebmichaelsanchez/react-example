@@ -1,0 +1,33 @@
+.design-dev {
+  text-align: center;
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(50);
+  overflow: hidden;
+  &__item { margin-bottom: rem-calc(40); }
+  @include respond-to(sm) {
+    background-image: url('../images/work/sizzling-platter/design-dev/bg-left-tablet.png'),
+    url('../images/work/sizzling-platter/design-dev/bg-right-tablet.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 50px, 100% 50px;
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(80);
+  }
+
+  @include respond-to(md) {
+    background-image: url('../images/work/sizzling-platter/design-dev/bg-left-desktop.png'),
+    url('../images/work/sizzling-platter/design-dev/bg-right-desktop.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 25px, 100% 25px;
+    padding-top: rem-calc(100);
+    padding-bottom: rem-calc(100);
+  }
+
+  @include respond-to(lg) {
+    background-image: url('../images/work/sizzling-platter/design-dev/design-dev-bg-left.png'),
+    url('../images/work/sizzling-platter/design-dev/design-dev-bg-right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 0;
+    padding-top: rem-calc(180);
+    padding-bottom: rem-calc(180);
+  }
+}

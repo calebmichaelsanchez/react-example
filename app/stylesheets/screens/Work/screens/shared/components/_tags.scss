@@ -29,6 +29,17 @@
       }
     }
   }
+  &--splat {
+    margin-top: rem-calc(25);
+    .tag {
+      font-size: rem-calc(14);
+      border: 1px solid #B54A49;
+      color: #B54A49;
+      @include respond-to(sm) {
+        font-size: rem-calc(16);
+      }
+    }
+  }
 }
 .tag {
   display: inline-block;

@@ -13,7 +13,8 @@ module.exports = {
 			require('./screens/Nsac'),
 			require('./screens/RentTree'),
 			require('./screens/Traxion'),
-			require('./screens/RunItOnce')
+			require('./screens/RunItOnce'),
+			require('./screens/SizzlingPlatter')
 		])
 	},
 
