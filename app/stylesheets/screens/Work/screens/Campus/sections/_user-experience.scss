@@ -1,33 +1,32 @@
 .user-experience {
-  margin-top: rem-calc(145);
-  padding-top: rem-calc(16);
-  padding-bottom: rem-calc(80);
-  @include respond-to(sm) {
-    margin-top: rem-calc(125);
-    padding-bottom: rem-calc(160);
-  }
-  @include respond-to(md) {
-    margin-top: rem-calc(0);
-    padding-bottom: rem-calc(340);
-  }
-  @include respond-to(lg) {
-    margin-top: rem-calc(0);
-    padding-bottom: rem-calc(270);
-  }
+  margin-top: rem-calc(80 - 55);
+  @include respond-to(sm) { margin-top: rem-calc(160 - 55); }
+  //@include respond-to(md) { margin-top: rem-calc(250); }
 }
 .site-map {
+  width: 100%;
+  position: relative;
+  min-width: rem-calc(750);
+  left: 50%;
+  transform: translateX(-50%);
   max-width: rem-calc(960);
   margin-left: auto;
   margin-right: auto;
   margin-top: rem-calc(40);
+  padding-left: 1rem;
+  padding-right: 1rem;
   @include respond-to(sm) {
     margin-top: rem-calc(80);
   }
   @include respond-to(md) {
-    max-width: 80%;
+    width: 90%;
+    min-width: initial;
+    left: 0;
+    transform: none;
+    max-width: rem-calc(1200);
+    padding-left: 0;
+    padding-right: 0;
   }
-  text-align: center;
-  padding: 1rem;
   svg {
     width: 100%;
     display: inline-block;

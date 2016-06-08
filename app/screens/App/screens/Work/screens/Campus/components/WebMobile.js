@@ -46,7 +46,7 @@ class WebMobile extends Component {
   }
   update() {
     let { viewportHeight } = this.props,
-        { position, transformThreeD } = helpers,
+        { position, transformThreeD, transformRotate } = helpers,
         iconsHeight = this.elementHeight,
         iconsTop    = this.elementDimensions.top,
         iconsBottom = this.elementDimensions.bottom,
@@ -69,6 +69,17 @@ class WebMobile extends Component {
       transformThreeD(this.iconsArray[9],  "0", "px", position(0, 150, slowest,   0), "px", 0, "px");
       transformThreeD(this.iconsArray[10], "0", "px", position(0, 150, relativeY, 0), "px", 0, "px");
       transformThreeD(this.iconsArray[11], "0", "px", position(0, 150, fastest,   0), "px", 0, "px");
+
+      transformRotate(this.iconsArray[0].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[1].children[0],  position(-20, 20, fastest,   0));
+      transformRotate(this.iconsArray[2].children[0],  position(-20, 20, fastest,   0));
+      transformRotate(this.iconsArray[3].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[4].children[0],  position(-20, 20, slowest,   0));
+      transformRotate(this.iconsArray[7].children[0],  position(20, -20, slowest,   0));
+      transformRotate(this.iconsArray[8].children[0],  position(20, -20, middle,    0));
+      transformRotate(this.iconsArray[9].children[0],  position(20, -20, slowest,   0));
+      transformRotate(this.iconsArray[10].children[0], position(20, -20, relativeY, 0));
+      transformRotate(this.iconsArray[11].children[0], position(20, -20, fastest,   0));
     }
     this.ticking = false;
   }
@@ -88,7 +99,7 @@ class WebMobile extends Component {
     }
   }
   render() {
-    let img = require("../../../../../../../images/work/campus/web-mobile/phone.png");
+    let { phone } = this.props.webMobile;
     let icons = [
       { name: "pen"        , svg: require("../../../../../../../images/work/campus/icons/illo-pen.svg") },
       { name: "calendar"   , svg: require("../../../../../../../images/work/campus/icons/illo-calendar.svg") },
@@ -110,6 +121,7 @@ class WebMobile extends Component {
           excerpt={[
             "Our research focused on the primary audience targeted for The Campus — prospective and current college students. We ultimately determined most users would be using the service via mobile devices, so we chose a “mobile first” approach. The benefit of this approach is two fold. First, it gets the app in the hands of users faster. Secondly, it allowed us to work more efficiently and focused."
           ]}
+          viewportHeight={this.props.viewportHeight}
         />
         <div className="campus-icons">
           {icons.map((icon) => {
@@ -124,9 +136,7 @@ class WebMobile extends Component {
             )
           })}
         </div>
-        <div className="web-mobile-iphone">
-          <img src={img} />
-        </div>
+        <div className="web-mobile-iphone"><img src={phone} /></div>
       </section>
     )
   }

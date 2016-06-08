@@ -1,34 +1,27 @@
 .illustrations {
   margin-top: rem-calc(80);
-  margin-bottom: rem-calc(295);
-  @include respond-to(sm) {
-    margin-top: rem-calc(160);
-    margin-bottom: rem-calc(390);
-  }
-  @include respond-to(lg) { margin-top: rem-calc(230); }
+  @include respond-to(sm) { margin-top: rem-calc(160); }
+  @include respond-to(lg) { margin-top: rem-calc(250); }
 }
 .illustration-image {
   position: relative;
+  display: block;
   max-width: rem-calc(1024);
   margin-top: rem-calc(80);
   margin-left: auto;
   margin-right: auto;
   &__item {
-    transition: opacity 1.5s ease;
+    position: relative;
+    display: block;
+    transform: translateZ(0);
     &--one {
       opacity: 1;
-      .illustration--active & {
-        opacity: 0.02;
-      }
     }
     &--two {
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
-      .illustration--active & {
-        opacity: 1;
-      }
     }
   }
 }

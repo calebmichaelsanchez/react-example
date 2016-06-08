@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import Excerpt from "../shared/Excerpt";
+import classNames from "classnames";
 
 class Features extends Component {
   constructor(props) {
@@ -9,8 +10,17 @@ class Features extends Component {
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
     this.update   = this.update.bind(this);
+    this.isTouch  = this.isTouch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
+    this.state = {
+      touch: null,
+      isPlaying: false
+    }
   }
   componentDidMount() {
+    this.isTouch();
+
     this.ticking    = false;
     this.element    = findDOMNode(this.refs.video);
     this.video      = document.querySelector("video");
@@ -23,13 +33,37 @@ class Features extends Component {
     window.removeEventListener("scroll", this.onScroll, false);
     window.removeEventListener("resize", this.onResize, false);
   }
+  isTouch() {
+    let html = document.documentElement;
+    if (html.classList.contains("no-touchevents")) {
+      this.setState({ touch: false });
+    } else {
+      this.setState({ touch: true });
+    }
+  }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
-    window.requestAnimFrame(this.update);
+    if (!this.ticking) {
+      window.requestAnimFrame(this.update);
+      this.ticking = true;
+    }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
-    window.requestAnimFrame(this.update);
+    if (!this.ticking) {
+      window.requestAnimFrame(this.update);
+      this.ticking = true;
+    }
+  }
+  handleClick() {
+    let { touch, isPlaying } = this.state;
+    if (touch && !isPlaying) {
+      this.video.play();
+      this.setState({ isPlaying: true });
+    } else if (touch && isPlaying) {
+      this.video.currentTime = 0;
+      this.video.play();
+    }
   }
   update() {
     let { viewportHeight } = this.props,
@@ -37,20 +71,19 @@ class Features extends Component {
         bottom  = this.dimensions.bottom,
         context = (top - viewportHeight) * -1;
 
-    if (context >= viewportHeight * .25 && bottom >= viewportHeight * .6) {
+    if (context >= viewportHeight * .25 && bottom >= viewportHeight * .6 && !this.state.touch) {
       this.video.play();
-    } else if (context <= 0 || bottom <= 0) {
+    } else if (context <= 0 || bottom <= 0 && !this.state.touch) {
       this.video.pause();
       this.video.currentTime = 0;
     }
+    this.ticking = false;
   }
   render() {
-    let img = require("../../../../../../../images/work/campus/features/device.png"),
-        video = {
-          one: require("../../../../../../../images/work/campus/features/video.mp4"),
-          two: require("../../../../../../../images/work/campus/features/video.ogv"),
-          three: require("../../../../../../../images/work/campus/features/video.webm")
-        };
+    let isPlaying = classNames({
+      'playing': this.state.isPlaying,
+    });
+    let { device, screen, video } = this.props.features;
     return (
        <section className="features">
         <div className="features__item">
@@ -58,14 +91,15 @@ class Features extends Component {
             title="FEATURES"
             position="left"
             excerpt={[
-              "The primary goal of The Campus was to allow users quickly and effectively find, filter and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding and overwhelming user experience."
+              "The primary goal of The Campus was to allow users to quickly and effectively find, filter, and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding an overwhelming user experience."
             ]}
+            viewportHeight={this.props.viewportHeight}
           />
           <div className="features-img">
-            <img src={img} alt="iPhone 6"/>
-            <div ref="video" className="video">
+            <img src={device} alt="iPhone 6"/>
+            <div ref="video" className={`video ${isPlaying}`} onClick={this.handleClick}>
               <div className="video__inner">
-                <video>
+                <video poster={screen}>
                   <source src={video.one} />
                   <source src={video.two} />
                   <source src={video.three} />

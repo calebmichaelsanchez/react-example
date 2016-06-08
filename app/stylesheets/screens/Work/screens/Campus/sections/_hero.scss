@@ -1,21 +1,25 @@
 .campus-hero {
   position: relative;
-  @include hero("../images/work/campus/hero/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center bottom;
   height: rem-calc(213);
-  //height: 45vh;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  &--loaded {
+    opacity: 1;
+  }
   @include respond-to(sm) {
     height: rem-calc(510);
-    //height: 50vh;
   }
   @include respond-to(md) {
-    background-position: center bottom;
     height: rem-calc(680);
-    //height: 80vh;
   }
   @include respond-to(lg) {
-    background-position: center bottom;
-    height: rem-calc(960);
-    //height: 80vh;
+    background-position: center center;
+    height: rem-calc(720);
+  }
+  @media screen and (min-width: 1800px) {
+    background-position: center 80%;
   }
 }

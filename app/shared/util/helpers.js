@@ -6,10 +6,13 @@ let helpers = {
 		  		e.style.transform = "translate3d(" + x + xUnit + ", " + y + yUnit + ", " + z + zUnit + ")";
 	},
   transformRotate: function(e, value) {
-    e.style.webkitTransform = "rotate(" + value + "deg)";
-       e.style.MozTransform = "rotate(" + value + "deg)";
-         e.style.OTransform = "rotate(" + value + "deg)";
-          e.style.transform = "rotate(" + value + "deg)";
+    e.style.webkitTransform = "rotate(" + value + "deg) translateZ(0)";
+       e.style.MozTransform = "rotate(" + value + "deg) translateZ(0)";
+         e.style.OTransform = "rotate(" + value + "deg) translateZ(0)";
+          e.style.transform = "rotate(" + value + "deg) translateZ(0)";
+  },
+  transformOpacity: function(e, value) {
+    e.style.opacity = value;
   },
 	toDollars: function(x) {
     if (x === 0) { return '0.00' }

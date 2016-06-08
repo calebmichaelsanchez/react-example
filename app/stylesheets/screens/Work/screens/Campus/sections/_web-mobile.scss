@@ -1,34 +1,21 @@
 .web-mobile {
   position: relative;
-  margin-top: rem-calc(200);
+  margin-top: rem-calc(248);
   @include respond-to(sm) { margin-top: rem-calc(160); }
   @include respond-to(md) { margin-top: rem-calc(250); }
-  @include respond-to(lg) { margin-top: rem-calc(290); }
   overflow: hidden;
   &-iphone {
     position: relative;
     max-width: rem-calc(1200);
-    margin-top: rem-calc(300);
     margin-left: auto;
     margin-right: auto;
-    @media screen and (min-width: 375px) {
-      margin-top: rem-calc(350);
-    }
-    @media screen and (min-width: 425px) {
-      margin-top: rem-calc(400);
-    }
-    @media screen and (min-width: 520px) {
-      margin-top: rem-calc(450);
-    }
-    @include respond-to(xs) {
-      margin-top: rem-calc(480);
-    }
-    @include respond-to(sm) {
-      margin-top: rem-calc(550);
-    }
-    @include respond-to(md) {
-      margin-top: rem-calc(650);
-    }
+    margin-top: rem-calc(300);
+    @media screen and (min-width: 375px) { margin-top: rem-calc(350); }
+    @media screen and (min-width: 425px) { margin-top: rem-calc(400); }
+    @media screen and (min-width: 520px) { margin-top: rem-calc(450); }
+    @include respond-to(xs) { margin-top: rem-calc(480); }
+    @include respond-to(sm) { margin-top: rem-calc(550); }
+    @include respond-to(md) { margin-top: rem-calc(650); }
   }
 }
 .campus-icons {
@@ -119,8 +106,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      // width: 100%;
-      // height: 100%;
     }
   }
 }

@@ -1,17 +1,45 @@
-$top: percentage(570 / 960);
 .the-need {
   position: absolute;
   width: 100%;
-  top: 0;
+  top: percentage(138 / 213);
   left: 50%;
-  transform: translate3d(-50%, 138px, 0);
+  transform: translate3d(-50%, 0, 0);
+  z-index: 5;
   @include respond-to(sm) {
-    transform: translate3d(-50%, 333px, 0);
+    top: percentage(333 / 510);
   }
   @include respond-to(md) {
-    transform: translate3d(-50%, 409px, 0);
+    top: percentage(409 / 680);
   }
   @include respond-to(lg) {
-    transform: translate3d(-50%, 570px, 0);
+    top: percentage(323 / 720);
+  }
+  .excerpt {
+    &-intrinsic {
+      width: 40%;
+      max-width: rem-calc(170);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: rem-calc(40);
+      @include respond-to(md) {
+        max-width: rem-calc(200);
+        margin-bottom: rem-calc(80);
+      }
+      @include respond-to(lg) {
+        max-width: rem-calc(243);
+      }
+      &__inner {
+        position: relative;
+        height: 0;
+        padding-bottom: percentage(243.724 / 242.628);
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 }

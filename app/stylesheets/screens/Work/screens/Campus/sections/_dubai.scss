@@ -1,28 +1,35 @@
 .dubai {
+  position: relative;
+  top: 0;
+  left: 50%;
   width: 100%;
-  margin-top: rem-calc(620);
-  @media screen and (min-width: 425px) {
-    margin-top: rem-calc(450);
-  }
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem-calc(650);
+  transform: translateX(-50%);
+  min-width: rem-calc(750);
+  @media screen and (min-width: 425px) { margin-top: rem-calc(600); }
+  @media screen and (min-width: 530px) { margin-top: rem-calc(520); }
   @include respond-to(xs) {
-    margin-top: rem-calc(320);
+    margin-top: rem-calc(520);
+    left: 0;
+    transform: none;
   }
-  @include respond-to(sm) {
-    margin-top: rem-calc(280);
-  }
+  @include respond-to(sm) { margin-top: rem-calc(480); }
   @include respond-to(md) {
-    margin-top: rem-calc(160);
+    max-width: rem-calc(1200);
+    margin-top: rem-calc(430);
   }
-  @include respond-to(lg) {
-    margin-top: rem-calc(50);
-  }
+  @include respond-to(lg) { margin-top: rem-calc(350); }
   &__inner {
     position: relative;
     height: 0;
-    padding-bottom: percentage(756 / 1440);
+    padding-bottom: percentage(671 / 1440);
   }
-  svg {
+  img {
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
   }

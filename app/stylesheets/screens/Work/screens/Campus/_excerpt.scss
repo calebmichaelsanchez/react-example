@@ -1,13 +1,28 @@
 .excerpt {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1100ms ease, transform 1100ms ease;
+  .campus-hero & {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1100ms ease, transform 1100ms ease;
+  }
+  .campus-hero--loaded &--fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 400ms;
+  }
+  &--fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+  }
   &-container {
     overflow: hidden;
   }
+  position: relative;
   width: 100%;
-  max-width: rem-calc(687);
   padding-left: rem-calc(16);
   padding-right: rem-calc(16);
-  margin-left: auto;
-  margin-right: auto;
   // @include span(8 of 16 no-gutters);
   // @include pre(4 of 16);
   &--center {
@@ -20,6 +35,11 @@
       text-align: left;
       margin-left: 0;
     }
+  }
+  &-title, &-content {
+    max-width: rem-calc(650);
+    margin-left: auto;
+    margin-right: auto;
   }
   &-title {
     margin-bottom: rem-calc(25);

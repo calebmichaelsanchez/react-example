@@ -1,5 +1,5 @@
 .features {
-  padding-top: rem-calc(40);
+  padding-top: rem-calc(80);
   position: relative;
   min-height: rem-calc(770);
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3023ae+1,5275da+100 */
@@ -8,28 +8,28 @@
   background: -webkit-linear-gradient(-45deg,  #3023ae 1%,#5275da 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg,  #3023ae 1%,#5275da 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3023ae', endColorstr='#5275da',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  margin-top: rem-calc(80);
   @include respond-to(sm) {
+    margin-top: rem-calc(160);
     padding-top: rem-calc(80);
     min-height: rem-calc(880);
   }
   @include respond-to(md) {
-    padding-top: rem-calc(87);
-    padding-bottom: rem-calc(87);
-    min-height: auto;
-  }
-  @include respond-to(lg) {
-    padding-top: rem-calc(90);
-    padding-bottom: rem-calc(90);
+    margin-top: rem-calc(250);
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(80);
+    min-height: initial;
   }
   &__item {
     position: relative;
-    max-width: rem-calc(1030);
+    max-width: rem-calc(900);
     margin-left: auto;
     margin-right: auto;
     @include respond-to(md) {
       padding-left: 1rem;
     }
     @include respond-to(lg) {
+      max-width: rem-calc(1030);
       padding-left: 0;
     }
   }
@@ -48,8 +48,6 @@
     width: 100%;
     max-width: rem-calc(354);
     margin-top: rem-calc(40);
-    // padding-left: rem-calc(32);
-    // padding-right: rem-calc(32);
     transform: translateX(50%);
     video {
       position: absolute;
@@ -65,7 +63,7 @@
       top: 50%;
       right: 1rem;
       margin-top: 0;
-      transform: translateY(-50%);
+      transform: translateY(-48.5%);
     }
     @include respond-to(lg) {
       right: 0;
@@ -78,6 +76,22 @@
   left: percentage(114 / 778);
   width: percentage(554 / 778);
   height: percentage(985 / 1440);
+  .touchevents &.playing .video__overlay {
+    opacity: 0;
+  }
+  .touchevents &__overlay {
+    display: block;
+    position: absolute;
+    top: percentage(200 / 1440);
+    left: percentage(114 / 778);
+    width: percentage(554 / 778);
+    height: percentage(985 / 1440);
+    background: url("../images/work/campus/features/play.png") no-repeat center center;
+    background-size: 80px 80px;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 600ms ease;
+  }
   &__inner {
     position: relative;
     height: 0;
