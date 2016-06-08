@@ -16,7 +16,7 @@ import RentTree    from '../screens/App/screens/Work/screens/RentTree';
 import Bountiful   from '../screens/App/screens/Work/screens/Bountiful';
 import Nsac        from '../screens/App/screens/Work/screens/Nsac';
 import RunItOnce   from '../screens/App/screens/Work/screens/RunItOnce/';
-import Splat from '../screens/App/screens/Work/screens/SizzlingPlatter';
+import Splat       from '../screens/App/screens/Work/screens/SizzlingPlatter';
 import NoMatch     from '../screens/App/screens/NoMatch/components/NoMatch';
 
 const routes = (
