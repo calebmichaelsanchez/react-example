@@ -3,7 +3,7 @@ import Excerpt from "../shared/Excerpt";
 
 class UserExperience extends Component {
   render() {
-    let siteMap = require("../../../../../../../images/work/campus/user-experience/site-map-01.svg");
+    let siteMap = require("../../../../../../../images/work/campus/user-experience/site-map-animation.svg");
     return (
       <section className="user-experience">
         <Excerpt
