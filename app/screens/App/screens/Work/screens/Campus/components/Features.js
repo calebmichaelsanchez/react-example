@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import ReactDOM, { findDOMNode } from "react-dom";
-import Excerpt from "../shared/Excerpt";
-import classNames from "classnames";
+import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
+import Excerpt from '../shared/Excerpt';
+import classNames from 'classnames';
 
 class Features extends Component {
   constructor(props) {
@@ -14,31 +14,31 @@ class Features extends Component {
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      touch: null,
-      isPlaying: false
-    }
+      'touch': null,
+      'isPlaying': false
+    };
   }
   componentDidMount() {
     this.isTouch();
 
     this.ticking    = false;
     this.element    = findDOMNode(this.refs.video);
-    this.video      = document.querySelector("video");
+    this.video      = document.querySelector('video');
     this.dimensions = {};
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   isTouch() {
     let html = document.documentElement;
-    if (html.classList.contains("no-touchevents")) {
-      this.setState({ touch: false });
+    if (html.classList.contains('no-touchevents')) {
+      this.setState({ 'touch': false });
     } else {
-      this.setState({ touch: true });
+      this.setState({ 'touch': true });
     }
   }
   onScroll() {
@@ -59,19 +59,19 @@ class Features extends Component {
     let { touch, isPlaying } = this.state;
     if (touch && !isPlaying) {
       this.video.play();
-      this.setState({ isPlaying: true });
+      this.setState({ 'isPlaying': true });
     } else if (touch && isPlaying) {
       this.video.currentTime = 0;
       this.video.play();
     }
   }
   update() {
-    let { viewportHeight } = this.props,
-        top     = this.dimensions.top,
-        bottom  = this.dimensions.bottom,
-        context = (top - viewportHeight) * -1;
+    let { viewportHeight } = this.props;
+    let top     = this.dimensions.top;
+    let bottom  = this.dimensions.bottom;
+    let context = (top - viewportHeight) * -1;
 
-    if (context >= viewportHeight * .25 && bottom >= viewportHeight * .6 && !this.state.touch) {
+    if (context >= viewportHeight * 0.25 && bottom >= viewportHeight * 0.6 && !this.state.touch) {
       this.video.play();
     } else if (context <= 0 || bottom <= 0 && !this.state.touch) {
       this.video.pause();
@@ -80,9 +80,7 @@ class Features extends Component {
     this.ticking = false;
   }
   render() {
-    let isPlaying = classNames({
-      'playing': this.state.isPlaying,
-    });
+    let isPlaying = classNames({ 'playing': this.state.isPlaying });
     let { device, screen, video } = this.props.features;
     return (
        <section className="features">
@@ -91,7 +89,7 @@ class Features extends Component {
             title="FEATURES"
             position="left"
             excerpt={[
-              "The primary goal of The Campus was to allow users to quickly and effectively find, filter, and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding an overwhelming user experience."
+              'The primary goal of The Campus was to allow users to quickly and effectively find, filter, and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding an overwhelming user experience.'
             ]}
             viewportHeight={this.props.viewportHeight}
           />
@@ -109,8 +107,13 @@ class Features extends Component {
           </div>
         </div>
        </section>
-    )
+    );
   }
 }
+
+Features.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'features': React.PropTypes.object.isRequired
+};
 
 export default Features;

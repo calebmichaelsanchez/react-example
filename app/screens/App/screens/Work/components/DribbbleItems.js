@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class DribbbleItems extends Component {
   render() {
@@ -7,18 +7,22 @@ class DribbbleItems extends Component {
     return (
       <div className="shot-container">
         {slicedShots.map((shot) => {
-          let style = { backgroundImage: "url(" + shot.images.hidpi + ")" }
+          let style = {'backgroundImage': `url(${shot.images.hidpi})`};
           let link = shot.html_url;
           let title = shot.title;
           return (
-            <a key={title} style={style} className="dribbble-item" href={link} target="_blank" >
+            <a key={title} style={style} className="dribbble-item" href={link} target="_blank">
               <div className="shot-title">{title}</div>
             </a>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
+
+DribbbleItems.propTypes = {
+  'shots': React.PropTypes.array.isRequired
+};
 
 export default DribbbleItems;

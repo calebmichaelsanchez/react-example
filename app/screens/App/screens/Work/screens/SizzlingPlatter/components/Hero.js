@@ -8,26 +8,27 @@ class Hero extends Component {
     this.onImgLoad = this.onImgLoad.bind(this);
 
     this.state = {
-      loaded: false,
-      active: false
-    }
+      'loaded': false,
+      'active': false
+    };
   }
   componentDidMount() {
     let img = document.createElement('img');
-    img.src = this.props.hero.bg;
+    let { bg } = this.props.hero;
+    img.src = bg;
     img.onload = this.onBgLoad;
     this.src = img.src;
   }
   onBgLoad() {
-    this.setState({ loaded: true });
+    this.setState({ 'loaded': true });
   }
   onImgLoad() {
-    this.setState({ active: true });
+    this.setState({ 'active': true });
   }
   render() {
-    let style = { backgroundImage: `url(${this.src})` }
-    let loaded = this.state.loaded ? "hero--splat-loaded" : "";
-    let active = this.state.active ? "hero--splat-active" : "";
+    let style = { 'backgroundImage': `url(${this.src})` };
+    let loaded = this.state.loaded ? 'hero--splat-loaded' : '';
+    let active = this.state.active ? 'hero--splat-active' : '';
     let { hero } = this.props;
     return (
       <div className={`hero--splat ${loaded} ${active}`} ref="heroSplat">
@@ -41,8 +42,12 @@ class Hero extends Component {
           <div className="hero--splat-container__item hero--splat-container__item--last" ><img onLoad={this.onImgLoad} src={hero.three} /></div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+Hero.propTypes = {
+  'hero': React.PropTypes.object.isRequired
+};
 
 export default Hero;

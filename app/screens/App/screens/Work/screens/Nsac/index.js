@@ -8,7 +8,7 @@ class Nsac extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/nsac');
+    window.ga('send', 'pageview', '/making-it-awesome-with/nsac');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -67,23 +67,26 @@ class Nsac extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "rent-tree", title: "RentTree", img: images.seeMore.one },
-            { url: "traxion", title: "Traxion App", img: images.seeMore.two },
-            { url: "aiga", title: "AIGA Salt Lake City 100 Show", img: images.seeMore.three },
-            { url: "fluid", title: "Fluid", img: images.seeMore.four }
+            { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.one },
+            { 'url': 'traxion', 'title': 'Traxion App', 'img': images.seeMore.two },
+            { 'url': 'aiga', 'title': 'AIGA Salt Lake City 100 Show', 'img': images.seeMore.three },
+            { 'url': 'fluid', 'title': 'Fluid', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Nsac.propTypes = {
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  setNavTheme: React.PropTypes.func
+  'name': React.PropTypes.string,
+  'theme': React.PropTypes.string,
+  'setNavTheme': React.PropTypes.func
 };
+
 Nsac.defaultProps = {
-  name: 'nsac',
-  theme: 'dark'
+  'name': 'nsac',
+  'theme': 'dark'
 };
+
 export default Nsac;

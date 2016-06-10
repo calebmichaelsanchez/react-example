@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
-import TagsContainer from "../../../shared/TagsContainer";
+import { findDOMNode } from 'react-dom';
+import TagsContainer from '../../../shared/TagsContainer';
 
 
 class Prep extends Component {
@@ -18,12 +18,12 @@ class Prep extends Component {
 
     this.update();
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -40,14 +40,14 @@ class Prep extends Component {
     }
   }
   update() {
-    let { viewportHeight } = this.props,
-        top = this.dimensions.top,
-        context = (top - viewportHeight) * -1;
+    let { viewportHeight } = this.props;
+    let top = this.dimensions.top;
+    let context = (top - viewportHeight) * -1;
 
-    if (context >= viewportHeight * .1) {
-      this.element.classList.add("fadeInUp--active");
+    if (context >= viewportHeight * 0.1) {
+      this.element.classList.add('fadeInUp--active');
     } else {
-      this.element.classList.remove("fadeInUp--active");
+      this.element.classList.remove('fadeInUp--active');
     }
     this.ticking = false;
   }
@@ -59,12 +59,16 @@ class Prep extends Component {
             <h1>Preparation</h1>
             <p>Sizzling Platter is a conglomerate of several restaurant chains in the great Salt Lake Valley which includes Dunkin’ Donuts, Red Robin, Little Caesars, and Sizzler. The SPLAT team approached Underbelly with the goal of overhauling its corporate website.  Upon initial discussion, it was determined the priorities would be to improve interaction of prospective employees, better illustrate company culture, and share the SPLAT story in a more engaging light.</p>
             <p>The goal for the site was also to simplify the flow of the site so users could easily find pertinent information, whether its contact information or employment opportunities. Additionally, Sizzling Platter wanted to be able to showcase all the current brands, as well as others acquired down the road.</p>
-            <TagsContainer context="splat" tags={[ "Web Design", "Photography", "Development" ]} />
+            <TagsContainer context="splat" tags={['Web Design', 'Photography', 'Development']} />
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+Prep.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired
+};
 
 export default Prep;

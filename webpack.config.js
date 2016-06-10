@@ -17,6 +17,9 @@ module.exports = {
   },
 
   module: {
+    preLoaders: [
+      { test: /\.js$/, loader: "eslint-loader", exclude: '/node_modules/'}
+    ],
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(svg)$/, exclude: /node_modules/, loader: 'raw-loader' },
@@ -62,6 +65,9 @@ module.exports = {
       inject   : 'body',
       filename : 'index.html'
     })
-  ]
-}
+  ],
+  eslint: {
+    configFile: './.eslintrc'
+  }
+};
 

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, defaultProps } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Icon from '../../../shared/icons/Icon';
 
@@ -8,9 +8,10 @@ class ProjectSm extends Component {
     return (
       <Link to={`/making-it-awesome-with/${name}`} className="projects__item projects__item--sm">
         {(() => {
-          if (direction === "left") {
-            return (<div className={`projects__item-image projects__item-image--${name}`}></div>)
+          if (direction === 'left') {
+            return <div className={`projects__item-image projects__item-image--${name}`}></div>;
           }
+          return <div></div>;
         })()}
         <div className={`projects__item-meta projects__item-meta--sm projects__item-meta-indicator--${direction}`}>
           <div>
@@ -22,9 +23,10 @@ class ProjectSm extends Component {
           </div>
         </div>
         {(() => {
-          if (direction === "right") {
-            return (<div className={`projects__item-image projects__item-image--${name}`}></div>)
+          if (direction === 'right') {
+            return <div className={`projects__item-image projects__item-image--${name}`}></div>;
           }
+          return <div></div>;
         })()}
       </Link>
     );
@@ -32,10 +34,10 @@ class ProjectSm extends Component {
 }
 
 ProjectSm.propTypes = {
-  direction : PropTypes.string.isRequired,
-  name      : PropTypes.string.isRequired,
-  title     : PropTypes.string.isRequired,
-  theme     : PropTypes.string.isRequired
-}
+  'direction': PropTypes.string.isRequired,
+  'name': PropTypes.string.isRequired,
+  'title': PropTypes.string.isRequired,
+  'theme': PropTypes.string.isRequired
+};
 
 export default ProjectSm;

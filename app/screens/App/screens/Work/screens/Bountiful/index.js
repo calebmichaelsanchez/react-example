@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
-import { Link } from 'react-router';
 import SeeMore from '../../shared/SeeMore';
 import { images } from './Data';
 
@@ -9,7 +8,7 @@ class Bountiful extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/bountiful-dental');
+    window.ga('send', 'pageview', '/making-it-awesome-with/bountiful-dental');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -76,23 +75,26 @@ class Bountiful extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "fluid", title: "Fluid", img: images.seeMore.one },
-            { url: "hive", title: "Hive", img: images.seeMore.two },
-            { url: "just-family", title: "Just Family", img: images.seeMore.three },
-            { url: "nsac", title: "North Seattle Alliance Church", img: images.seeMore.four }
+            { 'url': 'fluid', 'title': 'Fluid', 'img': images.seeMore.one },
+            { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.two },
+            { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.three },
+            { 'url': 'nsac', 'title': 'North Seattle Alliance Church', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Bountiful.propTypes = {
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  setNavTheme: React.PropTypes.func
+  'name': React.PropTypes.string,
+  'theme': React.PropTypes.string,
+  'setNavTheme': React.PropTypes.func
 };
+
 Bountiful.defaultProps = {
-  name: 'bountiful',
-  theme: 'light'
+  'name': 'bountiful',
+  'theme': 'light'
 };
+
 export default Bountiful;

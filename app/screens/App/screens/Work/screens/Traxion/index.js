@@ -8,7 +8,7 @@ class Traxion extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/traxion');
+    window.ga('send', 'pageview', '/making-it-awesome-with/traxion');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -62,23 +62,26 @@ class Traxion extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "aiga", title: "AIGA Salt Lake City 100 Show", img: images.seeMore.one },
-            { url: "fluid", title: "Fluid", img: images.seeMore.two },
-            { url: "hive", title: "Hive", img: images.seeMore.three },
-            { url: "just-family", title: "Just Family", img: images.seeMore.four }
+            { 'url': 'aiga', 'title': 'AIGA Salt Lake City 100 Show', 'img': images.seeMore.one },
+            { 'url': 'fluid', 'title': 'Fluid', 'img': images.seeMore.two },
+            { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.three },
+            { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Traxion.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  theme: React.PropTypes.string.isRequired,
-  setNavTheme: React.PropTypes.func
-}
+  'name': React.PropTypes.string.isRequired,
+  'theme': React.PropTypes.string.isRequired,
+  'setNavTheme': React.PropTypes.func
+};
+
 Traxion.defaultProps = {
-  name: 'traxion',
-  theme: 'dark'
-}
+  'name': 'traxion',
+  'theme': 'dark'
+};
+
 export default Traxion;

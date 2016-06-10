@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
-import helpers from "../../../../../../../shared/util/helpers";
+import { findDOMNode } from 'react-dom';
+import helpers from '../../../../../../../shared/util/helpers';
 
 class Cards extends Component {
   constructor(props) {
@@ -15,15 +15,15 @@ class Cards extends Component {
     this.element = findDOMNode(this.refs.cards);
     this.height = this.element.clientHeight;
     this.dimensions = {};
-    this.cardsNodes = document.querySelectorAll(".cards-cards__item");
+    this.cardsNodes = document.querySelectorAll('.cards-cards__item');
     this.cardsArray = [...this.cardsNodes];
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -41,15 +41,15 @@ class Cards extends Component {
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props,
-        { transformRotate, position } = helpers,
-        cardsTop    = this.dimensions.top,
-        cardsBottom = this.dimensions.bottom,
-        cardsHeight = this.height,
-        context     = (cardsTop - viewportHeight) * -1,
-        relativeY   = (context / (cardsHeight * 2));
+    let { viewportHeight, windowWidth } = this.props;
+    let { transformRotate, position } = helpers;
+    let cardsTop    = this.dimensions.top;
+    let cardsBottom = this.dimensions.bottom;
+    let cardsHeight = this.height;
+    let context     = (cardsTop - viewportHeight) * -1;
+    let relativeY   = context / (cardsHeight * 2);
 
-    (context >= viewportHeight / (windowWidth >= 1024 ? 1.8 : 2.5)) ? this.element.classList.add("active") : this.element.classList.remove("active");
+    context >= viewportHeight / (windowWidth >= 1024 ? 1.8 : 2.5) ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && cardsBottom >= 0) {
       transformRotate(this.cardsArray[0], position(15,  -15, relativeY, 0));
@@ -74,8 +74,14 @@ class Cards extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+Cards.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'windowWidth': React.PropTypes.number.isRequired,
+  'cards': React.PropTypes.object.isRequired
+};
 
 export default Cards;

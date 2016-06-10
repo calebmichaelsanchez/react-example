@@ -8,7 +8,7 @@ class JustFamily extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/just-family');
+    window.ga('send', 'pageview', '/making-it-awesome-with/just-family');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -75,23 +75,26 @@ class JustFamily extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "nsac", title: "North Seattle Alliance Church", img: images.seeMore.one },
-            { url: "rent-tree", title: "RentTree", img: images.seeMore.two },
-            { url: "traxion", title: "Traxion App", img: images.seeMore.three },
-            { url: "aiga", title: "AIGA Salt Lake City 100 Show", img: images.seeMore.four }
+            { 'url': 'nsac', 'title': 'North Seattle Alliance Church', 'img': images.seeMore.one },
+            { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.two },
+            { 'url': 'traxion', 'title': 'Traxion App', 'img': images.seeMore.three },
+            { 'url': 'aiga', 'title': 'AIGA Salt Lake City 100 Show', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 JustFamily.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  theme: React.PropTypes.string.isRequired,
-  setNavTheme: React.PropTypes.func
-}
+  'name': React.PropTypes.string.isRequired,
+  'theme': React.PropTypes.string.isRequired,
+  'setNavTheme': React.PropTypes.func
+};
+
 JustFamily.defaultProps = {
-  name: 'just-family',
-  theme: 'dark'
-}
+  'name': 'just-family',
+  'theme': 'dark'
+};
+
 export default JustFamily;

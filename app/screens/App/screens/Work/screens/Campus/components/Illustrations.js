@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import ReactDOM, { findDOMNode } from "react-dom";
-import Excerpt from "../shared/Excerpt";
-import helpers from "../../../../../../../shared/util/helpers";
+import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
+import Excerpt from '../shared/Excerpt';
+import helpers from '../../../../../../../shared/util/helpers';
 
 class Illustrations extends Component {
   constructor(props) {
@@ -14,14 +14,14 @@ class Illustrations extends Component {
     this.ticking           = false;
     this.element           = findDOMNode(this.refs.illustration);
     this.dimensions        = {};
-    this.images            = document.querySelectorAll(".illustration-image__item");
+    this.images            = document.querySelectorAll('.illustration-image__item');
     this.imagesArray       = [...this.images];
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -38,16 +38,16 @@ class Illustrations extends Component {
     }
   }
   update() {
-    let { viewportHeight } = this.props,
-        { position } = helpers,
-        items   = this.imagesArray,
-        height  = this.dimensions.height,
-        top     = this.dimensions.top,
-        context = (top - (viewportHeight - (viewportHeight * .5) )) * -1,
-        relativeY = (context / height) * 1.9;
+    let { viewportHeight } = this.props;
+    let { position } = helpers;
+    let items   = this.imagesArray;
+    let height  = this.dimensions.height;
+    let top     = this.dimensions.top;
+    let context = (top - (viewportHeight - viewportHeight * 0.5)) * -1;
+    let relativeY = context / height * 1.9;
     if (context >= 0) {
       items[0].style.opacity = position(1, -1, relativeY, 0);
-      items[1].style.opacity = position(0, 1, relativeY, 0);
+      items[1].style.opacity = position(0, 1,  relativeY, 0);
     }
     this.ticking = false;
   }
@@ -58,7 +58,7 @@ class Illustrations extends Component {
         <Excerpt
           title="ILLUSTRATIONS"
           excerpt={[
-            "The Campus has fun and inviting brand. With the launch of the app, we hoped to expand upon these characteristics to breathe even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages."
+            'The Campus has fun and inviting brand. With the launch of the app, we hoped to expand upon these characteristics to breathe even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages.'
           ]}
           viewportHeight={this.props.viewportHeight}
         />
@@ -67,8 +67,13 @@ class Illustrations extends Component {
           <div className="illustration-image__item illustration-image__item--two" ><img src={illustration} /></div>
         </div>
       </section>
-    )
+    );
   }
 }
+
+Illustrations.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'illustrations': React.PropTypes.object.isRequired
+};
 
 export default Illustrations;
