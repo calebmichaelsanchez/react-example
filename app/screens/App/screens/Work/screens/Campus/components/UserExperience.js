@@ -159,7 +159,7 @@ class UserExperience extends Component {
     let top = this.dimensions.top;
     let context = (top - viewportHeight) * -1;
 
-    if (context >= viewportHeight * .2) {
+    if (context >= viewportHeight * 0.2) {
       this.masterTimeline.resume();
     }
     this.ticking = false;
