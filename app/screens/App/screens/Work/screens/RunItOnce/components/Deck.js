@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
-import TagsContainer from "../../../shared/TagsContainer";
-import helpers from "../../../../../../../shared/util/helpers";
+import { findDOMNode } from 'react-dom';
+import TagsContainer from '../../../shared/TagsContainer';
+import helpers from '../../../../../../../shared/util/helpers';
 
 class Deck extends Component {
   constructor(props) {
@@ -16,15 +16,15 @@ class Deck extends Component {
     this.element = findDOMNode(this.refs.deck);
     this.height = this.element.clientHeight;
     this.dimensions = {};
-    this.deckNodes = document.querySelectorAll(".deck-cards__item");
+    this.deckNodes = document.querySelectorAll('.deck-cards__item');
     this.deckArray = [...this.deckNodes];
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -42,26 +42,26 @@ class Deck extends Component {
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props,
-        { transformThreeD, position } = helpers,
-        deckTop    = this.dimensions.top,
-        deckBottom = this.dimensions.bottom,
-        deckHeight = this.height,
-        context    = (deckTop - viewportHeight) * -1,
-        relativeY  = (context / (deckHeight * 2)),
-        values     = [];
+    let { viewportHeight, windowWidth } = this.props;
+    let { transformThreeD, position } = helpers;
+    let deckTop    = this.dimensions.top;
+    let deckBottom = this.dimensions.bottom;
+    let deckHeight = this.height;
+    let context    = (deckTop - viewportHeight) * -1;
+    let relativeY  = context / (deckHeight * 2);
+    let values     = [];
 
-    (windowWidth <= 768) ? values = [ [25], [-50, -145] ] : values = [ [100], [0, -320] ];
+    windowWidth <= 768 ? values = [[25], [-50, -145]] : values = [[100], [0, -320]];
 
-    (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
+    context >= viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && deckBottom >= 0) {
-      transformThreeD(this.deckArray[0], values[1][0], "%", position(values[0][0], values[1][1], relativeY,       0), "px", 0, "px");
-      transformThreeD(this.deckArray[1], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .8,  0), "px", 0, "px");
-      transformThreeD(this.deckArray[2], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .6,  0), "px", 0, "px");
-      transformThreeD(this.deckArray[3], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .4,  0), "px", 0, "px");
-      transformThreeD(this.deckArray[4], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .2,  0), "px", 0, "px");
-      transformThreeD(this.deckArray[5], values[1][0], "%", position(values[0][0], values[1][1], relativeY * .1,  0), "px", 0, "px");
+      transformThreeD(this.deckArray[0], values[1][0], '%', position(values[0][0], values[1][1], relativeY,        0), 'px', 0, 'px');
+      transformThreeD(this.deckArray[1], values[1][0], '%', position(values[0][0], values[1][1], relativeY * 0.8,  0), 'px', 0, 'px');
+      transformThreeD(this.deckArray[2], values[1][0], '%', position(values[0][0], values[1][1], relativeY * 0.6,  0), 'px', 0, 'px');
+      transformThreeD(this.deckArray[3], values[1][0], '%', position(values[0][0], values[1][1], relativeY * 0.4,  0), 'px', 0, 'px');
+      transformThreeD(this.deckArray[4], values[1][0], '%', position(values[0][0], values[1][1], relativeY * 0.2,  0), 'px', 0, 'px');
+      transformThreeD(this.deckArray[5], values[1][0], '%', position(values[0][0], values[1][1], relativeY * 0.1,  0), 'px', 0, 'px');
     }
     this.ticking = false;
   }
@@ -72,7 +72,7 @@ class Deck extends Component {
         <div className="deck-container">
           <div className="deck-container__item deck-copy">
             <h1>Backstory</h1>
-            <TagsContainer context="run-it-once" tags={[ "Illustration", "Photography" ]} />
+            <TagsContainer context="run-it-once" tags={['Illustration', 'Photography']} />
             <p>Run It Once, created by legendary poker player Phil Galfond, is a place for poker enthusiasts to gather and contribute professional-level strategy with others in the poker community. Besides the wealth of knowledge available at Run It Once, RIO’s brand is one classy act. With a clean, professional, and luxurious logo its no wonder their site is one of the best looking (and functioning) poker communities out there.</p>
             <p>At Underbelly, we’re suckers for playing card designs. That’s one of the many reasons we were stoked to partner with Phil and the Run It Once crew on designing the first official Run It Once card deck.</p>
           </div>
@@ -86,8 +86,14 @@ class Deck extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+Deck.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'windowWidth': React.PropTypes.number.isRequired,
+  'deck': React.PropTypes.object.isRequired
+};
 
 export default Deck;

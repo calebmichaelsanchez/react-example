@@ -11,25 +11,29 @@ class GalleryOne extends Component {
         <div className="grid-1-2">
           <div className="intrinsic">
             <div className="intrinsic__inner intrinsic__inner--full">
-              <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${gallery.one})`}}></div>
+              <div className="intrinsic__inner-magic" style={{'backgroundImage': `url(${gallery.one})`}}></div>
             </div>
           </div>
         </div>
         <div className="grid-1-2">
           <div className="intrinsic">
             <div className="intrinsic__inner intrinsic__inner--half">
-              <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${gallery.two})`}}></div>
+              <div className="intrinsic__inner-magic" style={{'backgroundImage': `url(${gallery.two})`}}></div>
             </div>
           </div>
           <div className="intrinsic">
             <div className="intrinsic__inner intrinsic__inner--half">
-              <div className="intrinsic__inner-magic" style={{backgroundImage: `url(${gallery.three})`}}></div>
+              <div className="intrinsic__inner-magic" style={{'backgroundImage': `url(${gallery.three})`}}></div>
             </div>
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
+
+GalleryOne.propTypes = {
+  'gallery': React.PropTypes.object.isRequired
+};
 
 export default GalleryOne;

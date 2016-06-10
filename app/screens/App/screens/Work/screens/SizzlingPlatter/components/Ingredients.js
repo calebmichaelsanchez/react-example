@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
+import { findDOMNode } from 'react-dom';
 
 class Ingredients extends Component {
   constructor(props) {
@@ -13,12 +13,12 @@ class Ingredients extends Component {
     this.element = findDOMNode(this.refs.element);
     this.dimensions = {};
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -35,14 +35,14 @@ class Ingredients extends Component {
     }
   }
   update() {
-    let { viewportHeight } = this.props,
-        top = this.dimensions.top,
-        context = (top - viewportHeight) * -1;
+    let { viewportHeight } = this.props;
+    let top = this.dimensions.top;
+    let context = (top - viewportHeight) * -1;
 
-    if (context >= viewportHeight * .1) {
-      this.element.classList.add("fadeInUp--active");
+    if (context >= viewportHeight * 0.1) {
+      this.element.classList.add('fadeInUp--active');
     } else {
-      this.element.classList.remove("fadeInUp--active");
+      this.element.classList.remove('fadeInUp--active');
     }
     this.ticking = false;
   }
@@ -57,8 +57,12 @@ class Ingredients extends Component {
         </div>
         <div className="ingredients-hero"></div>
       </div>
-    )
+    );
   }
 }
+
+Ingredients.propTypes = {
+  'viewportHeight': React.PropTypes.number.isRequired
+};
 
 export default Ingredients;

@@ -1,8 +1,12 @@
-var React = require('react');
+let React = require('react');
 
-var FormEmail = React.createClass ({
+let FormEmail = React.createClass({
+  'propTypes': {
+    'model': React.PropTypes.object.isRequired
+  },
+
   render() {
-    var model = this.props.model;
+    let model = this.props.model;
 
     return (
       <div>

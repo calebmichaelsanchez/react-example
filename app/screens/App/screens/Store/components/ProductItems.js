@@ -8,16 +8,12 @@ class ProductItems extends Component {
     super(props);
   }
   filterProducts(product) {
-    if (!product.published) {
-      return;
-    } else {
-      return product;
-    }
+    return product.published;
   }
   renderProducts({name, preview_url, short_url, formatted_price, id}) {
     return (
       <ProductItem key={id} title={name} productLink={short_url} image={preview_url} price={formatted_price} />
-    )
+    );
   }
   render() {
     let { products } = this.props;
@@ -29,7 +25,7 @@ class ProductItems extends Component {
             <span className="hero-lg">Shop</span>
           </header>
           <section className={`products-container ${classes}`}>
-            {products ? products.filter(this.filterProducts).map(this.renderProducts) : "Check back soon for products!"}
+            {products ? products.filter(this.filterProducts).map(this.renderProducts) : 'Check back soon for products!'}
           </section>
         </div>
       </DocumentTitle>
@@ -37,7 +33,8 @@ class ProductItems extends Component {
   }
 }
 ProductItems.propTypes = {
-  products: React.PropTypes.array
-}
+  'products': React.PropTypes.array.isRequired,
+  'productsLoaded': React.PropTypes.bool.isRequired
+};
 
 export default ProductItems;

@@ -8,7 +8,7 @@ class Hive extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/hive');
+    window.ga('send', 'pageview', '/making-it-awesome-with/hive');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -75,23 +75,26 @@ class Hive extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "just-family", title: "Just Family", img: images.seeMore.one },
-            { url: "nsac", title: "North Seattle Alliance Church", img: images.seeMore.two },
-            { url: "rent-tree", title: "RentTree", img: images.seeMore.three },
-            { url: "traxion", title: "Traxion App", img: images.seeMore.four }
+            { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.one },
+            { 'url': 'nsac', 'title': 'North Seattle Alliance Church', 'img': images.seeMore.two },
+            { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.three },
+            { 'url': 'traxion', 'title': 'Traxion App', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Hive.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  theme: React.PropTypes.string.isRequired,
-  setNavTheme: React.PropTypes.func
-}
+  'name': React.PropTypes.string.isRequired,
+  'theme': React.PropTypes.string.isRequired,
+  'setNavTheme': React.PropTypes.func
+};
+
 Hive.defaultProps = {
-  name: 'hive',
-  theme: 'dark'
-}
+  'name': 'hive',
+  'theme': 'dark'
+};
+
 export default Hive;

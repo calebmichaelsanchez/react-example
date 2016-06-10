@@ -8,7 +8,7 @@ class RentTree extends Component {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/rent-tree');
+    window.ga('send', 'pageview', '/making-it-awesome-with/rent-tree');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -57,10 +57,10 @@ class RentTree extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "traxion", title: "Traxion App", img: images.seeMore.one },
-            { url: "aiga", title: "AIGA Salt Lake City 100 Show", img: images.seeMore.two },
-            { url: "fluid", title: "Fluid", img: images.seeMore.three },
-            { url: "hive", title: "Hive", img: images.seeMore.four }
+            { 'url': 'traxion', 'title': 'Traxion App', 'img': images.seeMore.one },
+            { 'url': 'aiga', 'title': 'AIGA Salt Lake City 100 Show', 'img': images.seeMore.two },
+            { 'url': 'fluid', 'title': 'Fluid', 'img': images.seeMore.three },
+            { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
@@ -68,12 +68,12 @@ class RentTree extends Component {
   }
 }
 RentTree.propTypes = {
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  setNavTheme: React.PropTypes.func
+  'name': React.PropTypes.string,
+  'theme': React.PropTypes.string,
+  'setNavTheme': React.PropTypes.func
 };
 RentTree.defaultProps = {
-  name: 'rent-tree',
-  theme: 'light'
+  'name': 'rent-tree',
+  'theme': 'light'
 };
 export default RentTree;

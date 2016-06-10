@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
-import helpers from "../../../../../../../shared/util/helpers";
+import { findDOMNode } from 'react-dom';
+import helpers from '../../../../../../../shared/util/helpers';
 
 class FinalCards extends Component {
   constructor(props) {
@@ -16,15 +16,15 @@ class FinalCards extends Component {
     this.buyButton    = findDOMNode(this.refs.buy);
     this.height       = this.element.clientHeight;
     this.dimensions   = {};
-    this.cardboxNodes = document.querySelectorAll(".cardbox-ending__item");
+    this.cardboxNodes = document.querySelectorAll('.cardbox-ending__item');
     this.cardboxArray = [...this.cardboxNodes];
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -42,35 +42,33 @@ class FinalCards extends Component {
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props,
-        { transformThreeD, position } = helpers,
-        cardboxTop          = this.dimensions.top,
-        cardboxBottom       = this.dimensions.bottom,
-        cardboxHeight       = this.height,
-        context             = (cardboxTop - (viewportHeight * .6) ) * -1,
-        contextView         = (cardboxTop - (viewportHeight) ) * -1,
-        contextPlus         = context - (cardboxHeight * .64),
-        relativeY           = (context / (cardboxHeight)),
-        relativeYPlus       = (contextPlus / (cardboxHeight)),
-        values              = [],
-        showButtonValue     = cardboxHeight * .2,
-        movement1           = cardboxHeight * .08,
-        movement2           = cardboxHeight * (-.25),
-        movement3           = cardboxHeight * (-.15),
-        movement4           = cardboxHeight * .06,
-        movement5           = cardboxHeight * .165,
-        lidSpeed            = windowWidth >= 1440 ? 3 : 4;
+    let { viewportHeight, windowWidth } = this.props;
+    let { transformThreeD, position } = helpers;
+    let cardboxTop          = this.dimensions.top;
+    let cardboxHeight       = this.height;
+    let context             = (cardboxTop - viewportHeight * 0.6) * -1;
+    let contextView         = (cardboxTop - viewportHeight) * -1;
+    let contextPlus         = context - cardboxHeight * 0.64;
+    let relativeY           = context / cardboxHeight;
+    let relativeYPlus       = contextPlus / cardboxHeight;
+    let showButtonValue     = cardboxHeight * 0.2;
+    let movement1           = cardboxHeight * 0.08;
+    let movement2           = cardboxHeight * -0.25;
+    let movement3           = cardboxHeight * -0.15;
+    let movement4           = cardboxHeight * 0.06;
+    let movement5           = cardboxHeight * 0.165;
+    let lidSpeed            = windowWidth >= 1440 ? 3 : 4;
 
     if (contextView >= 0) {
-      transformThreeD(this.cardboxArray[0], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[1], -50, "%", position((movement1 * -1), movement1, relativeYPlus * lidSpeed, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[2], -50, "%", position(movement2,       (movement2 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[3], -50, "%", position(movement3,       (movement3 * -1), relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[4], -50, "%", position((movement4 * -1), movement4,       relativeY * 1.5, 0), "px", 0, "px");
-      transformThreeD(this.cardboxArray[5], -50, "%", position(movement5,       (movement5 * -1), relativeY * 1.5, 0), "px", 0, "px");
+      transformThreeD(this.cardboxArray[0], -50, '%', position(movement1 * -1, movement1,      relativeYPlus * lidSpeed, 0), 'px', 0, 'px');
+      transformThreeD(this.cardboxArray[1], -50, '%', position(movement1 * -1, movement1,      relativeYPlus * lidSpeed, 0), 'px', 0, 'px');
+      transformThreeD(this.cardboxArray[2], -50, '%', position(movement2,      movement2 * -1, relativeY * 1.5, 0), 'px', 0, 'px');
+      transformThreeD(this.cardboxArray[3], -50, '%', position(movement3,      movement3 * -1, relativeY * 1.5, 0), 'px', 0, 'px');
+      transformThreeD(this.cardboxArray[4], -50, '%', position(movement4 * -1, movement4,      relativeY * 1.5, 0), 'px', 0, 'px');
+      transformThreeD(this.cardboxArray[5], -50, '%', position(movement5,      movement5 * -1, relativeY * 1.5, 0), 'px', 0, 'px');
     }
 
-    (context >= showButtonValue) ? this.buyButton.classList.add("active") : this.buyButton.classList.remove("active");
+    context >= showButtonValue ? this.buyButton.classList.add('active') : this.buyButton.classList.remove('active');
 
     this.ticking = false;
   }
@@ -90,8 +88,14 @@ class FinalCards extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+FinalCards.propTypes = {
+  'cardbox': React.PropTypes.object.isRequired,
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'windowWidth': React.PropTypes.number.isRequired
+};
 
 export default FinalCards;

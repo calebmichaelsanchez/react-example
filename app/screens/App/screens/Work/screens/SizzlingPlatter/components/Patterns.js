@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
-import helpers from "../../../../../../../shared/util/helpers";
+import { findDOMNode } from 'react-dom';
+import helpers from '../../../../../../../shared/util/helpers';
 
 class Patterns extends Component {
   constructor(props) {
@@ -15,17 +15,17 @@ class Patterns extends Component {
     this.element       = findDOMNode(this.refs.patterns);
     this.height        = this.element.clientHeight;
     this.dimensions    = {};
-    this.patternsNodes = document.querySelectorAll(".patterns__item");
+    this.patternsNodes = document.querySelectorAll('.patterns__item');
     this.patternsArray = [...this.patternsNodes];
     this.context1 = findDOMNode(this.refs.context1);
     this.context2 = findDOMNode(this.refs.context2);
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
@@ -46,35 +46,34 @@ class Patterns extends Component {
       this.ticking = true;
     }
   }
-  setActiveClass(context, element, viewportHeight) {
-    (context >= viewportHeight * .1) ?
-      element.classList.add("fadeInUp--active") :
-      element.classList.remove("fadeInUp--active");
-  }
   update() {
-    let { viewportHeight, windowWidth } = this.props,
-        { transformThreeD, position } = helpers,
-        patternsTop    = this.dimensions.top,
-        patternsBottom = this.dimensions.bottom,
-        patternsHeight = this.height,
-        context        = (patternsTop - viewportHeight) * -1,
-        relativeY      = (context / (viewportHeight * 2)),
-        values         = [];
+    let { viewportHeight, windowWidth } = this.props;
+    let { transformThreeD, position } = helpers;
+    let patternsTop    = this.dimensions.top;
+    let patternsBottom = this.dimensions.bottom;
+    let context        = (patternsTop - viewportHeight) * -1;
+    let relativeY      = context / (viewportHeight * 2);
+    let values         = [];
 
-    (windowWidth <= 768) ? values = [50, 100, 75] : values = [100, 200, 150];
-    (context >= viewportHeight / 2.5) ? this.element.classList.add("active") : this.element.classList.remove("active");
+    windowWidth <= 768 ? values = [50, 100, 75] : values = [100, 200, 150];
+    context >= viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && patternsBottom >= 0) {
-      transformThreeD(this.patternsArray[0], 0, "%", position(0, values[0], relativeY,  0), "px", 0, "px");
-      transformThreeD(this.patternsArray[1], 0, "%", position(0, values[1], relativeY,  0), "px", 0, "px");
-      transformThreeD(this.patternsArray[2], 0, "%", position(0, values[2], relativeY,  0), "px", 0, "px");
+      transformThreeD(this.patternsArray[0], 0, '%', position(0, values[0], relativeY,  0), 'px', 0, 'px');
+      transformThreeD(this.patternsArray[1], 0, '%', position(0, values[1], relativeY,  0), 'px', 0, 'px');
+      transformThreeD(this.patternsArray[2], 0, '%', position(0, values[2], relativeY,  0), 'px', 0, 'px');
     }
 
-    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1,
-        context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
+    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1;
+    let context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
 
-    this.setActiveClass(context1Top, this.context1, viewportHeight);
-    this.setActiveClass(context2Top, this.context2, viewportHeight);
+    context1Top >= viewportHeight * 0.1 ?
+      this.context1.classList.add('fadeInUp--active') :
+      this.context1.classList.remove('fadeInUp--active');
+
+    context2Top >= viewportHeight * 0.1 ?
+      this.context2.classList.add('fadeInUp--active') :
+      this.context2.classList.remove('fadeInUp--active');
 
     this.ticking = false;
   }
@@ -110,8 +109,14 @@ class Patterns extends Component {
         <img className="patterns__item" src={patterns.pepperonis} />
         <img className="patterns__item" src={patterns.sprinkles} />
       </div>
-    )
+    );
   }
 }
+
+Patterns.propTypes = {
+  'patterns': React.PropTypes.object.isRequired,
+  'viewportHeight': React.PropTypes.number.isRequired,
+  'windowWidth': React.PropTypes.number.isRequired
+};
 
 export default Patterns;

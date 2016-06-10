@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import TheNeed from "./TheNeed";
+import React, { Component } from 'react';
+import TheNeed from './TheNeed';
 
 class CampusHero extends Component {
   constructor(props) {
@@ -7,7 +7,7 @@ class CampusHero extends Component {
 
     this.onBgLoad = this.onBgLoad.bind(this);
 
-    this.state = { loaded: false }
+    this.state = { 'loaded': false };
   }
   componentDidMount() {
     let img = document.createElement('img');
@@ -16,17 +16,23 @@ class CampusHero extends Component {
     this.src = img.src;
   }
   onBgLoad() {
-    this.setState({ loaded: true });
+    this.setState({ 'loaded': true });
   }
   render() {
-    let style = { backgroundImage: `url(${this.src})`};
-    let loaded = this.state.loaded ? "campus-hero--loaded" : "";
+    let style = { 'backgroundImage': `url(${this.src})`};
+    let loaded = this.state.loaded ? 'campus-hero--loaded' : '';
     return (
       <div className={`campus-hero ${loaded}`} style={style}>
         <TheNeed theNeed={this.props.theNeed} viewportHeight={this.props.viewportHeight} />
       </div>
-    )
+    );
   }
 }
+
+CampusHero.propTypes = {
+  'hero': React.PropTypes.string.isRequired,
+  'theNeed': React.PropTypes.object.isRequired,
+  'viewportHeight': React.PropTypes.number.isRequired
+};
 
 export default CampusHero;

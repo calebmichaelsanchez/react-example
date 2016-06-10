@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import { findDOMNode } from 'react-dom';
 import helpers from '../../../../../shared/util/helpers';
 import PhoneSlide from './PhoneSlide';
 
@@ -13,7 +13,7 @@ class PhoneSlider extends Component {
     this.handleTouchstart = this.handleTouchstart.bind(this);
     this.handleTouchend   = this.handleTouchend.bind(this);
 
-    this.state = { slideIndex: 1 }
+    this.state = { 'slideIndex': 1 };
   }
   componentDidMount() {
     this.initializeSlider();
@@ -49,57 +49,54 @@ class PhoneSlider extends Component {
     }
   }
   initializeSlider() {
-    let backgroundSlider      = findDOMNode(this.refs.backgroundSlider),
-        backgroundSlides      = backgroundSlider.childNodes,
-        backgroundSlidesArray = [...backgroundSlides],
-        backgroundLength      = backgroundSlidesArray.length,
-        backgroundTransform   = ((100 / backgroundLength) * this.state.slideIndex),
-        screenSlider          = findDOMNode(this.refs.screenSlider),
-        screenSlides          = screenSlider.childNodes,
-        screenSlidesArray     = [...screenSlides],
-        screenLength          = screenSlidesArray.length,
-        screenTransform       = ((100 / screenLength) * this.state.slideIndex),
-        i;
+    let backgroundSlider      = findDOMNode(this.refs.backgroundSlider);
+    let backgroundSlides      = backgroundSlider.childNodes;
+    let backgroundSlidesArray = [...backgroundSlides];
+    let backgroundLength      = backgroundSlidesArray.length;
+    let screenSlider          = findDOMNode(this.refs.screenSlider);
+    let screenSlides          = screenSlider.childNodes;
+    let screenSlidesArray     = [...screenSlides];
+    let screenLength          = screenSlidesArray.length;
+    let i;
 
-    for(i = 0; i < screenLength; i++) {
-      screenSlidesArray[i].style.width = ( 90 / screenLength) + "%";
-      screenSlidesArray[i].style.marginRight = ( 10 / screenLength) + "%";
+    for (i = 0; i < screenLength; i = i + 1) {
+      screenSlidesArray[i].style.width = 90 / screenLength + '%';
+      screenSlidesArray[i].style.marginRight = 10 / screenLength + '%';
     }
-    for(i = 0; i < backgroundLength; i++) {
-      backgroundSlidesArray[i].style.width = ( 100 / backgroundLength) + "%";
+    for (i = 0; i < backgroundLength; i = i + 1) {
+      backgroundSlidesArray[i].style.width = 100 / backgroundLength + '%';
     }
 
-    backgroundSlider.style.width = (backgroundLength * 100) + "%";
-    screenSlider.style.width     = (screenLength * 110.8) + "%";
-    helpers.prefix(backgroundSlider.style, "Transform", `translateX(-20%)`);
-    helpers.prefix(screenSlider.style,     "Transform", `translateX(-20%)`);
+    backgroundSlider.style.width = backgroundLength * 100 + '%';
+    screenSlider.style.width     = screenLength * 110.8 + '%';
+    helpers.prefix(backgroundSlider.style, 'Transform', 'translateX(-20%)');
+    helpers.prefix(screenSlider.style,     'Transform', 'translateX(-20%)');
   }
   goTo(index) {
-    let backgroundSlider      = findDOMNode(this.refs.backgroundSlider),
-        backgroundSlides      = backgroundSlider.childNodes,
-        backgroundSlidesArray = [...backgroundSlides],
-        backgroundLength      = backgroundSlidesArray.length,
-        screenSlider          = findDOMNode(this.refs.screenSlider),
-        screenSlides          = screenSlider.childNodes,
-        screenSlidesArray     = [...screenSlides],
-        screenLength          = screenSlidesArray.length;
+    let backgroundSlider      = findDOMNode(this.refs.backgroundSlider);
+    let backgroundSlides      = backgroundSlider.childNodes;
+    let backgroundSlidesArray = [...backgroundSlides];
+    let backgroundLength      = backgroundSlidesArray.length;
+    let screenSlider          = findDOMNode(this.refs.screenSlider);
+    let screenSlides          = screenSlider.childNodes;
+    let screenSlidesArray     = [...screenSlides];
+    let screenLength          = screenSlidesArray.length;
 
     if (index < 0) {
       let lastItem = screenLength - 1;
-      helpers.prefix(backgroundSlider.style, "Transform", "translateX(-" + ((100 / backgroundLength) * lastItem) + "%)");
-      helpers.prefix(screenSlider.style,     "Transform", "translateX(-" + ((100 / screenLength)     * lastItem) + "%)");
-      this.setState({ slideIndex: lastItem });
+      helpers.prefix(backgroundSlider.style, 'Transform', 'translateX(-' + 100 / backgroundLength * lastItem + '%)');
+      helpers.prefix(screenSlider.style,     'Transform', 'translateX(-' + 100 / screenLength     * lastItem + '%)');
+      this.setState({ 'slideIndex': lastItem });
       return;
     } else if (index > screenLength - 1) {
-      helpers.prefix(backgroundSlider.style, "Transform", "translateX(0)");
-      helpers.prefix(screenSlider.style,     "Transform", "translateX(0)");
-      this.setState({ slideIndex: 0 });
+      helpers.prefix(backgroundSlider.style, 'Transform', 'translateX(0)');
+      helpers.prefix(screenSlider.style,     'Transform', 'translateX(0)');
+      this.setState({ 'slideIndex': 0 });
       return;
-    } else {
-      helpers.prefix(backgroundSlider.style, "Transform", "translateX(-" + ((100 / backgroundLength) * index) + "%)");
-      helpers.prefix(screenSlider.style,     "Transform", "translateX(-" + ((100 / screenLength) * index) + "%)");
-      this.setState({ slideIndex: index });
     }
+    helpers.prefix(backgroundSlider.style, 'Transform', 'translateX(-' + 100 / backgroundLength * index + '%)');
+    helpers.prefix(screenSlider.style,     'Transform', 'translateX(-' + 100 / screenLength     * index + '%)');
+    this.setState({ 'slideIndex': index });
   }
   render() {
     let { backgroundImages, screenImages, phone } = this.props;
@@ -108,7 +105,7 @@ class PhoneSlider extends Component {
         <div className="phone-slider">
           <div className="phone-slider__background background">
             <ul ref="backgroundSlider" className="background__list">
-              {backgroundImages.map((item, index) => (
+              {backgroundImages.map((item, index) =>
                 <PhoneSlide
                   key={index}
                   slideIndex={this.state.slideIndex}
@@ -117,14 +114,14 @@ class PhoneSlider extends Component {
                   img={item}
                   type="background"
                 />
-              ))}
+              )}
             </ul>
           </div>
           <div className="phone-slider__phone">
             <img ref="screen" src={phone} alt="iPhone"/>
             <div className="phone-slider__screen screen">
               <ul ref="screenSlider" className="screen__list">
-                {screenImages.map((item, index) => (
+                {screenImages.map((item, index) =>
                   <PhoneSlide
                     key={index}
                     slideIndex={this.state.slideIndex}
@@ -132,14 +129,20 @@ class PhoneSlider extends Component {
                     img={item}
                     type="screen"
                   />
-                ))}
+                )}
               </ul>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+PhoneSlider.propTypes = {
+  'backgroundImages': React.PropTypes.array.isRequired,
+  'screenImages': React.PropTypes.array.isRequired,
+  'phone': React.PropTypes.string.isRequired
+};
 
 export default PhoneSlider;

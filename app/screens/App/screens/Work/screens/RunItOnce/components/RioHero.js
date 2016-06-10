@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDom, { findDOMNode } from 'react-dom';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
-import helpers from "../../../../../../../shared/util/helpers";
+import helpers from '../../../../../../../shared/util/helpers';
 
 class RioHero extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class RioHero extends Component {
     this.update   = this.update.bind(this);
     this.onLoad   = this.onLoad.bind(this);
 
-    this.state = { loaded: false }
+    this.state = { 'loaded': false };
   }
   componentDidMount() {
     this.lastKnownScroll = 0;
@@ -21,12 +21,12 @@ class RioHero extends Component {
     this.height          = this.element.clientHeight;
     this.dimensions      = {};
 
-    window.addEventListener("scroll", this.onScroll, false);
-    window.addEventListener("resize", this.onResize, false);
+    window.addEventListener('scroll', this.onScroll, false);
+    window.addEventListener('resize', this.onResize, false);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-    window.removeEventListener("resize", this.onResize, false);
+    window.removeEventListener('scroll', this.onScroll, false);
+    window.removeEventListener('resize', this.onResize, false);
   }
   onScroll() {
     this.lastKnownScroll = window.pageYOffset;
@@ -46,40 +46,37 @@ class RioHero extends Component {
     }
   }
   onLoad() {
-    this.setState({ loaded: true });
+    this.setState({ 'loaded': true });
   }
   update() {
-    let { viewportHeight, windowWidth }  = this.props,
-        { transformThreeD, position }    = helpers,
-        currentScrollPosition = this.lastKnownScroll,
-        cardboxBottom         = this.dimensions.bottom,
-        cardboxHeight         = this.height,
-        cardboxNodes          = document.querySelectorAll(".cardbox__item"),
-        cardboxArray          = [...cardboxNodes],
-        context               = (currentScrollPosition - viewportHeight) * -1,
-        relativeY             = (currentScrollPosition / cardboxHeight),
-        values                = [],
-        movement1             = cardboxHeight * .11,
-        movement2             = cardboxHeight * (-.11),
-        movement3             = cardboxHeight * (-.05),
-        movement4             = cardboxHeight * .01,
-        movement5             = cardboxHeight * .165;
-
-    (windowWidth <= 640) ? values = [ 80/2, -120/2, -40/2, 40/2.25, 160/1.5] : values = [ 80, -80, -30, 20, 120 ];
+    let { viewportHeight }  = this.props;
+    let { transformThreeD, position }    = helpers;
+    let currentScrollPosition = this.lastKnownScroll;
+    let cardboxBottom         = this.dimensions.bottom;
+    let cardboxHeight         = this.height;
+    let cardboxNodes          = document.querySelectorAll('.cardbox__item');
+    let cardboxArray          = [...cardboxNodes];
+    let context               = (currentScrollPosition - viewportHeight) * -1;
+    let relativeY             = currentScrollPosition / cardboxHeight;
+    let movement1             = cardboxHeight * 0.11;
+    let movement2             = cardboxHeight * -0.11;
+    let movement3             = cardboxHeight * -0.05;
+    let movement4             = cardboxHeight * 0.01;
+    let movement5             = cardboxHeight * 0.165;
 
     if (context >= 0 && cardboxBottom >= 0) {
-      transformThreeD(cardboxArray[0], -50, "%", position(0, movement1, relativeY,        0), "px", 0, "px");
-      transformThreeD(cardboxArray[1], -50, "%", position(0, movement1, relativeY,        0), "px", 0, "px");
-      transformThreeD(cardboxArray[2], -50, "%", position(0, movement2, relativeY * 2,    0), "px", 0, "px");
-      transformThreeD(cardboxArray[3], -50, "%", position(0, movement3, relativeY * 2,    0), "px", 0, "px");
-      transformThreeD(cardboxArray[4], -50, "%", position(0, movement4, relativeY * 2,    0), "px", 0, "px");
-      transformThreeD(cardboxArray[5], -50, "%", position(0, movement5, relativeY * 1.35, 0), "px", 0, "px");
+      transformThreeD(cardboxArray[0], -50, '%', position(0, movement1, relativeY,        0), 'px', 0, 'px');
+      transformThreeD(cardboxArray[1], -50, '%', position(0, movement1, relativeY,        0), 'px', 0, 'px');
+      transformThreeD(cardboxArray[2], -50, '%', position(0, movement2, relativeY * 2,    0), 'px', 0, 'px');
+      transformThreeD(cardboxArray[3], -50, '%', position(0, movement3, relativeY * 2,    0), 'px', 0, 'px');
+      transformThreeD(cardboxArray[4], -50, '%', position(0, movement4, relativeY * 2,    0), 'px', 0, 'px');
+      transformThreeD(cardboxArray[5], -50, '%', position(0, movement5, relativeY * 1.35, 0), 'px', 0, 'px');
     }
-    this.ticking = false ;
+    this.ticking = false;
   }
   render() {
-    let { logo, cardbox } = this.props,
-        loaded = classNames({ 'loaded': this.state.loaded });
+    let { logo, cardbox } = this.props;
+    let loaded = classNames({ 'loaded': this.state.loaded });
     return (
       <div ref="rioHero" className="hero--rio">
         <div id="cardBox" className={`cardbox-container cardbox-container--intro ${loaded}`}>
@@ -98,8 +95,14 @@ class RioHero extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+RioHero.propTypes = {
+  'logo': React.PropTypes.string.isRequired,
+  'cardbox': React.PropTypes.object.isRequired,
+  'viewportHeight': React.PropTypes.number.isRequired
+};
 
 export default RioHero;

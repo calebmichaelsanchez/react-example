@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
-import SeeMore from "../../shared/SeeMore";
-import { images } from "./Data";
+import SeeMore from '../../shared/SeeMore';
+import { images } from './Data';
 
 class Fluid extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/fluid');
+    window.ga('send', 'pageview', '/making-it-awesome-with/fluid');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -89,23 +89,26 @@ class Fluid extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "hive", title: "Hive", img: images.seeMore.one },
-            { url: "just-family", title: "Just Family", img: images.seeMore.two },
-            { url: "nsac", title: "North Seathlle Alliance Church", img: images.seeMore.three },
-            { url: "rent-tree", title: "RentTree", img: images.seeMore.four }
+            { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.one },
+            { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.two },
+            { 'url': 'nsac', 'title': 'North Seathlle Alliance Church', 'img': images.seeMore.three },
+            { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Fluid.propTypes = {
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  setNavTheme: React.PropTypes.func
-}
+  'name': React.PropTypes.string,
+  'theme': React.PropTypes.string,
+  'setNavTheme': React.PropTypes.func
+};
+
 Fluid.defaultProps = {
-  name: 'Fluid',
-  theme: 'light'
-}
+  'name': 'Fluid',
+  'theme': 'light'
+};
+
 export default Fluid;

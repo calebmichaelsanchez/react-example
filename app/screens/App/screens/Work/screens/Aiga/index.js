@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import ReactTabs, {Tab, Tabs, TabList, TabPanel} from "react-tabs";
-import DocumentTitle from "react-document-title";
-import { images } from "./Data";
-import SeeMore from "../../shared/SeeMore";
+import React, { Component } from 'react';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import DocumentTitle from 'react-document-title';
+import { images } from './Data';
+import SeeMore from '../../shared/SeeMore';
 
 class Aiga extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    ga('send', 'pageview', '/making-it-awesome-with/aiga');
+    window.ga('send', 'pageview', '/making-it-awesome-with/aiga');
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -104,24 +104,26 @@ class Aiga extends Component {
             </div>
           </section>
           <SeeMore items={[
-            { url: "rent-tree", title: "RentTree", img: images.seeMore.one },
-            { url: "nsac", title: "North Seattle Alliance Church", img: images.seeMore.two },
-            { url: "fluid", title: "Fluid", img: images.seeMore.three },
-            { url: "bountiful-dental", title: "Bountiful Dental", img: images.seeMore.four }
+            { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.one },
+            { 'url': 'nsac', 'title': 'North Seattle Alliance Church', 'img': images.seeMore.two },
+            { 'url': 'fluid', 'title': 'Fluid', 'img': images.seeMore.three },
+            { 'url': 'bountiful-dental', 'title': 'Bountiful Dental', 'img': images.seeMore.four }
           ]}/>
         </div>
       </DocumentTitle>
     );
   }
 }
+
 Aiga.propTypes = {
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  setNavTheme: React.PropTypes.func
+  'name': React.PropTypes.string,
+  'theme': React.PropTypes.string,
+  'setNavTheme': React.PropTypes.func
 };
+
 Aiga.defaultProps = {
-  name: 'aiga',
-  theme: 'dark'
+  'name': 'aiga',
+  'theme': 'dark'
 };
 
 export default Aiga;
