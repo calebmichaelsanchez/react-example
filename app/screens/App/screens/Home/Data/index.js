@@ -4,11 +4,11 @@ const images = {
 };
 
 const logos = [
+  'https://s3.amazonaws.com/underbelly/website/home/logos/invision.svg',
+  'https://s3.amazonaws.com/underbelly/website/home/logos/samsung.svg',
   'https://s3.amazonaws.com/underbelly/website/home/logos/xbox.svg',
-  'https://s3.amazonaws.com/underbelly/website/home/logos/little-caesars.svg',
-  'https://s3.amazonaws.com/underbelly/website/home/logos/brightbytes.svg',
   'https://s3.amazonaws.com/underbelly/website/home/logos/facebook.svg',
-  'https://s3.amazonaws.com/underbelly/website/home/logos/asurion.svg',
+  'https://s3.amazonaws.com/underbelly/website/home/logos/oculus.svg',
   'https://s3.amazonaws.com/underbelly/website/home/logos/experticity.svg',
   'https://s3.amazonaws.com/underbelly/website/home/logos/microsoft.svg'
 ];
