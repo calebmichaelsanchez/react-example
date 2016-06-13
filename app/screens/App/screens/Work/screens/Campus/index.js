@@ -25,7 +25,7 @@ class Campus extends Component {
           <Dubai dubai={images.dubai} viewportHeight={this.props.viewportHeight} />
           <UserExperience userExperience={images.userExperience} viewportHeight={this.props.viewportHeight} />
           <Features features={images.features} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
-          <WebMobile webMobile={images.webMobile} viewportHeight={this.props.viewportHeight} pageYOffset={this.props.pageYOffset} />
+          <WebMobile webMobile={images.webMobile} viewportHeight={this.props.viewportHeight} />
           <Illustrations illustrations={images.illustrations} viewportHeight={this.props.viewportHeight} />
           <Development development={images.development} viewportHeight={this.props.viewportHeight} />
         </section>
@@ -38,9 +38,9 @@ Campus.propTypes = {
   'name': React.PropTypes.string,
   'theme': React.PropTypes.string,
   'setNavTheme': React.PropTypes.func,
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired,
-  'pageYOffset': React.PropTypes.number.isRequired
+  'viewportHeight': React.PropTypes.number,
+  'windowWidth': React.PropTypes.number,
+  'pageYOffset': React.PropTypes.number
 };
 
 Campus.defaultProps = {
