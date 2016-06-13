@@ -11,8 +11,8 @@ module.exports = {
   entry: './app/index.js',
 
   output: {
-    path       : 'public',
-    filename   : '/bundle.js',
+    path       : '../public',
+    filename   : 'bundle.js',
     publicPath : ''
   },
 
