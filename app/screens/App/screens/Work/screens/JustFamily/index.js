@@ -56,9 +56,9 @@ class JustFamily extends Component {
           <section className="app-icon">
             <div className="container-sm">
               <h1>App Icon</h1>
-              <img src={images.icon.one} alt=""/>
-              <img src={images.icon.one} alt=""/>
-              <img src={images.icon.one} alt=""/>
+              <img src={images.icon.one} alt="Large Icon"/>
+              <img src={images.icon.one} alt="Medium Icon"/>
+              <img src={images.icon.one} alt="Small Icon"/>
             </div>
           </section>
           <section className="lifestyle">
