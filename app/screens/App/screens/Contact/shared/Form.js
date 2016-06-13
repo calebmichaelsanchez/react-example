@@ -110,12 +110,12 @@ class Form extends Component {
 
     this.setState({ 'submitting': true});
     axios.post('/contact-form', model)
-      .then(function (res) {
+      .then((res) => {
         if (res.data === 'sent') {
           this.setState({ 'success': true });
         }
       })
-      .catch(function () {
+      .catch(() => {
         this.setState({ 'error': true });
       });
     this.setState({ 'submitting': false});
