@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 require('dotenv').load();
 
 // Mailgun setup
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 });
 
 app.get('*', (req, res) => {
@@ -119,14 +119,14 @@ app.post('/contact-form', function(req, res) {
   var model = req.body;
   var data = {
     sender: model.email,
-    recipients: "hello@underbelly.is",
-    subject: "Work With Us",
-    text: "Name: " + model.name + "\nEmail: " + model.email + "\nAbout: " + model.about + "\nServices: " + model.service + "\nTiming: " + model.timeline + "\nBudget: " + model.budget
+    recipients: 'hello@underbelly.is',
+    subject: 'Work With Us',
+    text: 'Name: ' + model.name + '\nEmail: ' + model.email + '\nAbout: ' + model.about + '\nServices: ' + model.service + '\nTiming: ' + model.timeline + '\nBudget: ' + model.budget
   }
   mg.sendText(data.sender, data.recipients, data.subject, data.text, function(err) {
     status = err;
     if (!status) {
-     res.send("sent");
+     res.send('sent');
     } else {
      res.send(status);
      console.log(status);
@@ -136,4 +136,4 @@ app.post('/contact-form', function(req, res) {
 
 var port = process.env.PORT || 3000;
 app.listen(port);
-console.log("Listening on port " + port);
+console.log('Listening on port ' + port);
