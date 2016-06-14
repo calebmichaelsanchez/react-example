@@ -37,7 +37,7 @@ class PhoneSlide extends Component {
 }
 
 PhoneSlide.propTypes = {
-  'onClick': React.PropTypes.func.isRequired,
+  'onClick': React.PropTypes.func,
   'index': React.PropTypes.number.isRequired,
   'img': React.PropTypes.string.isRequired,
   'type': React.PropTypes.string.isRequired,

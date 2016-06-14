@@ -11,7 +11,8 @@ class Ingredients extends Component {
   componentDidMount() {
     this.ticking = false;
     this.element = findDOMNode(this.refs.element);
-    this.dimensions = {};
+    this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -23,23 +24,23 @@ class Ingredients extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let top = this.dimensions.top;
-    let context = (top - viewportHeight) * -1;
+    let context = (top - this.viewportHeight) * -1;
 
-    if (context >= viewportHeight * 0.1) {
+    if (context >= this.viewportHeight * 0.1) {
       this.element.classList.add('fadeInUp--active');
     } else {
       this.element.classList.remove('fadeInUp--active');
@@ -60,9 +61,5 @@ class Ingredients extends Component {
     );
   }
 }
-
-Ingredients.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired
-};
 
 export default Ingredients;

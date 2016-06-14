@@ -9,6 +9,7 @@ class Fluid extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/fluid');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

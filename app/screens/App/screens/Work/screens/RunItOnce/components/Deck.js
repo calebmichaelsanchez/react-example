@@ -15,9 +15,11 @@ class Deck extends Component {
     this.ticking = false;
     this.element = findDOMNode(this.refs.deck);
     this.height = this.element.clientHeight;
-    this.dimensions = {};
+    this.dimensions = this.element.getBoundingClientRect();
     this.deckNodes = document.querySelectorAll('.deck-cards__item');
     this.deckArray = [...this.deckNodes];
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -29,31 +31,32 @@ class Deck extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions      = this.element.getBoundingClientRect();
     this.height          = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props;
     let { transformThreeD, position } = helpers;
     let deckTop    = this.dimensions.top;
     let deckBottom = this.dimensions.bottom;
     let deckHeight = this.height;
-    let context    = (deckTop - viewportHeight) * -1;
+    let context    = (deckTop - this.viewportHeight) * -1;
     let relativeY  = context / (deckHeight * 2);
     let values     = [];
 
-    windowWidth <= 768 ? values = [[25], [-50, -145]] : values = [[100], [0, -320]];
+    this.windowWidth <= 768 ? values = [[25], [-50, -145]] : values = [[100], [0, -320]];
 
-    context >= viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
+    context >= this.viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && deckBottom >= 0) {
       transformThreeD(this.deckArray[0], values[1][0], '%', position(values[0][0], values[1][1], relativeY,        0), 'px', 0, 'px');
@@ -91,8 +94,6 @@ class Deck extends Component {
 }
 
 Deck.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired,
   'deck': React.PropTypes.object.isRequired
 };
 

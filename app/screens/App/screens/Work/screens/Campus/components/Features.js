@@ -24,7 +24,8 @@ class Features extends Component {
     this.ticking    = false;
     this.element    = findDOMNode(this.refs.video);
     this.video      = document.querySelector('video');
-    this.dimensions = {};
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.dimensions = this.element.getBoundingClientRect();
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -44,14 +45,15 @@ class Features extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
@@ -66,12 +68,11 @@ class Features extends Component {
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let top     = this.dimensions.top;
     let bottom  = this.dimensions.bottom;
-    let context = (top - viewportHeight) * -1;
+    let context = (top - this.viewportHeight) * -1;
 
-    if (context >= viewportHeight * 0.25 && bottom >= viewportHeight * 0.6 && !this.state.touch) {
+    if (context >= this.viewportHeight * 0.25 && bottom >= this.viewportHeight * 0.6 && !this.state.touch) {
       this.video.play();
     } else if (context <= 0 || bottom <= 0 && !this.state.touch) {
       this.video.pause();
@@ -91,7 +92,6 @@ class Features extends Component {
             excerpt={[
               'The primary goal of The Campus was to allow users to quickly and effectively find, filter, and compare schools. To accomplish this, we used a card concept for varying mobile sizes, as well as a table layout for tablet and web users. This allowed for the easiest interaction when comparing various elements, while avoiding an overwhelming user experience.'
             ]}
-            viewportHeight={this.props.viewportHeight}
           />
           <div className="features-img">
             <img src={device} alt="iPhone 6"/>
@@ -112,7 +112,6 @@ class Features extends Component {
 }
 
 Features.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired,
   'features': React.PropTypes.object.isRequired
 };
 

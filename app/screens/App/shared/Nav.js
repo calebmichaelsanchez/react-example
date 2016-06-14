@@ -21,6 +21,10 @@ class Nav extends Component {
   componentDidMount() {
     this.lastKnownScroll = 0;
     this.ticking         = false;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    this.requestAnimFrame = window.requestAnimationFrame && window.requestAnimationFrame.bind(window) ||
+      window.webkitRequestAnimationFrame && window.webkitRequestAnimationFrame.bind(window) ||
+      window.mozRequestAnimationFrame && window.mozRequestAnimationFrame.bind(window);
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.handleWidth, false);
   }
@@ -29,17 +33,19 @@ class Nav extends Component {
     window.removeEventListener('resize', this.handleWidth, false);
   }
   handleWidth() {
-    let w  = window.innerWidth;
-    if (w >= 768 && this.state.open) {
+    if (this.windowWidth >= 768 && this.state.open) {
       this.setState({ 'open': false });
     }
   }
   onScroll() {
     this.lastKnownScroll = window.pageYOffset;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      this.requestAnimFrame(this.update);
       this.ticking = true;
     }
+  }
+  onResize() {
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
   }
   update() {
     let currentScrollPosition = this.lastKnownScroll;

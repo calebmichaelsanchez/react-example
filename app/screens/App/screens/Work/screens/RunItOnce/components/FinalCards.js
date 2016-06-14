@@ -15,9 +15,11 @@ class FinalCards extends Component {
     this.element      = findDOMNode(this.refs.ending);
     this.buyButton    = findDOMNode(this.refs.buy);
     this.height       = this.element.clientHeight;
-    this.dimensions   = {};
+    this.dimensions   = this.element.getBoundingClientRect();
     this.cardboxNodes = document.querySelectorAll('.cardbox-ending__item');
     this.cardboxArray = [...this.cardboxNodes];
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -29,25 +31,26 @@ class FinalCards extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions      = this.element.getBoundingClientRect();
     this.height          = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props;
     let { transformThreeD, position } = helpers;
     let cardboxTop          = this.dimensions.top;
     let cardboxHeight       = this.height;
-    let context             = (cardboxTop - viewportHeight * 0.6) * -1;
-    let contextView         = (cardboxTop - viewportHeight) * -1;
+    let context             = (cardboxTop - this.viewportHeight * 0.6) * -1;
+    let contextView         = (cardboxTop - this.viewportHeight) * -1;
     let contextPlus         = context - cardboxHeight * 0.64;
     let relativeY           = context / cardboxHeight;
     let relativeYPlus       = contextPlus / cardboxHeight;
@@ -57,7 +60,7 @@ class FinalCards extends Component {
     let movement3           = cardboxHeight * -0.15;
     let movement4           = cardboxHeight * 0.06;
     let movement5           = cardboxHeight * 0.165;
-    let lidSpeed            = windowWidth >= 1440 ? 3 : 4;
+    let lidSpeed            = this.windowWidth >= 1440 ? 3 : 4;
 
     if (contextView >= 0) {
       transformThreeD(this.cardboxArray[0], -50, '%', position(movement1 * -1, movement1,      relativeYPlus * lidSpeed, 0), 'px', 0, 'px');
@@ -93,9 +96,7 @@ class FinalCards extends Component {
 }
 
 FinalCards.propTypes = {
-  'cardbox': React.PropTypes.object.isRequired,
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired
+  'cardbox': React.PropTypes.object.isRequired
 };
 
 export default FinalCards;

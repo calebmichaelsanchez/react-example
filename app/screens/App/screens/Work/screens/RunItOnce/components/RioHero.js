@@ -19,7 +19,8 @@ class RioHero extends Component {
     this.ticking         = false;
     this.element         = findDOMNode(this.refs.rioHero);
     this.height          = this.element.clientHeight;
-    this.dimensions      = {};
+    this.dimensions      = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -32,7 +33,7 @@ class RioHero extends Component {
     this.lastKnownScroll = window.pageYOffset;
     this.dimensions      = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
@@ -40,8 +41,9 @@ class RioHero extends Component {
     this.lastKnownScroll = window.pageYOffset;
     this.dimensions      = this.element.getBoundingClientRect();
     this.height          = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
@@ -49,14 +51,13 @@ class RioHero extends Component {
     this.setState({ 'loaded': true });
   }
   update() {
-    let { viewportHeight }  = this.props;
-    let { transformThreeD, position }    = helpers;
+    let { transformThreeD, position } = helpers;
     let currentScrollPosition = this.lastKnownScroll;
     let cardboxBottom         = this.dimensions.bottom;
     let cardboxHeight         = this.height;
     let cardboxNodes          = document.querySelectorAll('.cardbox__item');
     let cardboxArray          = [...cardboxNodes];
-    let context               = (currentScrollPosition - viewportHeight) * -1;
+    let context               = (currentScrollPosition - this.viewportHeight) * -1;
     let relativeY             = currentScrollPosition / cardboxHeight;
     let movement1             = cardboxHeight * 0.11;
     let movement2             = cardboxHeight * -0.11;
@@ -101,8 +102,7 @@ class RioHero extends Component {
 
 RioHero.propTypes = {
   'logo': React.PropTypes.string.isRequired,
-  'cardbox': React.PropTypes.object.isRequired,
-  'viewportHeight': React.PropTypes.number.isRequired
+  'cardbox': React.PropTypes.object.isRequired
 };
 
 export default RioHero;

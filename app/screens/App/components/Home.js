@@ -12,6 +12,7 @@ class Home extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

@@ -23,7 +23,7 @@ class CampusHero extends Component {
     let loaded = this.state.loaded ? 'campus-hero--loaded' : '';
     return (
       <div className={`campus-hero ${loaded}`} style={style}>
-        <TheNeed theNeed={this.props.theNeed} viewportHeight={this.props.viewportHeight} />
+        <TheNeed theNeed={this.props.theNeed} />
       </div>
     );
   }
@@ -31,8 +31,7 @@ class CampusHero extends Component {
 
 CampusHero.propTypes = {
   'hero': React.PropTypes.string.isRequired,
-  'theNeed': React.PropTypes.object.isRequired,
-  'viewportHeight': React.PropTypes.number.isRequired
+  'theNeed': React.PropTypes.object.isRequired
 };
 
 export default CampusHero;

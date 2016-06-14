@@ -16,6 +16,7 @@ class Splat extends Component {
   componentDidMount() {
     window.WebFont.load({'google':{'families':['Lato:300,400']}});
     window.ga('send', 'pageview', '/making-it-awesome-with/sizzling-platter');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {
@@ -23,11 +24,11 @@ class Splat extends Component {
       <DocumentTitle title="Sizzling Platter | Underbelly Creative">
         <div className="case-study sizzling-platter">
           <Hero hero={images.hero} />
-          <Prep viewportHeight={this.props.viewportHeight} />
-          <Patterns patterns={images.patterns} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
-          <Ingredients ingredients={images.ingredients} viewportHeight={this.props.viewportHeight} />
-          <Gallery gallery={images.ingredients} viewportHeight={this.props.viewportHeight} />
-          <DesignDev designDev={images.designDev} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth}/>
+          <Prep />
+          <Patterns patterns={images.patterns} />
+          <Ingredients ingredients={images.ingredients} />
+          <Gallery gallery={images.ingredients} />
+          <DesignDev designDev={images.designDev} />
           <SeeMore items={[
             { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.one },
             { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.two },
@@ -43,9 +44,7 @@ class Splat extends Component {
 Splat.propTypes = {
   'name': React.PropTypes.string,
   'theme': React.PropTypes.string,
-  'setNavTheme': React.PropTypes.func,
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired
+  'setNavTheme': React.PropTypes.func
 };
 
 Splat.defaultProps = {

@@ -19,7 +19,7 @@ import RunItOnce   from '../screens/App/screens/Work/screens/RunItOnce/';
 import Splat       from '../screens/App/screens/Work/screens/SizzlingPlatter';
 import NoMatch     from '../screens/App/screens/NoMatch/components/NoMatch';
 
-const routes = (
+module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="/all-ears" component={Contact} />
@@ -41,5 +41,3 @@ const routes = (
     <Route path="*" component={NoMatch} />
   </Route>
 );
-
-export default routes;

@@ -13,6 +13,7 @@ class Excerpt extends Component {
     this.ticking = false;
     this.element = findDOMNode(this.refs.element);
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
     this.update();
 
@@ -26,23 +27,23 @@ class Excerpt extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let top = this.dimensions.top;
-    let context = (top - viewportHeight) * -1;
+    let context = (top - this.viewportHeight) * -1;
 
-    if (context >= viewportHeight * 0.1) {
+    if (context >= this.viewportHeight * 0.1) {
       this.element.classList.add('excerpt--fadeInUp');
     } else {
       this.element.classList.remove('excerpt--fadeInUp');
@@ -77,8 +78,7 @@ Excerpt.propTypes = {
   'img': React.PropTypes.string,
   'title': React.PropTypes.string,
   'excerpt': React.PropTypes.array.isRequired,
-  'position': React.PropTypes.string,
-  'viewportHeight': React.PropTypes.number.isRequired
+  'position': React.PropTypes.string
 };
 
 Excerpt.defaultProps = {

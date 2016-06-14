@@ -9,6 +9,7 @@ class RentTree extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/rent-tree');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

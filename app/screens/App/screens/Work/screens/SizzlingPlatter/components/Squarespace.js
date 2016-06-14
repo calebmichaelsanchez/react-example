@@ -15,9 +15,11 @@ class Squarespace extends Component {
     this.ticking           = false;
     this.element           = findDOMNode(this.refs.squarespace);
     this.elementHeight     = this.element.clientHeight;
-    this.elementDimensions = {};
+    this.elementDimensions = this.element.getBoundingClientRect();
     this.icons             = document.querySelectorAll('.squarespace__parallax__container');
     this.iconsArray        = [...this.icons];
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
     this.context1 = findDOMNode(this.refs.context1);
     this.context2 = findDOMNode(this.refs.context2);
@@ -34,6 +36,8 @@ class Squarespace extends Component {
     this.context1Dimensions = this.context1.getBoundingClientRect();
     this.context2Dimensions = this.context2.getBoundingClientRect();
     this.elementHeight      = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
@@ -56,12 +60,11 @@ class Squarespace extends Component {
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let { transformThreeD, position } = helpers;
     let iconsHeight        = this.elementHeight;
     let iconsTop           = this.elementDimensions.top;
     let iconsBottom        = this.elementDimensions.bottom;
-    let context            = (iconsTop - viewportHeight) * -1;
+    let context            = (iconsTop - this.viewportHeight) * -1;
     let relativeY          = context / (iconsHeight * 2);
     let fastest            = relativeY * 1;
     let middle             = relativeY * 0.7;
@@ -89,11 +92,11 @@ class Squarespace extends Component {
       transformThreeD(this.iconsArray[18], 0, 'px', position(0, 80,  slowest, 0), 'px', 0, 'px');
     }
 
-    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1;
-    let context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
+    let context1Top = (this.context1Dimensions.top - this.viewportHeight) * -1;
+    let context2Top = (this.context2Dimensions.top - this.viewportHeight) * -1;
 
-    this.setActiveClass(context1Top, this.context1, viewportHeight);
-    this.setActiveClass(context2Top, this.context2, viewportHeight);
+    this.setActiveClass(context1Top, this.context1, this.viewportHeight);
+    this.setActiveClass(context2Top, this.context2, this.viewportHeight);
 
     this.ticking = false;
   }
@@ -127,9 +130,5 @@ class Squarespace extends Component {
     );
   }
 }
-
-Squarespace.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired
-};
 
 export default Squarespace;

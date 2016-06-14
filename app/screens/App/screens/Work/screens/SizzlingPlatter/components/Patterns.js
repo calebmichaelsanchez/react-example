@@ -14,11 +14,13 @@ class Patterns extends Component {
     this.ticking       = false;
     this.element       = findDOMNode(this.refs.patterns);
     this.height        = this.element.clientHeight;
-    this.dimensions    = {};
+    this.dimensions    = this.element.getBoundingClientRect();
     this.patternsNodes = document.querySelectorAll('.patterns__item');
     this.patternsArray = [...this.patternsNodes];
     this.context1 = findDOMNode(this.refs.context1);
     this.context2 = findDOMNode(this.refs.context2);
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -32,7 +34,7 @@ class Patterns extends Component {
     this.context1Dimensions = this.context1.getBoundingClientRect();
     this.context2Dimensions = this.context2.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
@@ -40,23 +42,24 @@ class Patterns extends Component {
     this.dimensions = this.element.getBoundingClientRect();
     this.context1Dimensions = this.context1.getBoundingClientRect();
     this.context2Dimensions = this.context2.getBoundingClientRect();
-    this.height     = this.element.clientHeight;
+    this.height = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props;
     let { transformThreeD, position } = helpers;
     let patternsTop    = this.dimensions.top;
     let patternsBottom = this.dimensions.bottom;
-    let context        = (patternsTop - viewportHeight) * -1;
-    let relativeY      = context / (viewportHeight * 2);
+    let context        = (patternsTop - this.viewportHeight) * -1;
+    let relativeY      = context / (this.viewportHeight * 2);
     let values         = [];
 
-    windowWidth <= 768 ? values = [50, 100, 75] : values = [100, 200, 150];
-    context >= viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
+    this.windowWidth <= 768 ? values = [50, 100, 75] : values = [100, 200, 150];
+    context >= this.viewportHeight / 2.5 ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && patternsBottom >= 0) {
       transformThreeD(this.patternsArray[0], 0, '%', position(0, values[0], relativeY,  0), 'px', 0, 'px');
@@ -64,14 +67,14 @@ class Patterns extends Component {
       transformThreeD(this.patternsArray[2], 0, '%', position(0, values[2], relativeY,  0), 'px', 0, 'px');
     }
 
-    let context1Top = (this.context1Dimensions.top - viewportHeight) * -1;
-    let context2Top = (this.context2Dimensions.top - viewportHeight) * -1;
+    let context1Top = (this.context1Dimensions.top - this.viewportHeight) * -1;
+    let context2Top = (this.context2Dimensions.top - this.viewportHeight) * -1;
 
-    context1Top >= viewportHeight * 0.1 ?
+    context1Top >= this.viewportHeight * 0.1 ?
       this.context1.classList.add('fadeInUp--active') :
       this.context1.classList.remove('fadeInUp--active');
 
-    context2Top >= viewportHeight * 0.1 ?
+    context2Top >= this.viewportHeight * 0.1 ?
       this.context2.classList.add('fadeInUp--active') :
       this.context2.classList.remove('fadeInUp--active');
 
@@ -114,9 +117,7 @@ class Patterns extends Component {
 }
 
 Patterns.propTypes = {
-  'patterns': React.PropTypes.object.isRequired,
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired
+  'patterns': React.PropTypes.object.isRequired
 };
 
 export default Patterns;

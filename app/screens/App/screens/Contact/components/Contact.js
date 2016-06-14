@@ -9,6 +9,7 @@ class Contact extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/all-ears');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

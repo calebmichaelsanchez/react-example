@@ -14,9 +14,11 @@ class Cards extends Component {
     this.ticking = false;
     this.element = findDOMNode(this.refs.cards);
     this.height = this.element.clientHeight;
-    this.dimensions = {};
+    this.dimensions = this.element.getBoundingClientRect();
     this.cardsNodes = document.querySelectorAll('.cards-cards__item');
     this.cardsArray = [...this.cardsNodes];
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
@@ -28,28 +30,29 @@ class Cards extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions      = this.element.getBoundingClientRect();
     this.height          = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight, windowWidth } = this.props;
     let { transformRotate, position } = helpers;
     let cardsTop    = this.dimensions.top;
     let cardsBottom = this.dimensions.bottom;
     let cardsHeight = this.height;
-    let context     = (cardsTop - viewportHeight) * -1;
+    let context     = (cardsTop - this.viewportHeight) * -1;
     let relativeY   = context / (cardsHeight * 2);
 
-    context >= viewportHeight / (windowWidth >= 1024 ? 1.8 : 2.5) ? this.element.classList.add('active') : this.element.classList.remove('active');
+    context >= this.viewportHeight / (this.windowWidth >= 1024 ? 1.8 : 2.5) ? this.element.classList.add('active') : this.element.classList.remove('active');
 
     if (context >= 0 && cardsBottom >= 0) {
       transformRotate(this.cardsArray[0], position(15,  -15, relativeY, 0));
@@ -79,8 +82,6 @@ class Cards extends Component {
 }
 
 Cards.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired,
-  'windowWidth': React.PropTypes.number.isRequired,
   'cards': React.PropTypes.object.isRequired
 };
 

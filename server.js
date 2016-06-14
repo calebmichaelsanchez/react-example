@@ -16,20 +16,20 @@ let app = express();
 import axios from 'axios';
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { match, RouterContext } from 'react-router'
+import { match, RouterContext, browserHistory } from 'react-router'
 import routes from './app/config/routes';
 
 app.use(compression());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
-app.get('*', function(req, res) {
-  console.log(path.join(__dirname, 'public'));
-  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
-});
+// app.get('*', function(req, res) {
+//   console.log(res.sendFile('index.html', { root: path.join(__dirname, 'public') }));
+//   res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+// });
 
 app.get('*', (req, res) => {
-  match({ routes: routes, location: req.url }, (err, redirect, props) => {
+  match({ routes, location: req.url }, (err, redirect, props) => {
     // in here we can make some decisions all at once
     if (err) {
       // there was an error somewhere during route matching
@@ -52,10 +52,13 @@ app.get('*', (req, res) => {
 function renderPage(appHtml) {
   return `
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" class="no-fouc">
     <head>
+      <style>.no-fouc {display: none;}</style>
+      <script src="https://s3.amazonaws.com/underbelly/js/libs/modernizr.js"></script>
       <script src="https://use.typekit.net/lht5hll.js"></script>
       <script>try{Typekit.load({ async: true });}catch(e){}</script>
+      <link href="/app/stylesheets/index.css" rel="stylesheet">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <title>Underbelly Creative</title>
@@ -81,7 +84,9 @@ function renderPage(appHtml) {
       <script src="https://s3.amazonaws.com/underbelly/js/gsap/TweenMax.min.js"></script>
       <script src="https://s3.amazonaws.com/underbelly/js/gsap/plugins/MorphSVGPlugin.min.js"></script>
       <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/findShapeIndex.js"></script>
-    <link href="/app/stylesheets/index.css" rel="stylesheet"></head>
+      <script src="https://s3.amazonaws.com/underbelly/js/libs/classList.js"></script>
+      <script src="https://s3.amazonaws.com/underbelly/js/libs/rAF.js"></script>
+    </head>
     <body>
     <div id="fb-root"></div>
       <script>
@@ -104,7 +109,12 @@ function renderPage(appHtml) {
       <div id="app">${appHtml}</div>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-    <script type="text/javascript" src="bundle.js"></script></body>
+    <script type="text/javascript" src="/bundle.js"></script></body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+        document.documentElement.classList.remove('no-fouc');
+      });
+    </script>
     </html>
    `
 }

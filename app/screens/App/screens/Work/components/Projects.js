@@ -11,6 +11,7 @@ class Projects extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

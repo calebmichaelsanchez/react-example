@@ -15,19 +15,20 @@ class Campus extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/aiga');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {
     return (
       <DocumentTitle title="Campus | Underbelly Creative">
         <section className="campus-container">
-          <CampusHero theNeed={images.theNeed} hero={images.hero} viewportHeight={this.props.viewportHeight} />
-          <Dubai dubai={images.dubai} viewportHeight={this.props.viewportHeight} />
-          <UserExperience userExperience={images.userExperience} viewportHeight={this.props.viewportHeight} />
-          <Features features={images.features} viewportHeight={this.props.viewportHeight} windowWidth={this.props.windowWidth} />
-          <WebMobile webMobile={images.webMobile} viewportHeight={this.props.viewportHeight} />
-          <Illustrations illustrations={images.illustrations} viewportHeight={this.props.viewportHeight} />
-          <Development development={images.development} viewportHeight={this.props.viewportHeight} />
+          <CampusHero theNeed={images.theNeed} hero={images.hero} />
+          <Dubai dubai={images.dubai} />
+          <UserExperience userExperience={images.userExperience} />
+          <Features features={images.features} />
+          <WebMobile webMobile={images.webMobile} />
+          <Illustrations illustrations={images.illustrations} />
+          <Development development={images.development} />
         </section>
       </DocumentTitle>
     );
@@ -37,10 +38,7 @@ class Campus extends Component {
 Campus.propTypes = {
   'name': React.PropTypes.string,
   'theme': React.PropTypes.string,
-  'setNavTheme': React.PropTypes.func,
-  'viewportHeight': React.PropTypes.number,
-  'windowWidth': React.PropTypes.number,
-  'pageYOffset': React.PropTypes.number
+  'setNavTheme': React.PropTypes.func
 };
 
 Campus.defaultProps = {

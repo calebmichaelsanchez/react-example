@@ -9,6 +9,7 @@ class Bountiful extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/bountiful-dental');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

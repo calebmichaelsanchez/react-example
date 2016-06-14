@@ -16,6 +16,7 @@ class UserExperience extends Component {
     this.element = findDOMNode(this.refs.siteMap);
     this.dimensions = this.element.getBoundingClientRect();
     this.ticking = false;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
     this.masterTimeline = new window.TimelineMax({
       'ease': this.eeze,
@@ -143,23 +144,23 @@ class UserExperience extends Component {
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
-      window.requestAnimFrame(this.update);
+      window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let top = this.dimensions.top;
-    let context = (top - viewportHeight) * -1;
+    let context = (top - this.viewportHeight) * -1;
 
-    if (context >= viewportHeight * 0.2) {
+    if (context >= this.viewportHeight * 0.2) {
       this.masterTimeline.resume();
     }
     this.ticking = false;
@@ -180,16 +181,11 @@ class UserExperience extends Component {
           excerpt={[
             'For The Campus, understanding user flows were essential for building a successful app and clean functionality was imperative. We spent the first part of the project identifying what information would be most sought-after for students, as well as how they might interact with the app. In our research we attempted to understand the process of identifying the most important factors incoming students may research when determining which schools to pursue.'
           ]}
-          viewportHeight={this.props.viewportHeight}
         />
         <div ref="siteMap" className="site-map" dangerouslySetInnerHTML={{ '__html': siteMap }}></div>
       </section>
     );
   }
 }
-
-UserExperience.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired
-};
 
 export default UserExperience;

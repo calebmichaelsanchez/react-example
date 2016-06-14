@@ -15,9 +15,10 @@ class WebMobile extends Component {
     this.ticking           = false;
     this.element           = findDOMNode(this.refs.iconsContainer);
     this.elementHeight     = this.element.clientHeight;
-    this.elementDimensions = 0;
+    this.elementDimensions = this.element.getBoundingClientRect();
     this.icons             = document.querySelectorAll('.campus-icons__container');
     this.iconsArray        = [...this.icons];
+    this.viewportHeight    = window.innerHeight || document.documentElement.clientHeight;
 
     this.setPaddingTop();
 
@@ -31,6 +32,7 @@ class WebMobile extends Component {
   onResize() {
     this.elementDimensions = this.element.getBoundingClientRect();
     this.elementHeight = this.element.clientHeight;
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
@@ -38,20 +40,18 @@ class WebMobile extends Component {
   }
   onScroll() {
     this.elementDimensions = this.element.getBoundingClientRect();
-
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let { position, transformThreeD, transformRotate } = helpers;
     let iconsHeight = this.elementHeight;
     let iconsTop    = this.elementDimensions.top;
     let iconsBottom = this.elementDimensions.bottom;
-    let context     = (iconsTop + 200 - viewportHeight) * -1;
-    let relativeY   = context / (iconsHeight + viewportHeight);
+    let context     = (iconsTop + 200 - this.viewportHeight) * -1;
+    let relativeY   = context / (iconsHeight + this.viewportHeight);
     let fastest     = relativeY * 1;
     let middle      = relativeY * 0.8;
     let slowest     = relativeY * 0.65;
@@ -123,7 +123,6 @@ class WebMobile extends Component {
           excerpt={[
             'Our research focused on the primary audience targeted for The Campus — prospective and current college students. We ultimately determined most users would be using the service via mobile devices, so we chose a “mobile first” approach. The benefit of this approach is two fold. First, it gets the app in the hands of users faster. Secondly, it allowed us to work more efficiently and focused.'
           ]}
-          viewportHeight={this.props.viewportHeight}
         />
         <div className="campus-icons">
           {icons.map((icon) =>
@@ -143,7 +142,6 @@ class WebMobile extends Component {
 }
 
 WebMobile.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired,
   'webMobile': React.PropTypes.object.isRequired
 };
 

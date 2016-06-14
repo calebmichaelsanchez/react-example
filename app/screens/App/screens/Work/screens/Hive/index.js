@@ -9,6 +9,7 @@ class Hive extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/hive');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {

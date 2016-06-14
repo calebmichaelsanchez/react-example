@@ -13,9 +13,10 @@ class Illustrations extends Component {
   componentDidMount() {
     this.ticking           = false;
     this.element           = findDOMNode(this.refs.illustration);
-    this.dimensions        = {};
+    this.dimensions        = this.element.getBoundingClientRect();
     this.images            = document.querySelectorAll('.illustration-image__item');
     this.imagesArray       = [...this.images];
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     window.addEventListener('scroll', this.onScroll, false);
     window.addEventListener('resize', this.onResize, false);
   }
@@ -32,18 +33,18 @@ class Illustrations extends Component {
   }
   onResize() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
     }
   }
   update() {
-    let { viewportHeight } = this.props;
     let { position } = helpers;
     let items   = this.imagesArray;
     let height  = this.dimensions.height;
     let top     = this.dimensions.top;
-    let context = (top - (viewportHeight - viewportHeight * 0.5)) * -1;
+    let context = (top - (this.viewportHeight - this.viewportHeight * 0.5)) * -1;
     let relativeY = context / height * 1.9;
     if (context >= 0) {
       items[0].style.opacity = position(1, -1, relativeY, 0);
@@ -60,7 +61,6 @@ class Illustrations extends Component {
           excerpt={[
             'The Campus has fun and inviting brand. With the launch of the app, we hoped to expand upon these characteristics to breathe even more life into the project. To do so, we illustrated custom UAE landscapes using The Campus’ brand colors. We then placed these themes throughout the app such as the login screen, 404 page, and filter pages.'
           ]}
-          viewportHeight={this.props.viewportHeight}
         />
         <div ref="illustration" className="illustration-image">
           <div className="illustration-image__item illustration-image__item--one" ><img src={sketch} /></div>
@@ -72,7 +72,6 @@ class Illustrations extends Component {
 }
 
 Illustrations.propTypes = {
-  'viewportHeight': React.PropTypes.number.isRequired,
   'illustrations': React.PropTypes.object.isRequired
 };
 

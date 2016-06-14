@@ -12,7 +12,7 @@ module.exports = {
 
   output: {
     path       : '../public',
-    filename   : 'bundle.js',
+    filename   : '/bundle.js',
     publicPath : ''
   },
 
@@ -49,13 +49,13 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin("/app/stylesheets/index.css"),
-    new HtmlWebpackPlugin({
-      title    : 'Underbelly Creative',
-      template : './index.html',
-      inject   : 'body',
-      filename : 'index.html'
-    })
+    new ExtractTextPlugin("/app/stylesheets/index.css")
+    // new HtmlWebpackPlugin({
+    //   title    : 'Underbelly Creative',
+    //   template : './index.html',
+    //   inject   : 'body',
+    //   filename : 'index.html'
+    // })
   ] : [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("/app/stylesheets/index.css"),

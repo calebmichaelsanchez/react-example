@@ -6,13 +6,10 @@ class Work extends Component {
     super(props);
   }
   render() {
-    let { setNavTheme, windowWidth, documentHeight, viewportHeight } = this.props;
+    let { setNavTheme } = this.props;
     if (this.props.children) {
       return React.cloneElement(this.props.children, {
-        'setNavTheme': setNavTheme,
-        'windowWidth': windowWidth,
-        'documentHeight': documentHeight,
-        'viewportHeight': viewportHeight
+        'setNavTheme': setNavTheme
       });
     }
     return (
@@ -26,9 +23,6 @@ class Work extends Component {
 Work.propTypes = {
   'theme': React.PropTypes.string.isRequired,
   'setNavTheme': React.PropTypes.func,
-  'windowWidth': React.PropTypes.number,
-  'documentHeight': React.PropTypes.number,
-  'viewportHeight': React.PropTypes.number,
   'children': React.PropTypes.object
 };
 

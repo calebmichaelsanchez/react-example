@@ -68,7 +68,8 @@
     "react": "^15.1.0",
     "react-document-title": "^2.0.1",
     "react-dom": "^15.1.0",
-    "react-router": "^2.0.0",
+    "react-router": "^2.4.1",
+    "react-router-scroll": "^0.2.0",
     "react-tabs": "^0.5.4",
     "webfontloader": "^1.6.24"
   }

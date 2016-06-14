@@ -14,6 +14,7 @@ class Store extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/peddling');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
     this.handleGetProducts();
   }

@@ -16,25 +16,26 @@ class RunItOnce extends Component {
   }
   componentDidMount() {
     window.ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
+    window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }
   render() {
     return (
       <DocumentTitle title="Run It Once | Underbelly Creative">
         <div className="case-study run-it-once">
-          <RioHero logo={images.logo} cardbox={images.cardbox} {...this.props} />
+          <RioHero logo={images.logo} cardbox={images.cardbox} />
           <TwoCards hero={images.hero} />
-          <Deck deck={images.deck} {...this.props} />
+          <Deck deck={images.deck} />
           <GalleryOne gallery={images.gallery} />
-          <Cards cards={images.cards} {...this.props} />
+          <Cards cards={images.cards} />
           <GalleryTwo gallery2={images.gallery2} />
-          <FinalCards cardbox={images.cardbox} {...this.props} />
+          <FinalCards cardbox={images.cardbox} />
           <SeeMore items={[
             { 'url': 'hive', 'title': 'Hive', 'img': images.seeMore.one },
             { 'url': 'just-family', 'title': 'Just Family', 'img': images.seeMore.two },
             { 'url': 'nsac', 'title': 'North Seathlle Alliance Church', 'img': images.seeMore.three },
             { 'url': 'rent-tree', 'title': 'RentTree', 'img': images.seeMore.four }
-          ]}/>
+          ]} />
         </div>
       </DocumentTitle>
     );
