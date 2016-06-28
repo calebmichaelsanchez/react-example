@@ -69,7 +69,7 @@ function renderPage(appHtml, ga) {
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', ${ga}, 'auto');
+        ga('create', '${ga}', 'auto');
       </script>
       <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
