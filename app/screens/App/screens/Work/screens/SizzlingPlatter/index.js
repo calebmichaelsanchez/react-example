@@ -15,7 +15,8 @@ class Splat extends Component {
   }
   componentDidMount() {
     window.WebFont.load({'google':{'families':['Lato:300,400']}});
-    window.ga('send', 'pageview', '/making-it-awesome-with/sizzling-platter');
+    window.ga('set', 'page', '/making-it-awesome-with/sizzling-platter');
+    window.ga('send', 'pageview');
     window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }

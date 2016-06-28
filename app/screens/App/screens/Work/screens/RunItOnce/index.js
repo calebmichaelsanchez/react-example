@@ -15,7 +15,8 @@ class RunItOnce extends Component {
     super(props);
   }
   componentDidMount() {
-    window.ga('send', 'pageview', '/making-it-awesome-with/run-it-once');
+    window.ga('set', 'page', '/making-it-awesome-with/run-it-once');
+    window.ga('send', 'pageview');
     window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }

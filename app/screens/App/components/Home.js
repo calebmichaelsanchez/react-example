@@ -11,7 +11,8 @@ class Home extends Component {
     this.state = { 'loaded': true };
   }
   componentDidMount() {
-    window.ga('send', 'pageview', '/');
+    window.ga('set', 'page', '/');
+    window.ga('send', 'pageview');
     window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }

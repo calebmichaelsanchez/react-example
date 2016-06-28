@@ -8,7 +8,8 @@ class Nsac extends Component {
     super(props);
   }
   componentDidMount() {
-    window.ga('send', 'pageview', '/making-it-awesome-with/nsac');
+    window.ga('set', 'page', '/making-it-awesome-with/nsac');
+    window.ga('send', 'pageview');
     window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
   }

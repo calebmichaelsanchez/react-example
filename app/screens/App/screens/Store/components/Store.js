@@ -13,7 +13,8 @@ class Store extends Component {
     this.handleGetProducts = this.handleGetProducts.bind(this);
   }
   componentDidMount() {
-    window.ga('send', 'pageview', '/peddling');
+    window.ga('set', 'page', '/peddling');
+    window.ga('send', 'pageview');
     window.scrollTo(0, 0);
     this.props.setNavTheme(this.props.theme);
     this.handleGetProducts();
