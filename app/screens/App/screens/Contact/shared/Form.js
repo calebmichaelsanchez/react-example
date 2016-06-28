@@ -43,6 +43,10 @@ class Form extends Component {
   }
 
   componentDidMount() {
+    window.twttr.ready(() => {
+      window.twttr.widgets.load(this.twitter);
+    });
+    document.addEventListener('fb_init', () => window.FB.XFBML.parse(this.facebook));
     window.addEventListener('mousedown', this.handlePageClick, false);
   }
   componentWillUnmount() {
@@ -305,13 +309,13 @@ class Form extends Component {
               <Icon icon="checkmark" />
           </div>
           <div className="sent-message">Sent!</div>
-          <div className="facebook-container circle-item">
+          <div ref={(ref) => this.facebook = ref} className="facebook-container circle-item">
             <Icon icon="facebook" />
             <div className="facebook-item share-item">
               <div className="fb-like" data-href="https://www.facebook.com/UnderbellyCreative" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
             </div>
           </div>
-          <div className="twitter-container circle-item">
+          <div ref={(ref) => this.twitter = ref} className="twitter-container circle-item">
             <Icon icon="twitter" theme="light" />
             <div className="twitter-item share-item">
               <a href="https://twitter.com/underbelly" className="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @underbelly</a>
