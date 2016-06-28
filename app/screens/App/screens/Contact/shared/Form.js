@@ -46,10 +46,16 @@ class Form extends Component {
     window.twttr.ready(() => {
       window.twttr.widgets.load(this.twitter);
     });
-    document.addEventListener('fb_init', () => window.FB.XFBML.parse(this.facebook));
+    this.interval = window.setInterval(() => {
+      if (document.body.classList.contains('fb')) {
+        window.FB.XFBML.parse(this.facebook);
+        window.clearTimeout(this.interval);
+      }
+    }, 5000);
     window.addEventListener('mousedown', this.handlePageClick, false);
   }
   componentWillUnmount() {
+    window.clearInterval(this.interval);
     window.removeEventListener('mousedown', this.handlePageClick, false);
   }
 

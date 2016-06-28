@@ -96,6 +96,7 @@ function renderPage(appHtml, ga) {
             xfbml      : true,
             version    : 'v2.5'
           });
+          document.body.classList.add('fb');
         };
 
         (function(d, s, id){
