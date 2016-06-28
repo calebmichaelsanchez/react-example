@@ -49,6 +49,7 @@ class Icon extends Component {
       iconSvg = require('./instagram.svg');
       break;
     case 'twitter':
+      theme = this.props.theme ? this.props.theme : '';
       iconName = 'twitter';
       iconSvg = require('./twitter.svg');
       break;
