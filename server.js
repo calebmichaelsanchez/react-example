@@ -3,7 +3,7 @@ require('dotenv').load();
 
 // Mailgun setup
 import mailgun, { Mailgun } from 'mailgun';
-let { MAIL_TOKEN, GUMROAD_TOKEN } = process.env;
+let { MAIL_TOKEN, GUMROAD_TOKEN, GA } = process.env;
 let mg = new Mailgun(MAIL_TOKEN);
 
 // Express setup
@@ -41,7 +41,7 @@ app.get('*', (req, res) => {
     } else if (props) {
       // if we got props then we matched a route and can render
       const appHtml = renderToString(<RouterContext {...props}/>)
-      res.send(renderPage(appHtml))
+      res.send(renderPage(appHtml, GA))
     } else {
       // no errors, no redirect, we just didn't match anything
       res.status(404).send('Not Found')
@@ -49,7 +49,7 @@ app.get('*', (req, res) => {
   });
 });
 
-function renderPage(appHtml) {
+function renderPage(appHtml, ga) {
   return `
     <!DOCTYPE html>
     <html lang="en" class="no-fouc">
@@ -69,7 +69,7 @@ function renderPage(appHtml) {
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-43535207-1', 'auto');
+        ga('create', ${ga}, 'auto');
       </script>
       <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
