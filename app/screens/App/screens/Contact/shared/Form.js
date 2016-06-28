@@ -69,7 +69,7 @@ class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.validate()) {
-      ga('send', 'event', 'Form', 'Submit', 'Contact');
+      window.ga('send', 'event', 'Form', 'Submit', 'Contact');
       this.send();
     }
   }
