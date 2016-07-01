@@ -14,7 +14,7 @@ class Deck extends Component {
   componentDidMount() {
     this.ticking = false;
     this.element = findDOMNode(this.refs.deck);
-    this.height = this.element.clientHeight;
+    this.height = this.element.getBoundingClientRect().height;
     this.dimensions = this.element.getBoundingClientRect();
     this.deckNodes = document.querySelectorAll('.deck-cards__item');
     this.deckArray = [...this.deckNodes];
