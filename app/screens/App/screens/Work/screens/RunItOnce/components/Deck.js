@@ -14,8 +14,8 @@ class Deck extends Component {
   componentDidMount() {
     this.ticking = false;
     this.element = findDOMNode(this.refs.deck);
-    this.height = this.element.getBoundingClientRect().height;
     this.dimensions = this.element.getBoundingClientRect();
+    this.height = this.dimensions.height;
     this.deckNodes = document.querySelectorAll('.deck-cards__item');
     this.deckArray = [...this.deckNodes];
     this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -30,6 +30,7 @@ class Deck extends Component {
   }
   onScroll() {
     this.dimensions = this.element.getBoundingClientRect();
+    this.height = this.dimensions.height;
     if (!this.ticking) {
       window.requestAnimationFrame(this.update);
       this.ticking = true;
@@ -37,7 +38,7 @@ class Deck extends Component {
   }
   onResize() {
     this.dimensions      = this.element.getBoundingClientRect();
-    this.height          = this.element.clientHeight;
+    this.height          = this.dimensions.height;
     this.viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     this.windowWidth = window.innerWidth || document.documentElement.clientWidth;
     if (!this.ticking) {
